@@ -1,0 +1,370 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Grid texture overlay ─────────────────────────────────────── */
+.bg-grid {
+  background-image:
+    linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@keyframes signal-field-scan {
+  0%, 12% { background-position: 220% 0; opacity: 0; }
+  20% { opacity: 0.45; }
+  75% { opacity: 0.2; }
+  88%, 100% { background-position: -220% 0; opacity: 0; }
+}
+
+.signal-field-scan {
+  background-image: linear-gradient(90deg, transparent 42%, rgba(188, 255, 0, 0.14) 49%, rgba(61, 225, 255, 0.2) 50%, transparent 58%);
+  background-size: 220% 100%;
+  animation: signal-field-scan 8s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal-field-scan { animation: none; opacity: 0; }
+}
+
+/* ─── Glow utilities ────────────────────────────────────────────── */
+.glow-green  { box-shadow: 0 0 20px 2px hsl(var(--signal-green) / 0.25); }
+.glow-cyan   { box-shadow: 0 0 20px 2px hsl(var(--signal-cyan) / 0.25); }
+.glow-amber  { box-shadow: 0 0 20px 2px hsl(var(--signal-amber) / 0.25); }
+.text-glow-green { text-shadow: 0 0 20px hsl(var(--signal-green) / 0.6); }
+
+/* ─── Pulsing status dot ─────────────────────────────────────────── */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.4); }
+}
+.animate-status-pulse { animation: status-pulse 2s ease-in-out infinite; }
+
+/* ─── Ticker / marquee ───────────────────────────────────────────── */
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-ticker { animation: ticker 30s linear infinite; }
+.ticker-track:hover .animate-ticker { animation-play-state: paused; }
+
+/* ─── Fade up entrance ───────────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.5s ease both; }
+
+/* ─── Interactive system graphs ─────────────────────────────────── */
+@keyframes graph-edge-flow {
+  to { stroke-dashoffset: -38; }
+}
+
+.graph-edge-flow {
+  animation: graph-edge-flow 2.2s linear infinite;
+}
+
+.graph-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+
+.graph-scrollbar::-webkit-scrollbar {
+  height: 5px;
+}
+
+.graph-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.graph-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .graph-edge-flow,
+  .animate-status-pulse,
+  .animate-ticker,
+  .operating-flow,
+  .operating-particles circle,
+  .operating-orbit,
+  .lineage-flow {
+    animation: none !important;
+  }
+
+  .graph-signal-packet {
+    display: none;
+  }
+}
+
+@keyframes operating-drift {
+  0%, 100% { opacity: .2; transform: translate3d(0, 0, 0); }
+  50% { opacity: .85; transform: translate3d(5px, -3px, 0); }
+}
+
+@keyframes operating-wire {
+  to { stroke-dashoffset: -34; }
+}
+
+@keyframes operating-orbit {
+  to { transform: rotate(360deg); }
+}
+
+.operating-particles circle { animation: operating-drift 5.5s ease-in-out infinite; }
+.operating-flow { animation: operating-wire 3.6s linear infinite; }
+.operating-orbit { transform-box: fill-box; transform-origin: center; animation: operating-orbit 22s linear infinite; }
+
+/* ─── About / cartographic poster system ───────────────────────── */
+.about-poster {
+  background:
+    radial-gradient(circle at 72% 45%, hsl(var(--signal-cyan) / .055), transparent 29%),
+    linear-gradient(90deg, transparent 0 33%, hsl(var(--border) / .22) 33% 33.08%, transparent 33.08%),
+    hsl(var(--background));
+}
+.about-registration {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .42;
+  background-image: linear-gradient(hsl(var(--foreground) / .045) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground) / .045) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+}
+.about-lineage { width: 100%; height: min(520px, 52vw); min-height: 460px; color: white; }
+.lineage-layer { transform-box: fill-box; transform-origin: center; transition: opacity .35s ease, translate .35s ease; }
+.about-lineage:hover .lineage-layer { opacity: .56; }
+.about-lineage:hover .lineage-layer:hover { opacity: 1; translate: 0 -4px; }
+.lineage-legend { position: absolute; inset-inline: 12%; bottom: 0; display: flex; justify-content: flex-end; gap: 2rem; border-top: 1px solid rgb(255 255 255 / .12); padding-top: .65rem; color: rgb(255 255 255 / .4); font-family: var(--font-geist-mono, monospace); font-size: 8px; text-transform: uppercase; letter-spacing: .12em; }
+@keyframes lineage-flow { to { stroke-dashoffset: -32; } }
+.lineage-flow { stroke-dasharray: 5 8; animation: lineage-flow 4s linear infinite; }
+.capability-card { min-width: 0; border: 1px solid hsl(var(--border)); border-radius: .55rem; padding: 1rem; background: hsl(var(--background)); }
+.capability-card--green { color: hsl(var(--signal-green)); }
+.capability-card--cyan { color: hsl(var(--signal-cyan)); }
+.capability-card--violet { color: #a78bfa; }
+.contact-icon { display: grid; width: 46px; height: 46px; place-items: center; border: 1px solid hsl(var(--border)); border-radius: .5rem; color: hsl(var(--muted-foreground)); transition: border-color .2s, color .2s, transform .2s; }
+.contact-icon svg { width: 18px; height: 18px; }
+.contact-icon:hover { color: hsl(var(--signal-green)); border-color: hsl(var(--signal-green) / .55); transform: translateY(-2px); }
+
+@media (max-width: 1023px) {
+  .about-lineage { height: auto; min-height: 0; }
+  .lineage-legend { position: static; margin-inline: 1rem; flex-wrap: wrap; justify-content: flex-start; }
+}
+
+@media (max-width: 639px) {
+  .about-lineage { width: 154%; margin-left: -30%; }
+  .lineage-legend { display: none; }
+  .about-lineage svg text { font-size: 8px; }
+}
+
+/* ─── Writing / technical journal ──────────────────────────────── */
+.writing-journal { background-image: radial-gradient(circle at 17% 8%, hsl(var(--signal-cyan) / .03), transparent 22%); }
+.journal-registration { position: absolute; inset: 0; pointer-events: none; opacity: .3; background-image: radial-gradient(circle, hsl(var(--foreground) / .22) .7px, transparent .8px), linear-gradient(90deg, transparent 49.95%, hsl(var(--border) / .35) 50%, transparent 50.05%); background-size: 48px 48px, 100% 100%; mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
+.journal-feature::before, .journal-card::before { content:""; position:absolute; z-index:2; inset:0; pointer-events:none; background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / .025), transparent 70%); translate:-100% 0; transition:translate .7s ease; }
+.journal-feature:hover::before, .journal-card:hover::before { translate:100% 0; }
+
+@media (max-width: 767px) {
+  .journal-feature .absolute.inset-y-0 { width: 100%; opacity: .42; }
+  .journal-card { grid-template-columns: 1fr; }
+  .journal-card > div:last-of-type { position: absolute; inset: 0 0 0 44%; opacity: .3; }
+}
+
+/* ─── Article / reading instrument ─────────────────────────────── */
+.article-instrument { background-image: radial-gradient(circle at 53% 38%, rgb(34 211 238 / .055), transparent 25%), linear-gradient(rgb(255 255 255 / .035) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / .035) 1px, transparent 1px); background-size: auto, 64px 64px, 64px 64px; }
+.article-rail { position:absolute; z-index:4; inset:0 auto 0 0; width:48px; display:flex; flex-direction:column; align-items:center; justify-content:space-around; border-right:1px solid rgb(255 255 255 / .12); padding-block:1.5rem; color:rgb(255 255 255 / .25); font-family:var(--font-geist-mono,monospace); font-size:7px; }
+.article-rail::before { content:""; position:absolute; top:14%; bottom:7%; left:50%; width:1px; background:rgb(255 255 255 / .18); }
+.article-rail span { position:relative; z-index:1; background:#07090d; padding-block:4px; }
+.article-rail span:nth-child(4) { color:#b8ff5a; }
+.article-rail span:nth-child(4)::before { content:""; position:absolute; left:-18px; top:2px; width:3px; height:18px; background:#b8ff5a; box-shadow:0 0 14px rgb(184 255 90 / .6); }
+@media (max-width:1023px){ .article-rail{display:none;} }
+
+/* ─── Card hover lift ────────────────────────────────────────────── */
+.card-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px hsl(var(--background) / 0.8), 0 1px 4px hsl(var(--foreground) / 0.08);
+}
+
+/* ─── Scanline accent ────────────────────────────────────────────── */
+.scanline {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    hsl(var(--foreground) / 0.02) 2px,
+    hsl(var(--foreground) / 0.02) 4px
+  );
+}
+
+/* ─── Custom scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }
+
+body {
+  font-family: var(--font-geist-sans, system-ui, -apple-system, sans-serif);
+  @apply text-base leading-relaxed;
+  overflow-x: hidden;
+}
+
+@media (max-width: 767px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .hero-copy {
+    width: 100%;
+    max-width: calc(100vw - 2rem);
+  }
+
+  .hero-copy > div:first-child,
+  .hero-copy h1,
+  .hero-copy p {
+    width: 100%;
+    max-width: calc(100vw - 2rem) !important;
+    overflow-wrap: anywhere;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+}
+
+
+code, pre {
+  font-family: var(--font-geist-mono, monospace);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold tracking-tight;
+}
+
+h1 {
+  @apply text-4xl md:text-5xl lg:text-6xl;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl;
+}
+
+h4 {
+  @apply text-xl md:text-2xl;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* Studio Aesthetic - Dark Mode (Primary) */
+    --background: 210 13% 6%;      /* Ink #090B0F */
+    --foreground: 210 14% 96%;     /* Paper #F3F0E8 */
+    --card: 210 11% 11%;           /* Surface Raised #171C24 */
+    --card-foreground: 210 14% 96%;
+    --popover: 210 11% 11%;
+    --popover-foreground: 210 14% 96%;
+    --primary: 210 14% 96%;
+    --primary-foreground: 210 13% 6%;
+    --secondary: 210 7% 15%;       /* Surface #11151C */
+    --secondary-foreground: 210 14% 96%;
+    --muted: 210 7% 15%;
+    --muted-foreground: 210 10% 61%;  /* Muted Text #9EA7B3 */
+    --accent: 80 100% 50%;         /* Signal Green #B8FF5A */
+    --accent-foreground: 210 13% 6%;
+    --destructive: 0 84% 60%;      /* Critical Red #FF6B6B */
+    --destructive-foreground: 210 14% 96%;
+    --border: 210 8% 18%;
+    --input: 210 8% 18%;
+    --ring: 80 100% 50%;           /* Signal Green focus */
+    --chart-1: 80 100% 50%;        /* Green - operational */
+    --chart-2: 190 100% 50%;       /* Cyan - system */
+    --chart-3: 40 100% 50%;        /* Amber - experimental */
+    --chart-4: 0 84% 60%;          /* Red - critical */
+    --chart-5: 210 10% 40%;        /* Gray - neutral */
+    --radius: 0.5rem;
+    --sidebar-background: 210 13% 6%;
+    --sidebar-foreground: 210 14% 96%;
+    --sidebar-primary: 80 100% 50%;
+    --sidebar-primary-foreground: 210 13% 6%;
+    --sidebar-accent: 210 7% 15%;
+    --sidebar-accent-foreground: 210 14% 96%;
+    --sidebar-border: 210 8% 18%;
+    --sidebar-ring: 80 100% 50%;
+    /* Signal colors */
+    --signal-green: 80 100% 50%;
+    --signal-cyan: 190 100% 50%;
+    --signal-amber: 40 100% 50%;
+    --signal-red: 0 84% 60%;
+    /* Neon aliases — kept for backward compat with existing components */
+    --neon: 80 100% 50%;
+    --neon-light: 80 100% 65%;
+    --neon-dark: 80 100% 35%;
+  }
+  .light {
+    /* Light Mode - Paper Background */
+    --background: 210 14% 96%;     /* Paper #F3F0E8 */
+    --foreground: 210 13% 6%;      /* Ink #090B0F */
+    --card: 0 0% 100%;             /* White */
+    --card-foreground: 210 13% 6%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 13% 6%;
+    --primary: 210 13% 6%;
+    --primary-foreground: 210 14% 96%;
+    --secondary: 210 11% 91%;
+    --secondary-foreground: 210 13% 6%;
+    --muted: 210 11% 91%;
+    --muted-foreground: 210 10% 35%;
+    --accent: 80 100% 50%;
+    --accent-foreground: 210 13% 6%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 11% 85%;
+    --input: 210 11% 91%;
+    --ring: 80 100% 50%;
+    --chart-1: 80 100% 50%;
+    --chart-2: 190 100% 50%;
+    --chart-3: 40 100% 50%;
+    --chart-4: 0 84% 60%;
+    --chart-5: 210 10% 40%;
+    --sidebar-background: 210 14% 96%;
+    --sidebar-foreground: 210 13% 6%;
+    --sidebar-primary: 80 100% 50%;
+    --sidebar-primary-foreground: 210 14% 96%;
+    --sidebar-accent: 210 11% 91%;
+    --sidebar-accent-foreground: 210 13% 6%;
+    --sidebar-border: 210 11% 85%;
+    --sidebar-ring: 80 100% 50%;
+    /* Signal colors */
+    --signal-green: 80 100% 50%;
+    --signal-cyan: 190 100% 50%;
+    --signal-amber: 40 100% 50%;
+    --signal-red: 0 84% 60%;
+    /* Neon aliases */
+    --neon: 80 100% 40%;
+    --neon-light: 80 100% 30%;
+    --neon-dark: 80 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
