@@ -441,7 +441,7 @@ export function EvolutionExplorer({ initialArtifact }: { initialArtifact?: numbe
             </select>
           </div>
           <div className="mt-3 flex items-center justify-between gap-3 px-1">
-            <p className="text-xs font-mono text-muted-foreground">{filtered.length} / 184 visible in the constellation</p>
+            <p className="text-xs font-mono text-muted-foreground">{filtered.length} / {evolutionRecords.length} visible in the constellation</p>
             {(query || year !== "All years" || family !== "All families" || confidence !== "All confidence") && (
               <button onClick={resetFilters} className="text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">Reset filters</button>
             )}

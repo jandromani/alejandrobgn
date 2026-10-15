@@ -1,0 +1,2 @@
+import {JsonLd} from "@/components/json-ld"
+export default function EnterpriseLayout({children}:{children:React.ReactNode}){return <><JsonLd data={{"@type":"CollectionPage",name:"Enterprise engineering engagements",description:"Anonymized engineering case studies without confidential client material.",url:"https://alejandrobgn.vercel.app/enterprise"}}/>{children}</>}

@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>RoomForge V7 — Video → 3D Home</title>
+<meta name="theme-color" content="#07090d">
+<style>
+:root{color-scheme:dark;--bg:#07090d;--p:#0e131b;--line:#263249;--txt:#f4f7fc;--muted:#91a0b5;--a:#a8baff;--ok:#66d6a6;--warn:#ffd16b;--bad:#ff7d7d}
+*{box-sizing:border-box}html,body{margin:0;background:radial-gradient(1000px 520px at 8% -10%,#172544 0%,transparent 58%),var(--bg);color:var(--txt);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+button,input,select{font:inherit}.app{max-width:1620px;margin:auto;padding:16px}.hero{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:13px}.hero h1{font-size:28px;letter-spacing:-.035em;margin:0 0 4px}.hero p{margin:0;color:var(--muted);max-width:980px}.chip{padding:8px 11px;border:1px solid var(--line);background:#0a0f16;border-radius:999px;font-size:11px;white-space:nowrap}
+.layout{display:grid;grid-template-columns:425px minmax(0,1fr);gap:13px}.card{background:linear-gradient(180deg,#10151f,#090d13);border:1px solid var(--line);border-radius:18px;overflow:hidden}.side{padding:13px;display:flex;flex-direction:column;gap:11px}.section{border:1px solid #202a3c;border-radius:14px;padding:11px;background:#090e15}.section h3{font-size:11px;text-transform:uppercase;letter-spacing:.07em;margin:0 0 8px;color:#d0d8e5}.tiny{font-size:11px}.muted{color:var(--muted)}.file,.ctrl{width:100%;border:1px solid #2c3850;background:#080d14;color:#edf2f9;border-radius:10px;padding:9px}.drop{border:1px dashed #42536f;border-radius:12px;background:#070b11;padding:10px;display:grid;gap:8px}.preview{display:none;width:100%;max-height:175px;background:#020407;border-radius:9px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:7px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}label{display:grid;gap:4px;color:#cbd5e2;font-size:11px}.btn,.tool{border:1px solid #2c394f;background:#182132;color:#e7eef8;border-radius:10px;padding:9px;cursor:pointer}.btn.primary{background:linear-gradient(180deg,#b5c5ff,#859fff);border-color:#aebeff;color:#071020;font-weight:900}.btn.good{background:#153228;border-color:#2c624b;color:#d9ffef}.btn.warn{background:#2d2514;border-color:#6b592e;color:#ffe2a1}.btn:disabled,.tool:disabled{opacity:.4;cursor:not-allowed}
+.quality{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:7px}.q{border:1px solid #202a3b;background:#080d13;border-radius:9px;padding:7px}.q b{display:block;font-size:13px}.q span{font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.strip{display:flex;gap:5px;overflow:auto;padding-top:7px}.thumb{width:66px;height:46px;object-fit:cover;border-radius:6px;border:1px solid #2a354a;flex:0 0 auto}.engines{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.eng{border:1px solid #263249;background:#080d14;border-radius:9px;padding:7px;font-size:8px;color:#93a1b4;min-width:0}.eng b{display:block;font-size:9px;color:#e0e6ef;margin-bottom:2px}.eng.active{border-color:#6d84b1;background:#111b2b}.eng.ok{border-color:#2f684e;background:#0c211a}.eng.fail{border-color:#6c3737;background:#211010}
+.progress{display:grid;gap:6px}.ph{display:flex;justify-content:space-between;color:#c8d1de;font-size:11px}.track{height:8px;border:1px solid #222c3c;background:#06090e;border-radius:999px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#8ca6ff,#65d6a6);transition:width .25s}.status{font-size:12px;min-height:38px;color:#bdc8d8}.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}.step{padding:6px 2px;text-align:center;border:1px solid #202939;border-radius:7px;font-size:8px;color:#718097}.step.on{background:#111a29;color:#f1f5fb;border-color:#536a8f}.step.done{background:#0c211a;color:#caffea;border-color:#285943}
+.notice{display:none;border:1px solid #6b5730;background:#241d0d;color:#ffdf9a;border-radius:10px;padding:8px;font-size:11px}.notice.show{display:block}.goodnote{display:none;border:1px solid #2e624c;background:#0d221a;color:#bdf2d5;border-radius:10px;padding:8px;font-size:11px}.goodnote.show{display:block}
+details summary{cursor:pointer;font-size:11px;color:#d0d8e5}.log{white-space:pre-wrap;word-break:break-word;max-height:190px;overflow:auto;background:#06090e;border:1px solid #1d2635;border-radius:8px;padding:8px;color:#8496af;font:10px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace}
+.main{display:grid;grid-template-rows:auto auto;min-width:0}.toolbar{display:flex;flex-wrap:wrap;gap:7px;padding:9px;border-bottom:1px solid var(--line);background:#0a0f16}.tool{font-size:11px;padding:8px 10px}.spacer{margin-left:auto}.viewport{position:relative;min-height:700px;background:radial-gradient(circle at center,#111827,#05070b 72%)}#pc{display:block;width:100%;height:700px;touch-action:none}.model{position:absolute;inset:0;width:100%;height:100%;display:none;background:#05070b}.empty{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:30px;pointer-events:none}.empty div{max-width:570px}.empty h2{font-size:23px;margin:0 0 8px}.empty p{margin:0;color:var(--muted)}.hud{position:absolute;left:11px;bottom:11px;display:flex;gap:6px;flex-wrap:wrap;pointer-events:none}.hud span{background:rgba(5,8,13,.84);border:1px solid rgba(75,92,119,.7);backdrop-filter:blur(8px);border-radius:999px;padding:7px 9px;font-size:10px;color:#cbd5e4}.banner{padding:8px 10px;border-top:1px solid #222c3c;background:#090e15;color:#8f9caf;font-size:10px}
+.embedWrap{display:none;border-top:1px solid var(--line);background:#070a0f}.embedWrap.show{display:block}.embedHead{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:9px 10px}.embedHead b{font-size:12px}.embed{width:100%;height:760px;border:0;background:#fff}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}.hero{flex-direction:column}.side{order:2}.main{order:1}.viewport{min-height:540px}#pc{height:540px}.quality{grid-template-columns:repeat(2,1fr)}.engines{grid-template-columns:1fr}.embed{height:680px}}
+</style>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+</head>
+<body>
+<div class="app">
+  <div class="hero">
+    <div><h1>ROOMFORGE V7</h1><p>Vídeo → VGGT real → GLB local. Si ZeroGPU falla: VO/SfM en JavaScript puro (corners + BRIEF + RANSAC + Essential Matrix) + Depth Anything V2 WASM.</p></div>
+    <div class="chip">NO TOKEN · NO OPENCV · PURE JS POSE</div>
+  </div>
+
+  <div class="layout">
+    <aside class="card side">
+      <section class="section">
+        <h3>1 · Captura</h3>
+        <div class="drop">
+          <input id="file" class="file" type="file" accept="video/*">
+          <div class="actions"><button id="record" class="btn">● Grabar</button><button id="stop" class="btn" disabled>■ Terminar</button></div>
+          <video id="preview" class="preview" controls muted playsinline></video>
+          <div class="tiny muted">Recorrido continuo y lento. Al atravesar cada puerta mira unos segundos dentro, gira suavemente y vuelve a mirar hacia la puerta.</div>
+        </div>
+        <div class="quality">
+          <div class="q"><b id="dur">—</b><span>duración</span></div>
+          <div class="q"><b id="res">—</b><span>resolución</span></div>
+          <div class="q"><b id="size">—</b><span>archivo</span></div>
+          <div class="q"><b id="frames">—</b><span>keyframes</span></div>
+        </div>
+        <div id="strip" class="strip"></div>
+      </section>
+
+      <section class="section">
+        <h3>2 · Motor</h3>
+        <div class="row">
+          <label>Keyframes<select id="count" class="ctrl"><option value="10">10 · test</option><option value="16" selected>16 · móvil</option><option value="24">24 · piso</option><option value="32">32 · detalle</option></select></label>
+          <label>JPEG<select id="jpeg" class="ctrl"><option value="0.72">ligero</option><option value="0.82" selected>alto</option><option value="0.9">máximo</option></select></label>
+        </div>
+        <div class="engines" style="margin-top:8px">
+          <div id="eVggt" class="eng active"><b>VGGT REAL</b>Space clásico · GLB</div>
+          <div id="eSlam" class="eng"><b>VO LOCAL</b>BRIEF + RANSAC + Essential + Depth</div>
+          <div id="eOfficial" class="eng"><b>OFICIAL</b>abre en pestaña</div>
+        </div>
+        <div class="tiny muted" style="margin-top:8px">V7 elimina OpenCV por completo. La pose local se calcula dentro del propio HTML; no depende de docs.opencv.org ni de ningún binario WASM de OpenCV.</div>
+      </section>
+
+      <button id="go" class="btn primary" disabled>3 · CREAR CASA 3D</button>
+      <div id="notice" class="notice"></div>
+      <div id="goodnote" class="goodnote"></div>
+
+      <div class="progress">
+        <div class="ph"><span id="stage">Esperando vídeo</span><span id="pct">0%</span></div>
+        <div class="track"><div id="bar" class="bar"></div></div>
+        <div class="timeline"><div id="t0" class="step on">VÍDEO</div><div id="t1" class="step">FRAMES</div><div id="t2" class="step">POSE</div><div id="t3" class="step">DEPTH/FUSIÓN</div><div id="t4" class="step">TOUR</div></div>
+        <div id="status" class="status">Carga un vídeo. El HTML no necesita token.</div>
+      </div>
+
+      <div class="actions"><button id="view3d" class="btn primary" disabled>VER CASA 3D</button><button id="download" class="btn good" disabled>Descargar GLB/PLY</button></div>
+<button id="official" class="btn warn">Abrir VGGT oficial en otra pestaña</button>
+      <button id="clear" class="btn">Nueva vivienda</button>
+      <details><summary>Diagnóstico técnico</summary><pre id="log" class="log">[boot] V7 ready</pre></details>
+    </aside>
+
+    <main class="card main">
+      <div class="toolbar">
+        <button id="orbit" class="tool" disabled>Orbitar</button>
+        <button id="doll" class="tool" disabled>Dollhouse</button>
+        <button id="top" class="tool" disabled>Planta</button>
+        <button id="near" class="tool" disabled>Acercar</button>
+        <button id="far" class="tool" disabled>Alejar</button>
+        <span class="spacer tiny muted">arrastra · rueda para zoom</span>
+      </div>
+      <div class="viewport" id="viewer">
+        <canvas id="pc"></canvas>
+        <model-viewer id="mv" class="model" camera-controls interaction-prompt="none" shadow-intensity="0" exposure="1"></model-viewer>
+        <div id="empty" class="empty"><div><h2>Vídeo → gemelo 3D</h2><p>VGGT sigue siendo la ruta de máxima calidad. Si el servicio público falla, el fallback ya estima movimiento mediante geometría epipolar real en lugar de inventar la trayectoria.</p></div></div>
+        <div class="hud"><span id="modeHud">motor: espera</span><span id="pointsHud">escena: vacía</span><span id="healthHud">app: OK</span></div>
+      </div>
+      <div class="banner">La escala métrica exacta no puede recuperarse de vídeo monocular sin una referencia adicional. Esta demo usa escala consistente aproximada; un producto comercial debe añadir ARCore/ARKit/IMU o una referencia métrica.</div>
+    </main>
+  </div>
+</div>
+<canvas id="work" hidden></canvas>
+
+<script>
+(()=>{
+"use strict";
+const $=s=>document.querySelector(s);
+const E={file:$("#file"),record:$("#record"),stop:$("#stop"),preview:$("#preview"),dur:$("#dur"),res:$("#res"),size:$("#size"),frames:$("#frames"),strip:$("#strip"),count:$("#count"),jpeg:$("#jpeg"),go:$("#go"),view3d:$("#view3d"),download:$("#download"),official:$("#official"),clear:$("#clear"),notice:$("#notice"),goodnote:$("#goodnote"),stage:$("#stage"),pct:$("#pct"),bar:$("#bar"),status:$("#status"),log:$("#log"),pc:$("#pc"),mv:$("#mv"),empty:$("#empty"),modeHud:$("#modeHud"),pointsHud:$("#pointsHud"),healthHud:$("#healthHud"),orbit:$("#orbit"),doll:$("#doll"),top:$("#top"),near:$("#near"),far:$("#far"),eVggt:$("#eVggt"),eSlam:$("#eSlam"),eOfficial:$("#eOfficial"),work:$("#work"),viewer:$("#viewer")};
+let file=null,fileURL=null,stream=null,rec=null,chunks=[],frames=[],pts=null,cols=null,resultBlob=null,resultName="",remoteURL=null,glbBlobURL=null,cvReady=null;
+let view={yaw:-.55,pitch:-.28,zoom:1,cx:0,cy:0,cz:0},drag=false,lx=0,ly=0,raf=0;
+
+const log=s=>{E.log.textContent=`[${new Date().toLocaleTimeString()}] ${s}\n`+E.log.textContent.slice(0,16000)};
+function prog(n,a,b=a){E.bar.style.width=Math.max(0,Math.min(100,n))+"%";E.pct.textContent=Math.round(n)+"%";E.stage.textContent=a;E.status.textContent=b}
+function step(i,state="on"){for(let k=0;k<5;k++){const x=$("#t"+k);x.className="step"+(k<i?" done":k===i?" "+state:"")}}
+function engine(el){[E.eVggt,E.eSlam,E.eOfficial].forEach(x=>x.classList.remove("active"));el.classList.add("active")}
+function fail(el){el.classList.remove("active","ok");el.classList.add("fail")}function ok(el){el.classList.remove("active","fail");el.classList.add("ok")}
+function notice(t){E.notice.textContent=t;E.notice.classList.add("show")}function clearNotice(){E.notice.classList.remove("show")}function good(t){E.goodnote.textContent=t;E.goodnote.classList.add("show")}
+function bytes(n){if(!n)return"—";const u=["B","KB","MB","GB"];let i=0;while(n>=1024&&i<3){n/=1024;i++}return n.toFixed(i?1:0)+" "+u[i]}
+function viewButtons(v){[E.orbit,E.doll,E.top,E.near,E.far].forEach(b=>b.disabled=!v)}
+function revokeFrames(){frames.forEach(f=>URL.revokeObjectURL(f.url));frames=[];E.strip.innerHTML="";E.frames.textContent="—"}
+function resetOutput(){pts=cols=null;resultBlob=null;remoteURL=null;if(glbBlobURL){URL.revokeObjectURL(glbBlobURL);glbBlobURL=null}E.download.disabled=true;E.view3d.disabled=true;E.mv.removeAttribute("src");E.mv.style.display="none";E.pc.style.display="block";E.empty.style.display="";E.pointsHud.textContent="escena: vacía";viewButtons(false);cancelAnimationFrame(raf);drawBlank()}
+
+function setFile(f){
+  clearNotice();E.goodnote.classList.remove("show");revokeFrames();resetOutput();file=f;
+  if(fileURL)URL.revokeObjectURL(fileURL);fileURL=f?URL.createObjectURL(f):null;
+  if(!f){E.go.disabled=true;E.preview.style.display="none";return}
+  E.preview.src=fileURL;E.preview.style.display="block";E.preview.controls=true;E.size.textContent=bytes(f.size);E.dur.textContent=E.res.textContent="…";E.go.disabled=false;
+  const v=document.createElement("video");v.preload="metadata";v.src=fileURL;v.onloadedmetadata=()=>{E.dur.textContent=isFinite(v.duration)?Math.round(v.duration)+"s":"—";E.res.textContent=v.videoWidth?`${v.videoWidth}×${v.videoHeight}`:"—";log(`video ${v.duration.toFixed(1)}s ${v.videoWidth}x${v.videoHeight}`)};
+  step(0,"done");prog(3,"Vídeo listo",`${f.name} · ${bytes(f.size)}`);log("file loaded");
+}
+E.file.addEventListener("change",()=>setFile(E.file.files&&E.file.files[0]));
+
+E.record.addEventListener("click",async()=>{
+  try{
+    stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:"environment"},width:{ideal:1920},height:{ideal:1080}},audio:false});
+    E.preview.srcObject=stream;E.preview.style.display="block";E.preview.controls=false;await E.preview.play();chunks=[];
+    const mime=MediaRecorder.isTypeSupported("video/webm;codecs=vp9")?"video/webm;codecs=vp9":"video/webm";
+    rec=new MediaRecorder(stream,{mimeType:mime});rec.ondataavailable=e=>{if(e.data?.size)chunks.push(e.data)};
+    rec.onstop=()=>{const b=new Blob(chunks,{type:mime});stream.getTracks().forEach(t=>t.stop());stream=null;E.preview.srcObject=null;setFile(new File([b],`roomforge-${Date.now()}.webm`,{type:mime}))};
+    rec.start(1000);E.record.disabled=true;E.stop.disabled=false;prog(2,"Grabando","Muévete despacio y cierra bucles visuales.")
+  }catch(err){notice("La grabación directa necesita HTTPS/localhost. La subida de vídeo sí funciona.");log("camera "+err.message)}
+});
+E.stop.addEventListener("click",()=>{if(rec&&rec.state!=="inactive"){rec.stop();E.record.disabled=false;E.stop.disabled=true}});
+
+function seek(v,t){return new Promise(resolve=>{let done=false;const f=()=>{if(done)return;done=true;v.removeEventListener("seeked",f);resolve()};v.addEventListener("seeked",f);v.currentTime=Math.max(0,Math.min(t,v.duration-.04));setTimeout(f,2200)})}
+function sharp(data){const d=data.data,w=data.width,h=data.height;let s=0,s2=0,n=0;for(let y=2;y<h-2;y+=4)for(let x=2;x<w-2;x+=4){const k=(y*w+x)*4,g=i=>.299*d[i]+.587*d[i+1]+.114*d[i+2],c=g(k),lap=4*c-g(k-4)-g(k+4)-g(k-w*4)-g(k+w*4);s+=lap;s2+=lap*lap;n++}if(!n)return 0;const m=s/n;return Math.sqrt(Math.max(0,s2/n-m*m))}
+function diff(a,b){if(!a||!b)return 42;let e=0,n=0;for(let i=0;i<Math.min(a.data.length,b.data.length);i+=48){e+=Math.abs(a.data[i]-b.data[i])+Math.abs(a.data[i+1]-b.data[i+1])+Math.abs(a.data[i+2]-b.data[i+2]);n+=3}return n?e/n:0}
+async function extractFrames(){
+  revokeFrames();const v=document.createElement("video");v.muted=true;v.playsInline=true;v.src=fileURL;await new Promise((r,j)=>{v.onloadedmetadata=r;v.onerror=j});
+  const wanted=Number(E.count.value)||16,cands=Math.max(wanted+8,Math.min(72,wanted*3)),dur=v.duration,c=E.work,ctx=c.getContext("2d",{willReadFrequently:true}),maxW=512,sc=Math.min(1,maxW/v.videoWidth);
+  c.width=Math.max(160,Math.round(v.videoWidth*sc));c.height=Math.max(90,Math.round(v.videoHeight*sc));
+  let samples=[],prev=null;
+  for(let i=0;i<cands;i++){const t=.12+(dur-.24)*i/Math.max(1,cands-1);await seek(v,t);ctx.drawImage(v,0,0,c.width,c.height);const data=ctx.getImageData(0,0,c.width,c.height);samples.push({t,score:sharp(data)*.72+diff(data,prev)*.28,data});prev=data;prog(5+17*(i+1)/cands,"Seleccionando vistas",`Nitidez + cambio visual ${i+1}/${cands}`);await new Promise(r=>setTimeout(r,0))}
+  let chosen=[];for(let b=0;b<wanted;b++){const a=Math.floor(b*samples.length/wanted),z=Math.max(a+1,Math.floor((b+1)*samples.length/wanted));let best=samples[a];for(let i=a+1;i<z;i++)if(samples[i].score>best.score)best=samples[i];chosen.push(best)}
+  for(let i=0;i<chosen.length;i++){const s=chosen[i];await seek(v,s.t);ctx.drawImage(v,0,0,c.width,c.height);const data=ctx.getImageData(0,0,c.width,c.height),blob=await new Promise(r=>c.toBlob(r,"image/jpeg",Number(E.jpeg.value)||.82)),f=new File([blob],`${String(i).padStart(3,"0")}.jpg`,{type:"image/jpeg"}),u=URL.createObjectURL(blob);frames.push({file:f,url:u,t:s.t,imageData:data});const im=document.createElement("img");im.className="thumb";im.src=u;im.title=s.t.toFixed(1)+"s";E.strip.appendChild(im)}
+  E.frames.textContent=frames.length;step(1,"done");log(`keyframes ${frames.length}/${cands}`);return frames
+}
+
+/* ---------- VGGT raw Gradio REST ---------- */
+async function rawUpload(base,files){
+  const fd=new FormData();files.forEach(f=>fd.append("files",f,f.name));
+  const r=await fetch(base+"/gradio_api/upload",{method:"POST",body:fd});if(!r.ok)throw new Error(`upload HTTP ${r.status}: ${await r.text()}`);return await r.json()
+}
+async function callSSE(base,name,data,timeoutMs=360000,onWait){
+  const p=await fetch(`${base}/gradio_api/call/${name}`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({data})});
+  if(!p.ok)throw new Error(`${name} POST ${p.status}: ${await p.text()}`);const j=await p.json();if(!j.event_id)throw new Error(`${name}: sin event_id`);
+  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),timeoutMs),t0=Date.now(),tick=setInterval(()=>onWait&&onWait(Math.floor((Date.now()-t0)/1000)),1000);
+  try{
+    const r=await fetch(`${base}/gradio_api/call/${name}/${j.event_id}`,{signal:ctrl.signal});if(!r.ok)throw new Error(`${name} SSE ${r.status}: ${await r.text()}`);
+    const rd=r.body?.getReader();if(!rd){return parseSSE(await r.text())}
+    const dec=new TextDecoder();let buf="",last=null;
+    while(true){const {value,done}=await rd.read();if(done)break;buf+=dec.decode(value,{stream:true});const blocks=buf.split("\n\n");buf=blocks.pop()||"";for(const b of blocks){const ev=(b.match(/^event:\s*(.+)$/m)||[])[1],ds=(b.match(/^data:\s*(.*)$/ms)||[])[1];if(ev==="heartbeat")continue;if(ds){try{last=JSON.parse(ds)}catch{last=ds}}if(ev==="error")throw new Error(last==null?"ZeroGPU rechazó o canceló la tarea":(typeof last==="string"?last:JSON.stringify(last)));if(ev==="complete")return last}}
+    return last
+  }finally{clearTimeout(timer);clearInterval(tick)}
+}
+function parseSSE(txt){let last=null;for(const block of txt.split("\n\n")){const ev=(block.match(/^event:\s*(.+)$/m)||[])[1],ds=(block.match(/^data:\s*(.*)$/ms)||[])[1];if(ds){try{last=JSON.parse(ds)}catch{last=ds}}if(ev==="error")throw new Error(last==null?"ZeroGPU rechazó la tarea":String(last));if(ev==="complete")return last}return last}
+function fileData(path,name){return {path,orig_name:name,size:null,mime_type:null,is_stream:false,meta:{_type:"gradio.FileData"}}}
+function targetFrom(x){if(Array.isArray(x)&&typeof x[1]==="string"&&x[1]!=="None")return x[1];if(x&&typeof x==="object")for(const v of Object.values(x)){const r=targetFrom(v);if(r)return r}if(typeof x==="string"&&x.startsWith("input_"))return x;return null}
+function glbFrom(x,base){if(!x)return null;if(typeof x==="string"&&x.includes(".glb"))return /^https?:/.test(x)?x:base+"/gradio_api/file="+encodeURIComponent(x);if(typeof x==="object"){for(const k of ["url","path","name"]){const v=x[k];if(typeof v==="string"&&v.includes(".glb"))return /^https?:/.test(v)?v:base+"/gradio_api/file="+encodeURIComponent(v)}for(const v of Object.values(x)){const r=glbFrom(v,base);if(r)return r}}return null}
+async function remoteVGGT(){
+  const base="https://facebook-vggt.hf.space";engine(E.eVggt);E.modeHud.textContent="motor: VGGT remoto";step(2,"on");prog(27,"VGGT","Subiendo keyframes…");
+  const paths=await rawUpload(base,frames.map(x=>x.file)),fd=paths.map((p,i)=>fileData(p,frames[i].file.name));
+  const up=await callSSE(base,"update_gallery_on_upload",[null,fd],120000,s=>prog(31,"VGGT",`Preparando imágenes… ${s}s`)),target=targetFrom(up);if(!target)throw new Error("VGGT no devolvió target_dir.");
+  log("target "+target);prog(45,"VGGT","En cola/GPU…");
+  let out=null,lastErr=null;
+  for(let attempt=1;attempt<=3;attempt++){
+    try{
+      prog(45,"VGGT en GPU",`Intento ZeroGPU ${attempt}/3 · reutilizando el mismo workspace`);
+      out=await callSSE(base,"gradio_demo",[target,5.0,"All",false,false,true,false,"Depthmap and Camera Branch"],360000,
+        s=>prog(Math.min(82,45+s*.10),"VGGT en GPU",`Intento ${attempt}/3 · ${s}s · no cierres esta pestaña`));
+      break;
+    }catch(err){
+      lastErr=err;log(`VGGT attempt ${attempt} rejected: ${err.message||err}`);
+      if(attempt<3){
+        const pause=attempt===1?4000:9000;
+        prog(45,"ZeroGPU ocupado",`Reintento automático ${attempt+1}/3 en ${pause/1000}s…`);
+        await new Promise(r=>setTimeout(r,pause));
+      }
+    }
+  }
+  if(!out)throw lastErr||new Error("ZeroGPU rechazó los tres intentos.");
+  const glb=glbFrom(out,base);if(!glb)throw new Error("VGGT terminó sin GLB.");
+  prog(88,"Descargando GLB","La reconstrucción existe. La estoy copiando al teléfono para previsualizarla sin Gradio…");
+  await materializeGLB(glb);
+  ok(E.eVggt);step(2,"done");step(3,"done");step(4,"done");
+  prog(100,"CASA 3D LISTA","GLB descargado localmente. Pulsa VER CASA 3D o rota directamente el modelo.");
+  good("VGGT terminó correctamente. El modelo ya está cargado localmente en el visor.");
+  E.viewer.scrollIntoView({behavior:"smooth",block:"start"});
+  return true
+}
+
+
+async function materializeGLB(remote){
+  remoteURL=remote;
+  log("GLB remote "+remote);
+  let blob=null;
+  try{
+    const r=await fetch(remote,{cache:"no-store"});
+    if(!r.ok)throw new Error(`GLB HTTP ${r.status}`);
+    blob=await r.blob();
+    if(blob.size<1024)throw new Error(`GLB demasiado pequeño (${blob.size} bytes)`);
+    log(`GLB downloaded ${(blob.size/1048576).toFixed(2)} MB`);
+    resultBlob=blob;
+    resultName="roomforge-vggt.glb";
+    if(glbBlobURL)URL.revokeObjectURL(glbBlobURL);
+    glbBlobURL=URL.createObjectURL(blob);
+    showModel(glbBlobURL);
+    E.download.disabled=false;
+    E.download.onclick=downloadBlob;
+    E.view3d.disabled=false;
+  }catch(err){
+    log("GLB blob fetch failed: "+err.message);
+    // The GLB still exists remotely. model-viewer may be able to read it directly.
+    showModel(remote);
+    E.download.disabled=false;
+    E.download.onclick=()=>window.open(remote,"_blank","noopener");
+    E.view3d.disabled=false;
+    notice("VGGT creó el GLB, pero Android no permitió copiarlo a memoria. Lo estoy mostrando desde la URL remota.");
+  }
+}
+
+/* ---------- Pure-JS visual odometry / essential geometry ---------- */
+const I3=()=>[1,0,0,0,1,0,0,0,1];
+function matMul(A,B){const R=new Array(9).fill(0);for(let r=0;r<3;r++)for(let c=0;c<3;c++)for(let k=0;k<3;k++)R[r*3+c]+=A[r*3+k]*B[k*3+c];return R}
+function matT(A){return[A[0],A[3],A[6],A[1],A[4],A[7],A[2],A[5],A[8]]}
+function mv(A,v){return[A[0]*v[0]+A[1]*v[1]+A[2]*v[2],A[3]*v[0]+A[4]*v[1]+A[5]*v[2],A[6]*v[0]+A[7]*v[1]+A[8]*v[2]]}
+function det3(A){return A[0]*(A[4]*A[8]-A[5]*A[7])-A[1]*(A[3]*A[8]-A[5]*A[6])+A[2]*(A[3]*A[7]-A[4]*A[6])}
+function dot(a,b){let s=0;for(let i=0;i<a.length;i++)s+=a[i]*b[i];return s}
+function norm(v){return Math.sqrt(dot(v,v))||1}
+function normalize(v){const n=norm(v);return v.map(x=>x/n)}
+function cross(a,b){return[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]}
+
+function graySmall(im,maxW=360){
+  const sc=Math.min(1,maxW/im.width),w=Math.max(80,Math.round(im.width*sc)),h=Math.max(80,Math.round(im.height*sc));
+  const g=new Float32Array(w*h),d=im.data;
+  for(let y=0;y<h;y++)for(let x=0;x<w;x++){
+    const sx=Math.min(im.width-1,Math.floor((x+.5)*im.width/w)),sy=Math.min(im.height-1,Math.floor((y+.5)*im.height/h)),k=(sy*im.width+sx)*4;
+    g[y*w+x]=.299*d[k]+.587*d[k+1]+.114*d[k+2];
+  }
+  return{g,w,h};
+}
+function cornerScore(G,x,y){
+  const {g,w}=G;let a=0,b=0,c=0;
+  for(let yy=-2;yy<=2;yy++)for(let xx=-2;xx<=2;xx++){
+    const p=(y+yy)*w+x+xx,gx=g[p+1]-g[p-1],gy=g[p+w]-g[p-w];a+=gx*gx;b+=gx*gy;c+=gy*gy;
+  }
+  const tr=a+c,disc=Math.sqrt(Math.max(0,(a-c)*(a-c)+4*b*b));return .5*(tr-disc);
+}
+function detectCorners(G,maxPts=260){
+  const pts=[],border=16;
+  for(let y=border;y<G.h-border;y+=3)for(let x=border;x<G.w-border;x+=3){
+    const s=cornerScore(G,x,y);if(s>1800)pts.push({x,y,s});
+  }
+  pts.sort((a,b)=>b.s-a.s);const out=[],r2=9*9;
+  for(const p of pts){let ok=true;for(const q of out){const dx=p.x-q.x,dy=p.y-q.y;if(dx*dx+dy*dy<r2){ok=false;break}}if(ok)out.push(p);if(out.length>=maxPts)break}
+  return out;
+}
+let BRIEF_PAIRS=null;
+function briefPairs(){
+  if(BRIEF_PAIRS)return BRIEF_PAIRS;
+  let seed=1337;const rnd=()=>((seed=(seed*1664525+1013904223)>>>0)/4294967296);
+  const p=[];for(let i=0;i<256;i++)p.push([Math.floor((rnd()*2-1)*12),Math.floor((rnd()*2-1)*12),Math.floor((rnd()*2-1)*12),Math.floor((rnd()*2-1)*12)]);
+  return BRIEF_PAIRS=p;
+}
+function describe(G,pts){
+  const pairs=briefPairs(),desc=[];
+  for(const p of pts){
+    const words=new Uint32Array(8);
+    for(let i=0;i<256;i++){
+      const q=pairs[i],a=G.g[(p.y+q[1])*G.w+(p.x+q[0])],b=G.g[(p.y+q[3])*G.w+(p.x+q[2])];
+      if(a<b)words[i>>>5]|=(1<<(i&31));
+    }
+    desc.push(words);
+  }
+  return desc;
+}
+function popcnt32(x){x=x-((x>>>1)&0x55555555);x=(x&0x33333333)+((x>>>2)&0x33333333);return (((x+(x>>>4))&0x0F0F0F0F)*0x01010101)>>>24}
+function hamming(a,b){let s=0;for(let i=0;i<8;i++)s+=popcnt32((a[i]^b[i])>>>0);return s}
+function matchBrief(A,B){
+  const forward=[];
+  for(let i=0;i<A.desc.length;i++){
+    let best=999,second=999,jbest=-1;
+    for(let j=0;j<B.desc.length;j++){const d=hamming(A.desc[i],B.desc[j]);if(d<best){second=best;best=d;jbest=j}else if(d<second)second=d}
+    if(best<78 && best<second*.78)forward.push({i,j:jbest,d:best});
+  }
+  const rev=new Int32Array(B.desc.length);rev.fill(-1);
+  for(let j=0;j<B.desc.length;j++){let best=999,ib=-1;for(let i=0;i<A.desc.length;i++){const d=hamming(B.desc[j],A.desc[i]);if(d<best){best=d;ib=i}}rev[j]=ib}
+  return forward.filter(m=>rev[m.j]===m.i).sort((a,b)=>a.d-b.d).slice(0,180);
+}
+function jacobiSym(A,n,maxIter=80){
+  A=A.slice();const V=new Array(n*n).fill(0);for(let i=0;i<n;i++)V[i*n+i]=1;
+  for(let it=0;it<maxIter;it++){
+    let p=0,q=1,m=0;for(let i=0;i<n;i++)for(let j=i+1;j<n;j++){const v=Math.abs(A[i*n+j]);if(v>m){m=v;p=i;q=j}}
+    if(m<1e-10)break;
+    const app=A[p*n+p],aqq=A[q*n+q],apq=A[p*n+q],phi=.5*Math.atan2(2*apq,aqq-app),c=Math.cos(phi),s=Math.sin(phi);
+    for(let k=0;k<n;k++){const aik=A[p*n+k],aqk=A[q*n+k];A[p*n+k]=c*aik-s*aqk;A[q*n+k]=s*aik+c*aqk}
+    for(let k=0;k<n;k++){const akp=A[k*n+p],akq=A[k*n+q];A[k*n+p]=c*akp-s*akq;A[k*n+q]=s*akp+c*akq}
+    for(let k=0;k<n;k++){const vip=V[k*n+p],viq=V[k*n+q];V[k*n+p]=c*vip-s*viq;V[k*n+q]=s*vip+c*viq}
+  }
+  const vals=[];for(let i=0;i<n;i++)vals.push(A[i*n+i]);return{vals,V}
+}
+function smallestEigenVecSym(A,n){
+  const e=jacobiSym(A,n),idx=e.vals.map((v,i)=>[v,i]).sort((a,b)=>a[0]-b[0])[0][1],v=[];
+  for(let r=0;r<n;r++)v.push(e.V[r*n+idx]);return normalize(v);
+}
+function eightPoint(pairs){
+  const AtA=new Array(81).fill(0);
+  for(const p of pairs){
+    const x=p.x1,y=p.y1,u=p.x2,v=p.y2,row=[u*x,u*y,u,v*x,v*y,v,x,y,1];
+    for(let i=0;i<9;i++)for(let j=0;j<9;j++)AtA[i*9+j]+=row[i]*row[j];
+  }
+  return smallestEigenVecSym(AtA,9);
+}
+function sampson(E,p){
+  const x=p.x1,y=p.y1,u=p.x2,v=p.y2;
+  const ex0=E[0]*x+E[1]*y+E[2],ex1=E[3]*x+E[4]*y+E[5],ex2=E[6]*x+E[7]*y+E[8];
+  const etu0=E[0]*u+E[3]*v+E[6],etu1=E[1]*u+E[4]*v+E[7];
+  const num=u*ex0+v*ex1+ex2,den=ex0*ex0+ex1*ex1+etu0*etu0+etu1*etu1+1e-12;return num*num/den;
+}
+function ransacEssential(pairs){
+  if(pairs.length<8)throw new Error(`solo ${pairs.length} matches geométricos`);
+  let seed=99173;const rnd=()=>((seed=(seed*1664525+1013904223)>>>0)/4294967296),best=null,bestIn=[];
+  const iters=Math.min(260,80+pairs.length*2),thr=3.2e-5;
+  for(let it=0;it<iters;it++){
+    const ids=new Set();while(ids.size<8)ids.add(Math.floor(rnd()*pairs.length));
+    let E;try{E=eightPoint([...ids].map(i=>pairs[i]))}catch{continue}
+    const ins=[];for(let i=0;i<pairs.length;i++)if(sampson(E,pairs[i])<thr)ins.push(i);
+    if(ins.length>bestIn.length){best=E;bestIn=ins}
+  }
+  if(bestIn.length<8)throw new Error(`RANSAC insuficiente: ${bestIn.length} inliers`);
+  return{E:eightPoint(bestIn.map(i=>pairs[i])),inliers:bestIn.map(i=>pairs[i])};
+}
+function svd3(A){
+  const At=matT(A),AtA=matMul(At,A),e=jacobiSym(AtA,3,60),ord=e.vals.map((v,i)=>[Math.max(0,v),i]).sort((a,b)=>b[0]-a[0]);
+  const V=new Array(9).fill(0),S=[];
+  for(let c=0;c<3;c++){const idx=ord[c][1];S[c]=Math.sqrt(ord[c][0]);for(let r=0;r<3;r++)V[r*3+c]=e.V[r*3+idx]}
+  let u0=S[0]>1e-9?mv(A,[V[0],V[3],V[6]]).map(x=>x/S[0]):[1,0,0];u0=normalize(u0);
+  let u1=S[1]>1e-9?mv(A,[V[1],V[4],V[7]]).map(x=>x/S[1]):[0,1,0];
+  const proj=dot(u1,u0);u1=normalize(u1.map((x,i)=>x-proj*u0[i]));
+  let u2=normalize(cross(u0,u1));const U=[u0[0],u1[0],u2[0],u0[1],u1[1],u2[1],u0[2],u1[2],u2[2]];
+  if(det3(U)<0){for(let r=0;r<3;r++)U[r*3+2]*=-1}
+  if(det3(V)<0){for(let r=0;r<3;r++)V[r*3+2]*=-1}
+  return{U,S,V};
+}
+function decomposeEssential(E,inliers){
+  const {U,V}=svd3(E),Vt=matT(V),W=[0,-1,0,1,0,0,0,0,1],Wt=matT(W);
+  const R1=matMul(matMul(U,W),Vt),R2=matMul(matMul(U,Wt),Vt),t=[U[2],U[5],U[8]];
+  const fixes=R=>{if(det3(R)<0)return R.map(x=>-x);return R};
+  const candidates=[[fixes(R1),t],[fixes(R1),t.map(x=>-x)],[fixes(R2),t],[fixes(R2),t.map(x=>-x)]];
+  let best=null,bestScore=-1;
+  for(const [R,T] of candidates){
+    const Rt=matT(R),C=mv(Rt,T).map(x=>-x);let score=0;
+    for(const p of inliers.slice(0,Math.min(32,inliers.length))){
+      const d1=normalize([p.x1,p.y1,1]),d2=normalize(mv(Rt,[p.x2,p.y2,1])),w0=[-C[0],-C[1],-C[2]];
+      const a=dot(d1,d1),b=dot(d1,d2),c=dot(d2,d2),d=dot(d1,w0),e=dot(d2,w0),den=a*c-b*b;
+      if(Math.abs(den)<1e-8)continue;const s=(b*e-c*d)/den,t2=(a*e-b*d)/den;if(s>0&&t2>0)score++;
+    }
+    if(score>bestScore){bestScore=score;best={R,t:T,score}}
+  }
+  if(!best||bestScore<2)throw new Error(`cheirality débil: ${bestScore}`);
+  return best;
+}
+function frameFeatures(im){
+  const G=graySmall(im,360),pts=detectCorners(G,280),desc=describe(G,pts);return{G,pts,desc};
+}
+function relativePoseJS(A,B){
+  const m=matchBrief(A,B);if(m.length<10)throw new Error(`BRIEF matches: ${m.length}`);
+  const f=.90*Math.max(A.G.w,A.G.h),cx=A.G.w/2,cy=A.G.h/2;
+  const pairs=m.map(q=>({x1:(A.pts[q.i].x-cx)/f,y1:(A.pts[q.i].y-cy)/f,x2:(B.pts[q.j].x-cx)/f,y2:(B.pts[q.j].y-cy)/f}));
+  const r=ransacEssential(pairs),pose=decomposeEssential(r.E,r.inliers);return{R:pose.R,t:pose.t,inliers:r.inliers.length,matches:m.length,cheirality:pose.score};
+}
+async function estimatePosesJS(){
+  const feats=[];for(let i=0;i<frames.length;i++){prog(24+5*i/frames.length,"Features JS",`Corners + BRIEF ${i+1}/${frames.length}`);feats.push(frameFeatures(frames[i].imageData));await new Promise(r=>setTimeout(r,0))}
+  const poses=[{R:I3(),C:[0,0,0],quality:999}];
+  for(let i=1;i<frames.length;i++){
+    prog(29+12*i/frames.length,"Pose JS",`RANSAC + Essential Matrix ${i}/${frames.length-1}`);
+    let rel;
+    try{rel=relativePoseJS(feats[i-1],feats[i]);log(`pose ${i}: ${rel.inliers}/${rel.matches} inliers · cheirality ${rel.cheirality}`)}
+    catch(e){log(`pose ${i} fallback: ${e.message}`);rel={R:I3(),t:[0,0,1],inliers:0}}
+    const prev=poses[i-1],Rt=matT(rel.R),dt=Math.max(.1,frames[i].t-frames[i-1].t),stepMeters=Math.max(.12,Math.min(.65,dt*.42)),camStep=mv(Rt,rel.t).map(v=>-v*stepMeters),worldStep=mv(prev.R,camStep),C=[prev.C[0]+worldStep[0],prev.C[1]+worldStep[1],prev.C[2]+worldStep[2]],Rw=matMul(prev.R,Rt);
+    poses.push({R:Rw,C,quality:rel.inliers})
+  }
+  return poses
+}
+async function localSLAMDepth(){
+  engine(E.eSlam);E.modeHud.textContent="motor: Pure-JS VO + Depth";step(2,"on");prog(23,"Pose local","Calculando corners/BRIEF/RANSAC en JavaScript…");
+  const poses=await estimatePosesJS();step(2,"done");step(3,"on");prog(43,"Profundidad","Cargando Depth Anything V2 en WASM…");
+  const T=await import("https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm");T.env.allowLocalModels=false;
+  const pipe=await T.pipeline("depth-estimation","onnx-community/depth-anything-v2-small",{device:"wasm"});
+  const useIdx=[],maxLocal=12,skip=Math.max(1,Math.ceil(frames.length/maxLocal));for(let i=0;i<frames.length;i+=skip)useIdx.push(i);
+  let P=[],C=[];const stride=12;
+  for(let n=0;n<useIdx.length;n++){
+    const i=useIdx[n],k=frames[i],pose=poses[i];prog(49+37*(n+1)/useIdx.length,"Depth + fusión",`Frame ${n+1}/${useIdx.length} · WASM`);
+    const cv=document.createElement("canvas");cv.width=k.imageData.width;cv.height=k.imageData.height;cv.getContext("2d").putImageData(k.imageData,0,0);
+    const raw=T.RawImage.fromCanvas(cv),out=await pipe(raw),dep=out.predicted_depth,dd=dep.data,[dh,dw]=dep.dims.slice(-2);let mn=Infinity,mx=-Infinity;for(const v of dd)if(Number.isFinite(v)){if(v<mn)mn=v;if(v>mx)mx=v}const rg=Math.max(1e-5,mx-mn),im=k.imageData,d=im.data,w=im.width,h=im.height,f=.90*Math.max(w,h);
+    for(let py=0;py<h;py+=stride){const yy=Math.min(dh-1,Math.floor(py*dh/h));for(let px=0;px<w;px+=stride){const xx=Math.min(dw-1,Math.floor(px*dw/w)),nv=(dd[yy*dw+xx]-mn)/rg,depth=.45+4.5*(1-nv),q=(py*w+px)*4,r=d[q],g=d[q+1],b=d[q+2];if(r+g+b<20)continue;const cam=[(px-w/2)/f*depth,-(py-h/2)/f*depth,-depth],wp=mv(pose.R,cam);P.push(wp[0]+pose.C[0],wp[1]+pose.C[1],wp[2]+pose.C[2]);C.push(r,g,b)}}
+    await new Promise(r=>setTimeout(r,0))
+  }
+  const filtered=voxelFilter(P,C,.035);pts=filtered.P;cols=filtered.C;showPoints();resultBlob=makePLY(pts,cols);resultName="roomforge-v7-purejs.ply";E.download.disabled=false;E.download.onclick=downloadBlob;E.view3d.disabled=false;ok(E.eSlam);step(3,"done");step(4,"done");prog(100,"3D local listo",`${Math.round(pts.length/3).toLocaleString()} puntos · pose JavaScript puro`);notice("Fallback local completado sin OpenCV. La escala métrica sigue siendo aproximada por ser vídeo monocular.");return true
+}
+function voxelFilter(P,C,vox){
+  const map=new Map(),outP=[],outC=[];for(let i=0;i<P.length;i+=3){const k=`${Math.round(P[i]/vox)},${Math.round(P[i+1]/vox)},${Math.round(P[i+2]/vox)}`;if(map.has(k))continue;map.set(k,1);outP.push(P[i],P[i+1],P[i+2]);outC.push(C[i],C[i+1],C[i+2])}return{P:new Float32Array(outP),C:new Uint8Array(outC)}
+}
+
+async function run(){
+  if(!file)return;E.go.disabled=true;clearNotice();E.goodnote.classList.remove("show");resetOutput();[E.eVggt,E.eSlam,E.eOfficial].forEach(x=>x.classList.remove("ok","fail"));
+  try{
+    step(1,"on");await extractFrames();
+    try{await remoteVGGT();return}catch(e){fail(E.eVggt);log("VGGT FAIL "+(e.stack||e.message||e));notice("VGGT público no ha completado la reconstrucción tras los reintentos. Paso a pose multivista JavaScript + Depth Anything.");}
+    try{await localSLAMDepth();return}catch(e){fail(E.eSlam);log("SLAM FAIL "+(e.stack||e.message||e));notice("El motor local tampoco pudo terminar. Puedes abrir el Space oficial en otra pestaña; no lo incrusto porque su /api/info tiene el bug de Gradio que ya viste.")}
+  }catch(e){log("PIPELINE "+(e.stack||e.message||e));prog(0,"Error",e.message||String(e))}
+  finally{E.go.disabled=!file}
+}
+E.go.addEventListener("click",run);
+
+function openOfficial(){
+  engine(E.eOfficial);
+  window.open("https://facebook-vggt.hf.space/","_blank","noopener");
+  E.modeHud.textContent="motor: VGGT oficial (otra pestaña)";
+  log("official Space opened in new tab");
+}
+E.official.addEventListener("click",openOfficial);
+
+function showModel(src){
+  pts=cols=null;cancelAnimationFrame(raf);E.pc.style.display="none";E.mv.style.display="block";E.empty.style.display="none";
+  E.pointsHud.textContent="escena: GLB multivista";viewButtons(true);E.view3d.disabled=false;
+  E.mv.cameraOrbit="45deg 70deg auto";E.mv.fieldOfView="35deg";
+  E.mv.onload=()=>{log("model-viewer loaded GLB");E.healthHud.textContent="visor: GLB OK"};
+  E.mv.onerror=()=>{log("model-viewer failed to render GLB");E.healthHud.textContent="visor: error GLB";notice("El GLB existe y se puede descargar, pero <model-viewer> no lo ha renderizado. Pulsa Descargar GLB.")};
+  E.mv.src=src;
+}
+function showPoints(){E.view3d.disabled=false;E.mv.style.display="none";E.pc.style.display="block";E.empty.style.display="none";E.pointsHud.textContent=`escena: ${Math.round(pts.length/3).toLocaleString()} puntos`;viewButtons(true);fitPoints();renderLoop()}
+function fitPoints(){if(!pts)return;let a=[Infinity,Infinity,Infinity],b=[-Infinity,-Infinity,-Infinity];for(let i=0;i<pts.length;i+=3){for(let k=0;k<3;k++){a[k]=Math.min(a[k],pts[i+k]);b[k]=Math.max(b[k],pts[i+k])}}view.cx=(a[0]+b[0])/2;view.cy=(a[1]+b[1])/2;view.cz=(a[2]+b[2])/2;view.zoom=Math.max(b[0]-a[0],b[1]-a[1],b[2]-a[2])||1}
+function drawBlank(){const c=E.pc,ctx=c.getContext("2d"),r=devicePixelRatio||1;c.width=Math.round(c.clientWidth*r);c.height=Math.round(c.clientHeight*r);ctx.fillStyle="#05070b";ctx.fillRect(0,0,c.width,c.height)}
+function renderLoop(){cancelAnimationFrame(raf);const f=()=>{drawPoints();raf=requestAnimationFrame(f)};raf=requestAnimationFrame(f)}
+function drawPoints(){if(!pts)return;const c=E.pc,ctx=c.getContext("2d"),r=Math.min(2,devicePixelRatio||1),W=Math.max(1,Math.round(c.clientWidth*r)),H=Math.max(1,Math.round(c.clientHeight*r));if(c.width!==W||c.height!==H){c.width=W;c.height=H}ctx.fillStyle="#05070b";ctx.fillRect(0,0,W,H);const cy=Math.cos(view.yaw),sy=Math.sin(view.yaw),cp=Math.cos(view.pitch),sp=Math.sin(view.pitch),scale=.82*Math.min(W,H)/(view.zoom||1),n=pts.length/3,skip=Math.max(1,Math.floor(n/75000));for(let i=0;i<n;i+=skip){let x=pts[i*3]-view.cx,y=pts[i*3+1]-view.cy,z=pts[i*3+2]-view.cz,x1=cy*x-sy*z,z1=sy*x+cy*z,y1=cp*y-sp*z1,z2=sp*y+cp*z1,p=1/(1+Math.max(-.7,z2/(view.zoom*3))),sx=W/2+x1*scale*p,yy=H/2-y1*scale*p;if(sx<0||yy<0||sx>=W||yy>=H)continue;const q=i*3;ctx.fillStyle=`rgb(${cols[q]},${cols[q+1]},${cols[q+2]})`;ctx.fillRect(sx,yy,1.6*r,1.6*r)}}
+E.pc.addEventListener("pointerdown",e=>{drag=true;lx=e.clientX;ly=e.clientY;E.pc.setPointerCapture?.(e.pointerId)});E.pc.addEventListener("pointerup",()=>drag=false);E.pc.addEventListener("pointermove",e=>{if(!drag||!pts)return;view.yaw+=(e.clientX-lx)*.006;view.pitch=Math.max(-1.45,Math.min(1.45,view.pitch+(e.clientY-ly)*.006));lx=e.clientX;ly=e.clientY});E.pc.addEventListener("wheel",e=>{if(!pts)return;e.preventDefault();view.zoom=Math.max(.05,Math.min(100,view.zoom*Math.exp(e.deltaY*.001)))},{passive:false});
+E.view3d.addEventListener("click",()=>{
+  E.viewer.scrollIntoView({behavior:"smooth",block:"start"});
+  if(remoteURL||glbBlobURL){E.mv.style.display="block";E.pc.style.display="none"}
+  else if(pts){E.pc.style.display="block";E.mv.style.display="none"}
+});
+E.orbit.onclick=()=>{if(remoteURL)E.mv.cameraOrbit="45deg 70deg auto";else{view.yaw=-.55;view.pitch=-.28}};E.doll.onclick=()=>{if(remoteURL)E.mv.cameraOrbit="45deg 55deg 130%";else{view.yaw=-.75;view.pitch=-.62;view.zoom*=1.15}};E.top.onclick=()=>{if(remoteURL)E.mv.cameraOrbit="0deg 0deg 140%";else{view.yaw=0;view.pitch=-1.48;view.zoom*=1.05}};E.near.onclick=()=>{if(remoteURL)E.mv.fieldOfView="25deg";else view.zoom*=.78};E.far.onclick=()=>{if(remoteURL)E.mv.fieldOfView="50deg";else view.zoom*=1.28};
+
+function makePLY(P,C){const n=P.length/3,parts=[`ply\nformat ascii 1.0\nelement vertex ${n}\nproperty float x\nproperty float y\nproperty float z\nproperty uchar red\nproperty uchar green\nproperty uchar blue\nend_header\n`];let s="";for(let i=0;i<n;i++){s+=`${P[i*3].toFixed(5)} ${P[i*3+1].toFixed(5)} ${P[i*3+2].toFixed(5)} ${C[i*3]} ${C[i*3+1]} ${C[i*3+2]}\n`;if(s.length>700000){parts.push(s);s=""}}parts.push(s);return new Blob(parts,{type:"application/octet-stream"})}
+function downloadBlob(){if(!resultBlob)return;const u=URL.createObjectURL(resultBlob),a=document.createElement("a");a.href=u;a.download=resultName||"roomforge.ply";a.click();setTimeout(()=>URL.revokeObjectURL(u),2000)}
+
+E.clear.addEventListener("click",()=>{if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;file=null;E.file.value="";if(fileURL)URL.revokeObjectURL(fileURL);fileURL=null;revokeFrames();resetOutput();E.preview.removeAttribute("src");E.preview.srcObject=null;E.preview.style.display="none";E.dur.textContent=E.res.textContent=E.size.textContent=E.frames.textContent="—";E.go.disabled=true;prog(0,"Esperando vídeo","Carga un vídeo.");step(0,"on");clearNotice();E.goodnote.classList.remove("show");E.modeHud.textContent="motor: espera"});
+window.addEventListener("error",e=>{E.healthHud.textContent="app: JS error";log("window "+e.message)});window.addEventListener("unhandledrejection",e=>log("promise "+(e.reason?.message||e.reason||"unknown")));
+drawBlank();log("V7 ready · no OpenCV · Pure-JS essential geometry · ZeroGPU retry x3");
+})();
+</script>
+</body>
+</html>

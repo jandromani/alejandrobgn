@@ -23,13 +23,13 @@ export function EvolutionGrowthCurve({ compact = false }: EvolutionGrowthCurvePr
           <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-signal-cyan">Recovered output density</p>
           <p className="mt-1 text-sm text-muted-foreground">Distinct artefacts by year · linear scale</p>
         </div>
-        <p className="font-mono text-2xl font-bold text-foreground">184</p>
+        <p className="font-mono text-2xl font-bold text-foreground">201</p>
       </div>
       <svg
         viewBox="0 0 620 270"
         className="relative w-full"
         role="img"
-        aria-label="Artefacts by year: 14 in 2023, 15 in 2024, 39 in 2025, and 116 in 2026"
+        aria-label="Artefacts by year: 14 in 2023, 15 in 2024, 39 in 2025, and 133 through October 14, 2026"
       >
         {[50, 93, 136, 179, 222].map((y) => (
           <line key={y} x1="50" x2="590" y1={y} y2={y} stroke="currentColor" className="text-border" strokeWidth="1" />

@@ -1,0 +1,2 @@
+import {JsonLd} from "@/components/json-ld"
+export default function LabsLayout({children}:{children:React.ReactNode}){return <><JsonLd data={{"@type":"CollectionPage",name:"Interactive research labs",description:"Original HTML demonstrations of selected independently developed systems.",url:"https://alejandrobgn.vercel.app/labs"}}/>{children}</>}
