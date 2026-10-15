@@ -741,6 +741,87 @@ export const systems: System[] = [
     links: {},
     relatedSystems: [],
   },
+
+  // OCTOBER 2026 FRONTIER — original public HTML/repository evidence
+  {
+    id:"assetgraph",slug:"assetgraph",name:"AssetGraph",tagline:"Visual Intelligence · Evidence-backed Spatial Decisions",
+    category:"intelligence",shortDescription:"Overhead perception, SAR tracking, identity continuity and evidence-gated decision objects.",
+    description:"Original AssetGraph Frontier V14 overhead HTML is viewable in the interactive lab. It is one of several independent branches: Product Console V6 contains a richer OSINT interface, SAR V12 targets reacquisition, and Core 0.2.1/C17 is packaged engineering and tests. Dataset-specific research results are reported with their limited protocols.",
+    problemStatement:"Computer vision without identity continuity, sensor context, reproducibility and traceable decision boundaries is not an inspectable enterprise intelligence system.",
+    role:"Research",status:"Research",level:2,year:2026,featured:true,order:1,
+    technologies:["Computer Vision","Python","GIS","Evidence Packs","Tracking"],
+    verifiedMetrics:[{name:"PETS09 IDF1",value:"0.8555",context:"Blind test frames 61–120; zero ID switches in that specific evaluation"},
+    {name:"Identity memory uplift",value:"+8.19 pp",context:"Cycle 09 separate identity lockbox"},
+    {name:"SAR recall",value:"98.72%",context:"Frozen maritime stress window only"}],
+    honestLimits:[{title:"Different branches",description:"Frontier V14 is the latest recovered overhead HTML, not newer than every Core/Console component."},
+    {title:"No general production validation",description:"The benchmark results cannot be generalized to arbitrary cameras, domains or enterprise deployments."}],
+    demo:{url:"/labs/assetgraph",notes:"Original independent overhead HTML with scoped benchmark notes"},
+    links:{live:"/labs/assetgraph"},relatedSystems:["montageos","roomforge"]
+  },
+  {
+    id:"montageos",slug:"montageos",name:"MontageOS",tagline:"Cinema Brain · Film Nervous System V6.4",
+    category:"orchestration",shortDescription:"Narrative Bible, production memory, editorial judges and model/provider orchestration in one film-control workspace.",
+    description:"An original interactive audiovisual production system, connecting a Cinema Brain, Living Bible, specialist reviews, media providers, shot orchestration and governance into a controllable workflow.",
+    problemStatement:"Cinematic generation needs narrative consistency, review gates and traceable transitions beyond individual prompts or isolated clips.",
+    role:"Research",status:"Public Demo",level:2,year:2026,featured:true,order:2,
+    technologies:["Multimodal Agents","Cinema Brain","Living Bible","Workflow Gates","HTML"],
+    verifiedMetrics:[{name:"Original release",value:"V6.4",context:"719 KB archived standalone HTML; external providers not included"}],
+    honestLimits:[{title:"Provider-dependent rendering",description:"Real generated film outputs depend on external tools, credentials, credits and human editorial approval."}],
+    demo:{url:"/labs/montageos"},links:{live:"/labs/montageos"},relatedSystems:["assetgraph","roomforge"]
+  },
+  {
+    id:"roomforge",slug:"roomforge",name:"RoomForge",tagline:"Spatial AI · Gaussian Splatting · Digital Twins",
+    category:"products",shortDescription:"Capture-to-3D workflow spanning frames, depth, SfM, point clouds and navigable property twins.",
+    description:"RoomForge V7 explores how to create navigable property reconstructions from photographs and video, with browser-side fallbacks and optional external VGGT/depth and geometry services.",
+    problemStatement:"Turning unconstrained phone video into a consistent spatial twin involves sensor, camera, reconstruction and visualization problems; a 3D viewer alone is not a full reconstruction pipeline.",
+    role:"Research",status:"Research",level:2,year:2026,featured:true,order:3,
+    technologies:["3D","VGGT","SfM","Depth","Gaussian Splatting"],
+    verifiedMetrics:[{name:"Original version",value:"V7",context:"42 KB standalone Pure-JS experimental HTML"}],
+    honestLimits:[{title:"End-to-end compute",description:"No general proof of GPU-based Gaussian Splat production from arbitrary real captures."}],
+    demo:{url:"/labs/roomforge"},links:{live:"/labs/roomforge"},relatedSystems:["assetgraph","montageos"]
+  },
+  {
+    id:"gearwatch",slug:"gearwatch",name:"GearWatch",tagline:"Event Intelligence · Causal Market Signals",
+    category:"intelligence",shortDescription:"Ingest external events, extract proposed mechanisms and track confirmation against market observations.",
+    description:"Original codebase exploring whether geopolitical and economic events can be translated into evidence-tagged hypotheses and compared against subsequent market data.",
+    problemStatement:"News summarization is not a trading signal; hypotheses need independent confirmation, source lineage and failure tracking.",
+    role:"Research",status:"Research",level:2,year:2026,featured:true,order:4,
+    technologies:["GDELT","LLM Extraction","GitHub Actions","Market Data"],
+    honestLimits:[{title:"No audited returns",description:"The existence of a signal workflow does not establish profitable predictions."}],
+    links:{repo:"https://github.com/jandromani/HolaInframundo"},relatedSystems:["worldstate","assetgraph"]
+  },
+  {
+    id:"worldstate",slug:"worldstate",name:"WORLD//STATE LIVE",tagline:"Geopolitical Intelligence · World Graph",
+    category:"intelligence",shortDescription:"Maintain an inspectable state of geopolitical observations and separate observed developments from simulated scenarios.",
+    description:"Original application bridging external event streams, world-state relationships, scenarios and a navigable intelligence map.",
+    problemStatement:"Global-event analysis needs visible source attribution and a strict separation between what was observed and what the system inferred.",
+    role:"Research",status:"Prototype",level:2,year:2026,featured:true,order:5,
+    technologies:["World Graph","Events","Simulation","News Intelligence"],
+    honestLimits:[{title:"Scenario boundaries",description:"Simulation is a modelled exercise rather than a factual description of future events."}],
+    links:{repo:"https://github.com/jandromani/InframundoShow"},relatedSystems:["gearwatch","assetgraph"]
+  },
+  {
+    id:"atlaslongstay",slug:"atlaslongstay",name:"Atlas Long Stay",tagline:"Travel Commerce · Verified Supply · Economic Attribution",
+    category:"products",shortDescription:"Hotel search-to-booking workflow that distinguishes sourced inventory, pricing evidence and financial attribution.",
+    description:"A full-stack original travel-commerce architecture with hotel identity, sourcing, verification, offer workflows, SEO entry points and payments or booking-related attribution modules.",
+    problemStatement:"Search results are not contracted hotel inventory and discovered prices are not payable offers: commercial state must remain verifiable at every handoff.",
+    role:"Product",status:"Prototype",level:2,year:2026,featured:true,order:6,
+    technologies:["Next.js","Hotel APIs","SEO","Booking Workflow","Payments"],
+    honestLimits:[{title:"Commercial adoption",description:"No verified bookings, partner supply volumes or revenue are claimed."}],
+    links:{repo:"https://github.com/jandromani/Petshop"},relatedSystems:["agnosticengine","brewmatch"]
+  },
+  {
+    id:"pumpum",slug:"pumpum",name:"Pum Pum Café 3D",tagline:"Pixel-art-inspired Interactive 3D · Living Characters",
+    category:"products",shortDescription:"A dense, explorable café with characters, menus, environment interactions and day/night controls.",
+    description:"The exact original interactive Pum Pum Café 3D HTML, presented in its own project card rather than as the homepage banner.",
+    problemStatement:"Show how a lively visual world can become a navigable experience rather than a static hero illustration.",
+    role:"Research",status:"Public Demo",level:4,year:2026,featured:false,order:3,
+    technologies:["Three.js","HTML","Character Simulation","Interactive 3D"],
+    verifiedMetrics:[{name:"HTML source",value:"97 KB",context:"Excluding external Three.js runtime"}],
+    honestLimits:[{title:"Browser environment",description:"WebGL and a public CDN are required for the original scene."}],
+    demo:{url:"/labs/pumpum"},links:{live:"/labs/pumpum"},relatedSystems:["roomforge","montageos"]
+  },
+
 ]
 
 export function getSystemBySlug(slug: string): System | undefined {

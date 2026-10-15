@@ -1,13 +1,14 @@
 import type { MetadataRoute } from "next"
 import { articles } from "@/data/writing"
 import { systems } from "@/lib/systems-data"
+import { caseStudies, interactiveLabs } from "@/data/portfolio-v2"
 import { absoluteUrl } from "@/lib/seo"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: absoluteUrl("/"),
-      lastModified: "2026-07-24",
+      lastModified: "2026-10-14",
       changeFrequency: "weekly",
       priority: 1,
     },
@@ -52,6 +53,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
+  const v2Pages: MetadataRoute.Sitemap = ["/enterprise", "/labs", "/anatomy", "/anatomy/atlas", ...caseStudies.map(c => "/enterprise/" + c.slug), ...interactiveLabs.map(l => "/labs/" + l.slug)].map(path => ({ url: absoluteUrl(path), lastModified: "2026-10-14", changeFrequency: "monthly", priority: path === "/enterprise" ? 0.95 : 0.75 }))
+
   const systemPages: MetadataRoute.Sitemap = systems.map((system) => ({
     url: absoluteUrl(`/systems/${system.slug}`),
     lastModified: system.evidence?.lastVerified ?? `${system.year}-01-01`,
@@ -66,5 +69,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: article.featured ? 0.85 : 0.75,
   }))
 
-  return [...staticPages, ...systemPages, ...articlePages]
+  return [...staticPages, ...v2Pages, ...systemPages, ...articlePages]
 }

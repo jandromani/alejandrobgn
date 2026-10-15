@@ -8,8 +8,12 @@
 
 This is not a downloadable CV wrapped in a landing page. It is an evidence-led portfolio about designing, shipping and governing production AI systems: their interfaces, architectures, operating limits, traces and economic consequences.
 
-The site connects three kinds of evidence:
+The V2 homepage presents the ORIGINAL Pum Pum Café 3D experience (unaltered HTML), two strictly anonymous four-week enterprise cases, and FOUR real standalone HTML artifacts: Pum Pum, AssetGraph, MontageOS V6.4 and RoomForge V7. No source code or data from enterprise customers is included.
 
+The site connects four kinds of evidence:
+
+- **Enterprise** — cybersecurity agentic engineering and banking legacy modernization, at sector level only.
+- **Labs** — four ORIGINAL independent HTML experiences with actual captured screenshots and a full-screen launch; no synthetic replacement interfaces.
 - **Systems** — ten product and infrastructure case studies with deliberately honest preview states.
 - **Writing** — eight long-form technical field notes on agent governance, orchestration, observability, safety, entropy and AI platform economics.
 - **Evolution** — an interactive timeline that shows how earlier product, data and engineering work compounds into the current AI practice.
@@ -42,6 +46,9 @@ scripts/                SEO, image-conversion and optional visual-QA utilities
 
 Notable routes:
 
+- `/enterprise` and `/enterprise/[slug]` — anonymized four-week professional engagements
+- `/labs` and `/labs/[slug]` — exact independently authored original HTML files; captures can be produced via `scripts/capture-original-htmls.mjs`.
+
 - `/systems` and `/systems/[slug]` — system index and evidence-rich case studies
 - `/writing` and `/writing/[slug]` — technical journal and long-form articles
 - `/evolution` — 184-project learning timeline and capability map
@@ -65,6 +72,8 @@ Production checks:
 pnpm build
 pnpm typecheck
 node scripts/seo-audit.mjs
+node scripts/v2-validation.mjs
+# optional: node scripts/visual-qa.mjs (with Chrome CDP running)
 ```
 
 ## Stack
@@ -88,3 +97,10 @@ The source is public for inspection and discussion. Personal copy, project evide
 ---
 
 Built and maintained by [Alejandro Baratas](https://www.linkedin.com/in/alejandro-bgn/) · [Live portfolio](https://alejandrobgn.vercel.app)
+
+
+## V2 source authenticity and screenshots
+
+All four HTML artifacts have SHA-1 Git blob integrity checks in `scripts/v2-validation.mjs`. These source files are served under `public/labs/original/`; their public routes are excluded from search indexing. Lab listing thumbnails are **static WebP screenshots captured from the original HTML**, not AI-generated screenshots or mockups. If static PNG captures are desired, launch Chrome with remote debugging and run `node scripts/capture-original-htmls.mjs http://localhost:9333 http://localhost:3000` while the site is running. This produces `public/labs/covers/*.png`. Validate the resulting screenshots visually before committing them. 
+
+Business case numeric disclosures currently include only timeboxes and explicitly identified architectural scope counts, NOT private client output/ROI metrics. Public AssetGraph research metrics are bounded dataset-specific measurements; no claim of broadly production-ready AI or 24/7 field deployment is made.

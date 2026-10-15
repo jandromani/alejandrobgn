@@ -9,10 +9,13 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 
 const navItems = [
+  { name: "Experience", href: "/experience" },
+  { name: "Enterprise", href: "/enterprise" },
+  { name: "Anatomy", href: "/anatomy" },
+  { name: "Labs", href: "/labs" },
   { name: "Systems",    href: "/systems"    },
   { name: "Evolution",  href: "/evolution"  },
   { name: "Writing",    href: "/writing"    },
-  { name: "Experience", href: "/experience" },
   { name: "About",      href: "/about"      },
   { name: "Contact",    href: "/contact"    },
 ]
@@ -51,7 +54,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1" role="menubar">
+          <div className="hidden lg:flex items-center gap-1" role="menubar">
             {navItems.map((item) => {
               const isActive = pathname === item.href || pathname.startsWith(item.href + "/")
               return (
@@ -63,7 +66,7 @@ export function Navbar() {
                   className={`px-3 py-1.5 text-sm rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                     isActive
                       ? "text-foreground font-medium"
-                      : "text-muted-foreground hover:text-foreground"
+                      : item.name === "Experience" ? "text-[#b8ff5a] font-semibold hover:text-foreground" : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {item.name}
@@ -106,7 +109,7 @@ export function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" aria-label="Navigation menu">
                 <SheetTitle className="sr-only">Site navigation</SheetTitle>
-                <SheetDescription className="sr-only">Navigate to systems, evolution, writing, experience, about or contact.</SheetDescription>
+                <SheetDescription className="sr-only">Navigate to enterprise case studies, interactive labs, systems, writing, evolution, experience, about or contact.</SheetDescription>
                 <nav aria-label="Mobile navigation">
                   <div className="flex flex-col gap-1 pt-6">
                     {navItems.map((item) => {

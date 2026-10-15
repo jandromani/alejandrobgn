@@ -1,10 +1,11 @@
 import Link from "next/link"
-import { ArrowRight, CheckCircle2, MapPin } from "lucide-react"
+import { ArrowRight, ArrowUpRight, CheckCircle2, MapPin, ShieldCheck, Network, FileCheck, Globe2 } from "lucide-react"
 import type { Metadata } from "next"
 import { JsonLd } from "@/components/json-ld"
+import { AnatomyOriginalCase } from "@/components/anatomy-original-studio"
 import { absoluteUrl, breadcrumbJsonLd, createPageMetadata, personId, websiteId } from "@/lib/seo"
 
-const experienceDescription = "Eleven years of software engineering and technical leadership—from GIS and enterprise backends to AI governance, agentic systems, and platform architecture."
+const experienceDescription = "Eleven years of software and technical leadership, spanning enterprise Java, GIS, distributed platforms and evidence-first agentic engineering. Two four-week enterprise cases and independent AI research, updated October 14, 2026."
 
 export const metadata: Metadata = createPageMetadata({
   title: "AI Technical Leadership Experience",
@@ -22,13 +23,13 @@ const experience = [
     location: "Madrid · Remote",
     current: true,
     description:
-      "Leading the definition, architecture and activation of AI solutions across business and technology units, from adoption strategy and pre-sales to scalable delivery and executive enablement.",
+      "AI Tech Lead since March 2026. I co-created a two-engineer delivery nucleus that helped an unfamiliar team activate practical agents, copilots, APM, PR workflows and adapted SDD within four weeks; in another engagement I drove the corpus-first architecture of a deterministic legacy modernization factory. Both outcomes were collaborative and scoped.",
     highlights: [
-      "AI adoption strategy",
-      "Multi-agent · RAG · copilots",
-      "AI offerings and pre-sales",
-      "Executive enablement",
-      "Business impact",
+      "Agentic rollout adopted within four weeks",
+      "Corpus-first deterministic modernization PoC",
+      "Technical proposals and pre-sales",
+      "Skills, context and QA enablement",
+      "Evidence-first engineering",
     ],
   },
   {
@@ -38,13 +39,13 @@ const experience = [
     location: "Madrid, Spain",
     current: false,
     description:
-      "Drove Generative AI adoption across a large engineering organisation of more than 250 engineers, combining transversal R&D, technical leadership and hands-on delivery of pilots and production-ready solutions.",
+      "Contributed to Generative AI adoption across an engineering organisation of more than 250 engineers, combining transversal R&D, technical leadership and hands-on delivery of pilots and production-ready solutions.",
     highlights: [
       "LLM integration architecture",
       "Agent orchestration design",
       "Governance layer implementation",
       "Cost optimisation strategies",
-      "AI enablement across 250+ engineers",
+      "Cross-team enablement within a 250+ engineer organisation",
     ],
   },
   {
@@ -120,7 +121,7 @@ const howIWork = [
 
 const skills = [
   { area: "Agentic Systems",    items: ["Agent orchestration", "Multi-agent architectures", "Durable runtimes", "State management"] },
-  { area: "AI Governance",      items: ["EU AI Act compliance", "Risk assessment", "Audit trails", "Permission models"] },
+  { area: "AI Governance",      items: ["EU AI Act engineering controls", "Risk assessment", "Audit trails", "Permission models"] },
   { area: "LLM Operations",     items: ["Observability (LLMTRACE)", "Cost optimisation", "Vendor routing", "Model evaluation"] },
   { area: "Platform Engineering",items: ["Python · FastAPI", "Next.js", "Cloud platforms", "PostgreSQL · Redis"] },
 ]
@@ -154,7 +155,7 @@ export default function ExperiencePage() {
               })),
             },
             isPartOf: { "@id": websiteId },
-            dateModified: "2026-07-24",
+            dateModified: "2026-10-14",
             inLanguage: "en",
           },
           {
@@ -172,9 +173,9 @@ export default function ExperiencePage() {
         <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" aria-hidden="true" />
         <div className="relative container max-w-6xl mx-auto px-4 py-16">
           <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-[0.2em] mb-4">Experience</p>
-          <h1 className="text-5xl font-bold text-foreground mb-3">Eleven years building systems</h1>
+          <h1 className="text-5xl font-bold text-foreground mb-3">I turn engineering teams into AI-powered delivery teams.</h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            From GIS and enterprise backends to AI governance platforms. A narrative thread from geographic thinking to agentic systems.
+            In August, a colleague and I helped activate AI-assisted development for a new engineering team in less than a month. In a separate four-week engagement, I architected a deterministic factory for understanding and modernizing a legacy corpus. This is the architecture, execution and team enablement behind the portfolio.
           </p>
         </div>
       </header>
@@ -186,8 +187,8 @@ export default function ExperiencePage() {
           {[
             { n: "11+",   label: "Years engineering" },
             { n: "7",     label: "Professional chapters" },
-            { n: "8",     label: "Public systems to inspect" },
-            { n: "4",     label: "AI system domains" },
+            { n: "2",     label: "Recent enterprise engagements" },
+            { n: "< 1 mo",label: "To team-level AI adoption" },
           ].map((stat) => (
             <div key={stat.label} className="bg-card px-6 py-5 space-y-1">
               <p className="text-3xl font-bold font-mono text-foreground">{stat.n}</p>
@@ -195,6 +196,36 @@ export default function ExperiencePage() {
             </div>
           ))}
         </div>
+
+
+        {/* Executable professional evidence (Oct 2026) */}
+        <section aria-labelledby="proof-heading" className="space-y-8">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div><p className="v2-kicker">ENTERPRISE WORK · VERIFIED SCOPE</p><h2 id="proof-heading" className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">What I helped put into operation</h2></div>
+            <a className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm hover:border-[#b8ff5a]" href="https://www.linkedin.com/in/alejandro-bgn/" target="_blank" rel="noopener noreferrer"><Globe2 size={16}/> LinkedIn profile <ArrowUpRight size={15}/></a>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            <Link href="/enterprise/cybersecurity-agentic-engineering" className="group rounded-2xl border border-border bg-card p-7 transition hover:border-[#b8ff5a]/50">
+              <Network size={27} className="text-[#b8ff5a]"/>
+              <p className="v2-kicker mt-7">CYBERSECURITY COMPANY · 4 WEEKS</p>
+              <h3 className="mt-3 text-xl font-semibold">An operating agentic team in four weeks</h3>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground">Two technical peers started with zero client context. We established joint collaboration, built the knowledge corpus and put APM, Backend, Frontend, QA and Gherkin copilots, PR-producing agents and adapted SDD gates into day-to-day team use.</p>
+              <p className="mt-5 font-mono text-sm text-[#b8ff5a]">Operational copilots · PR agents · SDD gates <ArrowUpRight className="inline-block" size={13}/></p>
+            </Link>
+            <Link href="/enterprise/banking-modernization-factory" className="group rounded-2xl border border-border bg-card p-7 transition hover:border-[#b8ff5a]/50">
+              <FileCheck size={27} className="text-[#b8ff5a]"/>
+              <p className="v2-kicker mt-7">BANKING COMPANY · 4 WEEKS</p>
+              <h3 className="mt-3 text-xl font-semibold">Corpus-first reverse engineering, made deterministic</h3>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground">I conceived a corpus-first method to understand whole legacy systems, using a bounded module to prove the architecture. Canonical IR, controlled generation, traceability, deterministic file comparisons and 173 derived UI components formed the PoC outputs.</p>
+              <p className="mt-5 font-mono text-sm text-[#b8ff5a]">173 components · 4,338 file comparisons <ArrowUpRight className="inline-block" size={13}/></p>
+            </Link>
+          </div>
+          <div className="rounded-xl border border-border bg-secondary/30 p-5">
+            <p className="flex items-center gap-2 text-sm font-semibold"><ShieldCheck size={16} className="text-[#b8ff5a]"/> Scope of responsibility vs. business outcomes</p>
+            <p className="mt-3 text-sm leading-7 text-muted-foreground">My contribution is to make difficult engineering problems tractable: frame the system, establish collaboration, design the architecture, build the technical path and help colleagues use it. The agentic adoption timeline is reported by our delivery team; factory numbers describe bounded artifacts, not full-system migration or client-certified ROI.</p>
+          </div>
+        </section>
+        <section aria-label="Interactive anatomy of the agentic team rollout" className="space-y-5"><div><p className="v2-kicker">HOW I WORK / INTERACTIVE ENGINEERING MODEL</p><h2 className="mt-3 text-2xl font-semibold md:text-3xl">Inside the four-week transformation</h2><p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">Select each mechanism to inspect the actual engineering sequence. This is a conceptual reconstruction, not a screenshot from the private environment.</p></div><AnatomyOriginalCase mode="agentic"/></section>
 
         {/* Career Narrative */}
         <section aria-labelledby="narrative-heading" className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 md:gap-16">
@@ -291,6 +322,25 @@ export default function ExperiencePage() {
           </div>
         </section>
 
+
+        {/* Public engineering discourse and cross-domain credibility */}
+        <section aria-labelledby="public-thinking" className="border-t border-border pt-16">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+            <div><p className="v2-kicker">WRITING / COMMUNITY / CONTINUITY</p><h2 id="public-thinking" className="mt-3 text-2xl font-semibold md:text-3xl">Engineering thinking in public</h2></div>
+            <a href="https://www.linkedin.com/in/alejandro-bgn/" target="_blank" rel="noopener noreferrer" className="v2-section-link">View public LinkedIn profile <ArrowUpRight size={16}/></a>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              {year:"2026",title:"Governed agents, not automation theatre",body:"Public technical argument: the competitive advantage of agents is coherence, control, observability and intervention—not sheer agent count."},
+              {year:"2025",title:"From specialist engineer to AI solution leadership",body:"Writing about turning architecture into proposals, customer conversations, product thinking and outcomes, not merely choosing LLMs."},
+              {year:"2025",title:"API testing, platforms and AI-assisted delivery",body:"Public articles and prototypes on API testing, product discovery and repeatable engineering; longitudinal evidence for both technical execution and communication."}
+            ].map(p=><div key={p.title} className="rounded-xl border border-border bg-card p-6"><p className="v2-kicker">{p.year} · PUBLIC WRITING</p><h3 className="mt-4 text-lg font-semibold">{p.title}</h3><p className="mt-3 text-sm leading-7 text-muted-foreground">{p.body}</p></div>)}
+          </div>
+          <div className="mt-5 grid gap-4 md:grid-cols-2">
+            <div className="rounded-xl border border-border p-5"><p className="font-semibold">Formal learning and credentials</p><p className="mt-2 text-sm leading-7 text-muted-foreground">Google Project Management Professional Certificate (2023) and Google IT Support Professional Certificate (2020), as listed on the public LinkedIn profile. Continuous applied learning across GIS, enterprise systems and AI.</p></div>
+            <div className="rounded-xl border border-border p-5"><p className="font-semibold">Public evidence, independent of clients</p><p className="mt-2 text-sm leading-7 text-muted-foreground">Open-source observability, satellite/overhead research, 3D interactive experiences and original full-stack applications. Each demonstration includes implementation boundaries and links to the original artifact.</p><div className="mt-3 flex flex-wrap gap-4 text-sm"><Link href="/systems" className="text-[#b8ff5a]">Systems ↗</Link><Link href="/labs" className="text-[#b8ff5a]">Original HTML labs ↗</Link><Link href="/evolution" className="text-[#b8ff5a]">AI Co-Evolution ↗</Link></div></div>
+          </div>
+        </section>
         {/* How I work */}
         <section aria-labelledby="how-heading" className="border-t border-border pt-16 space-y-8">
           <h2 id="how-heading" className="text-xl font-bold text-foreground">How I work</h2>
@@ -307,7 +357,7 @@ export default function ExperiencePage() {
 
         {/* CTA */}
         <div className="border-t border-border pt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p className="text-muted-foreground">See the systems behind the experience.</p>
+          <p className="text-muted-foreground">Inspect the systems, or review the verified engineering cases.</p>
           <div className="flex gap-3 flex-wrap">
             <Link
               href="/systems"
@@ -317,10 +367,10 @@ export default function ExperiencePage() {
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
             <Link
-              href="/about"
+              href="/enterprise"
               className="inline-flex items-center gap-2 px-5 py-2.5 border border-border text-foreground text-sm font-semibold rounded-md hover:bg-card transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              About me
+              Enterprise cases
             </Link>
           </div>
         </div>

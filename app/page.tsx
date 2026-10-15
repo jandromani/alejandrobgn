@@ -10,8 +10,10 @@ import {
   AppliedProductCard,
   FoundationCard,
 } from "@/components/system-preview-card"
-import { HomeOperatingDossier } from "@/components/home-operating-dossier"
-import { HomeSignalManifesto } from "@/components/home-signal-manifesto"
+import { V2EngineeringHero } from "@/components/v2-engineering-hero"
+import { V2Enterprise, V2LabTeaser } from "@/components/v2-sections"
+import { AnatomyTeaser } from "@/components/anatomy-atlas"
+
 import { EvolutionGrowthCurve } from "@/components/evolution-growth-curve"
 import { SignalPattern } from "@/components/signal-pattern"
 import { JsonLd } from "@/components/json-ld"
@@ -54,19 +56,21 @@ export default function Page() {
             isPartOf: { "@id": websiteId },
             about: { "@id": personId },
             inLanguage: siteConfig.language,
-            dateModified: "2026-08-03",
+            dateModified: "2026-10-14",
           },
         ]}
       />
 
-      <HomeOperatingDossier />
-      <HomeSignalManifesto />
+      <V2EngineeringHero />
+      <V2Enterprise />
+      <AnatomyTeaser />
+      <V2LabTeaser />
 
       {/* ── CORE SYSTEMS — EDITORIAL LAYOUT ──────────────────────── */}
       <section aria-labelledby="systems-heading" className="container max-w-6xl mx-auto px-4 py-20 space-y-6">
         <div className="flex items-baseline justify-between gap-4 mb-10">
           <div className="space-y-1">
-            <h2 id="systems-heading" className="text-2xl font-bold text-foreground">Core systems</h2>
+            <h2 id="systems-heading" className="text-2xl font-bold text-foreground">Independent systems</h2>
             <p className="text-sm text-muted-foreground">Runtimes, frameworks, and products. Each one built to solve a specific problem in the AI infrastructure stack.</p>
           </div>
           <Link href="/systems" className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 flex-shrink-0">
@@ -123,12 +127,12 @@ export default function Page() {
         <div className="relative container max-w-6xl mx-auto px-4 py-20">
           <div className="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
             <div>
-              <p className="text-[11px] font-mono text-signal-green uppercase tracking-[0.22em]">43 months building with AI</p>
+              <p className="text-[11px] font-mono text-signal-green uppercase tracking-[0.22em]">Independent exploration since 2023</p>
               <h2 id="evolution-heading" className="mt-3 text-3xl md:text-5xl font-bold text-foreground leading-tight">
                 The systems did not appear overnight.
               </h2>
               <p className="mt-5 text-base text-muted-foreground leading-relaxed">
-                The path began in early 2023 by forcing GPT-3.5 to preserve long-form context. It now spans 184 reconstructed artefacts across GIS, APIs, model economics, reliability, safety, multi-agent systems and governance.
+                The path began in early 2023 by forcing GPT-3.5 to preserve long-form context. The archive now tracks 184 reconstructed historical entries plus 17 documented milestones through 14 October 2026, across GIS, AI reliability, enterprise software, original interactive HTMLs and governance.
               </p>
               <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
                 The flagship systems are the compressed result of that history.

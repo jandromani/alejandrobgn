@@ -121,6 +121,24 @@ export function SystemsIndex() {
 
       <div className="container max-w-6xl mx-auto px-4 py-12 space-y-16">
 
+        {/* October 2026 evidence-backed frontier */}
+        <section className="space-y-5" aria-labelledby="frontier-2026">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div><p className="v2-kicker">OCT 2026 / NEW IN THE CATALOGUE</p><h2 id="frontier-2026" className="mt-3 text-2xl font-semibold md:text-3xl">Latest engineering and research</h2><p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">Research releases and original application architectures after the original July portfolio freeze. These are differently mature; claims and evidence boundaries are explicit.</p></div>
+            <Link href="/enterprise" className="v2-section-link">Four-week enterprise delivery <ArrowRight size={15}/></Link>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {["assetgraph","montageos","roomforge","gearwatch","worldstate","atlaslongstay"].map(id=>{
+              const item=systems.find(x=>x.id===id)
+              return item?<Link key={id} href={"/systems/"+item.slug} className="group rounded-xl border border-border bg-card p-5 transition hover:border-[#b8ff5a]/50">
+                <p className="font-mono text-[10px] tracking-widest text-[#b8ff5a]">{item.status.toUpperCase()} · 2026</p>
+                <h3 className="mt-3 text-lg font-semibold">{item.name}</h3><p className="mt-2 text-xs leading-6 text-muted-foreground">{item.shortDescription}</p>
+                <p className="mt-4 text-xs text-[#b8ff5a]">Inspect architecture and evidence →</p>
+              </Link>:null
+            })}
+          </div>
+          <p className="text-xs text-muted-foreground">AssetGraph Frontier V14 is the newest numbered overhead HTML in the recovered archive; the richer product Console V6 and later Core/C17 engineering have separate version lines.</p>
+        </section>
         {/* Filter bar */}
         <nav aria-label="Filter by status" className="space-y-3">
           <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
