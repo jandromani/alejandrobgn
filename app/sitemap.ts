@@ -45,6 +45,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.72,
     },
     {
+      url: absoluteUrl("/work/banking-modernization"),
+      lastModified: "2026-10-19",
+      changeFrequency: "monthly",
+      priority: 0.72,
+    },
+    {
       url: absoluteUrl("/about"),
       lastModified: "2026-07-24",
       changeFrequency: "monthly",
