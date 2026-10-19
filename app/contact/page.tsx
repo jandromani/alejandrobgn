@@ -150,7 +150,7 @@ export default function ContactPage() {
           <h2 id="channels-heading" className="text-base font-semibold text-foreground">Other ways to reach me</h2>
           <div className="flex flex-wrap gap-3">
             <Button asChild variant="outline" className="gap-2">
-              <a href="mailto:abaratas@ucm.es">
+              <a href="mailto:alejandrobgn@gmail.com">
                 <Mail className="w-4 h-4" aria-hidden="true" />
                 Email
               </a>
