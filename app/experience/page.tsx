@@ -196,6 +196,43 @@ export default function ExperiencePage() {
           ))}
         </div>
 
+        {/* Selected enterprise work: deliberately separate from professional role history. */}
+        <section aria-labelledby="work-cyber-heading" className="space-y-6">
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">Selected enterprise work</p>
+            <h2 id="work-cyber-heading" className="mt-2 text-2xl font-bold text-foreground">
+              What changed for the engineering team
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
+              A sector-anonymized engagement with clear distinctions between personal contribution,
+              collaborative outcomes and what has not been independently audited.
+            </p>
+          </div>
+          <Link
+            href="/work/cybersecurity-ai-engineering"
+            className="group flex flex-col gap-5 rounded-xl border border-border bg-card p-6 transition-colors hover:border-signal-green/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:flex-row md:items-center md:justify-between md:p-8"
+          >
+            <div className="max-w-3xl">
+              <p className="font-mono text-[10px] uppercase tracking-wider text-signal-green">
+                Cybersecurity sector · August 2026 · AI-assisted engineering
+              </p>
+              <h3 className="mt-3 text-xl font-semibold text-foreground md:text-2xl">
+                From zero project context to team-level AI-assisted delivery.
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                A small joint engineering nucleus established project knowledge, specialist assistance,
+                human-reviewed agent PRs and an adapted SDD workflow in under one month.
+              </p>
+              <p className="mt-3 text-xs leading-6 text-muted-foreground">
+                Duration and adoption are reported by the delivery team; no audited productivity claim.
+              </p>
+            </div>
+            <span className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-foreground group-hover:text-signal-green">
+              Inspect case <ArrowRight size={17} aria-hidden="true" />
+            </span>
+          </Link>
+        </section>
+
         {/* Career Narrative */}
         <section aria-labelledby="narrative-heading" className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 md:gap-16">
           <div>
