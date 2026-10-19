@@ -34,9 +34,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: absoluteUrl("/experience"),
-      lastModified: "2026-07-24",
+      lastModified: "2026-10-19",
       changeFrequency: "monthly",
       priority: 0.8,
+    },
+    {
+      url: absoluteUrl("/work/cybersecurity-ai-engineering"),
+      lastModified: "2026-10-19",
+      changeFrequency: "monthly",
+      priority: 0.72,
     },
     {
       url: absoluteUrl("/about"),
