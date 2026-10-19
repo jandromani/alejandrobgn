@@ -184,6 +184,43 @@ export default function BankingModernizationPage() {
           </ol>
         </section>
 
+        <section className="space-y-6" aria-labelledby="anatomy-interlock">
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">Engineering anatomy / interactive mechanism</p>
+            <h2 id="anatomy-interlock" className="mt-3 text-2xl font-semibold md:text-3xl">
+              The source-to-evidence interlock
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
+              An isometric three-pin mechanism generated with the original MIT-licensed
+              <a href="https://github.com/wheresryan22/anatomy" target="_blank" rel="noopener noreferrer" className="mx-1 underline decoration-border underline-offset-4 hover:text-foreground">Anatomy kit</a>.
+              Toggle lineage, contract and repeatability, then test whether the proof carriage can move.
+              The controls model review criteria, not a live banking environment.
+            </p>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-border bg-[#f6f8f5]">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#d7e1da] bg-[#eef3ee] px-4 py-3">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-[#263b34]">
+                Actual Anatomy geometry / illustrated quality gates
+              </span>
+              <a href="/anatomy/figures/factory.html" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-[#365b3d] underline underline-offset-4">
+                Open full-size figure →
+              </a>
+            </div>
+            <iframe
+              title="Interactive native Anatomy isometric machine with source lineage, contract and repeatability pins"
+              src="/anatomy/figures/factory.html"
+              sandbox="allow-scripts"
+              loading="lazy"
+              className="block h-[620px] w-full border-0 md:h-[700px]"
+            />
+          </div>
+          <p className="max-w-4xl text-xs leading-6 text-muted-foreground">
+            Controls: click the three pins or press 1, 2, 3 in the figure, then Space to test or Escape to reset.
+            The mechanism is generated from the upstream geometry library (Ryan, MIT). Its states and interlock
+            results are invented for explanation; they do not validate functional parity or customer acceptance.
+          </p>
+        </section>
+
         <section className="grid gap-4 lg:grid-cols-2" aria-label="Contribution and evidence">
           <div className="rounded-xl border border-border bg-card p-7 md:p-8">
             <div className="flex items-center gap-3"><Wrench size={21} className="text-signal-green" aria-hidden="true" /><h2 className="text-xl font-semibold">My architectural contribution</h2></div>
