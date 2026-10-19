@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { ArrowRight, CheckCircle2, MapPin } from "lucide-react"
+import { systems } from "@/lib/systems-data"
 import type { Metadata } from "next"
 import { JsonLd } from "@/components/json-ld"
 import { absoluteUrl, breadcrumbJsonLd, createPageMetadata, personId, websiteId } from "@/lib/seo"
@@ -186,7 +187,7 @@ export default function ExperiencePage() {
           {[
             { n: "11+",   label: "Years engineering" },
             { n: "7",     label: "Professional chapters" },
-            { n: "8",     label: "Public systems to inspect" },
+            { n: String(systems.length), label: "Catalogue entries" },
             { n: "4",     label: "AI system domains" },
           ].map((stat) => (
             <div key={stat.label} className="bg-card px-6 py-5 space-y-1">
