@@ -247,7 +247,7 @@ export function HomeOperatingDossier() {
 
           <dl className="relative mt-12 grid grid-cols-2 border-t border-border pt-5 md:ml-12 md:grid-cols-4">
             {[
-              ["8", "systems", "built", "text-foreground"],
+              [String(systems.length), "catalogue", "entries", "text-foreground"],
               [String(publicCount), "public", "surfaces", "text-[#5b8f00] dark:text-signal-green"],
               [String(openCount), "open-source", "roots", "text-cyan-700 dark:text-signal-cyan"],
               ["11+", "years", "engineering", "text-foreground"],
@@ -278,7 +278,7 @@ export function HomeOperatingDossier() {
               </span>
               <span className="hidden items-center gap-2 text-muted-foreground sm:flex">
                 <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
-                8 systems
+                {graphSystems.length} mapped nodes
               </span>
             </div>
           </div>
@@ -290,7 +290,7 @@ export function HomeOperatingDossier() {
           <div
             className="relative mt-2 hidden h-[530px] lg:block"
             role="group"
-            aria-label="Conceptual topology of eight portfolio systems connected to a shared production AI operating thesis"
+            aria-label={`Conceptual topology of ${graphSystems.length} featured portfolio systems connected to a shared AI operating thesis`}
           >
             <svg viewBox="0 0 1000 600" className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true">
               <defs>
