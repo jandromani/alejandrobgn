@@ -1,3 +1,4 @@
+import { RelatedEvidence } from "@/components/related-evidence"
 import { notFound } from "next/navigation"
 import { getArticleBySlug, pillarLabels, articles } from "@/data/writing"
 import { Button } from "@/components/ui/button"
@@ -155,6 +156,7 @@ export default async function WritingArticlePage({ params }: Props) {
 
       </div>
       </div>
+      <RelatedEvidence id={`writing:${article.slug}`} />
     </>
   )
 }
