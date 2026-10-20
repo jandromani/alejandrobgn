@@ -1,3 +1,4 @@
+import { RelatedEvidence } from "@/components/related-evidence"
 import { EnterpriseSyntheticEvidence } from "@/components/enterprise-synthetic-evidence"
 import Link from "next/link"
 import type { Metadata } from "next"
@@ -280,6 +281,7 @@ export default function BankingModernizationPage() {
           </Link>
         </footer>
       </article>
+      <RelatedEvidence id={`case:banking-modernization`} />
     </main>
   )
 }
