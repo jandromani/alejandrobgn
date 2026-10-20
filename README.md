@@ -8,11 +8,12 @@
 
 This is not a downloadable CV wrapped in a landing page. It is an evidence-led portfolio about designing, shipping and governing production AI systems: their interfaces, architectures, operating limits, traces and economic consequences.
 
-The site connects three kinds of evidence:
+The site connects four kinds of evidence:
 
-- **Systems** — ten product and infrastructure case studies with deliberately honest preview states.
+- **Systems** — product and infrastructure case studies with deliberately honest preview states.
+- **Labs** — eight original browser artifacts, their captured interfaces, and explicit runtime/QA limitations.
 - **Writing** — eight long-form technical field notes on agent governance, orchestration, observability, safety, entropy and AI platform economics.
-- **Evolution** — an interactive timeline that shows how earlier product, data and engineering work compounds into the current AI practice.
+- **Evolution** — 201 documented records: 184 reconstructed historical entries and 17 later milestones, each presented with its evidence limits rather than as equivalent products.
 
 ## Design principles
 
@@ -44,7 +45,9 @@ Notable routes:
 
 - `/systems` and `/systems/[slug]` — system index and evidence-rich case studies
 - `/writing` and `/writing/[slug]` — technical journal and long-form articles
-- `/evolution` — 184-project learning timeline and capability map
+- `/evolution` — 201-record learning timeline and capability map (184 historical reconstructions + 17 later milestones)
+- `/labs` and `/labs/[slug]` — eight preserved standalone HTML experiments, Chromium captures and scope-limited QA notes
+- `/publications` — independent editorial issues and the original Mateo visual-book reader
 - `/about` — professional lineage rendered as a systems map
 - `/api/og` — dynamic Open Graph artwork for profile, system and article sharing
 
@@ -65,6 +68,7 @@ Production checks:
 pnpm build
 pnpm typecheck
 node scripts/seo-audit.mjs
+node scripts/evidence-integrity.mjs
 ```
 
 ## Stack
