@@ -44,6 +44,7 @@ export type EvolutionRecord = {
   autonomyLabel: string
   complexityScore: number
   evidenceSurface: string
+  provenance?: {kind:"public-repository"|"preserved-html"|"archived-document"|"delivery-team-account"|"historical-reference";label:string;url?:string}
   architectureFlow: string[]
   professionalSignal: string
   whyItMatters: string
@@ -52,6 +53,16 @@ export type EvolutionRecord = {
 }
 
 export const evolutionRecords:EvolutionRecord[] = [...(rawEvolutionData as unknown as EvolutionRecord[]), ...late2026Records]
+export const evolutionConfidenceCounts = {
+  Confirmed: evolutionRecords.filter(record => record.confidence === "Confirmed").length,
+  "Strong recall": evolutionRecords.filter(record => record.confidence === "Strong recall").length,
+  "Partial reconstruction": evolutionRecords.filter(record => record.confidence === "Partial reconstruction").length,
+} as const
+export const evolutionHistoricalCount = (rawEvolutionData as unknown as EvolutionRecord[]).length
+export const evolutionAddedCount = late2026Records.length
+if (Object.values(evolutionConfidenceCounts).reduce((a,b) => a+b,0) !== evolutionRecords.length) {
+  throw new Error("Confidence breakdown must add up to the number of evolution records")
+}
 
 export const evolutionEras = [
   {
