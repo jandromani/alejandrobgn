@@ -10,6 +10,7 @@ import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from 
 
 const navItems = [
   { name: "Systems",    href: "/systems"    },
+  { name: "Labs",       href: "/labs"       },
   { name: "Evolution",  href: "/evolution"  },
   { name: "Writing",    href: "/writing"    },
   { name: "Experience", href: "/experience" },
