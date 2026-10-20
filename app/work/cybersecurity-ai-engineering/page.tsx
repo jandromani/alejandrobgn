@@ -1,3 +1,4 @@
+import { relatedPortfolioNodes } from "@/lib/portfolio-graph"
 import { EngineeringAnatomy } from "@/components/engineering-anatomy"
 import { RelatedEvidence } from "@/components/related-evidence"
 import { EnterpriseSyntheticEvidence } from "@/components/enterprise-synthetic-evidence"
@@ -88,6 +89,11 @@ export default function CybersecurityEngineeringCasePage() {
             headline: "From an unfamiliar codebase to AI-assisted engineering in under a month",
             description,
             author: { "@id": personId },
+            mentions: relatedPortfolioNodes("case:cybersecurity-ai-engineering").map(({node}) => ({
+              "@type":"CreativeWork",
+              name:node.title,
+              url:absoluteUrl(node.href),
+            })),
             isPartOf: { "@id": websiteId },
             inLanguage: "en",
             mainEntityOfPage: absoluteUrl(urlPath),
