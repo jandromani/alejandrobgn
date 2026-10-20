@@ -1,4 +1,4 @@
-import Image from "next/image"
+import { LabCover } from "@/components/lab-cover"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { ArrowRight, ArrowUpRight, FileCode2, Github, Layers3 } from "lucide-react"
@@ -22,7 +22,7 @@ export default function LabsPage() {
             Not just code. Systems you can inspect.
           </h1>
           <p className="mt-7 max-w-3xl text-base leading-8 text-muted-foreground">
-            Eight original standalone HTML experiments — preserved rather than recreated — and a separate
+            Eight original standalone HTML experiments — preserved, with capture and QA states rather than invented success claims — and a separate
             selection of public multi-file engineering projects. Explore both kinds of evidence without
             confusing a simulated interface, a bounded experiment and a production deployment.
           </p>
@@ -49,15 +49,7 @@ export default function LabsPage() {
           {originalLabs.map((lab) => (
             <article key={lab.slug} className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-colors hover:border-foreground/35">
               <Link href={`/labs/${lab.slug}`} className="relative block h-[230px] overflow-hidden bg-[#0b121b]" aria-label={`Explore original ${lab.title} HTML laboratory`}>
-                {lab.cover ? (
-                  <Image src={lab.cover} alt={`Chromium capture from original ${lab.title} HTML`} fill sizes="(max-width:768px) 100vw, 50vw" className="object-cover object-top opacity-95 transition duration-500 group-hover:scale-[1.02]" />
-                ) : (
-                  <div className="absolute inset-0 flex flex-col justify-between bg-[radial-gradient(circle_at_75%_25%,#163f4c,transparent_42%),linear-gradient(145deg,#111e2c,#060c12)] p-7 text-white">
-                    <span className="font-mono text-xs uppercase tracking-[.16em] text-[#9fe8d5]">{lab.family} / source exhibit</span>
-                    <span className="text-3xl font-bold tracking-tight">{lab.title}</span>
-                    <span className="font-mono text-xs text-white/70">HTML original · Launch to inspect</span>
-                  </div>
-                )}
+                <LabCover slug={lab.slug} title={lab.title} family={lab.family} />
                 <span className="absolute bottom-3 left-4 rounded-md border border-white/25 bg-[#070b12]/90 px-3 py-1.5 font-mono text-xs text-white">
                   ORIGINAL HTML / NOT A RENDER
                 </span>
@@ -67,6 +59,9 @@ export default function LabsPage() {
                 <h3 className="mt-3 text-2xl font-semibold text-foreground">{lab.title}</h3>
                 <p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground">{lab.summary}</p>
                 <p className="mt-4 text-xs leading-6 text-muted-foreground">{lab.evidence}</p>
+                <p className="mt-2 text-xs leading-6 text-muted-foreground">
+                  <span className="font-semibold text-foreground">QA:</span> {lab.qaNote}
+                </p>
                 <div className="mt-6 flex flex-wrap gap-3 border-t border-border pt-5">
                   <Link href={`/labs/${lab.slug}`} className="inline-flex items-center gap-2 rounded-md bg-foreground px-4 py-3 text-sm font-semibold text-background hover:opacity-85">
                     Open live lab <ArrowRight className="h-4 w-4" />
