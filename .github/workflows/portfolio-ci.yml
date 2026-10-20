@@ -36,6 +36,8 @@ jobs:
           cache: pnpm
       - name: Resolve lockfile
         run: pnpm install --frozen-lockfile
+      - name: Audit public evidence integrity (offline)
+        run: node scripts/evidence-integrity.mjs
       - name: Check TypeScript
         run: pnpm typecheck
       - name: Generate Anatomy figures and build site
