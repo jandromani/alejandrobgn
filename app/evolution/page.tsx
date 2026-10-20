@@ -8,7 +8,7 @@ import { JsonLd } from "@/components/json-ld"
 import { absoluteUrl, createPageMetadata, personId, websiteId } from "@/lib/seo"
 
 const evolutionDescription =
-  "A public-safe reconstruction of 184 technical artefacts produced across 43 months: context engineering, products, AI reliability, agent infrastructure and governance."
+  "A public-safe reconstruction of 201 documented artefacts (184 reconstructed historical entries plus 17 later documented milestones) spanning January 2023 through October 14, 2026: context engineering, products, AI reliability, agent infrastructure and governance."
 
 export const metadata: Metadata = createPageMetadata({
   title: "AI Co-Evolution — From CONTINUA to Control Planes",
@@ -107,7 +107,7 @@ export default async function EvolutionPage({
             author: { "@id": personId },
             inLanguage: "en",
             dateCreated: "2023-01-01",
-            dateModified: "2026-07-24",
+            dateModified: "2026-10-14",
             mainEntity: {
               "@type": "ItemList",
               numberOfItems: evolutionRecords.length,
@@ -148,16 +148,16 @@ export default async function EvolutionPage({
         <div className="relative container max-w-6xl mx-auto px-4 py-20 md:py-28">
           <div className="grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-signal-green">AI Co-Evolution · Jan 2023 — Jul 2026</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-signal-green">AI Co-Evolution · Jan 2023 — 14 Oct 2026</p>
               <h1 className="mt-6 text-5xl font-bold leading-[.96] tracking-[-0.055em] text-foreground md:text-7xl">
                 From CONTINUA
                 <span className="block text-muted-foreground">to control planes.</span>
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-                I did not suddenly pivot into AI. I began by forcing GPT-3.5 to preserve long-form context. Forty-three months later, the work had become model economics, reliability laboratories, agent runtimes and governance systems.
+                I did not suddenly pivot into AI. I began by forcing GPT-3.5 to preserve long-form context. By October 2026, the work had become verifiable AI engineering, agentic team enablement, modernisation factories and deployable interfaces.
               </p>
               <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                This is a public-safe reconstruction of that path: not 184 equivalent “products”, but 184 distinct methods, experiments, modules, systems and publications with their confidence and maturity left visible.
+                This is a public-safe, October-14-updated reconstruction of that path: not 201 equivalent “products”, but 184 reconstructed historic entries and 17 additional post-July documented milestones spanning methods, experiments, modules, systems and publications with their confidence and maturity left visible.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="#story" className="inline-flex items-center gap-2 rounded-md bg-foreground px-5 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-90">
@@ -165,7 +165,7 @@ export default async function EvolutionPage({
                   <ArrowDown className="h-4 w-4" />
                 </a>
                 <a href="#archive" className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-foreground/30">
-                  Explore all 184
+                  Explore all {evolutionRecords.length}
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
@@ -176,8 +176,8 @@ export default async function EvolutionPage({
           <div className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-4">
             {[
               ["43", "months building with AI"],
-              ["184", "distinct reconstructed artefacts"],
-              ["133", "confirmed from recovered material"],
+              [String(evolutionRecords.length), "184 historical + 17 new milestones"],
+              ["150", "historical confirmations + 17 new"],
               ["65", "recurring technologies and methods"],
             ].map(([value, label]) => (
               <div key={label} className="bg-background p-5 md:p-6">
@@ -370,12 +370,12 @@ export default async function EvolutionPage({
             </div>
             <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
               <p>
-                The archive was reconstructed from conversations and surviving artefacts. Private identities, client names, exact locations and internal codenames were generalised. Distinct subsystems remain separate when the recovered record shows a separate technical output.
+                The first 184 historical entries were reconstructed from conversations and surviving artefacts; 17 additional dated milestones were added from newer files and repositories. Private identities, client names, exact locations and internal codenames were generalised. Distinct subsystems remain separate when the recovered record shows a separate technical output.
               </p>
               <div className="grid gap-3 sm:grid-cols-3">
                 <div className="rounded-xl border border-signal-green/20 bg-signal-green/[0.04] p-4">
-                  <p className="font-mono text-2xl font-bold text-signal-green">133</p>
-                  <p className="mt-2 text-xs">Confirmed directly from recovered material.</p>
+                  <p className="font-mono text-2xl font-bold text-signal-green">150</p>
+                  <p className="mt-2 text-xs">Confirmed historical entries plus 17 documented milestones added through Oct 14.</p>
                 </div>
                 <div className="rounded-xl border border-signal-cyan/20 bg-signal-cyan/[0.04] p-4">
                   <p className="font-mono text-2xl font-bold text-signal-cyan">48</p>
