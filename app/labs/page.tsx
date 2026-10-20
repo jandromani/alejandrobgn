@@ -1,3 +1,4 @@
+import { RelatedEvidence } from "@/components/related-evidence"
 import { LabCover } from "@/components/lab-cover"
 import Link from "next/link"
 import type { Metadata } from "next"
@@ -104,6 +105,7 @@ export default function LabsPage() {
           </div>
         </div>
       </section>
+      <RelatedEvidence id="index:labs" />
     </main>
   )
 }
