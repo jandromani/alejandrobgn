@@ -83,6 +83,64 @@ export default function AboutPage() {
     <section className="container mx-auto max-w-6xl space-y-16 px-4 py-20">
       <div className="grid gap-8 lg:grid-cols-[.65fr_1.35fr] lg:items-start"><div><p className="font-mono text-[10px] uppercase tracking-[.2em] text-signal-green">Capability topology / 06 domains</p><h2 className="mt-3 text-4xl font-bold text-foreground">Capabilities backed by systems.</h2><p className="mt-4 text-sm leading-7 text-muted-foreground">No skill bars. Each domain connects to software, evidence or long-form engineering published in this portfolio.</p></div><div className="border-t border-border">{capabilityDomains.map(([name,detail],i)=><div key={name} className="grid gap-2 border-b border-border py-5 md:grid-cols-[36px_220px_1fr]"><span className="font-mono text-[9px] text-signal-green">{String(i+1).padStart(2,"0")}</span><h3 className="text-sm font-semibold text-foreground">{name}</h3><p className="font-mono text-[10px] leading-5 text-muted-foreground">{detail}</p></div>)}</div></div>
 
+      <section id="compounding-advantage" aria-labelledby="compounding-advantage-heading" className="space-y-8">
+        <div className="grid gap-6 md:grid-cols-[.8fr_1.2fr] md:items-end">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[.18em] text-[#587f00] dark:text-signal-green">The compounding advantage</p>
+            <h2 id="compounding-advantage-heading" className="mt-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Not a pivot. A stack of capabilities.
+            </h2>
+          </div>
+          <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
+            My work in AI builds on geographic systems, enterprise backends and technical leadership.
+            Each chapter introduced a way of reasoning that now helps me design and deliver agent-assisted engineering.
+            The value comes from combining them, not from collecting technologies.
+          </p>
+        </div>
+        <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <li className="relative rounded-xl border border-border bg-card p-6">
+              <p className="font-mono text-xs uppercase tracking-wider text-[#587f00] dark:text-signal-green">01 / GIS and geography</p>
+              <h3 className="mt-4 text-lg font-semibold text-foreground">Spatial thinking</h3>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">Reading relationships, constraints and dependencies in complex environments.</p>
+              <p className="mt-5 border-t border-border pt-4 text-sm leading-6 text-foreground">Understand the shape of the problem before proposing a solution.</p>
+            </li>
+
+            <li className="relative rounded-xl border border-border bg-card p-6">
+              <p className="font-mono text-xs uppercase tracking-wider text-[#587f00] dark:text-signal-green">02 / Java, services and distributed systems</p>
+              <h3 className="mt-4 text-lg font-semibold text-foreground">Enterprise engineering</h3>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">Working with legacy software, reliability constraints and long-lived integration points.</p>
+              <p className="mt-5 border-t border-border pt-4 text-sm leading-6 text-foreground">Build systems that must work beyond a demo.</p>
+            </li>
+
+            <li className="relative rounded-xl border border-border bg-card p-6">
+              <p className="font-mono text-xs uppercase tracking-wider text-[#587f00] dark:text-signal-green">03 / Delivery and engineering teams</p>
+              <h3 className="mt-4 text-lg font-semibold text-foreground">Technical leadership</h3>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">Owning technical decisions, shared standards, collaboration and the consequences of implementation.</p>
+              <p className="mt-5 border-t border-border pt-4 text-sm leading-6 text-foreground">Make an approach usable by people beyond the original builder.</p>
+            </li>
+
+            <li className="relative rounded-xl border border-border bg-card p-6">
+              <p className="font-mono text-xs uppercase tracking-wider text-[#587f00] dark:text-signal-green">04 / AI workflows and platforms</p>
+              <h3 className="mt-4 text-lg font-semibold text-foreground">Agentic architecture</h3>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">Bringing models, tools, context, permissions, reviews and evidence into one controlled engineering process.</p>
+              <p className="mt-5 border-t border-border pt-4 text-sm leading-6 text-foreground">Move from experiments to bounded, reviewable execution.</p>
+            </li>
+        </ol>
+        <div className="flex flex-col gap-5 rounded-xl border border-border bg-secondary/40 p-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-wider text-[#587f00] dark:text-signal-green">What that combination enables</p>
+            <p className="mt-2 max-w-2xl text-sm leading-7 text-foreground">
+              I can reason from domain context and source dependencies to architecture, working software,
+              team adoption and explicit evidence — with responsibility for the handoffs between each.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/experience" className="rounded-md border border-border bg-background px-4 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">Professional record ↗</Link>
+            <Link href="/work/cybersecurity-ai-engineering" className="rounded-md border border-border bg-background px-4 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">Enterprise example ↗</Link>
+          </div>
+        </div>
+      </section>
+
       <div className="relative overflow-hidden border-y border-border py-12"><div className="absolute inset-0 bg-grid opacity-15"/><div className="relative grid gap-8 md:grid-cols-[180px_1fr]"><div><p className="font-mono text-6xl font-bold text-foreground">184</p><p className="mt-2 font-mono text-[9px] uppercase tracking-[.16em] text-muted-foreground">public-safe artefacts<br/>43 months</p></div><div><p className="font-mono text-[10px] uppercase tracking-[.2em] text-signal-green">AI co-evolution / Jan 2023—Jul 2026</p><h2 className="mt-3 text-3xl font-bold text-foreground">I did not suddenly pivot into AI.</h2><p className="mt-4 max-w-3xl text-sm leading-7 text-muted-foreground">I began by forcing early models to maintain long-form context through continuation protocols and conversational state. The collaboration moved through GIS, APIs, model economics, safety, multi-agent systems, software factories and governance. The current systems are the compressed result of that history.</p><Link href="/evolution" className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[.15em] text-signal-green">Inspect the complete evolution <ArrowUpRight className="h-3.5 w-3.5"/></Link></div></div></div>
 
       <section aria-labelledby="connect-heading" className="grid gap-8 border-t border-border pt-12 md:grid-cols-[1fr_auto] md:items-end"><div><p className="font-mono text-[10px] uppercase tracking-[.2em] text-signal-cyan">Open channel</p><h2 id="connect-heading" className="mt-3 text-4xl font-bold text-foreground">Bring me the system that is difficult to explain.</h2><p className="mt-4 max-w-2xl text-muted-foreground">Currently Tech Lead AI at knowmad mood in Madrid. My focus is agentic engineering, governed AI platforms and complex software modernization.</p></div><div className="flex gap-2"><a href="mailto:alejandrobgn@gmail.com" aria-label="Email" className="contact-icon"><Mail/></a><a href="https://linkedin.com/in/alejandro-bgn/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="contact-icon"><Linkedin/></a><a href="https://github.com/jandromani" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="contact-icon"><Github/></a></div></section>
