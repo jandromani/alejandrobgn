@@ -202,44 +202,42 @@ export function HomeOperatingDossier() {
               <span className="flex h-4 w-4 items-center justify-center border border-border bg-card">
                 <span className="h-1.5 w-1.5 bg-signal-green" />
               </span>
-              AI systems dossier · Evidence-led portfolio
+              Alejandro Baratas · Technical leadership dossier
             </p>
             <p className="mt-6 text-[10px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
-              Alejandro BGN · AI Tech Lead · Madrid / Remote
+              AI Tech Lead · Agentic engineering · Madrid / Remote
             </p>
 
             <h1
               id="hero-heading"
               className="mt-6 max-w-[590px] text-[clamp(3rem,5.4vw,5.5rem)] font-bold leading-[0.96] tracking-[-0.06em] text-foreground"
             >
-              AI systems
+              From complex
               <br />
-              that survive
+              engineering to
               <br />
               <span className="text-[#5b8f00] dark:text-signal-green dark:drop-shadow-[0_0_22px_hsl(var(--signal-green)/.2)]">
-                contact with
-                <br />
-                reality.
+                operational AI.
               </span>
             </h1>
 
             <p className="mt-7 max-w-lg text-base leading-7 text-muted-foreground">
-              I design and ship AI platforms across agentic systems, governance, observability, and vertical products — from enterprise backends to public prototypes.
+              I lead the architecture and adoption of AI engineering workflows: turning unfamiliar codebases, fragmented knowledge and complex requirements into systems that teams can inspect, review and operate.
             </p>
 
             <div className="mt-8 grid grid-cols-1 gap-3 sm:flex sm:flex-wrap">
               <Link
-                href="/systems"
+                href="#enterprise-outcomes"
                 className="inline-flex items-center justify-center gap-3 rounded-md bg-[#90d900] px-6 py-3 text-sm font-semibold text-[#090b0f] transition-colors hover:bg-[#9cec00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                Explore systems
+                Explore enterprise work
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               <a
-                href="#evidence-ledger"
+                href="/systems"
                 className="inline-flex items-center justify-center gap-3 rounded-md border border-border bg-card/65 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-foreground/35 hover:bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                Inspect evidence
+                Inspect engineering systems
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
@@ -247,10 +245,10 @@ export function HomeOperatingDossier() {
 
           <dl className="relative mt-12 grid grid-cols-2 border-t border-border pt-5 md:ml-12 md:grid-cols-4">
             {[
-              [String(systems.length), "catalogue", "entries", "text-foreground"],
-              [String(publicCount), "public", "surfaces", "text-[#5b8f00] dark:text-signal-green"],
-              [String(openCount), "open-source", "roots", "text-cyan-700 dark:text-signal-cyan"],
+              ["<1mo", "AI workflow", "activation¹", "text-[#5b8f00] dark:text-signal-green"],
+              ["4wk", "reference", "modernization PoC¹", "text-foreground"],
               ["11+", "years", "engineering", "text-foreground"],
+              [String(systems.length), "catalogue", "entries", "text-cyan-700 dark:text-signal-cyan"],
             ].map(([value, first, second, color], index) => (
               <div key={value + first} className={`py-2 ${index > 0 ? "border-l border-border pl-5" : ""}`}>
                 <dt className={`font-mono text-3xl font-bold ${color}`}>{value}</dt>
@@ -262,6 +260,9 @@ export function HomeOperatingDossier() {
               </div>
             ))}
           </dl>
+          <p className="mt-3 text-[11px] leading-5 text-muted-foreground md:ml-12">
+            ¹ Delivery-team-reported engagement timelines; neither is an externally audited productivity metric.
+          </p>
         </div>
 
         <div className="relative min-h-[640px] min-w-0 px-5 py-8 md:px-8">
