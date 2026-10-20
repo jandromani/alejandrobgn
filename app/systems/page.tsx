@@ -1,3 +1,4 @@
+import { RelatedEvidence } from "@/components/related-evidence"
 import type { Metadata } from "next"
 import { SystemsIndex } from "@/components/systems-index"
 import { JsonLd } from "@/components/json-ld"
@@ -45,6 +46,7 @@ export default function SystemsPage() {
         ]}
       />
       <SystemsIndex />
+      <RelatedEvidence id="index:systems" />
     </>
   )
 }
