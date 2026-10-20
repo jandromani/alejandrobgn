@@ -1,3 +1,4 @@
+import { relatedPortfolioNodes } from "@/lib/portfolio-graph"
 import { EngineeringAnatomy } from "@/components/engineering-anatomy"
 import { RelatedEvidence } from "@/components/related-evidence"
 import { EnterpriseSyntheticEvidence } from "@/components/enterprise-synthetic-evidence"
@@ -88,6 +89,11 @@ export default function BankingModernizationPage() {
             headline: "A deterministic modernization factory from legacy source to evidence",
             description: summary,
             author: { "@id": personId },
+            mentions: relatedPortfolioNodes("case:banking-modernization").map(({node}) => ({
+              "@type":"CreativeWork",
+              name:node.title,
+              url:absoluteUrl(node.href),
+            })),
             isPartOf: { "@id": websiteId },
             mainEntityOfPage: absoluteUrl(route),
             inLanguage: "en",
