@@ -3,7 +3,7 @@
 from pathlib import Path
 import json
 from PIL import Image
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, TimeoutError as BrowserTimeout
 
 ROOT = Path(__file__).resolve().parent.parent
 ORIGINALS = ROOT / "public/labs/original"
@@ -34,25 +34,50 @@ with sync_playwright() as playwright:
         page = browser.new_page(viewport={"width": 1440, "height": 900}, device_scale_factor=1)
         errors = []
         page.on("pageerror", lambda exc: errors.append(str(exc)[:220]))
+        # A timed-out DOMContentLoaded can still leave a useful partial interface.
+        # Keep that separate from uncaught JS errors and from verified end-to-end behavior.
+        item["dom_load_timed_out"] = False
         try:
-            # set_content is safe for offline examination; source files remain untouched.
             page.set_content(path.read_text(encoding="utf-8", errors="replace"),
-                             wait_until="domcontentloaded", timeout=20000)
-            page.wait_for_timeout(1900)
-            body = page.locator("body").inner_text(timeout=6000).strip()
+                             wait_until="domcontentloaded", timeout=5500)
+        except BrowserTimeout:
+            item["dom_load_timed_out"] = True
+            item["limitations"] += "; DOMContentLoaded timed out, likely due to external scripts"
+        except Exception as exc:
+            item["runtime_errors"].append(str(exc)[:220])
+        try:
+            page.wait_for_timeout(850)
+            body = page.locator("body").inner_text(timeout=4000).strip()
             item["title"] = page.title()[:130]
             item["body_characters"] = len(body)
             item["interactive_elements"] = page.locator("button, input, select, [role='button']").count()
-            item["runtime_errors"] = errors[:5]
+            item["runtime_errors"] = (item["runtime_errors"] + errors)[:5]
             item["rendered"] = len(body) > 100 and len(item["title"]) > 2
             if item["rendered"]:
-                png = page.screenshot(type="png", animations="disabled", timeout=15000)
+                png = page.screenshot(type="png", animations="disabled", timeout=12000)
                 import io
                 im = Image.open(io.BytesIO(png)).convert("RGB")
                 im.save(COVERS / (slug + ".webp"), format="WEBP", quality=82, method=5)
                 item["cover_generated"] = True
         except Exception as exc:
-            item["runtime_errors"] = (errors + [str(exc)[:220]])[:5]
+            item["runtime_errors"] = (item["runtime_errors"] + errors + [str(exc)[:220]])[:5]
+        if slug == "openspec":
+            item["original_source_error"] = item["runtime_errors"][:]
+            item["variant_path"] = "public/labs/runtime/openspec-sdd-lab-fixed.html"
+            fixed = ROOT / item["variant_path"]
+            if fixed.exists():
+                check = browser.new_page(viewport={"width": 1440, "height": 900})
+                variant_errors = []
+                check.on("pageerror", lambda exc: variant_errors.append(str(exc)[:220]))
+                try:
+                    check.set_content(fixed.read_text(encoding="utf-8", errors="replace"), wait_until="domcontentloaded", timeout=5500)
+                    check.wait_for_timeout(400)
+                    item["patched_runtime_rendered"] = len(check.locator("body").inner_text(timeout=3000)) > 100
+                    item["patched_runtime_errors"] = variant_errors[:5]
+                except Exception as exc:
+                    item["patched_runtime_rendered"] = False
+                    item["patched_runtime_errors"] = (variant_errors + [str(exc)[:220]])[:5]
+                check.close()
         finally:
             page.close()
         results.append(item)
