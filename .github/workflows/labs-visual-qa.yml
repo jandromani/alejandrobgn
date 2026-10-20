@@ -48,7 +48,27 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/labs/covers/*.webp public/labs/qa-report.json
-          if ! git diff --staged --quiet; then
-            git commit -m "assets(labs): capture real Chromium previews and QA manifest"
-            git push origin HEAD:master
+          if git diff --staged --quiet; then
+            echo "No QA artifact changes to publish"
+            exit 0
           fi
+          git commit -m "assets(labs): capture real Chromium previews and QA manifest"
+          # Source commits may land on master while Chromium is rendering.
+          # Rebase the generated-artifact commit rather than force-pushing or
+          # dropping source changes from another author.
+          for attempt in 1 2 3; do
+            if git push origin HEAD:master; then
+              echo "Browser QA artifacts published"
+              exit 0
+            fi
+            echo "Master advanced during capture; rebasing (attempt ${attempt}/3)"
+            git fetch origin master
+            if ! git rebase origin/master; then
+              git rebase --abort || true
+              echo "::error::QA artifact publish conflict. Download the run artifact; source changes were not overwritten."
+              exit 1
+            fi
+            sleep "$((attempt * 2))"
+          done
+          echo "::error::Could not publish QA artifacts after three attempts. Run artifact remains available."
+          exit 1
