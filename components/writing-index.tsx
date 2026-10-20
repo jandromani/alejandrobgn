@@ -33,6 +33,21 @@ export function WritingIndex(){
       </div>
     </header>
 
+    <section aria-label="Independent editorial publications" className="border-b border-border bg-card/20">
+      <div className="container mx-auto flex max-w-[1320px] flex-col justify-between gap-4 px-4 py-7 md:flex-row md:items-center">
+        <div>
+          <p className="font-mono text-xs uppercase tracking-[.15em] text-[#587f00] dark:text-signal-green">Beyond engineering field notes</p>
+          <h2 className="mt-2 text-lg font-semibold text-foreground">The Intelligence Ahead + Mateo y el Algoritmo</h2>
+          <p className="mt-2 text-sm leading-7 text-muted-foreground">
+            Five independent magazine issues, 50 editorial pages and a 124-page illustrated book. Separate publications, not technical articles.
+          </p>
+        </div>
+        <Link href="/publications" className="inline-flex shrink-0 items-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-semibold text-foreground hover:border-foreground/35">
+          Explore publications <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
+    </section>
+
     <div className="container mx-auto max-w-[1320px] px-4 py-8">
       {!featured?<p className="py-24 text-center font-mono text-sm text-muted-foreground">No field notes in this category.</p>:<>
         <Link href={`/writing/${featured.slug}`} className="journal-feature group relative block overflow-hidden border border-border bg-[#07090d] text-white transition-colors hover:border-signal-green/50">
