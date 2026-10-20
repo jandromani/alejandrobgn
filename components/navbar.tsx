@@ -13,6 +13,7 @@ const navItems = [
   { name: "Labs",       href: "/labs"       },
   { name: "Evolution",  href: "/evolution"  },
   { name: "Writing",    href: "/writing"    },
+  { name: "Publications", href: "/publications" },
   { name: "Experience", href: "/experience" },
   { name: "About",      href: "/about"      },
   { name: "Contact",    href: "/contact"    },
@@ -52,7 +53,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1" role="menubar">
+          <div className="hidden lg:flex items-center gap-1" role="menubar">
             {navItems.map((item) => {
               const isActive = pathname === item.href || pathname.startsWith(item.href + "/")
               return (
@@ -80,7 +81,7 @@ export function Navbar() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="hidden md:flex"
+                className="hidden lg:flex"
                 aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
               >
                 {theme === "dark"
@@ -107,7 +108,7 @@ export function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" aria-label="Navigation menu">
                 <SheetTitle className="sr-only">Site navigation</SheetTitle>
-                <SheetDescription className="sr-only">Navigate to systems, evolution, writing, experience, about or contact.</SheetDescription>
+                <SheetDescription className="sr-only">Navigate to systems, labs, evolution, writing, publications, experience, about or contact.</SheetDescription>
                 <nav aria-label="Mobile navigation">
                   <div className="flex flex-col gap-1 pt-6">
                     {navItems.map((item) => {
