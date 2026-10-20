@@ -1,11 +1,11 @@
-import { Mail, Linkedin, Github, Building2, Shield, BarChart3, Users, Lightbulb, Mic, CalendarDays, ExternalLink } from "lucide-react"
+import { Mail, Linkedin, Github, Building2, Users, Lightbulb, CalendarDays, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { JsonLd } from "@/components/json-ld"
 import { absoluteUrl, breadcrumbJsonLd, createPageMetadata, personId, websiteId } from "@/lib/seo"
 
-const contactDescription = "Contact Alejandro Baratas for AI architecture reviews, agent governance, technical leadership, AI platform strategy, and serious product collaborations."
+const contactDescription = "Discuss technical leadership, enterprise AI transformation and research collaboration with Alejandro Baratas."
 
 export const metadata: Metadata = createPageMetadata({
   title: "Contact Alejandro Baratas",
@@ -17,40 +17,19 @@ export const metadata: Metadata = createPageMetadata({
 
 const conversationTypes = [
   {
-    title: "Architecture review",
-    description:
-      "Technical review of AI system design, governance frameworks, or platform architecture.",
-    Icon: Building2,
-  },
-  {
-    title: "Agent governance",
-    description:
-      "Implementing safety, compliance, and observability for agentic systems in production.",
-    Icon: Shield,
-  },
-  {
-    title: "AI platform strategy",
-    description:
-      "Building sustainable, economically viable AI platforms for enterprise or startup.",
-    Icon: BarChart3,
-  },
-  {
     title: "Technical leadership",
-    description:
-      "CTO conversations, technical strategy, and scaling AI engineering teams.",
+    description: "CTO and VP Engineering conversations about architecture ownership, team enablement and difficult delivery decisions.",
     Icon: Users,
   },
   {
-    title: "Product & prototype review",
-    description:
-      "Evaluating AI product concepts or reviewing technical implementations.",
-    Icon: Lightbulb,
+    title: "Enterprise AI transformation",
+    description: "Introducing agent-assisted engineering, modernization and governance into real delivery organisations.",
+    Icon: Building2,
   },
   {
-    title: "Workshop or keynote",
-    description:
-      "Speaking engagement about AI systems, governance, or architecture for your team or event.",
-    Icon: Mic,
+    title: "Research and collaboration",
+    description: "Deep technical exchange, applied research, open-source work, publications and selected speaking engagements.",
+    Icon: Lightbulb,
   },
 ]
 
@@ -84,17 +63,17 @@ export default function ContactPage() {
         <header className="space-y-5">
           <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest">Contact</p>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground text-balance leading-tight">
-            Bring me the system that is difficult to explain.
+            Let’s discuss engineering responsibility.
           </h1>
           <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-            If you have a system that is broken, an AI deployment that does not make sense, or an architecture challenge that keeps you up at night — let&apos;s talk.
+            I am currently leading AI engineering work. I welcome selective conversations about ambitious technical responsibility, complex enterprise systems and research with a clear purpose.
           </p>
         </header>
 
         {/* Conversation Types */}
         <section aria-labelledby="conversations-heading" className="space-y-6">
           <h2 id="conversations-heading" className="text-xl font-bold text-foreground">
-            What we can talk about
+            Three reasons to start a conversation
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {conversationTypes.map((type) => (
@@ -110,39 +89,43 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Primary CTA — calendar */}
+        {/* Executive conversion: clear email first, direct booking second, optional embed. */}
         <section aria-labelledby="contact-heading" className="space-y-6 border-t border-border pt-12">
-          <h2 id="contact-heading" className="text-xl font-bold text-foreground">Book a session</h2>
-          <p className="text-muted-foreground max-w-xl">
-            Pick a slot and we talk. 30 minutes. No email back-and-forth.
+          <p className="font-mono text-xs uppercase tracking-wider text-[#587f00] dark:text-signal-green">Make the first exchange useful</p>
+          <h2 id="contact-heading" className="text-2xl font-bold text-foreground">Start with the problem, not a pitch.</h2>
+          <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
+            A short note with the context, the engineering challenge and the type of responsibility you have in mind
+            is enough. If a conversation is more useful, you can choose a 30-minute slot directly.
           </p>
-
-          {/* Calendly embed */}
-          <div className="rounded-lg overflow-hidden border border-border">
-            <div className="aspect-video md:aspect-auto md:h-[600px]">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <a href="mailto:alejandrobgn@gmail.com?subject=Engineering%20leadership%20conversation"
+              className="group flex flex-col justify-between rounded-xl border border-border bg-card p-6 transition-colors hover:border-foreground/40">
+              <span className="flex items-center gap-3 text-base font-semibold text-foreground"><Mail className="h-5 w-5 text-[#587f00] dark:text-signal-green" aria-hidden="true" /> Write directly</span>
+              <span className="mt-3 text-sm leading-6 text-muted-foreground">Best for describing a role, system challenge or collaboration in advance.</span>
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-foreground">alejandrobgn@gmail.com <ArrowRight className="h-4 w-4" aria-hidden="true" /></span>
+            </a>
+            <a href="https://calendly.com/alejandrobgn/30min" target="_blank" rel="noopener noreferrer"
+              className="group flex flex-col justify-between rounded-xl border border-border bg-card p-6 transition-colors hover:border-foreground/40">
+              <span className="flex items-center gap-3 text-base font-semibold text-foreground"><CalendarDays className="h-5 w-5 text-[#587f00] dark:text-signal-green" aria-hidden="true" /> Book a conversation</span>
+              <span className="mt-3 text-sm leading-6 text-muted-foreground">Thirty minutes to understand the context and decide whether there is a useful next step.</span>
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-foreground">Open booking page <ArrowRight className="h-4 w-4" aria-hidden="true" /></span>
+            </a>
+          </div>
+          <details className="group rounded-xl border border-border bg-card/30">
+            <summary className="cursor-pointer px-5 py-4 text-sm font-medium text-foreground hover:text-[#587f00] dark:hover:text-signal-green">
+              Prefer to use the calendar here? Expand the embedded scheduler.
+            </summary>
+            <div className="h-[620px] border-t border-border">
               <iframe
                 src="https://calendly.com/alejandrobgn/30min?embed_domain=alejandrobgn.vercel.app&embed_type=Inline"
                 width="100%"
                 height="100%"
-                frameBorder="0"
-                title="Book a 30-minute session with Alejandro"
+                loading="lazy"
+                title="Optional embedded booking calendar for a 30-minute conversation"
                 className="bg-background"
               />
             </div>
-          </div>
-
-          <p className="text-xs text-muted-foreground text-center">
-            Calendar not loading?{" "}
-            <a
-              href="https://calendly.com/alejandrobgn/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground hover:underline"
-            >
-              Open Calendly directly
-              <span className="sr-only">(opens in new tab)</span>
-            </a>
-          </p>
+          </details>
         </section>
 
         {/* Secondary channels */}
@@ -184,7 +167,7 @@ export default function ContactPage() {
         <div className="p-6 border border-border rounded-lg bg-card space-y-2">
           <p className="text-sm font-semibold text-foreground">A note on what I take on</p>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Whether you need architecture review, technical leadership, or someone to help you think through an AI system — I am interested in conversations where the work is technically challenging and the outcomes matter.
+            I focus on conversations involving real engineering ownership, explicit technical constraints and outcomes worth verifying. I am not advertising indiscriminate availability.
           </p>
         </div>
 
