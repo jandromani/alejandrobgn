@@ -78,8 +78,7 @@ with sync_playwright() as playwright:
                     item["patched_runtime_rendered"] = False
                     item["patched_runtime_errors"] = (variant_errors + [str(exc)[:220]])[:5]
                 check.close()
-        finally:
-            page.close()
+        page.close()
         results.append(item)
     browser.close()
 
