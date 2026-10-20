@@ -5,6 +5,7 @@ export type OriginalLab = {
   eyebrow: string
   summary: string
   demo: string
+  archive?: string
   cover?: string
   evidence: string
   inspect: readonly string[]
@@ -110,13 +111,14 @@ export const originalLabs: readonly OriginalLab[] = [
     family: "Agentic",
     eyebrow: "SPEC-DRIVEN DEVELOPMENT / PYODIDE",
     summary: "Interactive browser laboratory exploring agent roles, specifications, human reviews and controlled execution.",
-    demo: "/labs/original/openspec-sdd-lab.html",
-    evidence: "Original openspec_sdd_lab.html; its implementation explicitly references Pyodide.",
+    demo: "/labs/runtime/openspec-sdd-lab-fixed.html",
+    archive: "/labs/original/openspec-sdd-lab.html",
+    evidence: "Original openspec_sdd_lab.html preserved unchanged. The public runtime copy fixes a guide-button selector located outside #app; Pyodide is not confirmed end to end.",
     inspect: ["Specification-first lifecycle", "Agents, gates and validation flow", "In-browser Pyodide execution where supported"],
     dependencies: "Pyodide and remote JavaScript dependencies may require network access; example output is illustrative.",
     sourceLabel: "Original archive · Browser Python",
     qa: "local-dom-render",
-    qaNote: "Offline Chromium shows the UI but records an initialization exception; WebGL and Pyodide remain unverified.",
+    qaNote: "Offline Chromium reproduced the original guide selector error and verified that the isolated one-line runtime fix removes that exception. WebGL and Pyodide remain unverified.",
   },
   {
     slug: "entropic-agent-lab",
