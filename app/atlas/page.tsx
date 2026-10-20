@@ -53,8 +53,8 @@ export default function AtlasPage() {
         </div>
       </div>
     </header>
-    <section aria-labelledby="map-title" className="container mx-auto max-w-[1460px] px-4 py-12 md:px-7 md:py-16">
-      <h2 id="map-title" className="mb-6 text-2xl font-bold">Explore the internal graph</h2>
+    <section id="map" aria-labelledby="map-title" className="container mx-auto max-w-[1460px] px-4 py-12 md:px-7 md:py-16">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3"><h2 id="map-title" className="text-2xl font-bold">Explore the internal graph</h2><a href="/atlas/graph.json" className="text-sm font-medium underline underline-offset-4">Read machine-readable graph JSON ↗</a></div>
       <PortfolioAtlasExplorer nodes={portfolioNodes} edges={portfolioEdges}/>
     </section>
     <section className="border-t border-border bg-card/20">
