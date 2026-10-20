@@ -5,7 +5,7 @@ export const siteConfig = {
   legalName: "Alejandro Baratas García-Nieto",
   title: "Alejandro BGN — AI Tech Lead & Agentic Systems Architect",
   description:
-    "AI Tech Lead and systems architect building agentic platforms, governance layers, observability tooling, AI reliability systems, and vertical AI products.",
+    "AI Tech Lead and systems architect turning complex enterprise engineering into operational AI: agent-assisted delivery, legacy modernization and governed platforms.",
   url: "https://alejandrobgn.vercel.app",
   locale: "en_US",
   language: "en",
