@@ -1,3 +1,4 @@
+import { EnterpriseSyntheticEvidence } from "@/components/enterprise-synthetic-evidence"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { ArrowLeft, ArrowRight, CheckCircle2, FileCheck2, GitPullRequest, Layers3, Users } from "lucide-react"
@@ -202,6 +203,8 @@ export default function CybersecurityEngineeringCasePage() {
             ))}
           </div>
         </section>
+
+        <EnterpriseSyntheticEvidence variant="cybersecurity" />
 
         <section aria-labelledby="mechanism-title">
           <div className="flex items-start gap-3">
