@@ -13,8 +13,8 @@
     "node": ">=20.9.0"
   },
   "scripts": {
-    "build": "node scripts/build-native-anatomy.mjs && next build",
-    "dev": "node scripts/build-native-anatomy.mjs && next dev",
+    "build": "next build",
+    "dev": "next dev",
     "typecheck": "tsc --noEmit",
     "start": "next start"
   },
