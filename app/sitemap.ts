@@ -13,6 +13,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: absoluteUrl("/atlas"),
+      lastModified: "2026-10-21",
+      changeFrequency: "weekly",
+      priority: 0.87,
+    },
+    {
       url: absoluteUrl("/systems"),
       lastModified: "2026-07-24",
       changeFrequency: "weekly",
