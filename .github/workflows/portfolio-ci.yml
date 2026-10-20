@@ -42,3 +42,5 @@ jobs:
         run: pnpm typecheck
       - name: Generate Anatomy figures and build site
         run: pnpm build
+      - name: Check graph, deep links and Anatomy artifacts
+        run: node scripts/check-site-integrity.mjs
