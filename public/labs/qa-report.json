@@ -1,7 +1,7 @@
 {
-  "method": "Seven original HTMLs inspected by offline Chromium set_content plus screenshots; RoomForge source preserved, browser QA pending",
+  "method": "Local Chromium DOM/render inspection for eight originals; separate validation for OpenSpec patched runtime. Screenshot generation workflow included.",
   "date": "2026-10-20",
-  "limitation": "Offline DOM smoke only. Full WebGL, network dependencies, Pyodide, API keys and end-to-end interactions not validated.",
+  "limitation": "No live production-browser testing, external CDNs/APIs, WebGL performance, Pyodide execution or complete interactive task flows verified. Partial RoomForge render is not a full load.",
   "labs": [
     {
       "slug": "assetgraph",
@@ -23,8 +23,12 @@
     },
     {
       "slug": "roomforge",
-      "state": "source-preserved",
-      "browser": "not tested in this run"
+      "state": "partial-dom-render",
+      "browser": "offline Chromium set_content, DOMContentLoaded timeout",
+      "title": "RoomForge V7 — Video → 3D Home",
+      "interactive_elements": 12,
+      "uncaught_errors": 0,
+      "note": "Static DOM and screenshot captured after DOMContentLoaded timeout due to external loading. Actual reconstruction, providers and WebGL not tested."
     },
     {
       "slug": "pumpum",
@@ -58,7 +62,14 @@
       "title": "OpenSpec SDD Lab · Context Compression Runtime",
       "interactive_elements": 22,
       "uncaught_errors": 1,
-      "error_sample": "Cannot read properties of null (reading 'addEventListener')"
+      "error_sample": "Cannot read properties of null (reading 'addEventListener')",
+      "note": "Original HTML emits null.addEventListener error; separate minimally patched runtime HTML rendered in offline Chromium with zero uncaught errors. Pyodide operations remain unverified.",
+      "patched_runtime": {
+        "path": "/labs/runtime/openspec-sdd-lab-fixed.html",
+        "local_browser": "offline DOM-rendered",
+        "uncaught_errors": 0,
+        "verified_end_to_end": false
+      }
     },
     {
       "slug": "entropic-agent-lab",
