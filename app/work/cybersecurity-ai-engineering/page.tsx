@@ -136,10 +136,13 @@ export default function CybersecurityEngineeringCasePage() {
               <p className="mt-2 text-xs leading-5 text-muted-foreground">Initial technical delivery nucleus, not the whole team</p>
             </div>
             <div className="bg-card p-5">
-              <p className="font-mono text-3xl font-bold text-foreground">Human-led</p>
-              <p className="mt-2 text-xs leading-5 text-muted-foreground">Review and acceptance remained engineering decisions</p>
+              <p className="font-mono text-3xl font-bold text-foreground">4 roles</p>
+              <p className="mt-2 text-xs leading-5 text-muted-foreground">Backend, frontend, QA and Gherkin assistance introduced in team workflows</p>
             </div>
           </div>
+          <p className="mt-4 max-w-4xl text-xs leading-6 text-muted-foreground">
+            All three figures describe the delivery team's own activity, not customer financial results or independently measured adoption. Specialist roles refer to distinct assistance workflows, not four autonomous production agents. Human review and acceptance remained mandatory.
+          </p>
         </div>
       </header>
 
