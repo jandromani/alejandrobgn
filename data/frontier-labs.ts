@@ -10,6 +10,8 @@ export type OriginalLab = {
   inspect: readonly string[]
   dependencies: string
   sourceLabel: string
+  qa: "local-dom-render" | "source-only"
+  qaNote: string
 }
 export type PlatformProject = { title: string; area: string; description: string; repo: string; evidence: string }
 
@@ -26,6 +28,8 @@ export const originalLabs: readonly OriginalLab[] = [
     inspect: ["Overhead observation and track continuity", "Confidence and evidence interpretation", "Research interface, not a claim of operational surveillance"],
     dependencies: "Standalone HTML. Some data, imagery or integrations may be illustrative, cached or require external services.",
     sourceLabel: "Original archive · Frontier V14",
+    qa: "source-only",
+    qaNote: "Original HTML and Chromium archive cover recovered; interactive flows await automated browser QA.",
   },
   {
     slug: "montageos",
@@ -39,6 +43,8 @@ export const originalLabs: readonly OriginalLab[] = [
     inspect: ["Narrative context and shot composition", "Provider and specialist orchestration", "Creative review and export surfaces"],
     dependencies: "Remote model or media generation may require external providers, credits and configuration.",
     sourceLabel: "Original archive · V6.4",
+    qa: "source-only",
+    qaNote: "Original HTML and archive cover recovered; provider integrations and editor actions have not been end-to-end tested.",
   },
   {
     slug: "roomforge",
@@ -52,6 +58,8 @@ export const originalLabs: readonly OriginalLab[] = [
     inspect: ["Spatial capture workflow", "Optional remote VGGT or SfM pathways", "3D viewer and export-oriented architecture"],
     dependencies: "Actual reconstruction and advanced splatting require suitable imagery, compute, services or a capable browser.",
     sourceLabel: "Original archive · V7",
+    qa: "source-only",
+    qaNote: "Original HTML and archive cover recovered; WebGL and remote reconstruction require browser and provider validation.",
   },
   {
     slug: "pumpum",
@@ -65,6 +73,8 @@ export const originalLabs: readonly OriginalLab[] = [
     inspect: ["Spatial navigation and camera changes", "In-world interaction and populated environment", "Real-time lighting and Three.js scene"],
     dependencies: "Requires browser WebGL and Three.js r128 delivered by a public CDN.",
     sourceLabel: "Original archive · Three.js",
+    qa: "source-only",
+    qaNote: "Original HTML and archive cover recovered; WebGL navigation and character motion need browser QA.",
   },
   {
     slug: "robotics-radar",
@@ -77,6 +87,8 @@ export const originalLabs: readonly OriginalLab[] = [
     inspect: ["Sector and supply-chain candidate screens", "Interpretation of weak links and dependencies", "Scenario inputs, not investment signals"],
     dependencies: "Research demonstration: economic figures and market assumptions require independent and current verification.",
     sourceLabel: "Original archive · October 2026",
+    qa: "local-dom-render",
+    qaNote: "Offline Chromium DOM rendered and controls were discovered; market data freshness and full interactions are unverified.",
   },
   {
     slug: "robotics-terminal",
@@ -89,6 +101,8 @@ export const originalLabs: readonly OriginalLab[] = [
     inspect: ["Comparative company analysis", "Investment scenario interfaces", "Research hypotheses versus verified market observations"],
     dependencies: "Research only: not financial advice; prices, contracts and estimates may be synthetic, historical or stale.",
     sourceLabel: "Original archive · October 2026",
+    qa: "local-dom-render",
+    qaNote: "Offline Chromium DOM rendered with buttons and inputs; scenario calculations and live data are unverified.",
   },
   {
     slug: "openspec",
@@ -101,6 +115,8 @@ export const originalLabs: readonly OriginalLab[] = [
     inspect: ["Specification-first lifecycle", "Agents, gates and validation flow", "In-browser Pyodide execution where supported"],
     dependencies: "Pyodide and remote JavaScript dependencies may require network access; example output is illustrative.",
     sourceLabel: "Original archive · Browser Python",
+    qa: "local-dom-render",
+    qaNote: "Offline Chromium shows the UI but records an initialization exception; WebGL and Pyodide remain unverified.",
   },
   {
     slug: "entropic-agent-lab",
@@ -113,6 +129,8 @@ export const originalLabs: readonly OriginalLab[] = [
     inspect: ["Agent workflow states and guided controls", "Entropy/recovery visual explanations", "Browser-executed Python pathways where available"],
     dependencies: "Research sandbox; Pyodide may load externally. Conceptual controls are not proof of production autonomy.",
     sourceLabel: "Original archive · V7.1",
+    qa: "local-dom-render",
+    qaNote: "Offline Chromium DOM rendered without uncaught page errors in a limited test; agent/Pyodide flows remain unverified.",
   },
 ] as const
 
