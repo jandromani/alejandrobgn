@@ -1,3 +1,4 @@
+import { EnterpriseSyntheticEvidence } from "@/components/enterprise-synthetic-evidence"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { ArrowLeft, ArrowRight, GitBranch, Layers3, ShieldCheck, Wrench } from "lucide-react"
@@ -195,6 +196,8 @@ export default function BankingModernizationPage() {
             ))}
           </div>
         </section>
+
+        <EnterpriseSyntheticEvidence variant="modernization" />
 
         <section aria-labelledby="pipeline">
           <div className="flex items-start gap-3">
