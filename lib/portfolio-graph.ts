@@ -36,6 +36,11 @@ const editorialNodes: PortfolioNode[] = [
   { id: "index:experience", title: "Professional experience", kind: "index", href: "/experience", description: "Roles, responsibilities and contributions." },
   { id: "index:evolution", title: "AI Co-Evolution", kind: "index", href: "/evolution", description: "The historical archive, later milestones and stated confidence." },
   { id: "index:about", title: "About / lineage", kind: "index", href: "/about", description: "The journey from GIS to agentic engineering." },
+  { id: "index:home", title: "Portfolio homepage", kind: "index", href: "/", description: "Executive entry to engineering outcomes and verifiable work." },
+  { id: "index:systems", title: "Engineering systems catalogue", kind: "index", href: "/systems", description: "All systems and their maturity, evidence labels and known limits." },
+  { id: "index:labs", title: "Original HTML laboratories", kind: "index", href: "/labs", description: "Browse recovered, runnable research artifacts and their QA caveats." },
+  { id: "index:writing", title: "Technical field notes", kind: "index", href: "/writing", description: "Long-form technical writing and related implementations." },
+  { id: "index:contact", title: "Start a conversation", kind: "index", href: "/contact", description: "Professional contact and optional scheduling." },
 ]
 
 export const portfolioNodes: PortfolioNode[] = [
@@ -87,6 +92,11 @@ const explicitEdges: PortfolioEdge[] = [
   { from:"index:experience", to:"case:banking-modernization", relation:"evidence", why:"Source-linked technical case." },
   { from:"index:evolution", to:"lab:entropic-agent-lab", relation:"evidence", why:"An inspectable later research artifact." },
   { from:"index:about", to:"index:experience", relation:"context", why:"Career evidence for the professional lineage." },
+  { from:"index:home", to:"case:cybersecurity-ai-engineering", relation:"evidence", why:"Selected enterprise outcome surfaced above the research catalogue." },
+  { from:"index:systems", to:"system:aiactmiddleware", relation:"context", why:"An entry into the public engineering systems catalogue." },
+  { from:"index:labs", to:"lab:openspec", relation:"evidence", why:"Browse the original HTML archive and bounded browser QA." },
+  { from:"index:writing", to:"writing:orchestration-patterns", relation:"context", why:"A long-form introduction to agent orchestration." },
+  { from:"index:contact", to:"index:experience", relation:"context", why:"Contact follows inspection of responsibilities and evidence." },
 ]
 
 const normalized = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "")
