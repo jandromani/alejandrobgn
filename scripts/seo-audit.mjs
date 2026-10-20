@@ -4,6 +4,7 @@ const canonicalBase = "https://alejandrobgn.vercel.app"
 const pages = [
   { path: "/", types: ["WebSite", "Person", "WebPage"] },
   { path: "/systems", types: ["CollectionPage", "ItemList"] },
+  { path: "/atlas", types: ["CollectionPage", "ItemList", "BreadcrumbList"] },
   { path: "/systems/aiactmiddleware", types: ["SoftwareApplication", "BreadcrumbList", "WebPage"] },
   { path: "/writing", types: ["Blog", "ItemList"] },
   { path: "/writing/governing-agentic-systems", types: ["BlogPosting", "BreadcrumbList", "WebPage"] },
