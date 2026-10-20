@@ -1,3 +1,4 @@
+import { RelatedEvidence } from "@/components/related-evidence"
 import { Mail, Linkedin, Github, Building2, Users, Lightbulb, CalendarDays, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -172,6 +173,7 @@ export default function ContactPage() {
         </div>
 
       </div>
+      <RelatedEvidence id="index:contact" />
     </div>
   )
 }
