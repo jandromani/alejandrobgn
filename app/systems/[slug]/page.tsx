@@ -1,3 +1,4 @@
+import { RelatedEvidence } from "@/components/related-evidence"
 import { notFound } from "next/navigation"
 import { getEvidenceLabel, getSystemBySlug, getRelatedSystems, systems } from "@/lib/systems-data"
 import Link from "next/link"
@@ -449,6 +450,7 @@ export default async function SystemDetailPage({ params }: Props) {
 
       </div>
       </div>
+      <RelatedEvidence id={`system:${system.slug}`} />
     </>
   )
 }
