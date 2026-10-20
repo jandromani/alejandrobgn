@@ -127,6 +127,9 @@ export default function BankingModernizationPage() {
             to understand, normalize and trace before generating new software. A bounded reference
             module tested the approach; migration of a complete estate was not proven.
           </p>
+          <a href="#anatomy" className="mt-6 inline-flex items-center gap-2 rounded-md border border-border bg-card px-4 py-2.5 text-sm font-semibold text-foreground hover:border-foreground/40">
+            Try the interactive engineering Anatomy <ArrowRight className="h-4 w-4" aria-hidden="true"/>
+          </a>
           <div className="mt-10 grid max-w-4xl gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
             <div className="bg-card p-5">
               <p className="font-mono text-2xl font-bold text-foreground">4 weeks</p>
