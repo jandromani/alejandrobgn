@@ -1,3 +1,4 @@
+import { RelatedEvidence } from "@/components/related-evidence"
 import { LabEmbed } from "@/components/lab-embed"
 import Link from "next/link"
 import type { Metadata } from "next"
@@ -89,6 +90,7 @@ export default async function OriginalLabPage({ params }: Props) {
           </Link>
         </aside>
       </section>
+      <RelatedEvidence id={`lab:${lab.slug}`} />
     </main>
   )
 }
