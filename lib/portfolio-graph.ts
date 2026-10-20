@@ -122,6 +122,40 @@ for (const edge of [...explicitEdges, ...systemEdges, ...articleEdges]) {
 export const portfolioEdges = [...unique.values()]
 export const portfolioNodeMap = new Map(portfolioNodes.map((node) => [node.id, node]))
 
+/**
+ * Integrity gate executed whenever the app builds the atlas. Every vertex
+ * needs a valid route and at least one relationship, and the editorial graph
+ * must form one connected component. No relationship means runtime coupling.
+ */
+const nodeIds = new Set(portfolioNodes.map((n) => n.id))
+if (nodeIds.size !== portfolioNodes.length) throw new Error("Duplicate portfolio graph node ID")
+if (new Set(portfolioNodes.map((n) => n.href)).size !== portfolioNodes.length) {
+  throw new Error("A portfolio route is registered more than once in the atlas")
+}
+for (const edge of portfolioEdges) {
+  if (!nodeIds.has(edge.from) || !nodeIds.has(edge.to) || edge.from === edge.to) {
+    throw new Error(`Broken atlas edge ${edge.from} -> ${edge.to}`)
+  }
+}
+if (portfolioNodes.length) {
+  const reachable = new Set<string>()
+  const stack = [portfolioNodes[0].id]
+  while (stack.length) {
+    const id = stack.pop()!
+    if (reachable.has(id)) continue
+    reachable.add(id)
+    for (const e of portfolioEdges) {
+      if (e.from === id && !reachable.has(e.to)) stack.push(e.to)
+      if (e.to === id && !reachable.has(e.from)) stack.push(e.from)
+    }
+  }
+  if (reachable.size !== nodeIds.size) {
+    const isolated = [...nodeIds].filter((id) => !reachable.has(id))
+    throw new Error(`Disconnected portfolio graph: ${isolated.join(", ")}`)
+  }
+}
+
+
 export function relatedPortfolioNodes(id: string, limit = 5): Array<{ node: PortfolioNode; relation: PortfolioRelation; why: string }> {
   // Show both directions, preserving the original meaning and avoiding duplicates.
   const seen = new Set<string>()
