@@ -54,20 +54,103 @@ export default function Page() {
             isPartOf: { "@id": websiteId },
             about: { "@id": personId },
             inLanguage: siteConfig.language,
-            dateModified: "2026-08-03",
+            dateModified: "2026-10-20",
           },
         ]}
       />
 
+
       <HomeOperatingDossier />
+
+      {/* Executive first: preserve original operating thesis, catalogue, evidence ledger and research below. */}
+      <section id="enterprise-outcomes" aria-labelledby="enterprise-outcomes-heading" className="scroll-mt-20 border-b border-border bg-background">
+        <div className="container mx-auto max-w-6xl px-4 py-16 md:py-24">
+          <p className="font-mono text-xs uppercase tracking-[.18em] text-[#587f00] dark:text-signal-green">01 / Selected enterprise outcomes</p>
+          <h2 id="enterprise-outcomes-heading" className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-foreground md:text-5xl">Engineering changes that teams could use.</h2>
+          <p className="mt-5 max-w-3xl text-base leading-8 text-muted-foreground">
+            Two sector-anonymized engagements. Each case separates personal contribution, joint delivery and the evidence actually demonstrated.
+          </p>
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+          <Link key="cybersecurity-ai-engineering" href="/work/cybersecurity-ai-engineering" className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-colors hover:border-signal-green/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:p-8">
+            <p className="font-mono text-xs uppercase tracking-wider text-[#587f00] dark:text-signal-green">Cybersecurity / AI engineering</p>
+            <p className="mt-7 font-mono text-4xl font-bold tracking-tight text-foreground">&lt; 1 month</p>
+            <h3 className="mt-4 text-xl font-semibold leading-snug text-foreground md:text-2xl">AI-assisted engineering workflows in use</h3>
+            <p className="mt-4 flex-1 text-sm leading-7 text-muted-foreground">Two technical peers helped a participating team adopt project-aware specialist assistance, agent PR workflows and an adapted specification-and-review process.</p>
+            <p className="mt-6 border-t border-border pt-4 text-xs leading-6 text-muted-foreground">Delivery-team-reported time-to-use, not externally audited or company-wide adoption.</p>
+            <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-foreground group-hover:text-[#587f00] dark:group-hover:text-signal-green">Inspect decisions and evidence <ArrowRight className="h-4 w-4" aria-hidden="true" /></span>
+          </Link>
+
+          <Link key="banking-modernization" href="/work/banking-modernization" className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-colors hover:border-signal-green/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:p-8">
+            <p className="font-mono text-xs uppercase tracking-wider text-[#587f00] dark:text-signal-green">Banking / modernization</p>
+            <p className="mt-7 font-mono text-4xl font-bold tracking-tight text-foreground">4-week PoC</p>
+            <h3 className="mt-4 text-xl font-semibold leading-snug text-foreground md:text-2xl">Source-to-evidence modernization</h3>
+            <p className="mt-4 flex-1 text-sm leading-7 text-muted-foreground">A bounded reference module explored source-linked knowledge, canonical modelling, reproducible generation and explicit quality gates.</p>
+            <p className="mt-6 border-t border-border pt-4 text-xs leading-6 text-muted-foreground">Technical demonstration, not a complete migration or proven functional parity.</p>
+            <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-foreground group-hover:text-[#587f00] dark:group-hover:text-signal-green">Inspect decisions and evidence <ArrowRight className="h-4 w-4" aria-hidden="true" /></span>
+          </Link>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="responsibility-heading" className="border-b border-border bg-card/20">
+        <div className="container mx-auto max-w-6xl px-4 py-16 md:py-20">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-3xl">
+              <p className="font-mono text-xs uppercase tracking-[.18em] text-[#587f00] dark:text-signal-green">02 / What I can own</p>
+              <h2 id="responsibility-heading" className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">Responsibility beyond the model call.</h2>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground">Architecture, implementation and adoption — responsibilities linked to case studies and inspectable engineering.</p>
+            </div>
+            <Link href="/experience" className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-foreground hover:text-[#587f00] dark:hover:text-signal-green">
+              Career and contributions <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="mt-9 grid gap-4 md:grid-cols-3">
+          <Link key="01" href="/work/cybersecurity-ai-engineering" className="group rounded-xl border border-border bg-background p-6 transition-colors hover:border-foreground/30">
+            <p className="font-mono text-xs text-[#587f00] dark:text-signal-green">01 / ACCOUNTABILITY</p>
+            <h3 className="mt-4 text-lg font-semibold text-foreground">Enterprise AI engineering</h3>
+            <p className="mt-3 text-sm leading-7 text-muted-foreground">Make project-aware agents and reviewable pull requests useful to a real team, with collaboration and quality gates.</p>
+            <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-foreground">Explore evidence <ArrowRight className="h-4 w-4" aria-hidden="true" /></span>
+          </Link>
+
+          <Link key="02" href="/work/banking-modernization" className="group rounded-xl border border-border bg-background p-6 transition-colors hover:border-foreground/30">
+            <p className="font-mono text-xs text-[#587f00] dark:text-signal-green">02 / ACCOUNTABILITY</p>
+            <h3 className="mt-4 text-lg font-semibold text-foreground">Knowledge-driven modernization</h3>
+            <p className="mt-3 text-sm leading-7 text-muted-foreground">Recover legacy source relationships and make generation and its limitations traceable.</p>
+            <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-foreground">Explore evidence <ArrowRight className="h-4 w-4" aria-hidden="true" /></span>
+          </Link>
+
+          <Link key="03" href="https://github.com/jandromani/A2A" className="group rounded-xl border border-border bg-background p-6 transition-colors hover:border-foreground/30">
+            <p className="font-mono text-xs text-[#587f00] dark:text-signal-green">03 / ACCOUNTABILITY</p>
+            <h3 className="mt-4 text-lg font-semibold text-foreground">Agentic platform architecture</h3>
+            <p className="mt-3 text-sm leading-7 text-muted-foreground">Design orchestration, scoped tools, human approvals, observability and technical governance.</p>
+            <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-foreground">Explore evidence <ArrowRight className="h-4 w-4" aria-hidden="true" /></span>
+          </Link>
+          </div>
+          <div className="mt-10 grid items-center gap-5 rounded-xl border border-border bg-background p-6 md:grid-cols-[1fr_auto] md:p-7">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-wider text-[#587f00] dark:text-signal-green">Recent public engineering / source inspection</p>
+              <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                <strong className="text-foreground">A2A</strong> documents a developing agent platform.
+                <strong className="text-foreground"> LLMTRACE</strong> is inspectable open-source Python tooling.
+                Public repositories demonstrate implementation, not customer deployment.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <a href="https://github.com/jandromani/A2A" target="_blank" rel="noopener noreferrer" className="rounded-md border border-border px-4 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">A2A source ↗</a>
+              <a href="https://github.com/jandromani/llmtrace" target="_blank" rel="noopener noreferrer" className="rounded-md border border-border px-4 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">LLMTRACE source ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <HomeSignalManifesto />
 
       {/* ── CORE SYSTEMS — EDITORIAL LAYOUT ──────────────────────── */}
       <section aria-labelledby="systems-heading" className="container max-w-6xl mx-auto px-4 py-20 space-y-6">
         <div className="flex items-baseline justify-between gap-4 mb-10">
           <div className="space-y-1">
-            <h2 id="systems-heading" className="text-2xl font-bold text-foreground">Core systems</h2>
-            <p className="text-sm text-muted-foreground">Runtimes, frameworks, and products. Each one built to solve a specific problem in the AI infrastructure stack.</p>
+            <h2 id="systems-heading" className="text-2xl font-bold text-foreground">Systems research archive</h2>
+            <p className="text-sm text-muted-foreground">Historical systems and research architectures; inspect individual maturity, code availability and evidence in the full catalogue.</p>
           </div>
           <Link href="/systems" className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 flex-shrink-0">
             Full catalogue <ArrowRight className="w-3 h-3" aria-hidden="true" />
@@ -186,7 +269,7 @@ export default function Page() {
                 Agentic systems, governance, observability.
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Technical leadership for teams building AI products that need to be reliable, observable, governable, and economically viable. Open to full-time roles, advisory work, and serious technical collaborations.
+                Selective conversations about complex engineering responsibility, AI adoption and platform architecture, with specific ownership and outcomes.
               </p>
             </div>
             <div className="flex flex-col gap-3 flex-shrink-0">
