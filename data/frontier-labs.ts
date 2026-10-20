@@ -28,8 +28,8 @@ export const originalLabs: readonly OriginalLab[] = [
     inspect: ["Overhead observation and track continuity", "Confidence and evidence interpretation", "Research interface, not a claim of operational surveillance"],
     dependencies: "Standalone HTML. Some data, imagery or integrations may be illustrative, cached or require external services.",
     sourceLabel: "Original archive · Frontier V14",
-    qa: "source-only",
-    qaNote: "Original HTML and Chromium archive cover recovered; interactive flows await automated browser QA.",
+    qa: "local-dom-render",
+    qaNote: "Offline Chromium rendered the promotion audit with FALSE as its recorded status. No interactive controls in the inspected view; model promotion is not implied.",
   },
   {
     slug: "montageos",
@@ -43,8 +43,8 @@ export const originalLabs: readonly OriginalLab[] = [
     inspect: ["Narrative context and shot composition", "Provider and specialist orchestration", "Creative review and export surfaces"],
     dependencies: "Remote model or media generation may require external providers, credits and configuration.",
     sourceLabel: "Original archive · V6.4",
-    qa: "source-only",
-    qaNote: "Original HTML and archive cover recovered; provider integrations and editor actions have not been end-to-end tested.",
+    qa: "local-dom-render",
+    qaNote: "Offline Chromium rendered the original editor and 172 controls without uncaught page errors; media providers and full editing flows remain unverified.",
   },
   {
     slug: "roomforge",
@@ -73,8 +73,8 @@ export const originalLabs: readonly OriginalLab[] = [
     inspect: ["Spatial navigation and camera changes", "In-world interaction and populated environment", "Real-time lighting and Three.js scene"],
     dependencies: "Requires browser WebGL and Three.js r128 delivered by a public CDN.",
     sourceLabel: "Original archive · Three.js",
-    qa: "source-only",
-    qaNote: "Original HTML and archive cover recovered; WebGL navigation and character motion need browser QA.",
+    qa: "local-dom-render",
+    qaNote: "Offline Chromium rendered the original café interface and 21 controls; WebGL scene, character animation and mobile navigation still require real device QA.",
   },
   {
     slug: "robotics-radar",
