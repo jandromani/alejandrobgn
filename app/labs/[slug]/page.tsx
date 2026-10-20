@@ -22,6 +22,8 @@ export default async function OriginalLabPage({ params }: Props) {
   const { slug } = await params
   const lab = findOriginalLab(slug)
   if (!lab) notFound()
+  const originalSource = lab.archive ?? lab.demo
+  const hasRuntimePatch = Boolean(lab.archive)
   return (
     <main className="min-h-screen bg-background">
       <section className="border-b border-border bg-card/20">
@@ -32,17 +34,27 @@ export default async function OriginalLabPage({ params }: Props) {
           <p className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground">{lab.summary}</p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a href={lab.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md bg-[#90d900] px-5 py-3 text-sm font-semibold text-[#090b0f] hover:bg-[#9cec00]">
-              Launch original full screen <ExternalLink className="h-4 w-4" aria-hidden="true"/>
+              {hasRuntimePatch ? "Launch corrected runtime" : "Launch original full screen"} <ExternalLink className="h-4 w-4" aria-hidden="true"/>
             </a>
-            <a href={lab.demo} download className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">
-              Original standalone HTML <FileCode2 className="h-4 w-4" aria-hidden="true"/>
+            <a href={originalSource} download className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">
+              Download preserved original HTML <FileCode2 className="h-4 w-4" aria-hidden="true"/>
             </a>
+            {hasRuntimePatch && (
+              <a href={originalSource} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">
+                Inspect original with known JavaScript error <ExternalLink className="h-4 w-4" aria-hidden="true"/>
+              </a>
+            )}
           </div>
+          {hasRuntimePatch && (
+            <p className="mt-4 max-w-3xl text-xs leading-6 text-muted-foreground">
+              The archived HTML is unchanged. The interactive viewer opens a separate minimally patched copy; downloading or inspecting the original preserves the observed error for reproducibility. This is not an end-to-end Pyodide validation.
+            </p>
+          )}
         </div>
       </section>
 
       <section aria-label="Interactive original browser experiment" className="mx-auto max-w-[1520px] px-3 py-8 md:px-5 md:py-12">
-        <LabEmbed src={lab.demo} title={lab.title} note={lab.qaNote} />
+        <LabEmbed src={lab.demo} title={lab.title} note={lab.qaNote} patched={hasRuntimePatch} />
         <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
           An embedded frame intentionally restricts storage, origin permissions and navigation.
           If a project uses WebGL, Pyodide, external files, authentication or model providers, launch
