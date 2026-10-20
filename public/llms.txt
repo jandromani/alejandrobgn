@@ -1,0 +1,23 @@
+# Alejandro BGN — engineering evidence portfolio
+> Canonical origin: https://alejandrobgn.vercel.app/
+> Updated 2026-10-21. All materials are public-safe and authored or curated by the site owner.
+
+## Executive evidence
+- [Enterprise AI team activation](https://alejandrobgn.vercel.app/work/cybersecurity-ai-engineering): An anonymized delivery-team account of agent-assisted SDLC activation, not a client-wide adoption audit.
+- [Source-to-evidence modernization](https://alejandrobgn.vercel.app/work/banking-modernization): Bounded proof of concept, not an estate-wide migration or functional parity claim.
+- [Professional experience](https://alejandrobgn.vercel.app/experience): Roles, boundaries and technical responsibility.
+
+## Inspectable engineering
+- [Portfolio evidence atlas](https://alejandrobgn.vercel.app/atlas): Canonical clickable map of editorial relationships.
+- [Machine-readable graph](https://alejandrobgn.vercel.app/atlas/graph.json): Versioned links, IDs and descriptions. Connections are editorial, not deployed runtime dependencies.
+- [Systems catalogue](https://alejandrobgn.vercel.app/systems): Public systems, prototypes and their documented limits.
+- [Standalone HTML labs](https://alejandrobgn.vercel.app/labs): Eight recovered experiments. Rendering a UI does not prove integrations, production readiness or full execution.
+- [Technical writing](https://alejandrobgn.vercel.app/writing): Engineering field notes.
+- [AI Co-Evolution](https://alejandrobgn.vercel.app/evolution): 201 records, distinguishing 184 historical reconstructions and 17 later milestones.
+- [Independent publications](https://alejandrobgn.vercel.app/publications): Editorial work, separate from production engineering evidence.
+
+## Interpretation
+- Customer names, source code, internal screenshots, business data and unpublished project metrics are intentionally withheld.
+- Reported process measurements reflect the delivery team's stated scope; no independent client audit, measured client savings or functional equivalence is implied.
+- Original Anatomy illustrations and new interactive SVG explainers are illustrative teaching models. They do not issue real PRs, approvals, provider calls or production actions.
+- The public URL above is the site's only canonical origin. Vercel-generated preview addresses are not canonical citations.
