@@ -1,3 +1,4 @@
+import { RelatedEvidence } from "@/components/related-evidence"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { ArrowRight, ArrowUpRight, BookOpen, Newspaper, PenLine } from "lucide-react"
@@ -117,6 +118,7 @@ export default function PublicationsPage() {
           <Link href="/writing" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">Explore technical writing <ArrowRight className="h-4 w-4"/></Link>
         </div>
       </section>
+      <RelatedEvidence id="publication:the-intelligence-ahead" />
     </main>
   )
 }
