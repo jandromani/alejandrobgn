@@ -38,6 +38,7 @@ export function Footer() {
           >
             Systems
           </Link>
+          <Link href="/atlas" className="text-xs text-muted-foreground hover:text-foreground transition-colors rounded">Atlas</Link>
           <Link
             href="/writing"
             className="text-xs text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
