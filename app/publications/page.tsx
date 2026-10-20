@@ -11,11 +11,11 @@ export const metadata: Metadata = createPageMetadata({
 })
 
 const issues = [
-  { number: "005", title: "The Memory Ahead", subtitle: "El fin de olvidar", subject: "AI and memory" },
-  { number: "004", title: "The Human Ahead", subtitle: "Lo que no se automatiza", subject: "Humans and work" },
-  { number: "003", title: "The Embodied Data Ahead", subtitle: "Embodied intelligence", subject: "Robotics and data" },
-  { number: "002", title: "0 → 1.000.000.000", subtitle: "La economía del billón de robots", subject: "Robotics economics" },
-  { number: "001", title: "2027", subtitle: "Cuando la IA deja de ser un chatbot", subject: "Beyond chat" },
+  { number: "005", title: "The Memory Ahead", subtitle: "El fin de olvidar", subject: "AI and memory", cover: "https://intelligence-ahead.vercel.app/assets/issues/005/01.jpg", href: "https://intelligence-ahead.vercel.app/issues/005" },
+  { number: "004", title: "The Human Ahead", subtitle: "Lo que no se automatiza", subject: "Humans and work", cover: "https://intelligence-ahead.vercel.app/assets/issues/004/01.jpg", href: "https://intelligence-ahead.vercel.app/issues/004" },
+  { number: "003", title: "The Embodied Data Ahead", subtitle: "Embodied intelligence", subject: "Robotics and data", cover: "https://intelligence-ahead.vercel.app/assets/issues/003/01.jpg", href: "https://intelligence-ahead.vercel.app/issues/003" },
+  { number: "002", title: "0 → 1.000.000.000", subtitle: "La economía del billón de robots", subject: "Robotics economics", cover: "https://intelligence-ahead.vercel.app/assets/issues/002/01.jpg", href: "https://intelligence-ahead.vercel.app/issues/002" },
+  { number: "001", title: "2027", subtitle: "Cuando la IA deja de ser un chatbot", subject: "Beyond chat", cover: "https://intelligence-ahead.vercel.app/assets/issues/001/01-cover.webp", href: "https://intelligence-ahead.vercel.app/issues/001" },
 ] as const
 
 export default function PublicationsPage() {
@@ -56,25 +56,29 @@ export default function PublicationsPage() {
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {issues.map((issue) => (
-            <a key={issue.number} href="https://intelligence-ahead.vercel.app/" target="_blank" rel="noopener noreferrer" className="group flex min-h-[295px] flex-col justify-between overflow-hidden rounded-xl border border-border bg-[#0b111a] p-6 text-white hover:border-[#a3e635]">
-              <div className="flex items-center justify-between">
-                <Newspaper className="h-5 w-5 text-[#b8ff5a]" aria-hidden="true"/>
-                <p className="font-mono text-xs uppercase tracking-widest text-[#b8ff5a]">Nº {issue.number}</p>
+            <a key={issue.number} href={issue.href} target="_blank" rel="noopener noreferrer"
+              className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-colors hover:border-signal-green/50">
+              <div className="relative aspect-[4/3] overflow-hidden bg-[#0b111a]">
+                <img src={issue.cover} alt={`Original cover for The Intelligence Ahead issue ${issue.number}: ${issue.title}`}
+                  width="900" height="675" loading="lazy"
+                  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.025]" />
+                <span className="absolute left-3 top-3 rounded-md bg-[#071016]/90 px-3 py-1.5 font-mono text-xs text-[#b8ff5a]">
+                  Nº {issue.number} · ORIGINAL COVER
+                </span>
               </div>
-              <div>
-                <p className="font-mono text-xs uppercase tracking-[.14em] text-white/55">{issue.subject}</p>
-                <h3 className="mt-3 text-2xl font-semibold leading-tight">{issue.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-white/75">{issue.subtitle}</p>
+              <div className="flex flex-1 flex-col p-5">
+                <p className="font-mono text-xs uppercase tracking-[.14em] text-[#587f00] dark:text-signal-green">{issue.subject}</p>
+                <h3 className="mt-3 text-xl font-semibold text-foreground">{issue.title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">{issue.subtitle}</p>
+                <span className="mt-5 flex items-center justify-between border-t border-border pt-4 text-sm font-semibold text-foreground">
+                  Read issue {issue.number} <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </span>
               </div>
-              <p className="flex items-center justify-between border-t border-white/15 pt-4 font-mono text-xs text-white/75">
-                Independent issue <ArrowUpRight className="h-4 w-4 text-[#b8ff5a]"/>
-              </p>
             </a>
           ))}
         </div>
         <p className="mt-5 text-xs leading-6 text-muted-foreground">
-          Issue titles and publication counts are taken from the public source repository. Each card opens
-          the actual editorial publication; these typography cards are not claimed to be facsimile covers.
+          Each card uses the original first-page artwork and links to its own issue reader. Sources and cover paths are verified against the published source repository.
         </p>
       </section>
 
