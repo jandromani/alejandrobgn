@@ -59,8 +59,8 @@ export const originalLabs: readonly OriginalLab[] = [
     inspect: ["Spatial capture workflow", "Optional remote VGGT or SfM pathways", "3D viewer and export-oriented architecture"],
     dependencies: "Actual reconstruction and advanced splatting require suitable imagery, compute, services or a capable browser.",
     sourceLabel: "Original archive · V7",
-    qa: "source-only",
-    qaNote: "Original HTML and archive cover recovered; WebGL and remote reconstruction require browser and provider validation.",
+    qa: "local-dom-render",
+    qaNote: "Latest offline Chromium run rendered the original DOM without uncaught page errors and captured a preview. An earlier inspection had a DOMContentLoaded timeout. 3D reconstruction, provider execution, WebGL and complete task flows remain unverified.",
   },
   {
     slug: "pumpum",
