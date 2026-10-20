@@ -1,3 +1,4 @@
+import { RelatedEvidence } from "@/components/related-evidence"
 import type { Metadata } from "next"
 import { WritingIndex } from "@/components/writing-index"
 import { JsonLd } from "@/components/json-ld"
@@ -52,6 +53,7 @@ export default function WritingPage() {
         ]}
       />
       <WritingIndex />
+      <RelatedEvidence id="index:writing" />
     </>
   )
 }
