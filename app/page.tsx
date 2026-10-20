@@ -148,60 +148,22 @@ export default function Page() {
 
       <HomeSignalManifesto />
 
-      {/* ── CORE SYSTEMS — EDITORIAL LAYOUT ──────────────────────── */}
-      <section aria-labelledby="systems-heading" className="container max-w-6xl mx-auto px-4 py-20 space-y-6">
-        <div className="flex items-baseline justify-between gap-4 mb-10">
-          <div className="space-y-1">
-            <h2 id="systems-heading" className="text-2xl font-bold text-foreground">Systems research archive</h2>
-            <p className="text-sm text-muted-foreground">Historical systems and research architectures; inspect individual maturity, code availability and evidence in the full catalogue.</p>
+      {/* Complete legacy cards remain at /systems; home is a curated introduction. */}
+      <section aria-labelledby="systems-heading" className="border-t border-border bg-background">
+        <div className="container mx-auto flex max-w-6xl flex-col justify-between gap-6 px-4 py-10 md:flex-row md:items-center">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-widest text-signal-green">Complete engineering catalogue</p>
+            <h2 id="systems-heading" className="mt-2 text-2xl font-semibold text-foreground">Every system, its maturity, architecture and evidence.</h2>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">
+              The original AI Act Middleware, Agnostic Engine, Entropic Core, PsycheOS,
+              AI Vendor Compare, aiGILE, LLMTRACE and BrewMatch remain in the full Systems catalogue.
+            </p>
           </div>
-          <Link href="/systems" className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 flex-shrink-0">
-            Full catalogue <ArrowRight className="w-3 h-3" aria-hidden="true" />
+          <Link href="/systems" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">
+            Inspect all systems <ArrowRight className="h-4 w-4" aria-hidden="true"/>
           </Link>
         </div>
-
-        {/* Row 1 — Featured: AI Act Middleware (full width) */}
-        <FeaturedSystemCard system={aiActMiddleware} />
-
-        {/* Row 2 — Primary: Agnostic Engine + Entropic Core */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <MediumSystemCard system={agnosticEngine} />
-          <MediumSystemCard system={entropicCore} />
-        </div>
-
-        {/* Row 3 — Supporting: PsycheOS + AI Vendor Compare + aiGILE */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <SmallSystemCard system={psycheOS} />
-          <SmallSystemCard system={aiVendorCompare} />
-          <SmallSystemCard system={aiGILE} />
-        </div>
       </section>
-
-      <div className="border-t border-border" />
-
-      {/* ── FOUNDATIONS — LLMTRACE ────────────────────────────────── */}
-      <section aria-labelledby="foundations-heading" className="container max-w-6xl mx-auto px-4 py-20 space-y-8">
-        <div>
-          <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-[0.2em] mb-2">Foundation layer</p>
-          <h2 id="foundations-heading" className="text-xl font-bold text-foreground">Open source infrastructure</h2>
-          <p className="text-sm text-muted-foreground mt-1">The observability and tracing layer that underpins everything else.</p>
-        </div>
-        <FoundationCard system={llmtrace} />
-      </section>
-
-      <div className="border-t border-border" />
-
-      {/* ── APPLIED PRODUCT — BREWMATCH ───────────────────────────── */}
-      <section aria-labelledby="applied-heading" className="container max-w-6xl mx-auto px-4 py-20 space-y-8">
-        <div>
-          <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-[0.2em] mb-2">Applied product</p>
-          <h2 id="applied-heading" className="text-xl font-bold text-foreground">Vertical AI execution</h2>
-          <p className="text-sm text-muted-foreground mt-1">A live product that demonstrates the full stack: intent classification, catalog intelligence, and commercial handoff.</p>
-        </div>
-        <AppliedProductCard system={brewmatch} />
-      </section>
-
-      <div className="border-t border-border" />
 
       {/* ── AI CO-EVOLUTION TEASER ─────────────────────────────── */}
       <section className="border-t border-border bg-card/20" aria-label="Technical systems atlas">
@@ -213,7 +175,14 @@ export default function Page() {
             These diagrams map a shared design thesis, not live runtime interconnections.
           </p>
         </div>
-        <HomeOperatingDossier mode="technical" />
+        <details className="group border-t border-border">
+          <summary className="mx-auto flex max-w-6xl cursor-pointer flex-wrap items-center justify-between gap-3 px-4 py-5 text-sm font-semibold text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+            <span>Expand interactive topology and Evidence Ledger</span>
+            <span className="font-mono text-xs text-signal-green group-open:hidden">OPEN +</span>
+            <span className="hidden font-mono text-xs text-signal-green group-open:inline">CLOSE −</span>
+          </summary>
+          <HomeOperatingDossier mode="technical" />
+        </details>
       </section>
 
       <section aria-labelledby="evolution-heading" className="relative overflow-hidden border-b border-border">
@@ -226,7 +195,7 @@ export default function Page() {
                 The systems did not appear overnight.
               </h2>
               <p className="mt-5 text-base text-muted-foreground leading-relaxed">
-                The path began in early 2023 by forcing GPT-3.5 to preserve long-form context. It now spans 184 reconstructed artefacts across GIS, APIs, model economics, reliability, safety, multi-agent systems and governance.
+                The path began in early 2023 by forcing GPT-3.5 to preserve long-form context. The archive now includes 201 documented records: 184 reconstructed historical entries and 17 later milestones spanning GIS, APIs, reliability, agent engineering and governance.
               </p>
               <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
                 The flagship systems are the compressed result of that history.
