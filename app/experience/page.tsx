@@ -1,3 +1,4 @@
+import { RelatedEvidence } from "@/components/related-evidence"
 import Link from "next/link"
 import { ArrowRight, CheckCircle2, MapPin } from "lucide-react"
 import { systems } from "@/lib/systems-data"
@@ -387,6 +388,7 @@ export default function ExperiencePage() {
         </div>
 
       </div>
+      <RelatedEvidence id="index:experience" />
     </div>
   )
 }
