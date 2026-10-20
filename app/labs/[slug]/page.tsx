@@ -1,3 +1,4 @@
+import { LabEmbed } from "@/components/lab-embed"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
@@ -41,20 +42,7 @@ export default async function OriginalLabPage({ params }: Props) {
       </section>
 
       <section aria-label="Interactive original browser experiment" className="mx-auto max-w-[1520px] px-3 py-8 md:px-5 md:py-12">
-        <div className="overflow-hidden rounded-xl border border-border bg-[#080d14]">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 px-5 py-4 font-mono text-xs text-white/80">
-            <span>ORIGINAL HTML / SANDBOXED PREVIEW / {lab.sourceLabel.toUpperCase()}</span>
-            <a href={lab.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[#b8ff5a]">Open isolated window <ArrowUpRight className="h-4 w-4"/></a>
-          </div>
-          <iframe
-            title={`Original interactive ${lab.title} HTML laboratory`}
-            src={lab.demo}
-            sandbox="allow-scripts"
-            loading="eager"
-            className="block h-[630px] w-full border-0 md:h-[780px]"
-            referrerPolicy="no-referrer"
-          />
-        </div>
+        <LabEmbed src={lab.demo} title={lab.title} note={lab.qaNote} />
         <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
           An embedded frame intentionally restricts storage, origin permissions and navigation.
           If a project uses WebGL, Pyodide, external files, authentication or model providers, launch
@@ -76,6 +64,9 @@ export default async function OriginalLabPage({ params }: Props) {
         <aside className="rounded-xl border border-border bg-card p-6 md:p-8">
           <h2 className="flex items-center gap-3 text-xl font-semibold text-foreground"><ShieldCheck className="h-5 w-5" aria-hidden="true" /> Evidence boundaries</h2>
           <p className="mt-5 text-sm leading-8 text-muted-foreground">{lab.dependencies}</p>
+          <p className="mt-5 text-sm leading-7 text-foreground">
+            <span className="font-semibold">Current verification:</span> {lab.qaNote}
+          </p>
           <p className="mt-5 text-sm leading-8 text-muted-foreground">
             A working interactive UI is evidence of a browser artifact, not proof that third-party
             APIs, commercial datasets, external generation or production infrastructure are available.
