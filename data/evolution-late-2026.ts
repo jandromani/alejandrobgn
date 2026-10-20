@@ -19,16 +19,43 @@ const additions:Input[]=[
 {date:"2026-10",name:"HTML POWERPACK — 34 independent experiences",description:"Recovered and versioned 34 standalone HTML experiences plus two multpage FACTORIA entries, with a launcher and checksums.",stack:"HTML · JS · Three.js · 3D · visualization",output:"Curated archive manifest from 12 October 2026",type:"Archive",family:"Foundations",evidence:"README_POWERPACK_2026-10-12.md",tech:["HTML","3D","Research"],patterns:["Frontend & interaction","Knowledge management"],flow:["Locate","Verify","Index","Launch","Document"],score:3,notes:"34 files are artifacts, not 34 production-grade products."},
 {date:"2026-10",name:"Alejandro BGN — versioned evidence portfolio",description:"Migrated portfolio source into a GitHub-managed Next.js project and began a review-first enterprise case and original HTML lab experience.",stack:"Next.js 16 · TypeScript · Vercel · GitHub",output:"Versioned repository with isolated preview and public-safe cases",type:"Professional platform",family:"Products & Platforms",evidence:"Public GitHub jandromani/alejandrobgn · October 14 review branch",tech:["Next.js","GitHub","Vercel"],patterns:["Frontend & interaction","Observability & evidence"],flow:["Code","Review","Preview","Evidence","Release"],score:3}
 ]
+type SourceKind = "public-repository" | "preserved-html" | "archived-document" | "delivery-team-account" | "historical-reference"
+type Source = { kind: SourceKind; label: string; url?: string; confidence: EvolutionRecord["confidence"] }
+
+// Curated source provenance, attached to stable record IDs. Never infer confidence from prose.
+const sources: Record<number, Source> = {
+  185: {kind:"delivery-team-account",label:"Anonymized engineering account",url:"/work/cybersecurity-ai-engineering",confidence:"Strong recall"},
+  186: {kind:"delivery-team-account",label:"Delivery-team report; internal material withheld",url:"/work/cybersecurity-ai-engineering",confidence:"Strong recall"},
+  187: {kind:"historical-reference",label:"Standalone archive references; original not hosted here",confidence:"Strong recall"},
+  188: {kind:"archived-document",label:"Cycle 17 engineering notes; full test report unpublished",confidence:"Strong recall"},
+  189: {kind:"archived-document",label:"Cycle 18A dataset intake notes; unpublished",confidence:"Strong recall"},
+  190: {kind:"historical-reference",label:"Archived Intelligence Console V6 not publicly rehosted",confidence:"Strong recall"},
+  191: {kind:"preserved-html",label:"Original Frontier V14 browser artifact",url:"/labs/assetgraph",confidence:"Confirmed"},
+  192: {kind:"preserved-html",label:"Original MontageOS V6.4 browser artifact",url:"/labs/montageos",confidence:"Confirmed"},
+  193: {kind:"preserved-html",label:"Original RoomForge V7 browser artifact",url:"/labs/roomforge",confidence:"Confirmed"},
+  194: {kind:"delivery-team-account",label:"Anonymized bounded PoC account; internal metrics withheld",url:"/work/banking-modernization",confidence:"Strong recall"},
+  195: {kind:"public-repository",label:"GearWatch public source",url:"https://github.com/jandromani/HolaInframundo",confidence:"Confirmed"},
+  196: {kind:"public-repository",label:"WORLD//STATE public source",url:"https://github.com/jandromani/InframundoShow",confidence:"Confirmed"},
+  197: {kind:"public-repository",label:"Atlas Long Stay public source",url:"https://github.com/jandromani/Petshop",confidence:"Confirmed"},
+  198: {kind:"historical-reference",label:"Deep Tech essay referenced in original archive; not hosted here",confidence:"Strong recall"},
+  199: {kind:"historical-reference",label:"Agentic Atlas original referenced by archive; not hosted here",confidence:"Strong recall"},
+  200: {kind:"archived-document",label:"POWERPACK inventory; individual artifacts vary in maturity",confidence:"Strong recall"},
+  201: {kind:"public-repository",label:"This versioned source repository",url:"https://github.com/jandromani/alejandrobgn",confidence:"Confirmed"},
+}
+if (additions.length !== Object.keys(sources).length || additions.length !== 17) {
+  throw new Error("Evolution source manifest count does not match the 17 new records")
+}
+
 export const late2026Records:EvolutionRecord[]=additions.map((entry,index)=>({
  id:185+index,date:entry.date,year:2026,phase:"Enterprise systems and independent frontier research",type:entry.type,category:"Post-July 2026 evidence",description:entry.description,stack:entry.stack,output:entry.output,
- status:entry.score>=4?"Documented bounded engineering work":"Documented research artifact or design",confidence:/Original GitHub repository|Recovered .*HTML|Original .*HTML|Public GitHub|original archived file|standalone film-control|recovered .* standalone/i.test(entry.evidence)?"Confirmed":"Strong recall",
+ status:entry.score>=4?"Documented bounded engineering work":"Documented research artifact or design",confidence:sources[185+index].confidence,
  notes:entry.notes||"Archived artifact, public repository or anonymized project record; do not infer production impact.",
  model:{key:"unspecified",label:"Model not independently logged",certainty:"inferred",note:"The exact model(s) used in this artifact are not reliably attributed. No model is invented."},
  symbols:[{icon:"🧩",label:entry.type}],era:"governance",importance:entry.score>=4?4:3,
  displayName:entry.name,techTags:entry.tech,patterns:entry.patterns,
  roles:[entry.role||"AI systems architect","Hands-on engineer"],maturityScore:entry.score,maturityLabel:entry.score>=4?"Bounded engineering work":"Prototype / documented artifact",
  autonomyScore:3,autonomyLabel:"Tools with human oversight",complexityScore:entry.score+1,
- evidenceSurface:entry.evidence,architectureFlow:entry.flow,
+ evidenceSurface:entry.evidence,provenance:{kind:sources[185+index].kind,label:sources[185+index].label,url:sources[185+index].url},architectureFlow:entry.flow,
  professionalSignal:"Demonstrates synthesis of architecture, executable artifacts and explicit scope of proof.",
  whyItMatters:entry.description,stackNote:"Technology labels are based on recovered artifacts; client implementations remain confidential.",
  family:entry.family
