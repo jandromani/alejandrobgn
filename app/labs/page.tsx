@@ -29,6 +29,7 @@ export default function LabsPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#original-html" className="rounded-md bg-[#90d900] px-5 py-3 text-sm font-semibold text-[#090b0f] hover:bg-[#9cec00]">Explore interactive HTML <ArrowRight className="ml-2 inline h-4 w-4" /></a>
             <a href="#platforms" className="rounded-md border border-border px-5 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">Inspect platform repositories</a>
+            <a href="/labs/qa-report.json" target="_blank" rel="noopener noreferrer" className="rounded-md border border-border px-5 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">Read browser QA report ↗</a>
           </div>
           <p className="mt-6 text-xs leading-6 text-muted-foreground">
             Historical artifacts may use cached data, illustrative scenarios, CDNs, WebGL or external APIs.
