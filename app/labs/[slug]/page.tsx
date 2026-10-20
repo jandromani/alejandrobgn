@@ -1,11 +1,12 @@
 import { RelatedEvidence } from "@/components/related-evidence"
+import { JsonLd } from "@/components/json-ld"
 import { LabEmbed } from "@/components/lab-embed"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowUpRight, CheckCircle2, ExternalLink, FileCode2, ShieldCheck } from "lucide-react"
 import { findOriginalLab, originalLabs } from "@/data/frontier-labs"
-import { absoluteUrl, createPageMetadata } from "@/lib/seo"
+import { absoluteUrl, breadcrumbJsonLd, createPageMetadata, personId, websiteId } from "@/lib/seo"
 
 type Props = { params: Promise<{ slug: string }> }
 export function generateStaticParams() {
@@ -27,6 +28,32 @@ export default async function OriginalLabPage({ params }: Props) {
   const hasRuntimePatch = Boolean(lab.archive)
   return (
     <main className="min-h-screen bg-background">
+      <JsonLd data={[
+        {
+          "@type":"CreativeWork",
+          "@id":`${absoluteUrl(`/labs/${lab.slug}`)}#artifact`,
+          url:absoluteUrl(`/labs/${lab.slug}`),
+          name:lab.title,
+          description:lab.summary,
+          creator:{"@id":personId},
+          isPartOf:{"@id":websiteId},
+          isBasedOn:absoluteUrl(lab.archive ?? lab.demo),
+          keywords: [lab.family, "Standalone HTML experiment", "Engineering laboratory"].join(", "),
+          additionalProperty:[
+            {"@type":"PropertyValue",name:"Evidence boundary",value:lab.evidence},
+            {"@type":"PropertyValue",name:"QA scope",value:lab.qaNote},
+          ],
+        },
+        {
+          "@type":"WebPage",
+          "@id":`${absoluteUrl(`/labs/${lab.slug}`)}#webpage`,
+          url:absoluteUrl(`/labs/${lab.slug}`),
+          name:lab.title,
+          isPartOf:{"@id":websiteId},
+          mainEntity:{"@id":`${absoluteUrl(`/labs/${lab.slug}`)}#artifact`},
+        },
+        breadcrumbJsonLd([{name:"Home",path:"/"},{name:"Labs",path:"/labs"},{name:lab.title,path:`/labs/${lab.slug}`}]),
+      ]}/>
       <section className="border-b border-border bg-card/20">
         <div className="container mx-auto max-w-6xl px-4 py-12 md:py-16">
           <Link href="/labs" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"><ArrowLeft className="h-4 w-4"/> All interactive labs</Link>
@@ -54,7 +81,7 @@ export default async function OriginalLabPage({ params }: Props) {
         </div>
       </section>
 
-      <section aria-label="Interactive original browser experiment" className="mx-auto max-w-[1520px] px-3 py-8 md:px-5 md:py-12">
+      <section id="interactive" aria-label="Interactive original browser experiment" className="mx-auto max-w-[1520px] px-3 py-8 md:px-5 md:py-12">
         <LabEmbed src={lab.demo} title={lab.title} note={lab.qaNote} patched={hasRuntimePatch} />
         <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
           An embedded frame intentionally restricts storage, origin permissions and navigation.
