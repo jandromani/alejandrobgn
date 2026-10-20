@@ -165,13 +165,13 @@ function EvidenceCard({ slug }: { slug: string }) {
   )
 }
 
-export function HomeOperatingDossier() {
+export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "technical" | "all" }) {
   const graphSystems = systems.filter((system) => system.featured && topologyPositions[system.slug])
   const publicCount = systems.filter((system) => Boolean(system.links.live)).length
   const openCount = systems.filter((system) => system.status === "Open Source").length
 
   return (
-    <section aria-labelledby="hero-heading" className="relative overflow-hidden border-b border-border bg-background">
+    <section aria-labelledby={mode === "technical" ? undefined : "hero-heading"} aria-label={mode === "technical" ? "Systems topology and evidence ledger" : undefined} className="relative overflow-hidden border-b border-border bg-background">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.2]"
         style={{
@@ -190,8 +190,9 @@ export function HomeOperatingDossier() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto grid min-h-[690px] max-w-[1536px] grid-cols-1 xl:grid-cols-[42%_58%]">
-        <div className="relative flex min-w-0 flex-col justify-between border-b border-border px-5 py-12 md:px-14 xl:border-b-0 xl:border-r xl:py-14">
+      <div className={mode === "hero" ? "relative mx-auto grid max-w-[1536px] grid-cols-1" : mode === "technical" ? "relative mx-auto grid max-w-[1536px] grid-cols-1" : "relative mx-auto grid min-h-[690px] max-w-[1536px] grid-cols-1 xl:grid-cols-[42%_58%]"}>
+        {mode !== "technical" && (
+        <div className="relative flex min-w-0 flex-col justify-between border-b border-border px-5 py-12 md:px-14 xl:border-b-0 xl:py-14">
           <div className="pointer-events-none absolute bottom-0 left-6 top-10 hidden w-px bg-border md:block" aria-hidden="true">
             <span className="absolute left-[-5px] top-[34%] h-px w-5 bg-signal-green" />
             <span className="absolute left-[-27px] top-[32.5%] font-mono text-[10px] text-[#587f00] dark:text-signal-green">01</span>
@@ -264,7 +265,8 @@ export function HomeOperatingDossier() {
             ¹ Delivery-team-reported engagement timelines; neither is an externally audited productivity metric.
           </p>
         </div>
-
+        )}
+        {mode !== "hero" && (
         <div className="relative min-h-[640px] min-w-0 px-5 py-8 md:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-4">
             <p className="text-[10px] font-mono uppercase tracking-[0.16em] text-foreground">Systems topology</p>
@@ -343,8 +345,10 @@ export function HomeOperatingDossier() {
             {graphSystems.map((system) => <MobileSystemNode key={system.id} system={system} />)}
           </div>
         </div>
+        )}
       </div>
 
+      {mode !== "hero" && (
       <div id="evidence-ledger" className="relative scroll-mt-20 border-t border-border bg-card/20">
         <div className="mx-auto max-w-[1536px] px-5 py-7 md:px-9">
           <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
@@ -369,6 +373,7 @@ export function HomeOperatingDossier() {
           </div>
         </div>
       </div>
+      )}
     </section>
   )
 }
