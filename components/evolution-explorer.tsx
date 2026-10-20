@@ -208,7 +208,7 @@ function ProjectDrawer({
       <article className="absolute inset-y-0 right-0 w-full max-w-3xl overflow-y-auto border-l border-border bg-background shadow-2xl">
         <header className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-border bg-background/90 px-4 py-3 backdrop-blur-md md:px-7">
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-            Public-safe record · {String(record.id).padStart(3, "0")} / 184
+            Public-safe record · {String(record.id).padStart(3, "0")} / {evolutionRecords.length}
           </p>
           <div className="flex items-center gap-2">
             <button
@@ -310,6 +310,28 @@ function ProjectDrawer({
             <section className="rounded-2xl border border-border p-5">
               <h3 className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground">Evidence surface</h3>
               <p className="mt-3 font-medium text-foreground">{record.evidenceSurface}</p>
+              {record.provenance ? (
+                <div className="mt-4 rounded-lg border border-border bg-background p-4 text-sm leading-6">
+                  <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">
+                    Source type · {record.provenance.kind.replaceAll("-", " ")}
+                  </p>
+                  <p className="mt-2 text-muted-foreground">{record.provenance.label}</p>
+                  {record.provenance.url && (
+                    <a href={record.provenance.url} target={record.provenance.url.startsWith("https://") ? "_blank" : undefined}
+                      rel={record.provenance.url.startsWith("https://") ? "noopener noreferrer" : undefined}
+                      className="mt-2 inline-block font-medium text-foreground underline underline-offset-4 hover:text-signal-green">
+                      Inspect available source ↗
+                    </a>
+                  )}
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    Source existence is not proof of full functional equivalence, audited enterprise adoption or production deployment.
+                  </p>
+                </div>
+              ) : (
+                <p className="mt-3 text-xs leading-6 text-muted-foreground">
+                  Historical reconstruction: evidence and confidence predate the 2026 source manifest.
+                </p>
+              )}
               <div className="mt-4 flex flex-wrap gap-2">
                 <span className={`rounded-full border px-3 py-1 text-[10px] font-mono ${confidenceClass[record.confidence]}`}>
                   {record.confidence}
