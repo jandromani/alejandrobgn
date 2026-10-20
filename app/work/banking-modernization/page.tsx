@@ -125,14 +125,17 @@ export default function BankingModernizationPage() {
               <p className="mt-2 text-xs leading-5 text-muted-foreground">Reported PoC engagement duration</p>
             </div>
             <div className="bg-card p-5">
-              <p className="font-mono text-2xl font-bold text-foreground">Reference slice</p>
-              <p className="mt-2 text-xs leading-5 text-muted-foreground">One bounded module, not a full migration</p>
+              <p className="font-mono text-2xl font-bold text-foreground">89.9%</p>
+              <p className="mt-2 text-xs leading-5 text-muted-foreground">Team-reported reduction in working context for the scoped method, not time saved</p>
             </div>
             <div className="bg-card p-5">
-              <p className="font-mono text-2xl font-bold text-foreground">Source-linked</p>
-              <p className="mt-2 text-xs leading-5 text-muted-foreground">Evidence as an architectural constraint</p>
+              <p className="font-mono text-2xl font-bold text-foreground">13 gates</p>
+              <p className="mt-2 text-xs leading-5 text-muted-foreground">Internal technical checks reported green in the evaluated scope; not functional parity</p>
             </div>
           </div>
+          <p className="mt-4 max-w-4xl text-xs leading-6 text-muted-foreground">
+            These are engineering-team-reported process measurements from a bounded reference scope, not customer business KPIs or independent certification. The baseline and test evidence are not published because source material is confidential; no estate-wide migration or functional equivalence is claimed.
+          </p>
         </div>
       </header>
 
