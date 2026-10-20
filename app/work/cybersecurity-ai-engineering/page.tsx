@@ -161,11 +161,53 @@ export default function CybersecurityEngineeringCasePage() {
           </div>
         </section>
 
+        <section aria-labelledby="results-title" className="space-y-7">
+          <div className="max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">02 / Delivery outcomes</p>
+            <h2 id="results-title" className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">What was different after the engagement</h2>
+            <p className="mt-4 text-base leading-8 text-muted-foreground">
+              The result was not a set of prompts waiting to be adopted. The participating team was
+              using AI-assisted engineering workflows, with project-specific context and reviewable changes.
+              These are delivery-team-reported outcomes, not independently audited adoption figures.
+            </p>
+          </div>
+          <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-3">
+            {[
+              { label: "Working assistance", result: "Backend, frontend and testing-focused workflows", evidence: "Delivered configuration and team use; no customer source published." },
+              { label: "Integrated execution", result: "Agents contributing candidate pull requests", evidence: "Human review was part of the working model; private PRs are not disclosed." },
+              { label: "Adoption mechanism", result: "Shared context, collaboration rhythm and adapted SDD", evidence: "Described by the delivery team; no organisation-wide usage percentage claimed." },
+            ].map((item) => (
+              <article key={item.label} className="bg-card p-6">
+                <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">{item.label}</p>
+                <h3 className="mt-3 text-lg font-semibold leading-7 text-foreground">{item.result}</h3>
+                <p className="mt-4 border-t border-border pt-4 text-sm leading-6 text-muted-foreground">{item.evidence}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section aria-labelledby="decisions-title" className="rounded-xl border border-border bg-card/40 p-7 md:p-9">
+          <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">03 / Technical judgement</p>
+          <h2 id="decisions-title" className="mt-3 text-2xl font-semibold">Decisions behind the speed</h2>
+          <div className="mt-6 grid gap-6 md:grid-cols-3">
+            {[
+              ["Team workflow before tools", "Align ownership and review responsibilities first; a tool rollout without collaboration is not adoption."],
+              ["Project context before output", "Capture repository conventions and business vocabulary so assistance fits real engineering tasks."],
+              ["PRs before unsupervised changes", "Connect agents to inspectable pull requests and adapt SDD review criteria to the existing delivery process."],
+            ].map(([title, reason]) => (
+              <div key={title}>
+                <h3 className="text-base font-semibold text-foreground">{title}</h3>
+                <p className="mt-2 text-sm leading-7 text-muted-foreground">{reason}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section aria-labelledby="mechanism-title">
           <div className="flex items-start gap-3">
             <Layers3 size={23} className="mt-1 shrink-0 text-signal-green" aria-hidden="true" />
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">02 / Operating mechanism</p>
+              <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">04 / Delivery sequence</p>
               <h2 id="mechanism-title" className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">How we moved from context to delivery</h2>
               <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
                 A readable reconstruction of the engineering sequence. This is not customer telemetry or a screenshot of a private system.
@@ -225,7 +267,7 @@ export default function CybersecurityEngineeringCasePage() {
           <div className="flex items-start gap-3">
             <FileCheck2 className="mt-1 shrink-0 text-signal-green" size={23} aria-hidden="true" />
             <div className="max-w-4xl">
-              <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">03 / Evidence boundary</p>
+              <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">05 / Evidence boundary</p>
               <h2 id="evidence-title" className="mt-3 text-2xl font-semibold">What this case supports — and what it does not</h2>
               <p className="mt-5 text-sm leading-8 text-muted-foreground">
                 This account describes the delivery team's reported time-to-use and participating workflows.
