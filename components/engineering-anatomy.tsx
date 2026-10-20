@@ -137,6 +137,15 @@ export function EngineeringAnatomy({ variant }: { variant: Variant }) {
               <text x="0" y="-90" fontSize="11" textAnchor="middle" fill="#b5c6d0" fontFamily="monospace">{steps[i].key}</text>
             </g>
           })}
+          <path d={`M${positions[selected].x} ${positions[selected].y+48} V384`} fill="none" stroke="#c5ec89" strokeWidth="1.5" strokeDasharray="4 6" opacity=".7"/>
+          <g className="motion-safe:transition-transform motion-safe:duration-700" style={{
+            transform: `translate(${tested && ready ? positions[positions.length-1].x : positions[selected].x}px, 392px)`,
+          }}>
+            <polygon points="-20,0 0,-11 20,0 0,12" fill={tested&&ready?"#b9e462":"#72b4c6"} stroke="#d2ebd5" strokeWidth="1.5"/>
+            <path d="M-20 0V10L0 21V12ZM0 12V21L20 10V0Z" fill="#304a56" stroke="#accbc5"/>
+            <circle cy="1" r="4" fill="#f4fdc9" className="motion-safe:animate-pulse motion-reduce:animate-none"/>
+            <text x="0" y="37" textAnchor="middle" fill="#c9f28a" fontSize="10" fontFamily="monospace">PROOF PROBE</text>
+          </g>
           <text x="35" y="43" fill="#bfd0d7" fontFamily="monospace" fontSize="13">CLICK ANY MODULE TO INSPECT THE WORKFLOW</text>
           <text x="35" y="468" fill="#8fb2c0" fontFamily="monospace" fontSize="10">SCHEMATIC MODEL · ALL STATES ARE SIMULATED · NO CLIENT DATA</text>
         </svg>
