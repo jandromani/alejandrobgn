@@ -1,3 +1,4 @@
+import { EngineeringAnatomy } from "@/components/engineering-anatomy"
 import { RelatedEvidence } from "@/components/related-evidence"
 import { EnterpriseSyntheticEvidence } from "@/components/enterprise-synthetic-evidence"
 import Link from "next/link"
@@ -140,17 +141,27 @@ export default function BankingModernizationPage() {
         </div>
       </header>
 
-      <section aria-labelledby="anatomy-heading" className="border-b border-border bg-card/15">
+      <section id="anatomy" aria-labelledby="anatomy-heading" className="scroll-mt-20 border-b border-border bg-card/15">
         <div className="container mx-auto max-w-6xl px-4 py-12 md:py-16">
           <p className="font-mono text-xs uppercase tracking-widest text-signal-green">Interactive engineering Anatomy / Original explanatory model</p>
           <h2 id="anatomy-heading" className="mt-3 text-2xl font-bold tracking-tight md:text-3xl">Interactive Anatomy · Legacy evidence lock</h2>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">Explore how lineage, contract and reproducibility gates connect to a release decision. Modelled controls explain the method; they do not certify functional equivalence.</p>
-          <div className="mt-7 overflow-hidden rounded-xl border border-border bg-[#f5f4ee]">
-            <iframe src="/anatomy/figures/factory.html" title="Interactive Anatomy · Legacy evidence lock" loading="lazy" sandbox="allow-scripts" className="block h-[760px] w-full border-0 md:h-[710px]" />
+          <div className="mt-7">
+            <EngineeringAnatomy variant="modernization" />
           </div>
-          <p className="mt-3 text-xs leading-6 text-muted-foreground">
-            Generated with the original native Anatomy geometry kit at build time. The three gates and animations are conceptual; inputs are illustrative. <a href="/anatomy/figures/factory.html" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Open the interactive figure full screen ↗</a>
-          </p>
+          <details className="mt-6 rounded-xl border border-border bg-card/40">
+            <summary className="cursor-pointer px-5 py-4 text-sm font-semibold text-foreground">
+              Inspect preserved mechanical Anatomy experiment (original kit SVG)
+            </summary>
+            <div className="border-t border-border">
+              <iframe src="/anatomy/figures/factory.html" title="Interactive Anatomy · Legacy evidence lock — preserved original kit mechanism" loading="lazy" sandbox="allow-scripts"
+                className="block h-[740px] w-full border-0 md:h-[700px]" />
+            </div>
+            <p className="px-5 py-4 text-xs leading-6 text-muted-foreground">
+              Historical three-pin mechanism, generated from the upstream MIT-licensed Anatomy kit. All controls are fictional.
+              <a href="/anatomy/figures/factory.html" target="_blank" rel="noopener noreferrer" className="ml-2 underline underline-offset-4">Open the standalone archive ↗</a>
+            </p>
+          </details>
         </div>
       </section>
 
