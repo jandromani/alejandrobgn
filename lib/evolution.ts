@@ -1,4 +1,5 @@
 import rawEvolutionData from "@/data/evolution.json"
+import {late2026Records} from "@/data/evolution-late-2026"
 
 export const evolutionFamilies = [
   "Foundations",
@@ -50,7 +51,7 @@ export type EvolutionRecord = {
   family: EvolutionFamily
 }
 
-export const evolutionRecords = rawEvolutionData as unknown as EvolutionRecord[]
+export const evolutionRecords:EvolutionRecord[] = [...(rawEvolutionData as unknown as EvolutionRecord[]), ...late2026Records]
 
 export const evolutionEras = [
   {
@@ -92,10 +93,10 @@ export const evolutionEras = [
   {
     key: "governance",
     index: "05",
-    years: "Jul 2026",
+    years: "Jul — Oct 2026",
     title: "Governing the factory",
-    copy: "The problem changed: not how to create another agent, but how to govern the production machine and preserve evidence.",
-    recordIds: [111, 118, 143, 152, 161],
+    copy: "Governance evolved into evidence-first enterprise factories, team enablement and verifiable frontier systems by October 14.",
+    recordIds: [143, 185, 188, 194, 200],
     color: "#fbbf24",
   },
 ] as const
@@ -109,13 +110,14 @@ export const modelEras = [
   { key: "gpt54", date: "Mar 2026", name: "GPT-5.4 era", copy: "Tool use coincided with deeper laboratories and production architectures." },
   { key: "gpt55", date: "Apr — Jun 2026", name: "GPT-5.5 era", copy: "Agentic coding accelerated factories, synthetic systems and multi-model products." },
   { key: "gpt56", date: "Jul 2026", name: "GPT-5.5 → GPT-5.6 era", copy: "The output converged into control planes, evidence systems and governed delivery." },
+  { key:"unspecified",date:"Aug — Oct 2026",name:"Mixed AI models / attribution pending",copy:"Late-stage projects involved tools and platforms, but specific model use was not logged reliably for every artifact." },
 ] as const
 
 export const evolutionYearCounts = [
   { year: 2023, count: 14, color: "#22d3ee" },
   { year: 2024, count: 15, color: "#b8ff5a" },
   { year: 2025, count: 39, color: "#a78bfa" },
-  { year: 2026, count: 116, color: "#fbbf24" },
+  { year: 2026, count: 116 + late2026Records.length, color: "#fbbf24" },
 ] as const
 
 export const familyDescriptions: Record<EvolutionFamily, string> = {
