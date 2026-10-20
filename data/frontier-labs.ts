@@ -130,7 +130,7 @@ export const originalLabs: readonly OriginalLab[] = [
     dependencies: "Research sandbox; Pyodide may load externally. Conceptual controls are not proof of production autonomy.",
     sourceLabel: "Original archive · V7.1",
     qa: "local-dom-render",
-    qaNote: "Offline Chromium DOM rendered without uncaught page errors in a limited test; agent/Pyodide flows remain unverified.",
+    qaNote: "Offline Chromium DOM rendered without uncaught errors; internal page title says v5.1 although the archived filename says v7.1. Runtime lineage and Pyodide flows remain unverified.",
   },
 ] as const
 
