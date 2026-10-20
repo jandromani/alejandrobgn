@@ -1,13 +1,14 @@
 import type { MetadataRoute } from "next"
 import { articles } from "@/data/writing"
 import { systems } from "@/lib/systems-data"
+import { originalLabs } from "@/data/frontier-labs"
 import { absoluteUrl } from "@/lib/seo"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: absoluteUrl("/"),
-      lastModified: "2026-07-24",
+      lastModified: "2026-10-20",
       changeFrequency: "weekly",
       priority: 1,
     },
@@ -19,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: absoluteUrl("/evolution"),
-      lastModified: "2026-07-24",
+      lastModified: "2026-10-20",
       changeFrequency: "monthly",
       priority: 0.9,
     },
@@ -40,19 +41,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: absoluteUrl("/work/cybersecurity-ai-engineering"),
-      lastModified: "2026-10-19",
+      lastModified: "2026-10-20",
       changeFrequency: "monthly",
       priority: 0.72,
     },
     {
       url: absoluteUrl("/work/banking-modernization"),
-      lastModified: "2026-10-19",
+      lastModified: "2026-10-20",
       changeFrequency: "monthly",
       priority: 0.72,
     },
     {
+      url: absoluteUrl("/labs"),
+      lastModified: "2026-10-20",
+      changeFrequency: "monthly",
+      priority: 0.83,
+    },
+    {
+      url: absoluteUrl("/publications"),
+      lastModified: "2026-10-20",
+      changeFrequency: "monthly",
+      priority: 0.78,
+    },
+    {
       url: absoluteUrl("/about"),
-      lastModified: "2026-07-24",
+      lastModified: "2026-10-20",
       changeFrequency: "monthly",
       priority: 0.8,
     },
@@ -78,5 +91,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: article.featured ? 0.85 : 0.75,
   }))
 
-  return [...staticPages, ...systemPages, ...articlePages]
+  const labPages: MetadataRoute.Sitemap = originalLabs.map((lab) => ({
+    url: absoluteUrl(`/labs/${lab.slug}`),
+    lastModified: "2026-10-20",
+    changeFrequency: "monthly",
+    priority: 0.72,
+  }))
+
+  return [...staticPages, ...labPages, ...systemPages, ...articlePages]
 }
