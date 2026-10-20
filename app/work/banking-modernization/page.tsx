@@ -154,11 +154,53 @@ export default function BankingModernizationPage() {
           </div>
         </section>
 
+        <section aria-labelledby="results-title" className="space-y-7">
+          <div className="max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">02 / Demonstrated scope</p>
+            <h2 id="results-title" className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">What the reference module made possible</h2>
+            <p className="mt-4 text-base leading-8 text-muted-foreground">
+              The PoC connected source understanding to a repeatable generation workflow, so a technical
+              reviewer could inspect where candidate outputs came from and which checks were applied.
+              It was a bounded demonstration, not an estate-wide migration.
+            </p>
+          </div>
+          <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-3">
+            {[
+              { label: "System understanding", result: "Source-linked technical representation", detail: "Repository relationships, selected contracts and source references organised before generation." },
+              { label: "Engineering output", result: "Versionable modernization candidates", detail: "Target artifacts derived through explicit transformation rules from the canonical representation." },
+              { label: "Reviewable evidence", result: "Repeatability checks with explicit limits", detail: "Consistency checks on a reference slice; functional parity and whole-estate coverage remain separate gates." },
+            ].map((item) => (
+              <article key={item.label} className="bg-card p-6">
+                <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">{item.label}</p>
+                <h3 className="mt-3 text-lg font-semibold leading-7 text-foreground">{item.result}</h3>
+                <p className="mt-4 border-t border-border pt-4 text-sm leading-6 text-muted-foreground">{item.detail}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section aria-labelledby="decisions-title" className="rounded-xl border border-border bg-card/40 p-7 md:p-9">
+          <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">03 / Architecture decisions</p>
+          <h2 id="decisions-title" className="mt-3 text-2xl font-semibold">Why not simply translate file by file?</h2>
+          <div className="mt-6 grid gap-6 md:grid-cols-3">
+            {[
+              ["Corpus before code", "Resolve dependencies and business-relevant contracts before treating any isolated output as representative."],
+              ["Canonical model before generators", "Use one source-attributed representation rather than letting each target artifact infer its own meaning."],
+              ["Evidence before migration claims", "Treat deterministic output, source traceability and functional equivalence as three distinct verification questions."],
+            ].map(([title, decision]) => (
+              <div key={title}>
+                <h3 className="text-base font-semibold text-foreground">{title}</h3>
+                <p className="mt-2 text-sm leading-7 text-muted-foreground">{decision}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section aria-labelledby="pipeline">
           <div className="flex items-start gap-3">
             <Layers3 size={23} className="mt-1 shrink-0 text-signal-green" aria-hidden="true" />
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">02 / Operating mechanism</p>
+              <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">04 / Transformation path</p>
               <h2 id="pipeline" className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">From source to evidence</h2>
               <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
                 Six connected engineering decisions — the explanation, not a claim that an entire banking estate was migrated.
@@ -200,7 +242,7 @@ export default function BankingModernizationPage() {
         </section>
 
         <section className="rounded-xl border border-border bg-secondary/30 p-7 md:p-9" aria-labelledby="scope">
-          <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">03 / Proof boundary</p>
+          <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">05 / Proof boundary</p>
           <h2 id="scope" className="mt-3 text-2xl font-semibold">Reproducible artifacts are not functional parity</h2>
           <p className="mt-5 max-w-4xl text-sm leading-8 text-muted-foreground">
             The reported work was a bounded technical proof of concept. Repeatability under declared conditions does
