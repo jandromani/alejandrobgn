@@ -1,83 +1,110 @@
 {
-  "method": "Local Chromium DOM/render inspection for eight originals; separate validation for OpenSpec patched runtime. Screenshot generation workflow included.",
-  "date": "2026-10-20",
-  "limitation": "No live production-browser testing, external CDNs/APIs, WebGL performance, Pyodide execution or complete interactive task flows verified. Partial RoomForge render is not a full load.",
+  "test": "offline Chromium DOM/render smoke; no end-to-end claims",
+  "viewport": "1440x900",
   "labs": [
     {
       "slug": "assetgraph",
-      "state": "dom-rendered",
-      "browser": "offline Chromium",
-      "title": "AssetGraph v14 Promotion Audit",
+      "source_exists": true,
+      "rendered": true,
       "interactive_elements": 0,
-      "uncaught_errors": 0,
-      "note": "Audit status reads FALSE; detection/promotion not approved by this snapshot."
+      "runtime_errors": [],
+      "cover_generated": true,
+      "limitations": "DOM/render smoke test only; external providers and complete interaction paths not tested",
+      "dom_load_timed_out": false,
+      "title": "AssetGraph v14 Promotion Audit",
+      "body_characters": 740
     },
     {
       "slug": "montageos",
-      "state": "dom-rendered",
-      "browser": "offline Chromium",
-      "title": "MontageOS · 90s Film Lab · Cinema Brain",
+      "source_exists": true,
+      "rendered": true,
       "interactive_elements": 172,
-      "uncaught_errors": 0,
-      "note": "Editor UI rendered; external model/media execution not verified."
+      "runtime_errors": [],
+      "cover_generated": true,
+      "limitations": "DOM/render smoke test only; external providers and complete interaction paths not tested",
+      "dom_load_timed_out": false,
+      "title": "MontageOS · 90s Film Lab · Cinema Brain",
+      "body_characters": 3202
     },
     {
       "slug": "roomforge",
-      "state": "partial-dom-render",
-      "browser": "offline Chromium set_content, DOMContentLoaded timeout",
+      "source_exists": true,
+      "rendered": true,
+      "interactive_elements": 17,
+      "runtime_errors": [],
+      "cover_generated": true,
+      "limitations": "DOM/render smoke test only; external providers and complete interaction paths not tested",
+      "dom_load_timed_out": false,
       "title": "RoomForge V7 — Video → 3D Home",
-      "interactive_elements": 12,
-      "uncaught_errors": 0,
-      "note": "Static DOM and screenshot captured after DOMContentLoaded timeout due to external loading. Actual reconstruction, providers and WebGL not tested."
+      "body_characters": 1473
     },
     {
       "slug": "pumpum",
-      "state": "dom-rendered",
-      "browser": "offline Chromium",
-      "title": "Pum Pum Café 3D",
+      "source_exists": true,
+      "rendered": true,
       "interactive_elements": 21,
-      "uncaught_errors": 0,
-      "note": "HTML UI rendered; 3D scene requires browser WebGL and CDN."
+      "runtime_errors": [],
+      "cover_generated": true,
+      "limitations": "DOM/render smoke test only; external providers and complete interaction paths not tested",
+      "dom_load_timed_out": false,
+      "title": "Pum Pum Café 3D",
+      "body_characters": 614
     },
     {
       "slug": "robotics-radar",
-      "state": "dom-rendered",
-      "browser": "offline Chromium",
+      "source_exists": true,
+      "rendered": true,
+      "interactive_elements": 157,
+      "runtime_errors": [],
+      "cover_generated": true,
+      "limitations": "DOM/render smoke test only; external providers and complete interaction paths not tested",
+      "dom_load_timed_out": false,
       "title": "RDX Strategic Markets + Robotics Radar 2026",
-      "interactive_elements": 145,
-      "uncaught_errors": 0
+      "body_characters": 5570
     },
     {
       "slug": "robotics-terminal",
-      "state": "dom-rendered",
-      "browser": "offline Chromium",
+      "source_exists": true,
+      "rendered": true,
+      "interactive_elements": 90,
+      "runtime_errors": [],
+      "cover_generated": true,
+      "limitations": "DOM/render smoke test only; external providers and complete interaction paths not tested",
+      "dom_load_timed_out": false,
       "title": "RDX Robotics Investment Terminal 2026",
-      "interactive_elements": 85,
-      "uncaught_errors": 0
+      "body_characters": 16285
     },
     {
       "slug": "openspec",
-      "state": "render-with-error",
-      "browser": "offline Chromium",
+      "source_exists": true,
+      "rendered": true,
+      "interactive_elements": 26,
+      "runtime_errors": [
+        "Cannot read properties of null (reading 'addEventListener')"
+      ],
+      "cover_generated": true,
+      "limitations": "DOM/render smoke test only; external providers and complete interaction paths not tested",
+      "dom_load_timed_out": false,
       "title": "OpenSpec SDD Lab · Context Compression Runtime",
-      "interactive_elements": 22,
-      "uncaught_errors": 1,
-      "error_sample": "Cannot read properties of null (reading 'addEventListener')",
-      "note": "Original HTML emits null.addEventListener error; separate minimally patched runtime HTML rendered in offline Chromium with zero uncaught errors. Pyodide operations remain unverified.",
-      "patched_runtime": {
-        "path": "/labs/runtime/openspec-sdd-lab-fixed.html",
-        "local_browser": "offline DOM-rendered",
-        "uncaught_errors": 0,
-        "verified_end_to_end": false
-      }
+      "body_characters": 1809,
+      "original_source_error": [
+        "Cannot read properties of null (reading 'addEventListener')"
+      ],
+      "variant_path": "public/labs/runtime/openspec-sdd-lab-fixed.html",
+      "patched_runtime_rendered": true,
+      "patched_runtime_errors": []
     },
     {
       "slug": "entropic-agent-lab",
-      "state": "dom-rendered",
-      "browser": "offline Chromium",
+      "source_exists": true,
+      "rendered": true,
+      "interactive_elements": 84,
+      "runtime_errors": [],
+      "cover_generated": true,
+      "limitations": "DOM/render smoke test only; external providers and complete interaction paths not tested",
+      "dom_load_timed_out": false,
       "title": "Entropic Agent Lab v5.1 — Fault-Tolerant Narrative Runtime",
-      "interactive_elements": 56,
-      "uncaught_errors": 0
+      "body_characters": 3819
     }
   ]
 }
