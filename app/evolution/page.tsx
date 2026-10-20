@@ -1,3 +1,4 @@
+import { RelatedEvidence } from "@/components/related-evidence"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowDown, ArrowRight, Braces, Database, GitBranch, ShieldCheck } from "lucide-react"
@@ -397,6 +398,7 @@ export default async function EvolutionPage({
           </div>
         </div>
       </section>
+      <RelatedEvidence id="index:evolution" />
     </div>
   )
 }
