@@ -1,0 +1,60 @@
+{
+  "method": "Local offline Chromium set_content DOM and screenshot smoke test; static artifacts verified in GitHub",
+  "date": "2026-10-20",
+  "limitation": "No external networks, CDN execution, third-party APIs, model endpoints, live market data, full embedded iframe permissions or E2E workflows validated",
+  "labs": [
+    {
+      "slug": "assetgraph",
+      "state": "source-preserved",
+      "browser": "not tested in this run"
+    },
+    {
+      "slug": "montageos",
+      "state": "source-preserved",
+      "browser": "not tested in this run"
+    },
+    {
+      "slug": "roomforge",
+      "state": "source-preserved",
+      "browser": "not tested in this run"
+    },
+    {
+      "slug": "pumpum",
+      "state": "source-preserved",
+      "browser": "not tested in this run"
+    },
+    {
+      "slug": "robotics-radar",
+      "state": "dom-rendered",
+      "browser": "offline Chromium",
+      "title": "RDX Strategic Markets + Robotics Radar 2026",
+      "interactive_elements": 145,
+      "uncaught_errors": 0
+    },
+    {
+      "slug": "robotics-terminal",
+      "state": "dom-rendered",
+      "browser": "offline Chromium",
+      "title": "RDX Robotics Investment Terminal 2026",
+      "interactive_elements": 85,
+      "uncaught_errors": 0
+    },
+    {
+      "slug": "openspec",
+      "state": "render-with-error",
+      "browser": "offline Chromium",
+      "title": "OpenSpec SDD Lab · Context Compression Runtime",
+      "interactive_elements": 22,
+      "uncaught_errors": 1,
+      "error_sample": "Cannot read properties of null (reading 'addEventListener')"
+    },
+    {
+      "slug": "entropic-agent-lab",
+      "state": "dom-rendered",
+      "browser": "offline Chromium",
+      "title": "Entropic Agent Lab v5.1 — Fault-Tolerant Narrative Runtime",
+      "interactive_elements": 56,
+      "uncaught_errors": 0
+    }
+  ]
+}
