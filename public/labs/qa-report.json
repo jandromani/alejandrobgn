@@ -1,17 +1,25 @@
 {
-  "method": "Local offline Chromium set_content DOM and screenshot smoke test; static artifacts verified in GitHub",
+  "method": "Seven original HTMLs inspected by offline Chromium set_content plus screenshots; RoomForge source preserved, browser QA pending",
   "date": "2026-10-20",
-  "limitation": "No external networks, CDN execution, third-party APIs, model endpoints, live market data, full embedded iframe permissions or E2E workflows validated",
+  "limitation": "Offline DOM smoke only. Full WebGL, network dependencies, Pyodide, API keys and end-to-end interactions not validated.",
   "labs": [
     {
       "slug": "assetgraph",
-      "state": "source-preserved",
-      "browser": "not tested in this run"
+      "state": "dom-rendered",
+      "browser": "offline Chromium",
+      "title": "AssetGraph v14 Promotion Audit",
+      "interactive_elements": 0,
+      "uncaught_errors": 0,
+      "note": "Audit status reads FALSE; detection/promotion not approved by this snapshot."
     },
     {
       "slug": "montageos",
-      "state": "source-preserved",
-      "browser": "not tested in this run"
+      "state": "dom-rendered",
+      "browser": "offline Chromium",
+      "title": "MontageOS · 90s Film Lab · Cinema Brain",
+      "interactive_elements": 172,
+      "uncaught_errors": 0,
+      "note": "Editor UI rendered; external model/media execution not verified."
     },
     {
       "slug": "roomforge",
@@ -20,8 +28,12 @@
     },
     {
       "slug": "pumpum",
-      "state": "source-preserved",
-      "browser": "not tested in this run"
+      "state": "dom-rendered",
+      "browser": "offline Chromium",
+      "title": "Pum Pum Café 3D",
+      "interactive_elements": 21,
+      "uncaught_errors": 0,
+      "note": "HTML UI rendered; 3D scene requires browser WebGL and CDN."
     },
     {
       "slug": "robotics-radar",
