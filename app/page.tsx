@@ -1,3 +1,4 @@
+import { RelatedEvidence } from "@/components/related-evidence"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { ArrowRight, ExternalLink } from "lucide-react"
@@ -301,6 +302,7 @@ export default function Page() {
         </div>
       </section>
 
+      <RelatedEvidence id="index:home" />
     </div>
   )
 }
