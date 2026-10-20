@@ -146,6 +146,20 @@ export default function CybersecurityEngineeringCasePage() {
         </div>
       </header>
 
+      <section aria-labelledby="anatomy-heading" className="border-b border-border bg-card/15">
+        <div className="container mx-auto max-w-6xl px-4 py-12 md:py-16">
+          <p className="font-mono text-xs uppercase tracking-widest text-signal-green">Interactive engineering Anatomy / Original explanatory model</p>
+          <h2 id="anatomy-heading" className="mt-3 text-2xl font-bold tracking-tight md:text-3xl">Interactive Anatomy · SDD quality interlock</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">Click the three pins to explore the minimum conditions for reviewable AI-assisted change. This is an interactive explanatory model, not a recording of client infrastructure.</p>
+          <div className="mt-7 overflow-hidden rounded-xl border border-border bg-[#f5f4ee]">
+            <iframe src="/anatomy/figures/agentic.html" title="Interactive Anatomy · SDD quality interlock" loading="lazy" sandbox="allow-scripts" className="block h-[760px] w-full border-0 md:h-[710px]" />
+          </div>
+          <p className="mt-3 text-xs leading-6 text-muted-foreground">
+            Generated with the original native Anatomy geometry kit at build time. The three gates and animations are conceptual; inputs are illustrative. <a href="/anatomy/figures/agentic.html" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Open the interactive figure full screen ↗</a>
+          </p>
+        </div>
+      </section>
+
       <article className="container mx-auto max-w-6xl space-y-20 px-4 py-16 md:py-24">
         <section className="grid gap-8 border-b border-border pb-16 md:grid-cols-[220px_1fr] md:gap-16" aria-labelledby="challenge-title">
           <div>
