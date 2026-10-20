@@ -60,7 +60,7 @@ export default function Page() {
       />
 
 
-      <HomeOperatingDossier />
+      <HomeOperatingDossier mode="hero" />
 
       {/* Executive first: preserve original operating thesis, catalogue, evidence ledger and research below. */}
       <section id="enterprise-outcomes" aria-labelledby="enterprise-outcomes-heading" className="scroll-mt-20 border-b border-border bg-background">
@@ -201,6 +201,18 @@ export default function Page() {
       <div className="border-t border-border" />
 
       {/* ── AI CO-EVOLUTION TEASER ─────────────────────────────── */}
+      <section className="border-t border-border bg-card/20" aria-label="Technical systems atlas">
+        <div className="container mx-auto max-w-6xl px-4 pb-4 pt-16 md:pt-20">
+          <p className="font-mono text-xs uppercase tracking-[.18em] text-[#587f00] dark:text-signal-green">Technical archive / systems atlas</p>
+          <h2 className="mt-3 text-3xl font-bold text-foreground md:text-4xl">The systems beneath the method.</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
+            Original interactive topology and evidence ledger, preserved from the earlier portfolio.
+            These diagrams map a shared design thesis, not live runtime interconnections.
+          </p>
+        </div>
+        <HomeOperatingDossier mode="technical" />
+      </section>
+
       <section aria-labelledby="evolution-heading" className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0 bg-grid opacity-15 pointer-events-none" aria-hidden="true" />
         <div className="relative container max-w-6xl mx-auto px-4 py-20">
