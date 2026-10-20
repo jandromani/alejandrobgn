@@ -55,7 +55,12 @@ export default function Page() {
             isPartOf: { "@id": websiteId },
             about: { "@id": personId },
             inLanguage: siteConfig.language,
-            dateModified: "2026-10-20",
+            dateModified: "2026-10-21",
+            hasPart: [
+              { "@type": "WebPage", "@id": `${absoluteUrl("/atlas")}#collection`, url: absoluteUrl("/atlas"), name: "Engineering Evidence Atlas" },
+              { "@type": "Article", url: absoluteUrl("/work/cybersecurity-ai-engineering"), name: "AI-assisted engineering activation" },
+              { "@type": "Article", url: absoluteUrl("/work/banking-modernization"), name: "Source-to-evidence modernization" },
+            ],
           },
         ]}
       />
