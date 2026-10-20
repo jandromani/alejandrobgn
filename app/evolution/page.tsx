@@ -177,7 +177,7 @@ export default async function EvolutionPage({
             {[
               ["43", "months building with AI"],
               [String(evolutionRecords.length), `${evolutionHistoricalCount} historical + ${evolutionAddedCount} later`],
-              [String(evolutionConfidenceCounts.Confirmed), "records with confirmed artifact evidence"],
+              [String(evolutionConfidenceCounts.Confirmed), "entries classified Confirmed (mixed source standards)"],
               ["65", "recurring technologies and methods"],
             ].map(([value, label]) => (
               <div key={label} className="bg-background p-5 md:p-6">
@@ -375,7 +375,7 @@ export default async function EvolutionPage({
               <div className="grid gap-3 sm:grid-cols-3">
                 <div className="rounded-xl border border-signal-green/20 bg-signal-green/[0.04] p-4">
                   <p className="font-mono text-2xl font-bold text-signal-green">{evolutionConfidenceCounts.Confirmed}</p>
-                  <p className="mt-2 text-xs">Records with confirmed artifact evidence; not equivalent to production systems.</p>
+                  <p className="mt-2 text-xs">Records classified Confirmed under their historical or post-July source criteria; not proof of production or impact.</p>
                 </div>
                 <div className="rounded-xl border border-signal-cyan/20 bg-signal-cyan/[0.04] p-4">
                   <p className="font-mono text-2xl font-bold text-signal-cyan">{evolutionConfidenceCounts["Strong recall"]}</p>
@@ -387,7 +387,7 @@ export default async function EvolutionPage({
                 </div>
               </div>
               <p>
-                “Confirmed” means a relevant source artifact can be inspected; it does not certify impact, production readiness or the full content of every claim. Every newer milestone declares its provenance and verification limits.
+                The original 184 historical records retain their prior confidence classifications, some reconstructed from conversations rather than public artifacts. Only the 17 later milestones now use individually specified provenance. A Confirmed tag does not certify functionality, economic impact or production readiness.
               </p>
               <Link href="/writing/building-in-public" className="inline-flex items-center gap-2 font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-signal-green">
                 Read the reconstruction and evidence protocol
