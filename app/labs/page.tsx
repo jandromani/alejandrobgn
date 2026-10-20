@@ -44,7 +44,7 @@ export default function LabsPage() {
             <p className="font-mono text-xs uppercase tracking-wider text-[#587f00] dark:text-signal-green">01 / Browser-native engineering</p>
             <h2 id="labs-heading" className="mt-3 text-3xl font-bold text-foreground md:text-4xl">Eight original HTML laboratories</h2>
           </div>
-          <p className="text-sm leading-7 text-muted-foreground">Click a laboratory to open its actual HTML, fullscreen launch and evidence notes.</p>
+          <p className="text-sm leading-7 text-muted-foreground">Each lab links to its standalone HTML and lists the precise evidence, known runtime limits and local-browser QA status.</p>
         </div>
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           {originalLabs.map((lab) => (
@@ -52,7 +52,7 @@ export default function LabsPage() {
               <Link href={`/labs/${lab.slug}`} className="relative block h-[230px] overflow-hidden bg-[#0b121b]" aria-label={`Explore original ${lab.title} HTML laboratory`}>
                 <LabCover slug={lab.slug} title={lab.title} family={lab.family} />
                 <span className="absolute bottom-3 left-4 rounded-md border border-white/25 bg-[#070b12]/90 px-3 py-1.5 font-mono text-xs text-white">
-                  ORIGINAL HTML / NOT A RENDER
+                  ARCHIVED HTML / CAPTURE WHERE AVAILABLE
                 </span>
               </Link>
               <div className="flex flex-1 flex-col p-6">
@@ -65,7 +65,7 @@ export default function LabsPage() {
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3 border-t border-border pt-5">
                   <Link href={`/labs/${lab.slug}`} className="inline-flex items-center gap-2 rounded-md bg-foreground px-4 py-3 text-sm font-semibold text-background hover:opacity-85">
-                    Open live lab <ArrowRight className="h-4 w-4" />
+                    Inspect lab <ArrowRight className="h-4 w-4" />
                   </Link>
                   <a href={lab.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-3 text-sm text-foreground hover:border-foreground/35">
                     Standalone <ArrowUpRight className="h-4 w-4" />
