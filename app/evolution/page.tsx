@@ -3,7 +3,7 @@ import Link from "next/link"
 import { ArrowDown, ArrowRight, Braces, Database, GitBranch, ShieldCheck } from "lucide-react"
 import { EvolutionExplorer, EvolutionFamilyLegend } from "@/components/evolution-explorer"
 import { EvolutionGrowthCurve } from "@/components/evolution-growth-curve"
-import { evolutionEras, evolutionFamilies, evolutionRecords, familyDescriptions, modelEras } from "@/lib/evolution"
+import { evolutionEras, evolutionFamilies, evolutionRecords, evolutionConfidenceCounts, evolutionHistoricalCount, evolutionAddedCount, familyDescriptions, modelEras } from "@/lib/evolution"
 import { JsonLd } from "@/components/json-ld"
 import { absoluteUrl, createPageMetadata, personId, websiteId } from "@/lib/seo"
 
@@ -176,8 +176,8 @@ export default async function EvolutionPage({
           <div className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-4">
             {[
               ["43", "months building with AI"],
-              [String(evolutionRecords.length), "184 historical + 17 new milestones"],
-              ["150", "historical confirmations + 17 new"],
+              [String(evolutionRecords.length), `${evolutionHistoricalCount} historical + ${evolutionAddedCount} later`],
+              [String(evolutionConfidenceCounts.Confirmed), "records with confirmed artifact evidence"],
               ["65", "recurring technologies and methods"],
             ].map(([value, label]) => (
               <div key={label} className="bg-background p-5 md:p-6">
@@ -370,24 +370,24 @@ export default async function EvolutionPage({
             </div>
             <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
               <p>
-                The first 184 historical entries were reconstructed from conversations and surviving artefacts; 17 additional dated milestones were added from newer files and repositories. Private identities, client names, exact locations and internal codenames were generalised. Distinct subsystems remain separate when the recovered record shows a separate technical output.
+                The initial 184 entries retain their recorded historical confidence. The 17 later milestones use a curated source manifest: public repository, preserved HTML, archived document, team account or historical reference. Private identities, client names, exact locations and internal codenames were generalised. Distinct subsystems remain separate when the recovered record shows a separate technical output.
               </p>
               <div className="grid gap-3 sm:grid-cols-3">
                 <div className="rounded-xl border border-signal-green/20 bg-signal-green/[0.04] p-4">
-                  <p className="font-mono text-2xl font-bold text-signal-green">150</p>
-                  <p className="mt-2 text-xs">Confirmed historical entries plus 17 documented milestones added through Oct 14.</p>
+                  <p className="font-mono text-2xl font-bold text-signal-green">{evolutionConfidenceCounts.Confirmed}</p>
+                  <p className="mt-2 text-xs">Records with confirmed artifact evidence; not equivalent to production systems.</p>
                 </div>
                 <div className="rounded-xl border border-signal-cyan/20 bg-signal-cyan/[0.04] p-4">
-                  <p className="font-mono text-2xl font-bold text-signal-cyan">48</p>
-                  <p className="mt-2 text-xs">Supported by strong historical recall.</p>
+                  <p className="font-mono text-2xl font-bold text-signal-cyan">{evolutionConfidenceCounts["Strong recall"]}</p>
+                  <p className="mt-2 text-xs">Records supported by historical documentation or team accounts, without independently inspectable proof.</p>
                 </div>
                 <div className="rounded-xl border border-signal-amber/20 bg-signal-amber/[0.04] p-4">
-                  <p className="font-mono text-2xl font-bold text-signal-amber">3</p>
+                  <p className="font-mono text-2xl font-bold text-signal-amber">{evolutionConfidenceCounts["Partial reconstruction"]}</p>
                   <p className="mt-2 text-xs">Still partial reconstructions.</p>
                 </div>
               </div>
               <p>
-                “Confirmed” does not mean “production system”. Each record separately states its status, maturity, evidence surface and model-attribution certainty.
+                “Confirmed” means a relevant source artifact can be inspected; it does not certify impact, production readiness or the full content of every claim. Every newer milestone declares its provenance and verification limits.
               </p>
               <Link href="/writing/building-in-public" className="inline-flex items-center gap-2 font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-signal-green">
                 Read the reconstruction and evidence protocol
