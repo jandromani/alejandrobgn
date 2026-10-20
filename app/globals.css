@@ -147,7 +147,7 @@
 .contact-icon svg { width: 18px; height: 18px; }
 .contact-icon:hover { color: hsl(var(--signal-green)); border-color: hsl(var(--signal-green) / .55); transform: translateY(-2px); }
 
-@media (max-width: 1023px) {
+@media (max-width: 1279px) {
   .about-lineage { height: auto; min-height: 0; }
   .lineage-legend { position: static; margin-inline: 1rem; flex-wrap: wrap; justify-content: flex-start; }
 }
@@ -233,7 +233,7 @@ body {
 
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .mobile-menu-toggle {
     display: none;
   }
