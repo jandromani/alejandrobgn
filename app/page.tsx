@@ -12,6 +12,7 @@ import {
 } from "@/components/system-preview-card"
 import { HomeOperatingDossier } from "@/components/home-operating-dossier"
 import { HomeSignalManifesto } from "@/components/home-signal-manifesto"
+import { FrontierShowcase } from "@/components/frontier-showcase"
 import { EvolutionGrowthCurve } from "@/components/evolution-growth-curve"
 import { SignalPattern } from "@/components/signal-pattern"
 import { JsonLd } from "@/components/json-ld"
@@ -143,6 +144,8 @@ export default function Page() {
         </div>
       </section>
 
+      <FrontierShowcase />
+
       <HomeSignalManifesto />
 
       {/* ── CORE SYSTEMS — EDITORIAL LAYOUT ──────────────────────── */}
@@ -269,6 +272,17 @@ export default function Page() {
       </section>
 
       <div className="border-t border-border" />
+
+      <section aria-labelledby="editorial-heading" className="border-t border-border bg-card/20">
+        <div className="container mx-auto grid max-w-6xl gap-7 px-4 py-14 md:grid-cols-[1fr_auto] md:items-center">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-widest text-[#587f00] dark:text-signal-green">Independent editorial publishing</p>
+            <h2 id="editorial-heading" className="mt-3 text-2xl font-bold text-foreground md:text-3xl">Five magazines. One illustrated book.</h2>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">The Intelligence Ahead (50 editorial pages) and Mateo y el Algoritmo (124 original illustrated pages). Public creative work, separate from engineering deployment claims.</p>
+          </div>
+          <Link href="/publications" className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">Explore publications <ArrowRight className="h-4 w-4" /></Link>
+        </div>
+      </section>
 
       {/* ── FINAL CTA ─────────────────────────────────────────────── */}
       <section aria-labelledby="cta-heading" className="relative overflow-hidden border-b border-border bg-background">
