@@ -223,7 +223,7 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
             </h1>
 
             <p className="mt-7 max-w-lg text-base leading-7 text-muted-foreground">
-              I lead the architecture and adoption of AI engineering workflows: turning unfamiliar codebases, fragmented knowledge and complex requirements into systems that teams can inspect, review and operate.
+              I build the engineering path from AI ambition to reviewable delivery. Recent work: activate specialist AI workflows in weeks, and turn legacy code understanding into source-linked, quality-gated modernization — with human accountability throughout.
             </p>
 
             <div className="mt-8 grid grid-cols-1 gap-3 sm:flex sm:flex-wrap">
@@ -246,10 +246,10 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
 
           <dl className="relative mt-12 grid grid-cols-2 border-t border-border pt-5 md:ml-12 md:grid-cols-4">
             {[
-              ["<1mo", "AI workflow", "activation¹", "text-[#5b8f00] dark:text-signal-green"],
-              ["4wk", "reference", "modernization PoC¹", "text-foreground"],
-              ["11+", "years", "engineering", "text-foreground"],
-              [String(systems.length), "catalogue", "entries", "text-cyan-700 dark:text-signal-cyan"],
+              ["<1mo", "team AI workflow", "activation¹", "text-[#5b8f00] dark:text-signal-green"],
+              ["89.9%", "working context", "reduction¹", "text-foreground"],
+              ["13", "scoped quality", "gates green¹", "text-foreground"],
+              ["11+", "years in", "engineering", "text-cyan-700 dark:text-signal-cyan"],
             ].map(([value, first, second, color], index) => (
               <div key={value + first} className={`py-2 ${index > 0 ? "border-l border-border pl-5" : ""}`}>
                 <dt className={`font-mono text-3xl font-bold ${color}`}>{value}</dt>
@@ -262,7 +262,7 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
             ))}
           </dl>
           <p className="mt-3 text-[11px] leading-5 text-muted-foreground md:ml-12">
-            ¹ Delivery-team-reported engagement timelines; neither is an externally audited productivity metric.
+            ¹ Self-reported engineering measurements from bounded, anonymized engagements; not independently audited client KPIs, time saved or full functional equivalence. Details and scope are disclosed in the two enterprise case studies below.
           </p>
         </div>
         )}
