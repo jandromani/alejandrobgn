@@ -44,6 +44,7 @@ scripts/                SEO, image-conversion and optional visual-QA utilities
 Notable routes:
 
 - `/systems` and `/systems/[slug]` — system index and evidence-rich case studies
+- `/atlas` and `/atlas/graph.json` — interactive, strongly connected editorial evidence graph and public machine-readable manifest
 - `/writing` and `/writing/[slug]` — technical journal and long-form articles
 - `/evolution` — 201-record learning timeline and capability map (184 historical reconstructions + 17 later milestones)
 - `/labs` and `/labs/[slug]` — eight preserved standalone HTML experiments, Chromium captures and scope-limited QA notes
