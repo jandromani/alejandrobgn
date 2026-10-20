@@ -211,11 +211,13 @@ body {
   overflow-x: hidden;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .mobile-menu-toggle {
     display: block;
   }
+}
 
+@media (max-width: 767px) {
   .hero-copy {
     width: 100%;
     max-width: calc(100vw - 2rem);
@@ -231,7 +233,7 @@ body {
 
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .mobile-menu-toggle {
     display: none;
   }
