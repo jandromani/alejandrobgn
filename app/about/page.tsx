@@ -1,3 +1,4 @@
+import { RelatedEvidence } from "@/components/related-evidence"
 import { Github, Linkedin, Mail, ArrowUpRight, Crosshair, Braces, Waypoints } from "lucide-react"
 import Link from "next/link"
 import type { Metadata } from "next"
@@ -135,5 +136,6 @@ export default function AboutPage() {
 
       <section aria-labelledby="connect-heading" className="grid gap-8 border-t border-border pt-12 md:grid-cols-[1fr_auto] md:items-end"><div><p className="font-mono text-[10px] uppercase tracking-[.2em] text-signal-cyan">Open channel</p><h2 id="connect-heading" className="mt-3 text-4xl font-bold text-foreground">Bring me the system that is difficult to explain.</h2><p className="mt-4 max-w-2xl text-muted-foreground">Currently Tech Lead AI at knowmad mood in Madrid. My focus is agentic engineering, governed AI platforms and complex software modernization.</p></div><div className="flex gap-2"><a href="mailto:alejandrobgn@gmail.com" aria-label="Email" className="contact-icon"><Mail/></a><a href="https://linkedin.com/in/alejandro-bgn/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="contact-icon"><Linkedin/></a><a href="https://github.com/jandromani" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="contact-icon"><Github/></a></div></section>
     </section>
+      <RelatedEvidence id="index:about" />
   </main>
 }
