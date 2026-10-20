@@ -25,14 +25,6 @@ const constraints = [
   ["Continuous verification", "Ship with proof, not promises"], ["Human in the loop", "Augment, don’t replace"],
 ]
 
-const capabilityDomains = [
-  ["AI systems architecture", "Agentic design · orchestration · routing · multi-model strategy"],
-  ["Governance & compliance", "EU AI Act · safety guardrails · audit · transparency"],
-  ["Production systems", "Distributed architecture · Kubernetes · data pipelines · reliability"],
-  ["Programming & platforms", "Python · Java · TypeScript · SQL · gRPC · REST"],
-  ["Engineering leadership", "Technical strategy · architecture decisions · mentoring · delivery"],
-  ["Research & innovation", "Systems thinking · experiments · open source · technical writing"],
-]
 
 function CapabilityGraphic({ color }: { color: string }) {
   const stroke = color === "green" ? "#b8ff5a" : color === "cyan" ? "#22d3ee" : "#a78bfa"
@@ -81,8 +73,6 @@ export default function AboutPage() {
     </section>
 
     <section className="container mx-auto max-w-6xl space-y-16 px-4 py-20">
-      <div className="grid gap-8 lg:grid-cols-[.65fr_1.35fr] lg:items-start"><div><p className="font-mono text-[10px] uppercase tracking-[.2em] text-signal-green">Capability topology / 06 domains</p><h2 className="mt-3 text-4xl font-bold text-foreground">Capabilities backed by systems.</h2><p className="mt-4 text-sm leading-7 text-muted-foreground">No skill bars. Each domain connects to software, evidence or long-form engineering published in this portfolio.</p></div><div className="border-t border-border">{capabilityDomains.map(([name,detail],i)=><div key={name} className="grid gap-2 border-b border-border py-5 md:grid-cols-[36px_220px_1fr]"><span className="font-mono text-[9px] text-signal-green">{String(i+1).padStart(2,"0")}</span><h3 className="text-sm font-semibold text-foreground">{name}</h3><p className="font-mono text-[10px] leading-5 text-muted-foreground">{detail}</p></div>)}</div></div>
-
       <section id="compounding-advantage" aria-labelledby="compounding-advantage-heading" className="space-y-8">
         <div className="grid gap-6 md:grid-cols-[.8fr_1.2fr] md:items-end">
           <div>
@@ -141,7 +131,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="relative overflow-hidden border-y border-border py-12"><div className="absolute inset-0 bg-grid opacity-15"/><div className="relative grid gap-8 md:grid-cols-[180px_1fr]"><div><p className="font-mono text-6xl font-bold text-foreground">184</p><p className="mt-2 font-mono text-[9px] uppercase tracking-[.16em] text-muted-foreground">public-safe artefacts<br/>43 months</p></div><div><p className="font-mono text-[10px] uppercase tracking-[.2em] text-signal-green">AI co-evolution / Jan 2023—Jul 2026</p><h2 className="mt-3 text-3xl font-bold text-foreground">I did not suddenly pivot into AI.</h2><p className="mt-4 max-w-3xl text-sm leading-7 text-muted-foreground">I began by forcing early models to maintain long-form context through continuation protocols and conversational state. The collaboration moved through GIS, APIs, model economics, safety, multi-agent systems, software factories and governance. The current systems are the compressed result of that history.</p><Link href="/evolution" className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[.15em] text-signal-green">Inspect the complete evolution <ArrowUpRight className="h-3.5 w-3.5"/></Link></div></div></div>
+      <div className="relative overflow-hidden border-y border-border py-12"><div className="absolute inset-0 bg-grid opacity-15"/><div className="relative grid gap-8 md:grid-cols-[180px_1fr]"><div><p className="font-mono text-6xl font-bold text-foreground">201</p><p className="mt-2 font-mono text-[9px] uppercase tracking-[.16em] text-muted-foreground">documented records<br/>184 historical + 17 later</p></div><div><p className="font-mono text-[10px] uppercase tracking-[.2em] text-signal-green">AI co-evolution / Jan 2023—Oct 2026</p><h2 className="mt-3 text-3xl font-bold text-foreground">The research outlasted each technology cycle.</h2><p className="mt-4 max-w-3xl text-sm leading-7 text-muted-foreground">The first 184 reconstructed records document early context engineering, GIS, systems, products and governance through July 2026. Seventeen later documented milestones add engineering adoption, modernization, robotics, interactive laboratories and agent platforms. An entry represents work to inspect, not necessarily a shipped product.</p><Link href="/evolution" className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[.15em] text-signal-green">Inspect the complete evolution <ArrowUpRight className="h-3.5 w-3.5"/></Link></div></div></div>
 
       <section aria-labelledby="connect-heading" className="grid gap-8 border-t border-border pt-12 md:grid-cols-[1fr_auto] md:items-end"><div><p className="font-mono text-[10px] uppercase tracking-[.2em] text-signal-cyan">Open channel</p><h2 id="connect-heading" className="mt-3 text-4xl font-bold text-foreground">Bring me the system that is difficult to explain.</h2><p className="mt-4 max-w-2xl text-muted-foreground">Currently Tech Lead AI at knowmad mood in Madrid. My focus is agentic engineering, governed AI platforms and complex software modernization.</p></div><div className="flex gap-2"><a href="mailto:alejandrobgn@gmail.com" aria-label="Email" className="contact-icon"><Mail/></a><a href="https://linkedin.com/in/alejandro-bgn/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="contact-icon"><Linkedin/></a><a href="https://github.com/jandromani" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="contact-icon"><Github/></a></div></section>
     </section>
