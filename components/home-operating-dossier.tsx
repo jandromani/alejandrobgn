@@ -235,10 +235,10 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               <a
-                href="/systems"
+                href="/atlas"
                 className="inline-flex items-center justify-center gap-3 rounded-md border border-border bg-card/65 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-foreground/35 hover:bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                Inspect engineering systems
+                Explore the evidence atlas
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
