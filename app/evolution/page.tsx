@@ -9,7 +9,7 @@ import { JsonLd } from "@/components/json-ld"
 import { absoluteUrl, createPageMetadata, personId, websiteId } from "@/lib/seo"
 
 const evolutionDescription =
-  "A public-safe reconstruction of 201 documented artefacts (184 reconstructed historical entries plus 17 later documented milestones) spanning January 2023 through October 14, 2026: context engineering, products, AI reliability, agent infrastructure and governance."
+  "A public-safe reconstruction of 201 technical records (184 historical entries plus 17 later milestones) spanning January 2023 through October 14, 2026: context engineering, products, AI reliability, agent infrastructure and governance."
 
 export const metadata: Metadata = createPageMetadata({
   title: "AI Co-Evolution — From CONTINUA to Control Planes",
@@ -158,7 +158,7 @@ export default async function EvolutionPage({
                 I did not suddenly pivot into AI. I began by forcing GPT-3.5 to preserve long-form context. By October 2026, the work had become verifiable AI engineering, agentic team enablement, modernisation factories and deployable interfaces.
               </p>
               <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                This is a public-safe, October-14-updated reconstruction of that path: not 201 equivalent “products”, but 184 reconstructed historic entries and 17 additional post-July documented milestones spanning methods, experiments, modules, systems and publications with their confidence and maturity left visible.
+                This public-safe archive was assembled through October 14 and is not a live product counter: not 201 equivalent “products”, but 184 historical records and 17 additional post-July milestones spanning methods, experiments, modules, systems and publications with their confidence and maturity left visible.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="#story" className="inline-flex items-center gap-2 rounded-md bg-foreground px-5 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-90">
