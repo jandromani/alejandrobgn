@@ -25,7 +25,10 @@ async def main():
     for device,width,height in [("mobile",390,844),("desktop",1440,900)]:
       for path in paths:
         page=await browser.new_page(viewport={"width":width,"height":height},device_scale_factor=1)
-        data={"path":path,"device":device,"status":None,"title":"","h1":0,"landmarks":0,"horizontalOverflow":0,"axeSerious":[],"axeModerate":[],"brokenImages":[]}
+        script_errors=[]
+        page.on("pageerror",lambda error:script_errors.append(str(error)[:550]))
+        page.on("console",lambda message:script_errors.append(message.text[:550]) if message.type=="error" and ("hydration" in message.text.lower() or "react error #418" in message.text.lower()) else None)
+        data={"path":path,"device":device,"status":None,"title":"","h1":0,"landmarks":0,"horizontalOverflow":0,"axeSerious":[],"axeModerate":[],"brokenImages":[],"scriptErrors":[]}
         try:
           r=await page.goto(BASE+path,wait_until="domcontentloaded",timeout=35000)
           data["status"]=r.status if r else 0
@@ -46,6 +49,11 @@ async def main():
             return {overflow:document.documentElement.scrollWidth-innerWidth,urls,badAnchors,badImages};
           }""")
           data["horizontalOverflow"]=js["overflow"];data["brokenImages"]=js["badImages"]
+          await page.wait_for_timeout(200)
+          data["scriptErrors"]=list(dict.fromkeys(script_errors))
+          for error in data["scriptErrors"]:
+            if "Minified React error #418" in error or "Hydration failed" in error:
+              fail(path,"react-hydration",error)
           if js["overflow"]>2:fail(path,"overflow",str(js["overflow"])+"px")
           for x in js["badAnchors"]:fail(path,"missing-anchor",x)
           for x in js["badImages"]:fail(path,"broken-image",x)
