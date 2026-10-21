@@ -173,7 +173,7 @@ export default function ExperiencePage() {
       <header className="border-b border-border relative overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" aria-hidden="true" />
         <div className="relative container max-w-6xl mx-auto px-4 py-16">
-          <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-[0.2em] mb-4">Experience</p>
+          <p className="text-xs font-mono text-muted-foreground uppercase tracking-[0.2em] mb-4">Experience</p>
           <h1 className="text-5xl font-bold text-foreground mb-3">Eleven years building systems</h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             From GIS and enterprise backends to AI governance platforms. A narrative thread from geographic thinking to agentic systems.
@@ -201,7 +201,7 @@ export default function ExperiencePage() {
         {/* Selected enterprise work: deliberately separate from professional role history. */}
         <section aria-labelledby="work-cyber-heading" className="space-y-6">
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">Selected enterprise work</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-signal-green">Selected enterprise work</p>
             <h2 id="work-cyber-heading" className="mt-2 text-2xl font-bold text-foreground">
               What changed for the engineering team
             </h2>
@@ -215,7 +215,7 @@ export default function ExperiencePage() {
             className="group flex flex-col gap-5 rounded-xl border border-border bg-card p-6 transition-colors hover:border-signal-green/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:flex-row md:items-center md:justify-between md:p-8"
           >
             <div className="max-w-3xl">
-              <p className="font-mono text-[10px] uppercase tracking-wider text-signal-green">
+              <p className="font-mono text-xs uppercase tracking-wider text-signal-green">
                 Cybersecurity sector · August 2026 · AI-assisted engineering
               </p>
               <h3 className="mt-3 text-xl font-semibold text-foreground md:text-2xl">
@@ -238,7 +238,7 @@ export default function ExperiencePage() {
             className="group flex flex-col gap-5 rounded-xl border border-border bg-card p-6 transition-colors hover:border-signal-green/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:flex-row md:items-center md:justify-between md:p-8"
           >
             <div className="max-w-3xl">
-              <p className="font-mono text-[10px] uppercase tracking-wider text-signal-green">
+              <p className="font-mono text-xs uppercase tracking-wider text-signal-green">
                 Banking sector · Four-week technical PoC · Legacy modernization
               </p>
               <h3 className="mt-3 text-xl font-semibold text-foreground md:text-2xl">
@@ -304,7 +304,7 @@ export default function ExperiencePage() {
                         <div className="flex items-center gap-2 flex-wrap">
                           <h3 className="text-base font-bold text-foreground">{role.company}</h3>
                           {role.current && (
-                            <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full border border-signal-green/30 text-signal-green bg-signal-green/5">
+                            <span className="text-xs font-mono uppercase tracking-wider px-2 py-0.5 rounded-full border border-signal-green/30 text-signal-green bg-signal-green/5">
                               Current
                             </span>
                           )}
