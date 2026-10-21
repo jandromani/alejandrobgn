@@ -137,14 +137,11 @@ export default function Page() {
             <div>
               <p className="font-mono text-xs uppercase tracking-wider text-[#587f00] dark:text-signal-green">Recent public engineering / source inspection</p>
               <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                <strong className="text-foreground">A2A</strong> documents a developing agent platform.
-                <strong className="text-foreground"> LLMTRACE</strong> is inspectable open-source Python tooling.
-                Public repositories demonstrate implementation, not customer deployment.
+                <strong className="text-foreground">A2A</strong> is a rapid, public architecture exercise built in October 2026. Inspect its specifications, implementation, security gates, test evidence and unresolved production dependencies. Code is not proof of client deployment.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
               <a href="https://github.com/jandromani/A2A" target="_blank" rel="noopener noreferrer" className="rounded-md border border-border px-4 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">A2A source ↗</a>
-              <a href="https://github.com/jandromani/llmtrace" target="_blank" rel="noopener noreferrer" className="rounded-md border border-border px-4 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">LLMTRACE source ↗</a>
             </div>
           </div>
         </div>
@@ -162,7 +159,7 @@ export default function Page() {
             <h2 id="systems-heading" className="mt-2 text-2xl font-semibold text-foreground">Every system, its maturity, architecture and evidence.</h2>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">
               The original AI Act Middleware, Agnostic Engine, Entropic Core, PsycheOS,
-              AI Vendor Compare, aiGILE, LLMTRACE and BrewMatch remain in the full Systems catalogue.
+              Earlier prototypes, including LLMTRACE, stay in the historical Systems catalogue and are labelled by actual maturity.
             </p>
           </div>
           <Link href="/systems" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">
@@ -196,12 +193,12 @@ export default function Page() {
         <div className="relative container max-w-6xl mx-auto px-4 py-20">
           <div className="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
             <div>
-              <p className="text-xs font-mono text-signal-green uppercase tracking-[0.22em]">43 months building with AI</p>
+              <p className="text-xs font-mono text-signal-green uppercase tracking-[0.22em]">46 calendar months since Jan 2023</p>
               <h2 id="evolution-heading" className="mt-3 text-3xl md:text-5xl font-bold text-foreground leading-tight">
                 The systems did not appear overnight.
               </h2>
               <p className="mt-5 text-base text-muted-foreground leading-relaxed">
-                The path began in early 2023 by forcing GPT-3.5 to preserve long-form context. The archive now includes 201 documented records: 184 reconstructed historical entries and 17 later milestones spanning GIS, APIs, reliability, agent engineering and governance.
+                The path began in early 2023 by forcing GPT-3.5 to preserve long-form context. The archive contains 201 technical records: 184 historical and 17 later entries. Of these, 140 are internally tagged Confirmed, 58 Strong recall and 3 Partial reconstruction. These are provenance classifications, not 201 independently verified products.
               </p>
               <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
                 The flagship systems are the compressed result of that history.
