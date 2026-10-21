@@ -30,6 +30,9 @@ async def main():
           r=await page.goto(BASE+path,wait_until="domcontentloaded",timeout=35000)
           data["status"]=r.status if r else 0
           if data["status"]!=200:fail(path,"status",data["status"])
+          # Inspect settled animations/hydrated route, not a transient faded loader.
+          if path in ("/meet","/thesis","/venture-lab","/systems/aivendorcompare"):
+            await page.wait_for_timeout(1100)
           data["title"]=await page.title()
           data["h1"]=await page.locator("h1").count()
           data["landmarks"]=await page.locator("main").count()
