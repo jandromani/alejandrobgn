@@ -147,7 +147,7 @@ export function EngineeringAnatomy({ variant }: { variant: Variant }) {
               className="cursor-pointer outline-none focus-visible:opacity-70"
               onClick={()=>setSelected(i)} onKeyDown={e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();setSelected(i)}}}>
               {active&&<ellipse cy="36" rx="73" ry="32" stroke="#c3eb79" strokeWidth="2" strokeDasharray="6 4" fill="none"/>}
-              <title>{steps[i].headline} — click to inspect</title>
+              
               <PointMachine variant={variant} index={i} active={active} checked={open[gateIndex]}/>
               <text x="0" y="86" fontSize="13" textAnchor="middle" fill={active?"#e6f9b0":"#c8d7df"} fontWeight="700">{steps[i].name}</text>
               <text x="0" y="-90" fontSize="11" textAnchor="middle" fill="#b5c6d0" fontFamily="monospace">{steps[i].key}</text>
