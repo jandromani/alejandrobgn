@@ -65,7 +65,7 @@ export function FeaturedSystemCard({ system }: { system: System }) {
           {previewSrc ? (
             <>
               <EvidenceScreenshot src={previewSrc} alt={previewAlt} sizes="(max-width: 1024px) 100vw, 50vw" priority />
-              <span className={`absolute top-2 left-2 z-10 inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono border backdrop-blur-sm ${previewTone}`}>
+              <span className={`absolute top-2 left-2 z-10 inline-flex items-center px-2 py-0.5 rounded text-xs font-mono border backdrop-blur-sm ${previewTone}`}>
                 {previewLabel}
               </span>
               {/* Gradient fade on right for desktop */}
@@ -90,7 +90,7 @@ export function FeaturedSystemCard({ system }: { system: System }) {
                 <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${dot.color} ${dot.pulse ? "animate-status-pulse" : ""}`} aria-hidden="true" />
                 {system.status}
               </span>
-              <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{system.category}</span>
+              <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">{system.category}</span>
             </div>
 
             <div>
@@ -155,7 +155,7 @@ export function MediumSystemCard({ system }: { system: System }) {
         {previewSrc ? (
           <>
             <EvidenceScreenshot src={previewSrc} alt={previewAlt} sizes="(max-width: 768px) 100vw, 33vw" />
-            <span className={`absolute top-2 left-2 z-10 inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-mono border backdrop-blur-sm ${previewTone}`}>
+            <span className={`absolute top-2 left-2 z-10 inline-flex items-center px-1.5 py-0.5 rounded text-xs font-mono border backdrop-blur-sm ${previewTone}`}>
               {previewLabel}
             </span>
           </>
@@ -173,7 +173,7 @@ export function MediumSystemCard({ system }: { system: System }) {
             <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${dot.color} ${dot.pulse ? "animate-status-pulse" : ""}`} aria-hidden="true" />
             {system.status}
           </span>
-          <span className="text-[10px] font-mono text-muted-foreground">{system.year}</span>
+          <span className="text-xs font-mono text-muted-foreground">{system.year}</span>
         </div>
         <div>
           <h3 className="font-bold text-foreground group-hover:text-accent transition-colors leading-tight">{system.name}</h3>
@@ -181,7 +181,7 @@ export function MediumSystemCard({ system }: { system: System }) {
         </div>
         <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 flex-1">{system.shortDescription}</p>
         <div className="flex items-center justify-between pt-3 border-t border-border mt-auto">
-          <span className="text-[10px] font-mono text-muted-foreground uppercase">{system.category}</span>
+          <span className="text-xs font-mono text-muted-foreground uppercase">{system.category}</span>
           <ArrowRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
         </div>
       </div>
@@ -206,7 +206,7 @@ export function SmallSystemCard({ system }: { system: System }) {
       {previewSrc && (
         <div className="relative h-40 sm:h-44 border-b border-border bg-secondary overflow-hidden">
           <EvidenceScreenshot src={previewSrc} alt={previewAlt} sizes="(max-width: 768px) 100vw, 25vw" />
-          <span className={`absolute top-2 left-2 z-10 inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-mono border backdrop-blur-sm ${previewTone}`}>
+          <span className={`absolute top-2 left-2 z-10 inline-flex items-center px-1.5 py-0.5 rounded text-xs font-mono border backdrop-blur-sm ${previewTone}`}>
             {previewLabel}
           </span>
         </div>
@@ -222,7 +222,7 @@ export function SmallSystemCard({ system }: { system: System }) {
         <h3 className="text-sm font-bold text-foreground group-hover:text-accent transition-colors">{system.name}</h3>
         <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 flex-1">{system.shortDescription}</p>
         <div className="flex items-center justify-between pt-2 border-t border-border">
-          <span className="text-[10px] font-mono text-muted-foreground uppercase">{system.category}</span>
+          <span className="text-xs font-mono text-muted-foreground uppercase">{system.category}</span>
           <ArrowRight className="w-3 h-3 text-muted-foreground group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
         </div>
       </div>
@@ -249,7 +249,7 @@ export function AppliedProductCard({ system }: { system: System }) {
                 <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${dot.color} ${dot.pulse ? "animate-status-pulse" : ""}`} aria-hidden="true" />
                 {system.status}
               </span>
-              <span className="text-[10px] font-mono text-muted-foreground uppercase px-2 py-0.5 border border-border rounded-full">Applied product</span>
+              <span className="text-xs font-mono text-muted-foreground uppercase px-2 py-0.5 border border-border rounded-full">Applied product</span>
             </div>
             <div>
               <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors">{system.name}</h3>
@@ -290,7 +290,7 @@ export function AppliedProductCard({ system }: { system: System }) {
           {previewSrc ? (
             <>
               <EvidenceScreenshot src={previewSrc} alt={previewAlt} sizes="(max-width: 768px) 100vw, 50vw" />
-              <span className={`absolute top-2 left-2 z-10 inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono border backdrop-blur-sm ${previewTone}`}>
+              <span className={`absolute top-2 left-2 z-10 inline-flex items-center px-2 py-0.5 rounded text-xs font-mono border backdrop-blur-sm ${previewTone}`}>
                 {previewLabel}
               </span>
             </>
@@ -316,7 +316,7 @@ export function FoundationCard({ system }: { system: System }) {
           {previewSrc ? (
             <>
               <EvidenceScreenshot src={previewSrc} alt={previewAlt} sizes="(max-width: 768px) 100vw, 50vw" />
-              <span className={`absolute top-2 left-2 z-10 inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono border backdrop-blur-sm ${previewTone}`}>
+              <span className={`absolute top-2 left-2 z-10 inline-flex items-center px-2 py-0.5 rounded text-xs font-mono border backdrop-blur-sm ${previewTone}`}>
                 {previewLabel}
               </span>
             </>
@@ -329,7 +329,7 @@ export function FoundationCard({ system }: { system: System }) {
                 <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${dot.color}`} aria-hidden="true" />
                 {system.status}
               </span>
-              <span className="text-[10px] font-mono text-muted-foreground uppercase px-2 py-0.5 border border-border rounded-full">Foundation layer</span>
+              <span className="text-xs font-mono text-muted-foreground uppercase px-2 py-0.5 border border-border rounded-full">Foundation layer</span>
             </div>
             <div>
               <h3 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors">{system.name}</h3>
