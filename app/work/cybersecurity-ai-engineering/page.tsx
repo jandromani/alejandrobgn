@@ -133,7 +133,7 @@ export default function CybersecurityEngineeringCasePage() {
               <p className="font-mono text-3xl font-bold text-foreground">{enterpriseEvidence.deliveryPeers.value}</p>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">Initial technical delivery nucleus, not the whole team</p>
             </div>
-            <div className="bg-card p-5">
+            <div className="col-span-2 bg-card p-5 sm:col-span-1">
               <p className="font-mono text-3xl font-bold text-foreground">{enterpriseEvidence.deliveryRoles.value}</p>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">Backend, frontend, QA and Gherkin assistance introduced in team workflows</p>
             </div>
