@@ -65,7 +65,13 @@ async def route_gate(browser, size, name, path, alias):
 
         dimensions = await page.evaluate("""() => ({
           viewport: window.innerWidth,
-          content: document.documentElement.scrollWidth
+          content: document.documentElement.scrollWidth,
+          offenders: [...document.querySelectorAll('body *')]
+            .map(e => ({e, r:e.getBoundingClientRect()}))
+            .filter(x => x.r.width > 0 && (x.r.right > window.innerWidth + 2 || x.r.left < -2))
+            .sort((a,b) => (b.r.right-window.innerWidth)-(a.r.right-window.innerWidth))
+            .slice(0,7)
+            .map(x => ({tag:x.e.tagName.toLowerCase(), className:typeof x.e.className === 'string'?x.e.className.slice(0,130):'svg', left:Math.round(x.r.left), right:Math.round(x.r.right)}))
         })""")
         record(name+" "+path+" no page overflow", dimensions["content"] <= dimensions["viewport"]+2, str(dimensions))
         pathname = ("root" if not path.strip("/") else alias)
