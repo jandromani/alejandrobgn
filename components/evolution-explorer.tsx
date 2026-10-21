@@ -97,7 +97,7 @@ function Constellation({
         </div>
       </div>
 
-      <div className="relative graph-scrollbar overflow-x-auto">
+      <div tabIndex={0} role="region" aria-label="Scrollable project constellation" className="relative graph-scrollbar overflow-x-auto">
         <svg
           viewBox="0 0 1000 430"
           className="min-w-[820px] w-full"
@@ -444,18 +444,18 @@ export function EvolutionExplorer({ initialArtifact }: { initialArtifact?: numbe
                 className="h-11 w-full rounded-lg border border-border bg-card pl-10 pr-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-signal-green/50"
               />
             </label>
-            <select value={year} onChange={(event) => setYear(event.target.value)} className="h-11 rounded-lg border border-border bg-card px-3 text-sm text-foreground outline-none focus:border-signal-green/50">
+            <select aria-label="Filter timeline by year" value={year} onChange={(event) => setYear(event.target.value)} className="h-11 rounded-lg border border-border bg-card px-3 text-sm text-foreground outline-none focus:border-signal-green/50">
               <option>All years</option>
               <option>2023</option>
               <option>2024</option>
               <option>2025</option>
               <option>2026</option>
             </select>
-            <select value={family} onChange={(event) => setFamily(event.target.value as typeof family)} className="h-11 rounded-lg border border-border bg-card px-3 text-sm text-foreground outline-none focus:border-signal-green/50">
+            <select aria-label="Filter timeline by project family" value={family} onChange={(event) => setFamily(event.target.value as typeof family)} className="h-11 rounded-lg border border-border bg-card px-3 text-sm text-foreground outline-none focus:border-signal-green/50">
               <option>All families</option>
               {evolutionFamilies.map((item) => <option key={item}>{item}</option>)}
             </select>
-            <select value={confidence} onChange={(event) => setConfidence(event.target.value as typeof confidence)} className="h-11 rounded-lg border border-border bg-card px-3 text-sm text-foreground outline-none focus:border-signal-green/50">
+            <select aria-label="Filter timeline by confidence" value={confidence} onChange={(event) => setConfidence(event.target.value as typeof confidence)} className="h-11 rounded-lg border border-border bg-card px-3 text-sm text-foreground outline-none focus:border-signal-green/50">
               <option>All confidence</option>
               <option>Confirmed</option>
               <option>Strong recall</option>
