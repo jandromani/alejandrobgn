@@ -94,11 +94,11 @@ const ventures = [
 ]
 
 const statuses = {
-  active: { label: "Active", color: "bg-green-950/50 border-green-500/30 text-green-600" },
-  alpha: { label: "Alpha", color: "bg-blue-950/50 border-blue-500/30 text-blue-600" },
-  early: { label: "Early", color: "bg-purple-950/50 border-purple-500/30 text-purple-600" },
-  public: { label: "Public", color: "bg-cyan-950/50 border-cyan-500/30 text-cyan-600" },
-  research: { label: "Research", color: "bg-amber-950/50 border-amber-500/30 text-amber-600" },
+  active: { label: "Active", color: "bg-green-50 border-green-300 text-green-950 dark:bg-green-950/60 dark:border-green-500/40 dark:text-green-100" },
+  alpha: { label: "Alpha", color: "bg-blue-50 border-blue-300 text-blue-950 dark:bg-blue-950/60 dark:border-blue-500/40 dark:text-blue-100" },
+  early: { label: "Early", color: "bg-purple-50 border-purple-300 text-purple-950 dark:bg-purple-950/60 dark:border-purple-500/40 dark:text-purple-100" },
+  public: { label: "Public", color: "bg-cyan-50 border-cyan-300 text-cyan-950 dark:bg-cyan-950/60 dark:border-cyan-500/40 dark:text-cyan-100" },
+  research: { label: "Research", color: "bg-amber-50 border-amber-300 text-amber-950 dark:bg-amber-950/60 dark:border-amber-500/40 dark:text-amber-100" },
 }
 
 export default function VentureLabPage() {
@@ -162,14 +162,14 @@ export default function VentureLabPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 + index * 0.05 }}
                 >
-                  <Link href={`/systems/${venture.id}`} className="group">
+                  <div className="group">
                     <Card className="h-full border-neon/20 hover:border-neon/50 transition-all duration-300 bg-card/50 backdrop-blur-sm group-hover:bg-card/80">
                       <CardContent className="p-6 space-y-4">
                         <div className="flex items-start justify-between gap-4">
                           <div className="flex-1 space-y-2">
                             <div className="flex items-center gap-2 flex-wrap">
-                              <h3 className="text-xl font-semibold text-foreground group-hover:text-foreground transition-colors">
-                                {venture.title}
+                              <h3 className="text-xl font-semibold text-foreground">
+                                <Link href={`/systems/${venture.id}`} className="inline-flex min-h-11 items-center rounded-md underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-ring">{venture.title}<span className="sr-only"> — inspect details</span></Link>
                               </h3>
                               <Badge
                                 variant="outline"
@@ -221,7 +221,7 @@ export default function VentureLabPage() {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                              className="relative z-10 inline-flex min-h-11 items-center gap-2 rounded-md px-3 text-sm text-foreground/85 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring transition-colors"
                             >
                               {venture.github ? <Github className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
                               {venture.github ? "Repository" : "Public surface"}
@@ -231,7 +231,7 @@ export default function VentureLabPage() {
                         </div>
                       </CardContent>
                     </Card>
-                  </Link>
+                  </div>
                 </motion.div>
               )
             })}
