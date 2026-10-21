@@ -275,10 +275,10 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
                 <span className="h-1.5 w-1.5 rounded-full bg-signal-green" />
                 {publicCount} public
               </span>
-              <span className="flex items-center gap-2 text-cyan-700 dark:text-signal-cyan">
+              {openCount > 0 && <span className="flex items-center gap-2 text-cyan-700 dark:text-signal-cyan">
                 <span className="h-1.5 w-1.5 rounded-full bg-signal-cyan" />
-                {openCount} open-source
-              </span>
+                {openCount} open-source in catalogue
+              </span>}
               <span className="hidden items-center gap-2 text-muted-foreground sm:flex">
                 <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
                 {graphSystems.length} mapped nodes
