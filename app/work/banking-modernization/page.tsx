@@ -285,6 +285,25 @@ export default function BankingModernizationPage() {
           </div>
         </section>
 
+        <section aria-labelledby="architecture-tradeoffs" className="rounded-xl border border-border bg-card p-7 md:p-9">
+          <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">05 / Architecture decisions · interpreted method</p>
+          <h2 id="architecture-tradeoffs" className="mt-3 text-2xl font-semibold">Decisions that make modernization inspectable</h2>
+          <p className="mt-4 max-w-4xl text-sm leading-7 text-muted-foreground">These trade-offs explain the technical method and can be discussed publicly without client source. They are not a substitute for signed acceptance criteria or code-level bank evidence.</p>
+          <div className="mt-7 grid gap-4 md:grid-cols-3">
+            {[
+              {name:"Source-linked knowledge",choice:"Map dependencies with source references before code generation.",alternative:"Generate targets directly from a narrative summary.",proof:"Revisit every selected fact's source location and unresolved gaps."},
+              {name:"Canonical intermediate model",choice:"Separate understanding of the legacy system from output generators.",alternative:"Let each generator re-infer its own entities and contracts.",proof:"Check declared model invariants and source-to-target trace."},
+              {name:"Separate quality gates",choice:"Check reproducibility and traceability independently of functional equivalence.",alternative:"Use deterministic output as evidence of behavior parity.",proof:"Run contracts, parity and representative E2E tests before any migration claim."},
+            ].map(d=><article key={d.name} className="rounded-lg border border-border bg-background p-5">
+              <h3 className="text-lg font-semibold">{d.name}</h3>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground"><strong className="text-foreground">Chosen approach: </strong>{d.choice}</p>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground"><strong className="text-foreground">Alternative: </strong>{d.alternative}</p>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground"><strong className="text-foreground">Falsifiable check: </strong>{d.proof}</p>
+            </article>)}
+          </div>
+          <p className="mt-7 border-t border-border pt-5 text-sm leading-7 text-muted-foreground"><strong className="text-foreground">Why the 89.9% figure is not the headline: </strong>its original context-size denominator and reproducible measurement protocol are not public. This case therefore leads with the bounded PoC and quality method, not an implied time or cost saving.</p>
+        </section>
+
         <section className="rounded-xl border border-border bg-secondary/30 p-7 md:p-9" aria-labelledby="scope">
           <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">05 / Proof boundary</p>
           <h2 id="scope" className="mt-3 text-2xl font-semibold">Reproducible artifacts are not functional parity</h2>
