@@ -32,6 +32,7 @@ export function Footer() {
         </nav>
 
         <nav aria-label="Footer navigation" className="flex items-center gap-4">
+          <Link href="/work" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Work</Link>
           <Link
             href="/systems"
             className="text-xs text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
