@@ -1,0 +1,86 @@
+name: Full-site independent audit · routes, links, WCAG and Lighthouse
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [master]
+    paths:
+      - "scripts/audit-all-public-routes.py"
+      - ".github/workflows/full-site-audit.yml"
+permissions:
+  contents: read
+concurrency:
+  group: independent-full-site-audit
+  cancel-in-progress: true
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 38
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.12.1
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - name: Install browser, axe and Lighthouse
+        run: |
+          python -m pip install "playwright==1.58.0"
+          python -m playwright install --with-deps chromium
+          npm install --prefix /tmp/portfolio-axe --no-save --ignore-scripts axe-core@4.10.3
+          npm install --prefix /tmp/portfolio-lighthouse --no-save --ignore-scripts lighthouse@12.8.2
+          CHROME=$(python -c 'from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path);p.stop()')
+          echo "CHROME_PATH=$CHROME" >> "$GITHUB_ENV"
+      - name: Start local production instance
+        run: |
+          (pnpm start >/tmp/next-production.log 2>&1 &)
+          for attempt in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:3000/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/next-production.log
+          exit 1
+      - name: Crawl every public route, internal link, image and axe mobile/desktop
+        run: python scripts/audit-all-public-routes.py
+      - name: Lighthouse 5 representative pages / mobile simulated throttle
+        continue-on-error: true
+        run: |
+          mkdir -p artifacts/full-site-audit/lighthouse
+          for entry in "home:/" "work:/work" "atlas:/atlas" "banking:/work/banking-modernization" "cybersecurity:/work/cybersecurity-ai-engineering"; do
+            name="${entry%%:*}"
+            route="${entry#*:}"
+            echo "Auditing $route as $name"
+            timeout 120s /tmp/portfolio-lighthouse/node_modules/.bin/lighthouse "http://127.0.0.1:3000$route"               --output json --output-path "artifacts/full-site-audit/lighthouse/$name.json"               --only-categories=performance,accessibility,best-practices,seo               --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage"               --quiet || true
+          done
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          folder=Path('artifacts/full-site-audit/lighthouse')
+          rows=[]
+          for p in sorted(folder.glob('*.json')):
+            try:
+              obj=json.loads(p.read_text())
+              cats=obj.get('categories',{})
+              rows.append({'page':p.stem,'url':obj.get('finalUrl'),'scores':{k:round((v.get('score') or 0)*100) for k,v in cats.items()},
+                           'metrics':{k:(obj.get('audits',{}).get(k,{}) or {}).get('displayValue') for k in ('largest-contentful-paint','cumulative-layout-shift','total-blocking-time','first-contentful-paint','speed-index')},
+                           'lighthouseVersion':obj.get('lighthouseVersion')})
+            except Exception as exc:
+              rows.append({'page':p.stem,'error':str(exc)})
+          (folder/'summary.json').write_text(json.dumps(rows,indent=2))
+          print(json.dumps(rows,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: independent-full-site-audit
+          path: artifacts/full-site-audit/
+          if-no-files-found: warn
