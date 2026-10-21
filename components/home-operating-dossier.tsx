@@ -3,7 +3,6 @@ import { HeroEvidenceFlow } from "@/components/hero-evidence-flow"
 import Image from "next/image"
 import Link from "next/link"
 import {
-  Activity,
   ArrowRight,
   BrainCircuit,
   Coffee,
@@ -29,7 +28,6 @@ const topologyPositions: Record<string, NodePosition> = {
   agnosticengine: { x: 18, y: 26 },
   entropiccore: { x: 82, y: 26 },
   psycheos: { x: 12, y: 61 },
-  llmtrace: { x: 88, y: 61 },
   aivendorcompare: { x: 22, y: 88 },
   "aigile-document-intelligence": { x: 50, y: 91 },
   brewmatch: { x: 78, y: 88 },
@@ -42,7 +40,6 @@ const systemIcons: Record<string, typeof Network> = {
   psycheos: BrainCircuit,
   aivendorcompare: Scale,
   "aigile-document-intelligence": FileSearch,
-  llmtrace: Activity,
   brewmatch: Coffee,
 }
 
@@ -249,7 +246,7 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
           <dl className="relative mt-10 grid grid-cols-2 gap-3 border-t border-border pt-5 md:ml-0">
             {[
               [enterpriseEvidence.deliveryTime.short, "team AI workflow", "activation¹", "text-[#476700] dark:text-signal-green"],
-              [enterpriseEvidence.contextReduction.short, "working context", "reduction¹", "text-foreground"],
+              [enterpriseEvidence.modernizationDuration.value, "bounded modernization", "PoC duration¹", "text-foreground"],
               [enterpriseEvidence.modernizationGates.short, "scoped quality", "gates green¹", "text-foreground"],
               ["11+", "years in", "engineering", "text-cyan-700 dark:text-signal-cyan"],
             ].map(([value, first, second, color], index) => (
@@ -311,7 +308,6 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
                 <path d="M500 300 C390 260 270 200 170 150" />
                 <path d="M500 300 C610 260 730 200 830 150" />
                 <path d="M500 300 C340 310 205 345 88 365" />
-                <path d="M500 300 C660 310 795 345 912 365" />
                 <path d="M500 300 C390 385 300 470 210 530" />
                 <path d="M500 300 C500 390 500 470 500 548" />
                 <path d="M500 300 C610 385 700 470 790 530" />
@@ -321,7 +317,6 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
                 <path d="M500 300 C390 260 270 200 170 150" />
                 <path d="M500 300 C610 260 730 200 830 150" />
                 <path d="M500 300 C340 310 205 345 88 365" />
-                <path d="M500 300 C660 310 795 345 912 365" />
                 <path d="M500 300 C390 385 300 470 210 530" />
                 <path d="M500 300 C500 390 500 470 500 548" />
                 <path d="M500 300 C610 385 700 470 790 530" />
@@ -368,9 +363,8 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
             <EvidenceCard slug="aiactmiddleware" />
-            <EvidenceCard slug="llmtrace" />
             <EvidenceCard slug="entropiccore" />
             <EvidenceCard slug="brewmatch" />
           </div>
