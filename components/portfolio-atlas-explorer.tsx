@@ -71,7 +71,19 @@ export function PortfolioAtlasExplorer({ nodes, edges }: Props) {
             </button>
           ))}
         </div>
-        <div className="overflow-x-auto" role="region" aria-label="Navigable map of portfolio relationships" tabIndex={0}>
+        <div className="p-4 lg:hidden">
+          <label htmlFor="atlas-mobile-node" className="mb-2 block text-sm font-semibold text-white">
+            Browse a portfolio entry without the graph
+          </label>
+          <select id="atlas-mobile-node" value={focus} onChange={(event) => setFocus(event.target.value)}
+            className="min-h-12 w-full rounded-md border border-white/30 bg-[#162836] px-3 text-base text-white focus-visible:ring-2 focus-visible:ring-[#b9e462]">
+            {nodes.filter((node) => filter === "all" || node.kind === filter || node.id === focus).map((node) =>
+              <option key={node.id} value={node.id}>{node.kind} / {node.title}</option>
+            )}
+          </select>
+          <p className="mt-3 text-sm leading-6 text-white/75">Select an entry to view its connections and open the real source page below.</p>
+        </div>
+        <div className="hidden overflow-x-auto lg:block" role="region" aria-label="Navigable map of portfolio relationships" tabIndex={0}>
           <svg viewBox="0 0 1100 700" role="img" aria-label={`Graph with ${nodes.length} portfolio entries and ${edges.length} documented editorial relationships. Choose a node to inspect its links.`}
             className="block min-w-[700px] w-full" style={{ background:"radial-gradient(circle at 52% 40%, #142536, #0a1018 65%)" }}>
             <defs>
@@ -126,7 +138,7 @@ export function PortfolioAtlasExplorer({ nodes, edges }: Props) {
               <button type="button" className="text-left text-sm font-semibold text-foreground hover:underline focus-visible:underline" onClick={() => setFocus(node.id)}>
                 {node.title}
               </button>
-              <p className="mt-1 font-mono text-[10px] uppercase text-muted-foreground">{node.kind} / {relation}</p>
+              <p className="mt-1 font-mono text-xs uppercase text-muted-foreground">{node.kind} / {relation}</p>
               <p className="mt-2 text-xs leading-5 text-muted-foreground">{why}</p>
               <Link href={node.href} className="mt-2 inline-flex items-center gap-1 text-xs font-semibold underline underline-offset-4">Visit page <ArrowUpRight className="h-3 w-3"/></Link>
             </div>
