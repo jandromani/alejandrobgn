@@ -14,14 +14,14 @@ export function HeroEvidenceFlow() {
     <div className="pointer-events-none absolute inset-0 opacity-40" aria-hidden="true"
       style={{background:"radial-gradient(circle at 50% 28%, hsl(var(--signal-cyan)/.13),transparent 52%)"}}/>
     <div className="relative w-full max-w-[570px]">
-      <p className="font-mono text-xs font-semibold uppercase tracking-widest text-[#587f00] dark:text-signal-green">Engineering operating model / Illustrated</p>
+      <p className="font-mono text-xs font-semibold uppercase tracking-widest text-[#476700] dark:text-signal-green">Engineering operating model / Illustrated</p>
       <h2 className="mt-4 max-w-md text-2xl font-semibold leading-tight tracking-tight text-foreground md:text-3xl">From project knowledge to a change a team can trust.</h2>
       <p className="mt-3 max-w-lg text-sm leading-6 text-muted-foreground">A simplified, human-governed engineering method. The two enterprise case studies contain the actual reported outcomes and limits.</p>
       <ol className="relative mt-8 space-y-2" aria-label="Four-stage reviewable delivery process">
         {stages.map((stage,i)=>{
           const Icon=stage.icon
           return <li key={stage.number} className="relative flex min-h-[90px] items-start gap-4 rounded-xl border border-border bg-background/80 p-4">
-            <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg border border-border bg-secondary text-[#587f00] dark:text-signal-green">
+            <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg border border-border bg-secondary text-[#476700] dark:text-signal-green">
               <Icon className="h-5 w-5" aria-hidden="true"/>
             </div>
             <div className="min-w-0 flex-1">
@@ -35,7 +35,7 @@ export function HeroEvidenceFlow() {
       </ol>
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         <Link href="/work/cybersecurity-ai-engineering" className="group rounded-xl border border-border bg-background p-4 transition-colors hover:border-[#587f00] focus-visible:ring-2 focus-visible:ring-ring">
-          <ShieldCheck className="h-5 w-5 text-[#587f00] dark:text-signal-green" aria-hidden="true"/>
+          <ShieldCheck className="h-5 w-5 text-[#476700] dark:text-signal-green" aria-hidden="true"/>
           <strong className="mt-3 block text-xl leading-tight text-foreground">&lt;1 month</strong>
           <span className="mt-1 block text-sm leading-6 text-muted-foreground">Team-reported AI workflow activation</span>
           <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-foreground">Inspect case <ArrowRight className="h-3.5 w-3.5"/></span>
