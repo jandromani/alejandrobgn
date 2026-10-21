@@ -36,7 +36,7 @@ export default function WorkPage() {
     ]}/>
     <header className="border-b border-border bg-card/20">
       <div className="container mx-auto max-w-6xl px-4 py-10 md:py-14">
-        <p className="font-mono text-xs uppercase tracking-widest text-[#5b8f00] dark:text-signal-green">01 / Enterprise outcomes</p>
+        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">01 / Enterprise outcomes</p>
         <h1 className="mt-5 max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">Enterprise AI engineering, with evidence you can inspect.</h1>
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted-foreground md:text-lg">I build and introduce AI-assisted engineering workflows, and I lead source-linked modernization. These two anonymized cases distinguish team-reported outcomes from unproven client-wide results.</p>
       </div>
@@ -47,7 +47,7 @@ export default function WorkPage() {
         {cases.map(item=>{
           const Icon=item.icon
           return <Link key={item.url} href={item.url} className="group flex h-full flex-col evidence-card p-6 transition-colors hover:border-[#5b8f00] focus-visible:ring-2 focus-visible:ring-ring md:p-8">
-            <p className="font-mono text-xs uppercase tracking-wider text-[#5b8f00] dark:text-signal-green">{item.category}</p>
+            <p className="font-mono text-xs uppercase tracking-wider text-[#476700] dark:text-signal-green">{item.category}</p>
             <div className="mt-5 flex items-center justify-between gap-4"><strong className="font-mono text-4xl tracking-tight text-foreground">{item.number}</strong><Icon className="h-7 w-7 text-muted-foreground" aria-hidden="true"/></div>
             <p className="mt-2 text-sm text-muted-foreground">{item.label}</p>
             <h3 className="mt-5 text-xl font-semibold leading-tight md:text-2xl">{item.title}</h3>
