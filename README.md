@@ -6,14 +6,16 @@
 
 [![Alejandro Baratas — AI Tech Lead and Agentic Systems Architect](https://alejandrobgn.vercel.app/api/og?type=profile)](https://alejandrobgn.vercel.app)
 
-This is not a downloadable CV wrapped in a landing page. It is an evidence-led portfolio about designing, shipping and governing production AI systems: their interfaces, architectures, operating limits, traces and economic consequences.
+A professional evidence portfolio about engineering reviewable AI systems: enterprise delivery, modernization decisions, governed execution and the difference between a tested reference system and a customer-production deployment. Leadership is evaluated through decisions, evidence and limits—not product count.
 
-The site connects four kinds of evidence:
+The portfolio keeps these non-equivalent evidence tiers separate:
 
-- **Systems** — product and infrastructure case studies with deliberately honest preview states.
+- **Enterprise work** — two sector-anonymized delivery engagements with responsibility, trade-offs and evidence boundaries.
+- **Engineering proof** — [A2A governed-agent reference](/engineering/a2a) with public CI and ADRs, plus [modular delivery patterns](/engineering/delivery-systems).
+- **Systems** — product/prototype catalogue with explicitly disclosed maturity and interface provenance; historical LLMTRACE is not a flagship.
 - **Labs** — eight original browser artifacts, their captured interfaces, and explicit runtime/QA limitations.
 - **Writing** — eight long-form technical field notes on agent governance, orchestration, observability, safety, entropy and AI platform economics.
-- **Evolution** — 201 documented records: 184 reconstructed historical entries and 17 later milestones, each presented with its evidence limits rather than as equivalent products.
+- **Evolution** — 201 technical records (184 historical + 17 later), internally classified as 140 Confirmed, 58 Strong recall and 3 Partial reconstruction; not 201 externally validated products.
 
 ## Design principles
 
@@ -43,10 +45,13 @@ scripts/                SEO, image-conversion and optional visual-QA utilities
 
 Notable routes:
 
-- `/systems` and `/systems/[slug]` — system index and evidence-rich case studies
+- `/work` — two anonymized enterprise cases and their proof boundaries
+- `/engineering/a2a` — public architecture, decisions and test evidence
+- `/engineering/delivery-systems` — modular context, knowledge and specification quality controls
+- `/systems` and `/systems/[slug]` — catalogue of prototypes and systems by maturity
 - `/atlas` and `/atlas/graph.json` — interactive, strongly connected editorial evidence graph and public machine-readable manifest
 - `/writing` and `/writing/[slug]` — technical journal and long-form articles
-- `/evolution` — 201-record learning timeline and capability map (184 historical reconstructions + 17 later milestones)
+- `/evolution` — 201-record learning archive (184 historical + 17 later, with provenance labels)
 - `/labs` and `/labs/[slug]` — eight preserved standalone HTML experiments, Chromium captures and scope-limited QA notes
 - `/publications` — independent editorial issues and the original Mateo visual-book reader
 - `/about` — professional lineage rendered as a systems map
@@ -84,7 +89,9 @@ node scripts/evidence-integrity.mjs
 
 ## Public surfaces represented here
 
-The portfolio links to live or published work including AI Act Middleware, Agnostic Engine, Entropic Core, PsycheOS, AI Vendor Compare, BrewMatch and LLMTRACE. Each case study states its evidence boundary and maturity level independently.
+The portfolio links to technical demonstrations including AI Act Middleware, Agnostic Engine, Entropic Core, PsycheOS, AI Vendor Compare and BrewMatch. LLMTRACE is retained as a historical mock-based alpha with explicit disclosure. No repository or project count implies product or production maturity.
+
+Claim ledger: [source-level evidence criteria](docs/v3-evidence-ledger.md) · [permission and measurement kit](docs/v3-evidence-request-kit.md) · [independent-reader study](docs/f5-human-validation.md).
 
 ## Content and reuse
 
