@@ -9,7 +9,7 @@ const read = (p) => readFileSync(join(root, p), "utf8")
 const requireFile = (p) => assert.ok(exists(p), `Missing required site file: ${p}`)
 
 const routes = [
-  "app/atlas/page.tsx", "app/atlas/graph.json/route.ts", "app/work/page.tsx",
+  "app/atlas/page.tsx", "app/atlas/graph.json/route.ts", "app/work/page.tsx", "app/release-info/route.ts",
   "app/work/cybersecurity-ai-engineering/page.tsx",
   "app/work/banking-modernization/page.tsx",
   "app/labs/[slug]/page.tsx",
@@ -38,6 +38,14 @@ const footer = read("components/footer.tsx")
 const sitemap = read("app/sitemap.ts")
 assert.ok(nav.includes('href:"/atlas"'), "Atlas missing from explore navigation")
 assert.ok(nav.includes('href:"/work"'), "Enterprise work missing from main navigation")
+const hero=read("components/home-operating-dossier.tsx")
+const heroDiagram=read("components/hero-evidence-flow.tsx")
+assert.ok(hero.includes('<HeroEvidenceFlow />'), "F1: executive hero proof diagram missing")
+assert.ok(hero.includes('xl:grid-cols-[minmax(0,53%)_minmax(0,47%)]'), "F1: hero balance regression")
+assert.ok(heroDiagram.includes("/work/cybersecurity-ai-engineering") && heroDiagram.includes("/work/banking-modernization"), "F1: proof flow must link to actual cases")
+const release=read("app/release-info/route.ts")
+assert.ok(release.includes("VERCEL_GIT_COMMIT_SHA"), "F0: public deploy provenance missing")
+
 assert.ok(!nav.includes('role="menubar"') && !nav.includes('role="menuitem"'), "Navigation must not use application-menu ARIA")
 assert.ok(footer.includes('href="/atlas"'), "Atlas missing from footer")
 assert.ok(sitemap.includes('absoluteUrl("/atlas")'), "Atlas missing from sitemap")
