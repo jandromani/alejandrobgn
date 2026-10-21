@@ -94,10 +94,10 @@ function SystemNode({ system }: { system: System }) {
         </span>
         <span className="min-w-0 flex-1">
           <span className="flex items-start gap-1.5">
-            <span className="text-[11px] font-semibold leading-tight text-foreground">{system.name}</span>
+            <span className="text-xs font-semibold leading-tight text-foreground">{system.name}</span>
             <span className={`h-1.5 w-1.5 flex-none rounded-full ${systemSignals[system.category]}`} aria-hidden="true" />
           </span>
-          <span className="mt-1 block line-clamp-2 text-[8px] font-mono leading-[1.45] text-muted-foreground">
+          <span className="mt-1 block line-clamp-2 text-xs font-mono leading-[1.45] text-muted-foreground">
             {system.tagline.replaceAll(" · ", " / ")}
           </span>
         </span>
@@ -122,7 +122,7 @@ function MobileSystemNode({ system }: { system: System }) {
           <span className="truncate text-xs font-semibold text-foreground">{system.name}</span>
           <span className={`h-1.5 w-1.5 flex-none rounded-full ${systemSignals[system.category]}`} aria-hidden="true" />
         </span>
-        <span className="mt-1 block truncate text-[9px] font-mono text-muted-foreground">{system.tagline}</span>
+        <span className="mt-1 block truncate text-xs font-mono text-muted-foreground">{system.tagline}</span>
       </span>
     </Link>
   )
@@ -142,7 +142,7 @@ function EvidenceCard({ slug }: { slug: string }) {
     >
       <span className="flex items-center gap-2 border-b border-border px-4 py-3">
         <span className={`h-2 w-2 flex-none rounded-full ${tone.dot}`} aria-hidden="true" />
-        <span className={`truncate text-[9px] font-mono uppercase tracking-[0.1em] ${tone.text}`}>{label}</span>
+        <span className={`truncate text-xs font-mono uppercase tracking-[0.1em] ${tone.text}`}>{label}</span>
       </span>
       <span className="relative block aspect-[16/8.4] overflow-hidden bg-secondary">
         <Image
@@ -158,7 +158,7 @@ function EvidenceCard({ slug }: { slug: string }) {
         />
         <span className="absolute inset-x-0 bottom-0 block p-4">
           <span className="block text-sm font-semibold text-foreground">{system.name}</span>
-          <span className="mt-0.5 block truncate text-[9px] font-mono text-muted-foreground">{asset.title}</span>
+          <span className="mt-0.5 block truncate text-xs font-mono text-muted-foreground">{asset.title}</span>
         </span>
       </span>
     </Link>
@@ -195,17 +195,17 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
         <div className="relative flex min-w-0 flex-col justify-between border-b border-border px-5 py-12 md:px-14 xl:border-b-0 xl:py-14">
           <div className="pointer-events-none absolute bottom-0 left-6 top-10 hidden w-px bg-border md:block" aria-hidden="true">
             <span className="absolute left-[-5px] top-[34%] h-px w-5 bg-signal-green" />
-            <span className="absolute left-[-27px] top-[32.5%] font-mono text-[10px] text-[#587f00] dark:text-signal-green">01</span>
+            <span className="absolute left-[-27px] top-[32.5%] font-mono text-xs text-[#587f00] dark:text-signal-green">01</span>
           </div>
 
           <div className="relative min-w-0 md:pl-12">
-            <p className="flex items-center gap-3 text-[10px] font-mono uppercase tracking-[0.18em] text-[#587f00] dark:text-signal-green">
+            <p className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.18em] text-[#587f00] dark:text-signal-green">
               <span className="flex h-4 w-4 items-center justify-center border border-border bg-card">
                 <span className="h-1.5 w-1.5 bg-signal-green" />
               </span>
               Alejandro Baratas · Technical leadership dossier
             </p>
-            <p className="mt-6 text-[10px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+            <p className="mt-6 text-xs font-mono uppercase tracking-[0.18em] text-muted-foreground">
               AI Tech Lead · Agentic engineering · Madrid / Remote
             </p>
 
@@ -213,25 +213,25 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
               id="hero-heading"
               className="mt-6 max-w-[590px] text-[clamp(3rem,5.4vw,5.5rem)] font-bold leading-[0.96] tracking-[-0.06em] text-foreground"
             >
-              From complex
+              Enterprise AI
               <br />
-              engineering to
+              engineering
               <br />
               <span className="text-[#5b8f00] dark:text-signal-green dark:drop-shadow-[0_0_22px_hsl(var(--signal-green)/.2)]">
-                operational AI.
+                teams can use.
               </span>
             </h1>
 
             <p className="mt-7 max-w-lg text-base leading-7 text-muted-foreground">
-              I build the engineering path from AI ambition to reviewable delivery. Recent work: activate specialist AI workflows in weeks, and turn legacy code understanding into source-linked, quality-gated modernization — with human accountability throughout.
+              I lead agent-assisted delivery and legacy modernization. Recent work: get specialist AI workflows into use in under a month and validate source-linked modernization through technical quality gates — with human accountability throughout.
             </p>
 
             <div className="mt-8 grid grid-cols-1 gap-3 sm:flex sm:flex-wrap">
               <Link
-                href="#enterprise-outcomes"
+                href="/work"
                 className="inline-flex items-center justify-center gap-3 rounded-md bg-[#90d900] px-6 py-3 text-sm font-semibold text-[#090b0f] transition-colors hover:bg-[#9cec00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                Explore enterprise work
+                See enterprise results
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               <a
@@ -244,7 +244,7 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
             </div>
           </div>
 
-          <dl className="relative mt-12 grid grid-cols-2 border-t border-border pt-5 md:ml-12 md:grid-cols-4">
+          <dl className="relative mt-12 grid grid-cols-2 gap-y-4 border-t border-border pt-5 md:ml-12 xl:grid-cols-4">
             {[
               ["<1mo", "team AI workflow", "activation¹", "text-[#5b8f00] dark:text-signal-green"],
               ["89.9%", "working context", "reduction¹", "text-foreground"],
@@ -253,7 +253,7 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
             ].map(([value, first, second, color], index) => (
               <div key={value + first} className={`py-2 ${index > 0 ? "border-l border-border pl-5" : ""}`}>
                 <dt className={`font-mono text-3xl font-bold ${color}`}>{value}</dt>
-                <dd className="mt-1 text-[9px] font-mono leading-4 text-muted-foreground">
+                <dd className="mt-1 text-xs font-mono leading-4 text-muted-foreground">
                   {first}
                   <br />
                   {second}
@@ -261,7 +261,7 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
               </div>
             ))}
           </dl>
-          <p className="mt-3 text-[11px] leading-5 text-muted-foreground md:ml-12">
+          <p className="mt-3 text-xs leading-5 text-muted-foreground md:ml-12">
             ¹ Self-reported engineering measurements from bounded, anonymized engagements; not independently audited client KPIs, time saved or full functional equivalence. Details and scope are disclosed in the two enterprise case studies below.
           </p>
         </div>
@@ -269,8 +269,8 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
         {mode !== "hero" && (
         <div className="relative min-h-[640px] min-w-0 px-5 py-8 md:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-4">
-            <p className="text-[10px] font-mono uppercase tracking-[0.16em] text-foreground">Systems topology</p>
-            <div className="flex items-center gap-4 text-[9px] font-mono">
+            <p className="text-xs font-mono uppercase tracking-[0.16em] text-foreground">Systems topology</p>
+            <div className="flex items-center gap-4 text-xs font-mono">
               <span className="flex items-center gap-2 text-[#587f00] dark:text-signal-green">
                 <span className="h-1.5 w-1.5 rounded-full bg-signal-green" />
                 {publicCount} public
@@ -286,7 +286,7 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
             </div>
           </div>
 
-          <p className="mt-4 rounded-md border border-border bg-card/40 px-3 py-2 text-[9px] font-mono leading-relaxed text-muted-foreground">
+          <p className="mt-4 rounded-md border border-border bg-card/40 px-3 py-2 text-xs font-mono leading-relaxed text-muted-foreground">
             Conceptual portfolio topology · connections show a shared operating thesis, not runtime dependencies.
           </p>
 
@@ -332,9 +332,9 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
               style={{ background: "linear-gradient(135deg, hsl(var(--signal-green)), hsl(var(--signal-cyan)), hsl(var(--border)))" }}>
               <div className="rounded-[15px] bg-background/95 px-5 py-4 text-center backdrop-blur">
                 <Radio className="mx-auto h-5 w-5 text-[#5b8f00] dark:text-signal-green" aria-hidden="true" />
-                <p className="mt-2 text-[8px] font-mono uppercase tracking-[0.2em] text-muted-foreground">Shared operating thesis</p>
+                <p className="mt-2 text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">Shared operating thesis</p>
                 <p className="mt-1 text-sm font-bold text-foreground">Production AI</p>
-                <p className="mt-1 text-[9px] font-mono leading-relaxed text-muted-foreground">Intent · control · runtime · evidence</p>
+                <p className="mt-1 text-xs font-mono leading-relaxed text-muted-foreground">Intent · control · runtime · evidence</p>
               </div>
             </div>
 
@@ -354,12 +354,12 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
           <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
             <div className="flex min-w-0 items-center gap-3">
               <Gauge className="h-4 w-4 flex-none text-[#5b8f00] dark:text-signal-green" aria-hidden="true" />
-              <h2 className="text-[10px] font-mono uppercase tracking-[0.14em] text-foreground">Evidence ledger</h2>
-              <span className="hidden text-[9px] font-mono text-muted-foreground md:inline">
+              <h2 className="text-xs font-mono uppercase tracking-[0.14em] text-foreground">Evidence ledger</h2>
+              <span className="hidden text-xs font-mono text-muted-foreground md:inline">
                 Real interfaces · real traces · representative outputs
               </span>
             </div>
-            <Link href="/systems" className="inline-flex items-center gap-2 text-[10px] font-mono text-[#587f00] hover:text-foreground dark:text-signal-green">
+            <Link href="/systems" className="inline-flex items-center gap-2 text-xs font-mono text-[#587f00] hover:text-foreground dark:text-signal-green">
               View all evidence
               <ArrowRight className="h-3 w-3" aria-hidden="true" />
             </Link>
