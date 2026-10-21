@@ -72,8 +72,9 @@ async def main():
           data["axeSerious"]=[v for v in violations if v["impact"] in ("critical","serious")]
           data["axeModerate"]=[v for v in violations if v["impact"] not in ("critical","serious")]
           for v in data["axeSerious"]:fail(path,"axe-"+device,v)
-          if path in ("/","/work","/atlas","/labs","/systems","/writing","/experience","/about","/contact","/publications","/work/cybersecurity-ai-engineering","/work/banking-modernization"):
-            await page.screenshot(path=str(OUT/(device+"-"+(path.strip("/").replace("/","-") or "home")+".png")),animations="disabled",full_page=False)
+          # Capture EVERY audited route to allow exhaustive visual comparison.
+          shot=device+"-"+(path.strip("/").replace("/","-") or "home")
+          await page.screenshot(path=str(OUT/(shot+".png")),animations="disabled",full_page=False)
         except Exception as e:fail(path,"browser-"+device,e)
         report["pages"].append(data)
         await page.close()
