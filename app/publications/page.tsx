@@ -21,7 +21,7 @@ const issues = [
 
 export default function PublicationsPage() {
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-card/20">
         <div className="container mx-auto max-w-6xl px-4 py-16 md:py-24">
           <p className="font-mono text-xs uppercase tracking-[.18em] text-[#587f00] dark:text-signal-green">Editorial work / Independent publishing</p>
@@ -119,6 +119,6 @@ export default function PublicationsPage() {
         </div>
       </section>
       <RelatedEvidence id="publication:the-intelligence-ahead" />
-    </main>
+    </div>
   )
 }
