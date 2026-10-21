@@ -1,3 +1,4 @@
+import { enterpriseEvidence, deliveryMetrics, metricProperties } from "@/lib/enterprise-evidence"
 import { relatedPortfolioNodes } from "@/lib/portfolio-graph"
 import { EngineeringAnatomy } from "@/components/engineering-anatomy"
 import { RelatedEvidence } from "@/components/related-evidence"
@@ -89,6 +90,7 @@ export default function CybersecurityEngineeringCasePage() {
             headline: "From an unfamiliar codebase to AI-assisted engineering in under a month",
             description,
             author: { "@id": personId },
+            additionalProperty: metricProperties(deliveryMetrics),
             mentions: relatedPortfolioNodes("case:cybersecurity-ai-engineering").map(({node}) => ({
               "@type":"CreativeWork",
               name:node.title,
@@ -124,15 +126,15 @@ export default function CybersecurityEngineeringCasePage() {
           </h1>
           <div className="mt-7 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
             <div className="bg-card p-5">
-              <p className="font-mono text-3xl font-bold text-foreground">&lt; 1 month</p>
+              <p className="font-mono text-3xl font-bold text-foreground">{enterpriseEvidence.deliveryTime.value}</p>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">Reported time to use in participating workflows</p>
             </div>
             <div className="bg-card p-5">
-              <p className="font-mono text-3xl font-bold text-foreground">2 peers</p>
+              <p className="font-mono text-3xl font-bold text-foreground">{enterpriseEvidence.deliveryPeers.value}</p>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">Initial technical delivery nucleus, not the whole team</p>
             </div>
             <div className="bg-card p-5">
-              <p className="font-mono text-3xl font-bold text-foreground">4 roles</p>
+              <p className="font-mono text-3xl font-bold text-foreground">{enterpriseEvidence.deliveryRoles.value}</p>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">Backend, frontend, QA and Gherkin assistance introduced in team workflows</p>
             </div>
           </div>
