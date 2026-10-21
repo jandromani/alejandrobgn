@@ -58,7 +58,7 @@ export const enterpriseEvidence = {
 } as const satisfies Record<string,PublicEngineeringMetric>
 
 export const deliveryMetrics = [enterpriseEvidence.deliveryTime,enterpriseEvidence.deliveryPeers,enterpriseEvidence.deliveryRoles]
-export const modernizationMetrics = [enterpriseEvidence.modernizationDuration,enterpriseEvidence.contextReduction,enterpriseEvidence.modernizationGates]
+export const modernizationMetrics = [enterpriseEvidence.modernizationDuration,enterpriseEvidence.modernizationGates]
 export const publicMetrics = [...deliveryMetrics,...modernizationMetrics]
 export function metricProperties(metrics: readonly PublicEngineeringMetric[]) {
   return metrics.map((metric)=>({
