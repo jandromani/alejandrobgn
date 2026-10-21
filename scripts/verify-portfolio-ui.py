@@ -66,6 +66,13 @@ async def route_gate(browser, size, name, path, alias):
         dimensions = await page.evaluate("""() => ({
           viewport: window.innerWidth,
           content: document.documentElement.scrollWidth,
+          htmlOffenders: [...document.querySelectorAll('body *')]
+            .filter(e => !(e instanceof SVGElement))
+            .map(e => ({e,r:e.getBoundingClientRect()}))
+            .filter(x => x.r.width > 0 && (x.r.right > window.innerWidth + 2 || x.r.left < -2))
+            .sort((a,b)=>b.r.right-a.r.right)
+            .slice(0,12)
+            .map(x=>({tag:x.e.tagName.toLowerCase(),className:typeof x.e.className === 'string'?x.e.className.slice(0,130):'',left:Math.round(x.r.left),right:Math.round(x.r.right),w:Math.round(x.r.width)})),
           offenders: [...document.querySelectorAll('body *')]
             .map(e => ({e, r:e.getBoundingClientRect()}))
             .filter(x => x.r.width > 0 && (x.r.right > window.innerWidth + 2 || x.r.left < -2))
