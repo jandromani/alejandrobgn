@@ -27,8 +27,11 @@ ROUTES = [
     ("/contact", "contact"),
 ]
 DEVICES = [
+    ("wide", 1920, 1080),
     ("desktop", 1440, 900),
+    ("tablet", 1024, 768),
     ("mobile", 390, 844),
+    ("small-mobile", 320, 740),
 ]
 REPORT = {"checks": [], "errors": [], "screenshots": [], "source": "local Next.js build / headless Chromium"}
 def record(label, ok, info=""):
@@ -50,6 +53,16 @@ async def route_gate(browser, size, name, path, alias):
         title = await page.title()
         record(name+" "+path+" page title", bool(title and "Alejandro" in title), title[:160])
         record(name+" "+path+" unique main", await page.locator("main").count() == 1)
+        if path in ("/work/cybersecurity-ai-engineering", "/work/banking-modernization"):
+            metric = page.locator("header .font-mono").filter(has_text=re.compile(r"(?:89\\.9%|13 gates|1 month)")).first
+            if await metric.count() == 0:
+                metric = page.locator("header .font-mono.text-3xl,header .font-mono.text-2xl").first
+            record(name+" "+path+" first-screen evidence near heading",
+                   await metric.count() > 0 and (await metric.bounding_box()) is not None
+                   and (await metric.bounding_box())["y"] < (size[1]+220))
+        if path == "/":
+            record(name+" home clear enterprise CTA", await page.locator('a[href="/work"]').count() > 0)
+
         dimensions = await page.evaluate("""() => ({
           viewport: window.innerWidth,
           content: document.documentElement.scrollWidth
@@ -58,6 +71,10 @@ async def route_gate(browser, size, name, path, alias):
         pathname = ("root" if not path.strip("/") else alias)
         filename = name+"-"+pathname+".png"
         await page.screenshot(path=str(TARGET / filename), full_page=False, animations="disabled")
+        if name in ("desktop", "mobile") and path in ("/", "/work", "/work/cybersecurity-ai-engineering", "/work/banking-modernization", "/atlas"):
+            full_name=name+"-"+pathname+"-full.png"
+            await page.screenshot(path=str(TARGET / full_name), full_page=True, animations="disabled")
+            REPORT["screenshots"].append(full_name)
         REPORT["screenshots"].append(filename)
     except Exception as exc:
         record_error(name+" "+path+" browser flow", exc)
@@ -121,7 +138,7 @@ async def main():
             for path,alias in ROUTES:
                 await route_gate(browser,(w,h),label,path,alias)
         for path,alias in ROUTES[:5]:
-            await route_gate(browser,(768,1024),"tablet",path,alias)
+            await route_gate(browser,(768,1024),"portrait-tablet",path,alias)
         await interaction_gates(browser)
         await browser.close()
     (TARGET/"report.json").write_text(json.dumps(REPORT,indent=2),encoding="utf-8")
