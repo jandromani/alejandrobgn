@@ -64,8 +64,8 @@ export default function ThesisPage() {
           transition={{ duration: 0.6 }}
           className="space-y-4 text-center max-w-3xl mx-auto"
         >
-          <p className="text-sm text-muted-foreground uppercase tracking-wider">Working Thesis</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-neon-light leading-tight text-balance">
+          <p className="text-sm text-foreground/80 uppercase tracking-wider">Working Thesis</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight text-balance">
             AI doesn't fail only in the model.
           </h1>
           <p className="text-xl text-muted-foreground">
@@ -105,7 +105,7 @@ export default function ThesisPage() {
           className="space-y-12"
         >
           <div className="space-y-2 text-center">
-            <h2 className="text-3xl font-bold text-neon-light">Five Principles</h2>
+            <h2 className="text-3xl font-bold text-foreground">Five Principles</h2>
             <p className="text-muted-foreground">The foundation of reliable AI systems</p>
           </div>
 
@@ -121,9 +121,9 @@ export default function ThesisPage() {
                   <CardContent className="p-6 space-y-4">
                     <div className="space-y-2">
                       <div className="flex items-start gap-3">
-                        <div className="text-3xl font-bold text-neon-light/50 flex-shrink-0">{principle.number}</div>
+                        <div className="text-3xl font-bold text-foreground/85 flex-shrink-0">{principle.number}</div>
                         <div className="flex-1">
-                          <h3 className="text-xl font-semibold text-neon-light mb-1">{principle.title}</h3>
+                          <h3 className="text-xl font-semibold text-foreground mb-1">{principle.title}</h3>
                           <p className="text-muted-foreground">{principle.description}</p>
                         </div>
                       </div>
@@ -149,7 +149,7 @@ export default function ThesisPage() {
                                 <Link
                                   key={slug}
                                   href={`/systems/${slug}`}
-                                  className="text-xs bg-neon/10 border border-neon/30 text-neon hover:bg-neon/20 rounded px-2 py-1 transition-colors flex items-center gap-1"
+                                  className="text-xs bg-neon/10 border border-neon/30 text-foreground hover:bg-neon/20 rounded px-2 py-1 transition-colors flex items-center gap-1"
                                 >
                                   {systemNames[slug]}
                                   <ExternalLink className="w-3 h-3" />
@@ -174,12 +174,12 @@ export default function ThesisPage() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="space-y-6 border-t border-b border-neon/20 py-12"
         >
-          <h2 className="text-3xl font-bold text-neon-light">Implications for Builders</h2>
+          <h2 className="text-3xl font-bold text-foreground">Implications for Builders</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Card className="border-neon/20 bg-card/50 backdrop-blur-sm">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-neon-light mb-2">For Teams</h3>
+                <h3 className="font-semibold text-foreground mb-2">For Teams</h3>
                 <p className="text-sm text-muted-foreground">
                   Architectural thinking matters more than raw engineering output. A small team with good architecture beats a large team with poor architecture.
                 </p>
@@ -188,7 +188,7 @@ export default function ThesisPage() {
 
             <Card className="border-neon/20 bg-card/50 backdrop-blur-sm">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-neon-light mb-2">For Hiring</h3>
+                <h3 className="font-semibold text-foreground mb-2">For Hiring</h3>
                 <p className="text-sm text-muted-foreground">
                   Look for people who think systematically. AI expertise without systems thinking produces brittle systems that fail in production.
                 </p>
@@ -197,7 +197,7 @@ export default function ThesisPage() {
 
             <Card className="border-neon/20 bg-card/50 backdrop-blur-sm">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-neon-light mb-2">For Investment</h3>
+                <h3 className="font-semibold text-foreground mb-2">For Investment</h3>
                 <p className="text-sm text-muted-foreground">
                   Value teams that ship working systems, not teams that optimize metrics. Production viability is rarer than benchmark scores.
                 </p>
@@ -206,7 +206,7 @@ export default function ThesisPage() {
 
             <Card className="border-neon/20 bg-card/50 backdrop-blur-sm">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-neon-light mb-2">For Governance</h3>
+                <h3 className="font-semibold text-foreground mb-2">For Governance</h3>
                 <p className="text-sm text-muted-foreground">
                   Regulatory compliance should be treated as architecture, not bureaucracy. Good governance makes systems better, not slower.
                 </p>
@@ -232,7 +232,7 @@ export default function ThesisPage() {
             </Link>
             <Link
               href="/experience"
-              className="px-6 py-2 border border-neon text-neon hover:bg-neon/20 font-semibold rounded-lg transition-colors"
+              className="px-6 py-2 border border-neon text-foreground hover:bg-neon/20 font-semibold rounded-lg transition-colors"
             >
               Learn How I Build
             </Link>
