@@ -15,7 +15,7 @@ export const metadata: Metadata = createPageMetadata({
 })
 
 export default function AtlasPage() {
-  return <main className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
     <JsonLd data={[
       {
         "@type": "CollectionPage",
@@ -72,5 +72,5 @@ export default function AtlasPage() {
         </div>
       </div>
     </section>
-  </main>
+  </div>
 }
