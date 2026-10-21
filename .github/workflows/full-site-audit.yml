@@ -7,6 +7,10 @@ on:
       - "scripts/audit-all-public-routes.py"
       - "scripts/audit-external-links.py"
       - ".github/workflows/full-site-audit.yml"
+      - "app/**"
+      - "components/**"
+      - "lib/**"
+      - "data/**"
 permissions:
   contents: read
 concurrency:
