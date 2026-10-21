@@ -112,38 +112,39 @@ export default function BankingModernizationPage() {
 
       <header className="relative overflow-hidden border-b border-border">
         <div className="bg-grid pointer-events-none absolute inset-0 opacity-20" aria-hidden="true" />
-        <div className="relative container mx-auto max-w-6xl px-4 pb-16 pt-12 md:pb-20 md:pt-20">
-          <Link href="/experience" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-            <ArrowLeft size={16} aria-hidden="true" /> Professional experience
+        <div className="relative container mx-auto max-w-6xl px-4 pb-12 pt-10 md:pb-16 md:pt-16">
+          <Link href="/work" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+            <ArrowLeft size={16} aria-hidden="true" /> All enterprise work
           </Link>
-          <p className="mt-12 font-mono text-xs uppercase tracking-[0.19em] text-signal-green">
+          <p className="mt-6 font-mono text-xs uppercase tracking-[0.19em] text-signal-green">
             Selected work / Banking sector / Anonymized
           </p>
           <h1 className="mt-4 max-w-5xl text-4xl font-bold leading-[1.08] tracking-tight md:text-6xl">
             From legacy source to a reproducible modernization factory.
           </h1>
-          <p className="mt-7 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
+          <div className="mt-7 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
+            <div className="bg-card p-5">
+              <p className="font-mono text-2xl font-bold text-foreground">4 weeks</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Reported PoC engagement duration</p>
+            </div>
+            <div className="bg-card p-5">
+              <p className="font-mono text-2xl font-bold text-foreground">89.9%</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Team-reported reduction in working context for the scoped method, not time saved</p>
+            </div>
+            <div className="bg-card p-5">
+              <p className="font-mono text-2xl font-bold text-foreground">13 gates</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Internal technical checks reported green in the evaluated scope; not functional parity</p>
+            </div>
+          </div>
+
+          <p className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
             A four-week engineering PoC explored a more scalable idea: treat a legacy system as a corpus
             to understand, normalize and trace before generating new software. A bounded reference
             module tested the approach; migration of a complete estate was not proven.
           </p>
           <a href="#anatomy" className="mt-6 inline-flex items-center gap-2 rounded-md border border-border bg-card px-4 py-2.5 text-sm font-semibold text-foreground hover:border-foreground/40">
-            Try the interactive engineering Anatomy <ArrowRight className="h-4 w-4" aria-hidden="true"/>
+            Explore the interactive engineering Anatomy <ArrowRight className="h-4 w-4" aria-hidden="true"/>
           </a>
-          <div className="mt-10 grid max-w-4xl gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
-            <div className="bg-card p-5">
-              <p className="font-mono text-2xl font-bold text-foreground">4 weeks</p>
-              <p className="mt-2 text-xs leading-5 text-muted-foreground">Reported PoC engagement duration</p>
-            </div>
-            <div className="bg-card p-5">
-              <p className="font-mono text-2xl font-bold text-foreground">89.9%</p>
-              <p className="mt-2 text-xs leading-5 text-muted-foreground">Team-reported reduction in working context for the scoped method, not time saved</p>
-            </div>
-            <div className="bg-card p-5">
-              <p className="font-mono text-2xl font-bold text-foreground">13 gates</p>
-              <p className="mt-2 text-xs leading-5 text-muted-foreground">Internal technical checks reported green in the evaluated scope; not functional parity</p>
-            </div>
-          </div>
           <p className="mt-4 max-w-4xl text-xs leading-6 text-muted-foreground">
             These are engineering-team-reported process measurements from a bounded reference scope, not customer business KPIs or independent certification. The baseline and test evidence are not published because source material is confidential; no estate-wide migration or functional equivalence is claimed.
           </p>
