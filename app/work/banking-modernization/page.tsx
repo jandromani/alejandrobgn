@@ -133,7 +133,7 @@ export default function BankingModernizationPage() {
               <p className="font-mono text-2xl font-bold text-foreground">{enterpriseEvidence.contextReduction.value}</p>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">Team-reported reduction in working context for the scoped method, not time saved</p>
             </div>
-            <div className="bg-card p-5">
+            <div className="col-span-2 bg-card p-5 sm:col-span-1">
               <p className="font-mono text-2xl font-bold text-foreground">{enterpriseEvidence.modernizationGates.value}</p>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">Internal technical checks reported green in the evaluated scope; not functional parity</p>
             </div>

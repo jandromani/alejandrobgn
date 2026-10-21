@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const statusConfig: Record<string, { dot: string; text: string; border: string; bg: string }> = {
   "Live System":  { dot: "bg-signal-green animate-status-pulse", text: "text-signal-green",  border: "border-signal-green/30",  bg: "bg-signal-green/5"  },
   "Open Source":  { dot: "bg-signal-cyan",                       text: "text-signal-cyan",   border: "border-signal-cyan/30",   bg: "bg-signal-cyan/5"   },
-  "Research":     { dot: "bg-signal-amber",                      text: "text-signal-amber",  border: "border-signal-amber/30",  bg: "bg-signal-amber/5"  },
+  "Research":     { dot: "bg-signal-amber",                      text: "text-amber-800 dark:text-amber-300",  border: "border-signal-amber/30",  bg: "bg-signal-amber/5"  },
   "Public Demo":  { dot: "bg-signal-green animate-status-pulse", text: "text-signal-green",  border: "border-signal-green/30",  bg: "bg-signal-green/5"  },
   "MVP":          { dot: "bg-signal-amber",                      text: "text-signal-amber",  border: "border-signal-amber/30",  bg: "bg-signal-amber/5"  },
   "Case Study":   { dot: "bg-muted-foreground",                  text: "text-muted-foreground", border: "border-border",        bg: "bg-muted/10"        },
@@ -237,7 +237,7 @@ export default async function SystemDetailPage({ params }: Props) {
                 </div>
                 <div className="p-5 flex flex-wrap gap-2">
                   {system.technologies.map((t) => (
-                    <span key={t} className="px-2.5 py-1 text-xs font-mono rounded-md bg-secondary border border-border text-muted-foreground">
+                    <span key={t} className="px-2.5 py-1 text-xs font-mono rounded-md bg-secondary border border-border text-foreground/90">
                       {t}
                     </span>
                   ))}
@@ -250,7 +250,7 @@ export default async function SystemDetailPage({ params }: Props) {
                     <div className="p-5 space-y-1">
                       <p className="text-3xl font-bold font-mono text-foreground">{system.verifiedMetrics[0].value}</p>
                       <p className="text-xs text-muted-foreground">{system.verifiedMetrics[0].name}</p>
-                      <p className="text-xs text-muted-foreground/60">{system.verifiedMetrics[0].context}</p>
+                      <p className="text-xs text-muted-foreground">{system.verifiedMetrics[0].context}</p>
                     </div>
                   </>
                 )}

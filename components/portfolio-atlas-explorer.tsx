@@ -127,7 +127,7 @@ export function PortfolioAtlasExplorer({ nodes, edges }: Props) {
           <p className="mt-3 text-sm leading-6 text-white/75">Select an entry to view its connections and open the real source page below.</p>
         </div>
         <div className="hidden overflow-x-auto lg:block" role="region" aria-label="Navigable map of portfolio relationships" tabIndex={0}>
-          <svg viewBox="0 0 1100 700" role="img" aria-label={`Graph with ${nodes.length} portfolio entries and ${edges.length} documented editorial relationships. Choose a node to inspect its links.`}
+          <svg viewBox="0 0 1100 700" role="group" aria-label={`Graph with ${nodes.length} portfolio entries and ${edges.length} documented editorial relationships. Choose a node to inspect its links.`}
             className="block min-w-[700px] w-full" style={{ background:"radial-gradient(circle at 52% 40%, #142536, #0a1018 65%)" }}>
             <defs>
               <pattern id="atlas-dots" width="27" height="27" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".65" fill="#314352"/></pattern>

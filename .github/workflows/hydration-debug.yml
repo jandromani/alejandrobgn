@@ -1,0 +1,40 @@
+name: Hydration diagnostics / development React warnings
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.12.1
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pnpm install --frozen-lockfile
+      - run: |
+          python -m pip install playwright==1.58.0
+          python -m playwright install --with-deps chromium
+      - name: Start dev server
+        run: |
+          (pnpm dev >/tmp/portfolio-dev.log 2>&1 &)
+          for i in $(seq 1 70); do if curl -fsS localhost:3000/ >/dev/null; then exit 0; fi; sleep 1; done
+          cat /tmp/portfolio-dev.log
+          exit 1
+      - name: Reproduce hydration with readable dev React diagnostics
+        run: python scripts/debug-hydration.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: react-hydration-diagnostics
+          path: hydration-diagnostics.json
+          if-no-files-found: warn

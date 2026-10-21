@@ -16,8 +16,8 @@ const dust=Array.from({length:56},(_,i)=>({x:22+(i*47)%150,y:90+(i*31)%205,r:i%9
 export function ArticleFieldVisual({ article }: { article: WritingArticle }) {
   const model=models[article.slug]??{stages:["POLICY","RUNTIME","EVIDENCE","CONTROL"],input:"INPUT",output:"OUTPUT"}
   const [top,right,bottom,left]=model.stages
-  return <svg viewBox="0 0 720 390" role="img" aria-labelledby={`map-${article.slug}-title map-${article.slug}-desc`} className="h-full w-full overflow-visible">
-    <title id={`map-${article.slug}-title`}>{article.title} operating loop</title><desc id={`map-${article.slug}-desc`}>A closed-loop architecture linking {model.stages.join(", ")}.</desc>
+  return <svg viewBox="0 0 720 390" role="img" aria-label={`${article.title}: four-stage operating loop`} aria-describedby={`map-${article.slug}-desc`} className="h-full w-full overflow-visible">
+    <desc id={`map-${article.slug}-desc`}>A closed-loop architecture linking {model.stages.join(", ")}.</desc>
     <defs><radialGradient id={`map-pulse-${article.slug}`}><stop stopColor="#b8ff5a"/><stop offset="1" stopColor="#b8ff5a" stopOpacity="0"/></radialGradient><filter id={`map-glow-${article.slug}`} x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><pattern id={`map-grid-${article.slug}`} width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#fff" strokeOpacity=".045"/></pattern></defs>
     <rect width="720" height="390" fill={`url(#map-grid-${article.slug})`}/>
     <g>{dust.map((p,i)=><circle key={i} cx={p.x} cy={p.y} r={p.r} fill={i%3?"#b8ff5a":"#22d3ee"} opacity={p.o}/>)}</g>

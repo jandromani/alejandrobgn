@@ -94,11 +94,11 @@ const ventures = [
 ]
 
 const statuses = {
-  active: { label: "Active", color: "bg-green-950/50 border-green-500/30 text-green-600" },
-  alpha: { label: "Alpha", color: "bg-blue-950/50 border-blue-500/30 text-blue-600" },
-  early: { label: "Early", color: "bg-purple-950/50 border-purple-500/30 text-purple-600" },
-  public: { label: "Public", color: "bg-cyan-950/50 border-cyan-500/30 text-cyan-600" },
-  research: { label: "Research", color: "bg-amber-950/50 border-amber-500/30 text-amber-600" },
+  active: { label: "Active", color: "bg-green-50 border-green-300 text-green-950 dark:bg-green-950/60 dark:border-green-500/40 dark:text-green-100" },
+  alpha: { label: "Alpha", color: "bg-blue-50 border-blue-300 text-blue-950 dark:bg-blue-950/60 dark:border-blue-500/40 dark:text-blue-100" },
+  early: { label: "Early", color: "bg-purple-50 border-purple-300 text-purple-950 dark:bg-purple-950/60 dark:border-purple-500/40 dark:text-purple-100" },
+  public: { label: "Public", color: "bg-cyan-50 border-cyan-300 text-cyan-950 dark:bg-cyan-950/60 dark:border-cyan-500/40 dark:text-cyan-100" },
+  research: { label: "Research", color: "bg-amber-50 border-amber-300 text-amber-950 dark:bg-amber-950/60 dark:border-amber-500/40 dark:text-amber-100" },
 }
 
 export default function VentureLabPage() {
@@ -112,8 +112,8 @@ export default function VentureLabPage() {
           transition={{ duration: 0.6 }}
           className="space-y-4 max-w-3xl"
         >
-          <p className="text-sm text-muted-foreground uppercase tracking-wider">The Lab</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-neon-light">Venture Lab</h1>
+          <p className="text-sm text-foreground/80 uppercase tracking-wider">The Lab</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground">Venture Lab</h1>
           <p className="text-lg text-muted-foreground">
             Systems and frameworks for building reliable AI in production. Open-source projects grounded in real architectural principles.
           </p>
@@ -148,7 +148,7 @@ export default function VentureLabPage() {
           className="space-y-6"
         >
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold text-neon-light">Systems in Development</h2>
+            <h2 className="text-3xl font-bold text-foreground">Systems in Development</h2>
             <p className="text-muted-foreground">Click any system to see the details</p>
           </div>
 
@@ -162,14 +162,14 @@ export default function VentureLabPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 + index * 0.05 }}
                 >
-                  <Link href={`/systems/${venture.id}`} className="group">
+                  <div className="group">
                     <Card className="h-full border-neon/20 hover:border-neon/50 transition-all duration-300 bg-card/50 backdrop-blur-sm group-hover:bg-card/80">
                       <CardContent className="p-6 space-y-4">
                         <div className="flex items-start justify-between gap-4">
                           <div className="flex-1 space-y-2">
                             <div className="flex items-center gap-2 flex-wrap">
-                              <h3 className="text-xl font-semibold text-neon-light group-hover:text-neon transition-colors">
-                                {venture.title}
+                              <h3 className="text-xl font-semibold text-foreground">
+                                <Link href={`/systems/${venture.id}`} className="inline-flex min-h-11 items-center rounded-md underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-ring">{venture.title}<span className="sr-only"> — inspect details</span></Link>
                               </h3>
                               <Badge
                                 variant="outline"
@@ -178,9 +178,9 @@ export default function VentureLabPage() {
                                 {statusConfig.label}
                               </Badge>
                             </div>
-                            <p className="text-sm text-neon-light/70 font-medium">{venture.tagline}</p>
+                            <p className="text-sm text-foreground/85 font-medium">{venture.tagline}</p>
                           </div>
-                          <ArrowRight className="w-5 h-5 text-neon-light/50 group-hover:text-neon group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" />
+                          <ArrowRight className="w-5 h-5 text-foreground/85 group-hover:text-foreground group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" />
                         </div>
 
                         <p className="text-muted-foreground">{venture.description}</p>
@@ -210,7 +210,7 @@ export default function VentureLabPage() {
 
                           <div className="pt-2 border-t border-neon/20">
                             <p className="text-xs font-semibold text-muted-foreground mb-1">Based on Principle</p>
-                            <p className="text-sm text-neon">{venture.principle}</p>
+                            <p className="text-sm text-foreground">{venture.principle}</p>
                           </div>
                         </div>
 
@@ -221,7 +221,7 @@ export default function VentureLabPage() {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-neon-light transition-colors"
+                              className="relative z-10 inline-flex min-h-11 items-center gap-2 rounded-md px-3 text-sm text-foreground/85 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring transition-colors"
                             >
                               {venture.github ? <Github className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
                               {venture.github ? "Repository" : "Public surface"}
@@ -231,7 +231,7 @@ export default function VentureLabPage() {
                         </div>
                       </CardContent>
                     </Card>
-                  </Link>
+                  </div>
                 </motion.div>
               )
             })}
@@ -245,12 +245,12 @@ export default function VentureLabPage() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="space-y-6 border-t border-neon/20 pt-12"
         >
-          <h2 className="text-3xl font-bold text-neon-light">Why These Projects?</h2>
+          <h2 className="text-3xl font-bold text-foreground">Why These Projects?</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Card className="border-neon/20 bg-card/50 backdrop-blur-sm">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-neon-light mb-2">Grounded in Practice</h3>
+                <h3 className="font-semibold text-foreground mb-2">Grounded in Practice</h3>
                 <p className="text-sm text-muted-foreground">
                   Every system is built because we encountered the problem in production. No theoretical exercises.
                 </p>
@@ -259,7 +259,7 @@ export default function VentureLabPage() {
 
             <Card className="border-neon/20 bg-card/50 backdrop-blur-sm">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-neon-light mb-2">Open by Default</h3>
+                <h3 className="font-semibold text-foreground mb-2">Open by Default</h3>
                 <p className="text-sm text-muted-foreground">
                   Code is published. Ideas are shared. Problems are solved collaboratively with the community.
                 </p>
@@ -268,7 +268,7 @@ export default function VentureLabPage() {
 
             <Card className="border-neon/20 bg-card/50 backdrop-blur-sm">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-neon-light mb-2">Principles First</h3>
+                <h3 className="font-semibold text-foreground mb-2">Principles First</h3>
                 <p className="text-sm text-muted-foreground">
                   Each project demonstrates one or more architectural principles. Architecture drives code, not the reverse.
                 </p>
@@ -277,7 +277,7 @@ export default function VentureLabPage() {
 
             <Card className="border-neon/20 bg-card/50 backdrop-blur-sm">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-neon-light mb-2">Collaboratively Developed</h3>
+                <h3 className="font-semibold text-foreground mb-2">Collaboratively Developed</h3>
                 <p className="text-sm text-muted-foreground">
                   These systems are built with partners, customers, and the community. Open to collaboration and feedback.
                 </p>
@@ -303,7 +303,7 @@ export default function VentureLabPage() {
             </Link>
             <a
               href="mailto:abaratas@ucm.es"
-              className="px-6 py-2 border border-neon text-neon hover:bg-neon/20 font-semibold rounded-lg transition-colors"
+              className="px-6 py-2 border border-neon text-foreground hover:bg-neon/20 font-semibold rounded-lg transition-colors"
             >
               Get in Touch
             </a>

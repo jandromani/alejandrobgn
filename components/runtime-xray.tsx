@@ -23,19 +23,19 @@ const kindMeta: Record<WorkflowNodeKind, { label: string; color: string; classNa
   agent: {
     label: "Agent logic",
     color: "hsl(var(--signal-green))",
-    className: "text-signal-green border-signal-green/35 bg-signal-green/10",
+    className: "text-green-800 dark:text-green-200 border-signal-green/35 bg-signal-green/10",
     icon: Bot,
   },
   control: {
     label: "Control",
     color: "hsl(var(--signal-amber))",
-    className: "text-signal-amber border-signal-amber/35 bg-signal-amber/10",
+    className: "text-amber-800 dark:text-amber-200 border-signal-amber/35 bg-signal-amber/10",
     icon: ShieldCheck,
   },
   model: {
     label: "Model runtime",
     color: "#a78bfa",
-    className: "text-violet-300 border-violet-400/35 bg-violet-400/10",
+    className: "text-violet-800 dark:text-violet-200 border-violet-400/35 bg-violet-400/10",
     icon: Cpu,
   },
   store: {
@@ -70,14 +70,14 @@ export function RuntimeXRay({ workflow, systemName }: { workflow: SystemWorkflow
         <div className="max-w-3xl">
           <div className="flex items-center gap-2 mb-2">
             <Radio className="w-3.5 h-3.5 text-signal-green" aria-hidden="true" />
-            <p className="text-[11px] font-mono text-signal-green uppercase tracking-[0.2em]">Runtime X-Ray</p>
+            <p className="text-xs font-mono text-signal-green uppercase tracking-[0.2em]">Runtime X-Ray</p>
           </div>
           <h2 id="runtime-xray-heading" className="text-2xl md:text-3xl font-bold text-foreground">{workflow.title}</h2>
           <p className="mt-2 text-sm md:text-base text-muted-foreground leading-relaxed">{workflow.summary}</p>
         </div>
         <div className="flex flex-wrap gap-2" aria-label="Workflow legend">
           {(["input", "agent", "control", "model", "store", "output"] as WorkflowNodeKind[]).map((kind) => (
-            <span key={kind} className={`inline-flex items-center gap-1.5 px-2 py-1 border rounded-full text-[10px] font-mono uppercase tracking-wider ${kindMeta[kind].className}`}>
+            <span key={kind} className={`inline-flex items-center gap-1.5 px-2 py-1 border rounded-full text-xs font-mono uppercase tracking-wider ${kindMeta[kind].className}`}>
               <span className="w-1.5 h-1.5 rounded-full" style={{ background: kindMeta[kind].color }} aria-hidden="true" />
               {kindMeta[kind].label}
             </span>
@@ -89,9 +89,9 @@ export function RuntimeXRay({ workflow, systemName }: { workflow: SystemWorkflow
         <div className="flex items-center justify-between gap-4 px-5 py-3 border-b border-border bg-secondary/70">
           <div className="flex items-center gap-2 min-w-0">
             <span className="w-2 h-2 rounded-full bg-signal-green animate-status-pulse" aria-hidden="true" />
-            <span className="text-[11px] font-mono text-foreground uppercase tracking-widest truncate">{systemName} / execution topology</span>
+            <span className="text-xs font-mono text-foreground uppercase tracking-widest truncate">{systemName} / execution topology</span>
           </div>
-          <span className="hidden text-[10px] font-mono text-muted-foreground uppercase tracking-wider flex-shrink-0 sm:inline">Select a node</span>
+          <span className="hidden text-xs font-mono text-muted-foreground uppercase tracking-wider flex-shrink-0 sm:inline">Select a node</span>
           <span className="text-[9px] font-mono text-muted-foreground uppercase tracking-wider flex-shrink-0 sm:hidden">Swipe to explore →</span>
         </div>
 
@@ -174,7 +174,7 @@ export function RuntimeXRay({ workflow, systemName }: { workflow: SystemWorkflow
                       </span>
                     </span>
                   </button>
-                  <span className="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-44 -translate-x-1/2 rounded-lg border border-border bg-popover px-3 py-2 text-center text-[10px] leading-relaxed text-muted-foreground opacity-0 shadow-xl transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
+                  <span className="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-44 -translate-x-1/2 rounded-lg border border-border bg-popover px-3 py-2 text-center text-xs leading-relaxed text-muted-foreground opacity-0 shadow-xl transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
                     Click to inspect this stage
                   </span>
                 </div>
@@ -195,23 +195,23 @@ export function RuntimeXRay({ workflow, systemName }: { workflow: SystemWorkflow
             >
               <div>
                 <div className="flex items-center gap-2">
-                  <span className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-full border text-[10px] font-mono uppercase tracking-wider ${kindMeta[activeNode.kind].className}`}>
+                  <span className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-full border text-xs font-mono uppercase tracking-wider ${kindMeta[activeNode.kind].className}`}>
                     {kindMeta[activeNode.kind].label}
                   </span>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Active stage</span>
+                  <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Active stage</span>
                 </div>
                 <h3 className="mt-3 text-xl font-bold text-foreground">{activeNode.label}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{activeNode.description}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {activeNode.technologies.map((technology) => (
-                    <span key={technology} className="rounded-md border border-border bg-secondary px-2 py-1 text-[10px] font-mono text-muted-foreground">{technology}</span>
+                    <span key={technology} className="rounded-md border border-border bg-secondary px-2 py-1 text-xs font-mono text-muted-foreground">{technology}</span>
                   ))}
                 </div>
               </div>
               <div className="rounded-xl border border-border bg-card p-4 md:p-5">
-                <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-signal-green">Evidence boundary</p>
+                <p className="text-xs font-mono uppercase tracking-[0.18em] text-signal-green">Evidence boundary</p>
                 <p className="mt-2 text-sm leading-relaxed text-foreground/85">{activeNode.proof}</p>
-                <p className="mt-4 border-t border-border pt-3 text-[11px] leading-relaxed text-muted-foreground">{workflow.disclosure}</p>
+                <p className="mt-4 border-t border-border pt-3 text-xs leading-relaxed text-muted-foreground">{workflow.disclosure}</p>
               </div>
             </motion.div>
           </AnimatePresence>

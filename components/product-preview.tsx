@@ -9,8 +9,8 @@ import type { EvidenceAsset } from "@/lib/systems-data"
 type ArtifactKind = "interface" | "workflow" | "architecture"
 
 const kindMeta: Record<ArtifactKind, { badge: string; tone: string }> = {
-  interface:    { badge: "Interface preview",         tone: "text-signal-amber border-signal-amber/40 bg-signal-amber/10" },
-  workflow:     { badge: "Representative workflow",  tone: "text-signal-amber border-signal-amber/40 bg-signal-amber/10" },
+  interface:    { badge: "Interface preview",         tone: "text-amber-800 dark:text-amber-200 border-signal-amber/40 bg-signal-amber/10" },
+  workflow:     { badge: "Representative workflow",  tone: "text-amber-800 dark:text-amber-200 border-signal-amber/40 bg-signal-amber/10" },
   architecture: { badge: "Architecture diagram",     tone: "text-signal-cyan border-signal-cyan/40 bg-signal-cyan/10" },
 }
 
@@ -25,7 +25,7 @@ interface ProductPreviewProps {
 export function ProductPreview({ asset, kind, previewLabel, aspectClass = "aspect-video", priority = false }: ProductPreviewProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const meta = kind === "interface" && previewLabel
-    ? { badge: previewLabel, tone: previewLabel.startsWith("Real") ? "text-signal-green border-signal-green/40 bg-signal-green/10" : "text-signal-amber border-signal-amber/40 bg-signal-amber/10" }
+    ? { badge: previewLabel, tone: previewLabel.startsWith("Real") ? "text-green-800 dark:text-green-200 border-signal-green/40 bg-signal-green/10" : "text-amber-800 dark:text-amber-200 border-signal-amber/40 bg-signal-amber/10" }
     : kindMeta[kind]
 
   return (
@@ -58,7 +58,7 @@ export function ProductPreview({ asset, kind, previewLabel, aspectClass = "aspec
 
           {/* Persistent honesty badge — always visible, not just on hover */}
           <span
-            className={`absolute top-2 left-2 z-10 inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono border backdrop-blur-sm ${meta.tone}`}
+            className={`absolute top-2 left-2 z-10 inline-flex items-center px-2 py-0.5 rounded text-xs font-mono border backdrop-blur-sm ${meta.tone}`}
           >
             {meta.badge}
           </span>

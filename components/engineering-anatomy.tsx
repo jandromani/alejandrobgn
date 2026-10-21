@@ -121,7 +121,7 @@ export function EngineeringAnatomy({ variant }: { variant: Variant }) {
         <p className="pt-2 text-xs leading-6 text-white/75">The same stages and quality gates are accessible without navigating the SVG diagram.</p>
       </div>
       <div className="hidden overflow-x-auto md:block" tabIndex={0} role="region" aria-label="Interactive engineering anatomy diagram">
-        <svg viewBox="0 0 1000 490" className="block min-w-[650px] w-full" role="img"
+        <svg viewBox="0 0 1000 490" className="block min-w-[650px] w-full" role="group"
           aria-label={variant==="delivery"?"Isometric modules representing the development handoff, with clickable stages":"Five different isometric machines for source graph contract generation and evidence"}>
           <defs>
             <pattern id={`anatomy-grid-${variant}`} width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" stroke="#294151" strokeWidth=".5"/></pattern>
@@ -147,7 +147,7 @@ export function EngineeringAnatomy({ variant }: { variant: Variant }) {
               className="cursor-pointer outline-none focus-visible:opacity-70"
               onClick={()=>setSelected(i)} onKeyDown={e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();setSelected(i)}}}>
               {active&&<ellipse cy="36" rx="73" ry="32" stroke="#c3eb79" strokeWidth="2" strokeDasharray="6 4" fill="none"/>}
-              <title>{steps[i].headline} — click to inspect</title>
+              
               <PointMachine variant={variant} index={i} active={active} checked={open[gateIndex]}/>
               <text x="0" y="86" fontSize="13" textAnchor="middle" fill={active?"#e6f9b0":"#c8d7df"} fontWeight="700">{steps[i].name}</text>
               <text x="0" y="-90" fontSize="11" textAnchor="middle" fill="#b5c6d0" fontFamily="monospace">{steps[i].key}</text>

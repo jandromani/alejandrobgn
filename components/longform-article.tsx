@@ -77,7 +77,7 @@ export function LongformArticle({ content }: { content: DeepArticle }) {
                   <span className="text-[10px] font-mono uppercase tracking-wider text-white/55">{section.code.label}</span>
                   <span className="text-[9px] font-mono text-signal-green">{section.code.language}</span>
                 </div>
-                <pre className="overflow-x-auto p-5 text-xs leading-6 text-white/80"><code>{section.code.value}</code></pre>
+                <pre tabIndex={0} role="region" aria-label="Scrollable code example" className="overflow-x-auto p-5 text-xs leading-6 text-white/80"><code>{section.code.value}</code></pre>
               </div>
             )}
           </section>
@@ -104,7 +104,7 @@ export function LongformArticle({ content }: { content: DeepArticle }) {
             <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-signal-cyan">Measurement</p>
             <h2 className="text-2xl font-bold text-foreground md:text-3xl">The operating scorecard</h2>
           </header>
-          <div className="overflow-x-auto rounded-xl border border-border">
+          <div tabIndex={0} role="region" aria-label="Scrollable technical table" className="overflow-x-auto rounded-xl border border-border">
             <table className="w-full min-w-[680px] text-left">
               <thead className="bg-secondary text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
                 <tr><th className="px-4 py-3">Metric</th><th className="px-4 py-3">Why it matters</th><th className="px-4 py-3">Guardrail</th></tr>

@@ -1,23 +1,23 @@
 import { getEvidenceLabel, type ProductEvidence } from "@/lib/systems-data"
 
 const interfaceLabels: Record<ProductEvidence["interfaceType"], { label: string; color: string }> = {
-  real:           { label: "Real interface",           color: "text-signal-green"  },
-  representative: { label: "Representative interface", color: "text-signal-amber"  },
+  real:           { label: "Real interface",           color: "text-green-800 dark:text-green-300"  },
+  representative: { label: "Representative interface", color: "text-amber-800 dark:text-amber-300"  },
   conceptual:     { label: "Conceptual diagram",       color: "text-muted-foreground" },
 }
 
 const dataLabels: Record<ProductEvidence["dataType"], { label: string; color: string }> = {
-  live:       { label: "Live data",        color: "text-signal-green"  },
-  demo:       { label: "Demo data",        color: "text-signal-amber"  },
-  synthetic:  { label: "Synthetic data",   color: "text-signal-amber"  },
+  live:       { label: "Live data",        color: "text-green-800 dark:text-green-300"  },
+  demo:       { label: "Demo data",        color: "text-amber-800 dark:text-amber-300"  },
+  synthetic:  { label: "Synthetic data",   color: "text-amber-800 dark:text-amber-300"  },
   anonymised: { label: "Anonymised data",  color: "text-signal-cyan"   },
-  snapshot:   { label: "Snapshot data",    color: "text-signal-amber"  },
+  snapshot:   { label: "Snapshot data",    color: "text-amber-800 dark:text-amber-300"  },
 }
 
 const executionLabels: Record<ProductEvidence["executionType"], { label: string; color: string }> = {
-  live:      { label: "Live execution",     color: "text-signal-green" },
-  recorded:  { label: "Recorded session",   color: "text-signal-amber" },
-  simulated: { label: "Simulated flow",     color: "text-signal-amber" },
+  live:      { label: "Live execution",     color: "text-green-800 dark:text-green-300" },
+  recorded:  { label: "Recorded session",   color: "text-amber-800 dark:text-amber-300" },
+  simulated: { label: "Simulated flow",     color: "text-amber-800 dark:text-amber-300" },
 }
 
 const codeLabels: Record<ProductEvidence["codeVisibility"], { label: string }> = {
