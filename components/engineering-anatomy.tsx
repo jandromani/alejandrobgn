@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ArrowRight, Check, RotateCcw } from "lucide-react"
 
 type Variant = "delivery" | "modernization"
@@ -90,9 +90,14 @@ export function EngineeringAnatomy({ variant }: { variant: Variant }) {
   const [selected,setSelected] = useState(0)
   const [open,setOpen] = useState([false,false,false])
   const [tested,setTested] = useState(false)
+  useEffect(() => {
+    const step = Number(new URLSearchParams(window.location.search).get("stage"))
+    if (Number.isInteger(step) && step >= 1 && step <= steps.length) setSelected(step-1)
+  }, [steps.length])
   const ready = open.every(Boolean)
   const positions:Stage[] = steps.map((_,i)=>({x:110 + i * (800/(steps.length-1)), y:heights[i]}))
   const current = steps[selected]
+  const gateSummary = gates[variant].map((g,i) => `${g.name}: ${open[i] ? "enabled" : "disabled"}`).join("; ")
   const status = !tested ? "Model idle · inspect states, then test" : ready
     ? variant==="delivery" ? "Candidate change passed the illustrated handoff — human accountability retained" : "Technical gates illustrated as passing — functional parity unverified"
     : "Blocked by one or more open quality gates"
@@ -168,9 +173,12 @@ export function EngineeringAnatomy({ variant }: { variant: Variant }) {
         <input id={`anatomy-scrub-${variant}`} type="range" min={0} max={steps.length-1} step={1} value={selected}
           onChange={(event)=>setSelected(Number(event.target.value))}
           aria-valuetext={current.name} className="mb-4 h-10 w-full cursor-ew-resize accent-[#b9e462]" />
-        <p className="font-mono text-xs text-[#c9f28a]" aria-live="polite">{status}</p>
+        <div id={`anatomy-status-${variant}`} role="status" aria-live="polite" aria-atomic="true" className="space-y-1">
+          <p className="font-mono text-sm leading-6 text-[#c9f28a]">{status}</p>
+          <p className="text-xs leading-5 text-white/75">{gateSummary}</p>
+        </div>
         <div className="mt-3 flex flex-wrap gap-2">
-          {gates[variant].map((g,i)=><button type="button" key={g.name} onClick={()=>swap(i)} aria-pressed={open[i]}
+          {gates[variant].map((g,i)=><button type="button" key={g.name} onClick={()=>swap(i)} aria-pressed={open[i]} aria-controls={`anatomy-status-${variant}`} aria-label={`${g.name}: ${open[i] ? "enabled" : "disabled"}. Toggle gate`}
             className={`min-h-11 rounded-md border px-3 py-2 text-left text-xs focus-visible:ring-2 focus-visible:ring-white ${open[i]?"border-[#b9e462] bg-[#344b35] text-[#e4ffc7]":"border-white/25 bg-white/5 text-white/80 hover:border-white/50"}`}>
             <span className="inline-flex items-center gap-2">{open[i]&&<Check className="h-3.5 w-3.5"/>}{g.name}</span><span className="block text-xs opacity-70">{g.subtitle}</span>
           </button>)}
@@ -182,17 +190,20 @@ export function EngineeringAnatomy({ variant }: { variant: Variant }) {
       </div>
     </div>
     <aside className="rounded-xl border border-border bg-card p-5 md:p-7">
-      <p className="font-mono text-xs uppercase tracking-widest text-[#587f00] dark:text-signal-green">Stage {current.key} / {steps.length}</p>
+      <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">Stage {current.key} / {steps.length}</p>
       <h3 className="mt-3 text-2xl font-semibold">{current.headline}</h3>
       <p className="mt-4 min-h-[112px] text-sm leading-7 text-muted-foreground">{current.body}</p>
       <div className="mt-6 grid grid-cols-2 gap-2">
         <button type="button" onClick={()=>setSelected(v=>Math.max(0,v-1))} disabled={selected===0} className="rounded-md border border-border px-3 py-2 text-sm font-medium disabled:opacity-30">Previous</button>
         <button type="button" onClick={()=>setSelected(v=>Math.min(steps.length-1,v+1))} disabled={selected===steps.length-1} className="rounded-md border border-border px-3 py-2 text-sm font-medium disabled:opacity-30">Next</button>
       </div>
+      <a href={`?stage=${selected+1}#anatomy`} className="mt-5 inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4">
+        Link directly to stage {current.key} <ArrowRight className="h-4 w-4"/>
+      </a>
       <a href={current.anchor} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold underline underline-offset-4">
         Inspect this case's evidence <ArrowRight className="h-4 w-4"/>
       </a>
-      <p className="mt-7 border-t border-border pt-5 text-xs leading-6 text-muted-foreground">
+      <p className="mt-7 border-t border-border pt-5 text-sm leading-6 text-muted-foreground">
         Built as a bespoke, accessible SVG interaction inspired by the preserved Anatomy isometric kit. No controls call external APIs, create PRs, certify acceptance or expose client materials.
       </p>
     </aside>

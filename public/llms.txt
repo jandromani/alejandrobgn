@@ -21,3 +21,5 @@
 - Reported process measurements reflect the delivery team's stated scope; no independent client audit, measured client savings or functional equivalence is implied.
 - Original Anatomy illustrations and new interactive SVG explainers are illustrative teaching models. They do not issue real PRs, approvals, provider calls or production actions.
 - The public URL above is the site's only canonical origin. Vercel-generated preview addresses are not canonical citations.
+
+- [Public claim boundary ledger](https://alejandrobgn.vercel.app/evidence/claims.json): Delivery-team-reported metrics, their scopes and caveats; not independently audited customer KPIs.

@@ -1,3 +1,4 @@
+import { enterpriseEvidence } from "@/lib/enterprise-evidence"
 import Link from "next/link"
 import { ArrowRight, CheckCheck, FileCode2, GitPullRequest, Network, ShieldCheck } from "lucide-react"
 
@@ -36,13 +37,13 @@ export function HeroEvidenceFlow() {
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         <Link href="/work/cybersecurity-ai-engineering" className="group rounded-xl border border-border bg-background p-4 transition-colors hover:border-[#587f00] focus-visible:ring-2 focus-visible:ring-ring">
           <ShieldCheck className="h-5 w-5 text-[#476700] dark:text-signal-green" aria-hidden="true"/>
-          <strong className="mt-3 block text-xl leading-tight text-foreground">&lt;1 month</strong>
+          <strong className="mt-3 block text-xl leading-tight text-foreground">{enterpriseEvidence.deliveryTime.value}</strong>
           <span className="mt-1 block text-sm leading-6 text-muted-foreground">Team-reported AI workflow activation</span>
           <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-foreground">Inspect case <ArrowRight className="h-3.5 w-3.5"/></span>
         </Link>
         <Link href="/work/banking-modernization" className="group rounded-xl border border-border bg-background p-4 transition-colors hover:border-[#587f00] focus-visible:ring-2 focus-visible:ring-ring">
           <FileCode2 className="h-5 w-5 text-cyan-700 dark:text-signal-cyan" aria-hidden="true"/>
-          <strong className="mt-3 block text-xl leading-tight text-foreground">13 gates</strong>
+          <strong className="mt-3 block text-xl leading-tight text-foreground">{enterpriseEvidence.modernizationGates.value}</strong>
           <span className="mt-1 block text-sm leading-6 text-muted-foreground">Scoped technical checks reported green</span>
           <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-foreground">Inspect case <ArrowRight className="h-3.5 w-3.5"/></span>
         </Link>
