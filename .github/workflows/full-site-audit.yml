@@ -5,6 +5,7 @@ on:
     branches: [master]
     paths:
       - "scripts/audit-all-public-routes.py"
+      - "scripts/audit-external-links.py"
       - ".github/workflows/full-site-audit.yml"
 permissions:
   contents: read
@@ -51,6 +52,8 @@ jobs:
           exit 1
       - name: Crawl every public route, internal link, image and axe mobile/desktop
         run: python scripts/audit-all-public-routes.py
+      - name: Check all 60 external destinations (nonblocking observations)
+        run: python scripts/audit-external-links.py
       - name: Lighthouse 5 representative pages / mobile simulated throttle
         continue-on-error: true
         run: |
