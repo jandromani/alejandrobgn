@@ -35,24 +35,24 @@ export default function WorkPage() {
       breadcrumbJsonLd([{name:"Home",path:"/"},{name:"Work",path:"/work"}]),
     ]}/>
     <header className="border-b border-border bg-card/20">
-      <div className="container mx-auto max-w-6xl px-4 py-16 md:py-20">
-        <p className="font-mono text-xs uppercase tracking-widest text-[#5b8f00] dark:text-signal-green">01 / Enterprise outcomes</p>
-        <h1 className="mt-5 max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">Engineering outcomes with a visible proof boundary.</h1>
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">I lead architecture, implementation and team adoption of AI-assisted engineering. These cases separate my contribution, shared delivery and what the evidence actually supports.</p>
+      <div className="container mx-auto max-w-6xl px-4 py-10 md:py-14">
+        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">01 / Enterprise outcomes</p>
+        <h1 className="mt-5 max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">Enterprise AI engineering, with evidence you can inspect.</h1>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted-foreground md:text-lg">I build and introduce AI-assisted engineering workflows, and I lead source-linked modernization. These two anonymized cases distinguish team-reported outcomes from unproven client-wide results.</p>
       </div>
     </header>
-    <section className="container mx-auto max-w-6xl px-4 py-14 md:py-20" aria-labelledby="work-cases">
-      <h2 id="work-cases" className="mb-7 text-2xl font-semibold">Two outcomes. Inspect the method.</h2>
+    <section className="container mx-auto max-w-6xl px-4 py-8 md:py-12" aria-labelledby="work-cases">
+      <h2 id="work-cases" className="mb-5 text-xl font-semibold md:text-2xl">Two outcomes. Inspect the method.</h2>
       <div className="grid gap-5 md:grid-cols-2">
         {cases.map(item=>{
           const Icon=item.icon
           return <Link key={item.url} href={item.url} className="group flex h-full flex-col evidence-card p-6 transition-colors hover:border-[#5b8f00] focus-visible:ring-2 focus-visible:ring-ring md:p-8">
-            <p className="font-mono text-xs uppercase tracking-wider text-[#5b8f00] dark:text-signal-green">{item.category}</p>
-            <div className="mt-8 flex items-center justify-between gap-4"><strong className="font-mono text-4xl tracking-tight text-foreground">{item.number}</strong><Icon className="h-7 w-7 text-muted-foreground" aria-hidden="true"/></div>
+            <p className="font-mono text-xs uppercase tracking-wider text-[#476700] dark:text-signal-green">{item.category}</p>
+            <div className="mt-5 flex items-center justify-between gap-4"><strong className="font-mono text-4xl tracking-tight text-foreground">{item.number}</strong><Icon className="h-7 w-7 text-muted-foreground" aria-hidden="true"/></div>
             <p className="mt-2 text-sm text-muted-foreground">{item.label}</p>
-            <h3 className="mt-7 text-2xl font-semibold leading-tight">{item.title}</h3>
+            <h3 className="mt-5 text-xl font-semibold leading-tight md:text-2xl">{item.title}</h3>
             <p className="mt-4 flex-1 text-base leading-7 text-muted-foreground">{item.description}</p>
-            <p className="mt-6 border-t border-border pt-4 text-sm leading-6 text-muted-foreground">{item.limit}</p>
+            <p className="mt-5 border-t border-border pt-4 text-sm leading-6 text-muted-foreground">{item.limit}</p>
             <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold">Inspect case and evidence <ArrowRight className="h-4 w-4"/></span>
           </Link>
         })}

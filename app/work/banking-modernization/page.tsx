@@ -112,38 +112,39 @@ export default function BankingModernizationPage() {
 
       <header className="relative overflow-hidden border-b border-border">
         <div className="bg-grid pointer-events-none absolute inset-0 opacity-20" aria-hidden="true" />
-        <div className="relative container mx-auto max-w-6xl px-4 pb-16 pt-12 md:pb-20 md:pt-20">
-          <Link href="/experience" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-            <ArrowLeft size={16} aria-hidden="true" /> Professional experience
+        <div className="relative container mx-auto max-w-6xl px-4 pb-12 pt-10 md:pb-16 md:pt-16">
+          <Link href="/work" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+            <ArrowLeft size={16} aria-hidden="true" /> All enterprise work
           </Link>
-          <p className="mt-12 font-mono text-xs uppercase tracking-[0.19em] text-signal-green">
+          <p className="mt-6 font-mono text-xs uppercase tracking-[0.19em] text-[#476700] dark:text-signal-green">
             Selected work / Banking sector / Anonymized
           </p>
           <h1 className="mt-4 max-w-5xl text-4xl font-bold leading-[1.08] tracking-tight md:text-6xl">
             From legacy source to a reproducible modernization factory.
           </h1>
-          <p className="mt-7 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
+          <div className="mt-7 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
+            <div className="bg-card p-5">
+              <p className="font-mono text-2xl font-bold text-foreground">4 weeks</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Reported PoC engagement duration</p>
+            </div>
+            <div className="bg-card p-5">
+              <p className="font-mono text-2xl font-bold text-foreground">89.9%</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Team-reported reduction in working context for the scoped method, not time saved</p>
+            </div>
+            <div className="bg-card p-5">
+              <p className="font-mono text-2xl font-bold text-foreground">13 gates</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Internal technical checks reported green in the evaluated scope; not functional parity</p>
+            </div>
+          </div>
+
+          <p className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
             A four-week engineering PoC explored a more scalable idea: treat a legacy system as a corpus
             to understand, normalize and trace before generating new software. A bounded reference
             module tested the approach; migration of a complete estate was not proven.
           </p>
           <a href="#anatomy" className="mt-6 inline-flex items-center gap-2 rounded-md border border-border bg-card px-4 py-2.5 text-sm font-semibold text-foreground hover:border-foreground/40">
-            Try the interactive engineering Anatomy <ArrowRight className="h-4 w-4" aria-hidden="true"/>
+            Explore the interactive engineering Anatomy <ArrowRight className="h-4 w-4" aria-hidden="true"/>
           </a>
-          <div className="mt-10 grid max-w-4xl gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
-            <div className="bg-card p-5">
-              <p className="font-mono text-2xl font-bold text-foreground">4 weeks</p>
-              <p className="mt-2 text-xs leading-5 text-muted-foreground">Reported PoC engagement duration</p>
-            </div>
-            <div className="bg-card p-5">
-              <p className="font-mono text-2xl font-bold text-foreground">89.9%</p>
-              <p className="mt-2 text-xs leading-5 text-muted-foreground">Team-reported reduction in working context for the scoped method, not time saved</p>
-            </div>
-            <div className="bg-card p-5">
-              <p className="font-mono text-2xl font-bold text-foreground">13 gates</p>
-              <p className="mt-2 text-xs leading-5 text-muted-foreground">Internal technical checks reported green in the evaluated scope; not functional parity</p>
-            </div>
-          </div>
           <p className="mt-4 max-w-4xl text-xs leading-6 text-muted-foreground">
             These are engineering-team-reported process measurements from a bounded reference scope, not customer business KPIs or independent certification. The baseline and test evidence are not published because source material is confidential; no estate-wide migration or functional equivalence is claimed.
           </p>
@@ -152,7 +153,7 @@ export default function BankingModernizationPage() {
 
       <section id="anatomy" aria-labelledby="anatomy-heading" className="scroll-mt-20 border-b border-border bg-card/15">
         <div className="container mx-auto max-w-6xl px-4 py-12 md:py-16">
-          <p className="font-mono text-xs uppercase tracking-widest text-signal-green">Interactive engineering Anatomy / Original explanatory model</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">Interactive engineering Anatomy / Original explanatory model</p>
           <h2 id="anatomy-heading" className="mt-3 text-2xl font-bold tracking-tight md:text-3xl">Interactive Anatomy · Legacy evidence lock</h2>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">Explore how lineage, contract and reproducibility gates connect to a release decision. Modelled controls explain the method; they do not certify functional equivalence.</p>
           <div className="mt-7">
@@ -177,7 +178,7 @@ export default function BankingModernizationPage() {
       <article className="container mx-auto max-w-6xl space-y-20 px-4 py-16 md:py-24">
         <section className="grid gap-8 border-b border-border pb-16 md:grid-cols-[220px_1fr] md:gap-16" aria-labelledby="challenge">
           <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-signal-green">01 / Thesis</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">01 / Thesis</p>
             <h2 id="challenge" className="mt-3 text-xl font-semibold">Why the corpus comes first</h2>
           </div>
           <div className="max-w-3xl space-y-5 text-base leading-8 text-muted-foreground">
@@ -195,7 +196,7 @@ export default function BankingModernizationPage() {
 
         <section aria-labelledby="results-title" className="space-y-7">
           <div className="max-w-3xl">
-            <p className="font-mono text-xs uppercase tracking-widest text-signal-green">02 / Demonstrated scope</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">02 / Demonstrated scope</p>
             <h2 id="results-title" className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">What the reference module made possible</h2>
             <p className="mt-4 text-base leading-8 text-muted-foreground">
               The PoC connected source understanding to a repeatable generation workflow, so a technical
@@ -210,7 +211,7 @@ export default function BankingModernizationPage() {
               { label: "Reviewable evidence", result: "Repeatability checks with explicit limits", detail: "Consistency checks on a reference slice; functional parity and whole-estate coverage remain separate gates." },
             ].map((item) => (
               <article key={item.label} className="bg-card p-6">
-                <p className="font-mono text-xs uppercase tracking-widest text-signal-green">{item.label}</p>
+                <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">{item.label}</p>
                 <h3 className="mt-3 text-lg font-semibold leading-7 text-foreground">{item.result}</h3>
                 <p className="mt-4 border-t border-border pt-4 text-sm leading-6 text-muted-foreground">{item.detail}</p>
               </article>
@@ -219,7 +220,7 @@ export default function BankingModernizationPage() {
         </section>
 
         <section aria-labelledby="decisions-title" className="rounded-xl border border-border bg-card/40 p-7 md:p-9">
-          <p className="font-mono text-xs uppercase tracking-widest text-signal-green">03 / Architecture decisions</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">03 / Architecture decisions</p>
           <h2 id="decisions-title" className="mt-3 text-2xl font-semibold">Why not simply translate file by file?</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             {[
@@ -239,9 +240,9 @@ export default function BankingModernizationPage() {
 
         <section aria-labelledby="pipeline">
           <div className="flex items-start gap-3">
-            <Layers3 size={23} className="mt-1 shrink-0 text-signal-green" aria-hidden="true" />
+            <Layers3 size={23} className="mt-1 shrink-0 text-[#476700] dark:text-signal-green" aria-hidden="true" />
             <div>
-              <p className="font-mono text-xs uppercase tracking-widest text-signal-green">04 / Transformation path</p>
+              <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">04 / Transformation path</p>
               <h2 id="pipeline" className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">From source to evidence</h2>
               <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
                 Six connected engineering decisions — the explanation, not a claim that an entire banking estate was migrated.
@@ -252,14 +253,14 @@ export default function BankingModernizationPage() {
             {pipeline.map((step) => (
               <li key={step.number} className="flex flex-col rounded-xl border border-border bg-card p-6">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-sm font-bold text-signal-green">{step.number}</span>
+                  <span className="font-mono text-sm font-bold text-[#476700] dark:text-signal-green">{step.number}</span>
                   <GitBranch className="text-muted-foreground" size={17} aria-hidden="true" />
                 </div>
                 <h3 className="mt-5 text-lg font-semibold">{step.title}</h3>
                 <p className="mt-4 text-xs font-medium text-foreground">{step.input}</p>
                 <p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground">{step.process}</p>
                 <p className="mt-5 border-t border-border pt-4 text-xs leading-6 text-foreground">
-                  <span className="font-mono text-xs uppercase tracking-widest text-signal-green">Output / </span>
+                  <span className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">Output / </span>
                   {step.output}
                 </p>
               </li>
@@ -269,7 +270,7 @@ export default function BankingModernizationPage() {
 
         <section className="grid gap-4 lg:grid-cols-2" aria-label="Contribution and evidence">
           <div className="rounded-xl border border-border bg-card p-7 md:p-8">
-            <div className="flex items-center gap-3"><Wrench size={21} className="text-signal-green" aria-hidden="true" /><h2 className="text-xl font-semibold">My architectural contribution</h2></div>
+            <div className="flex items-center gap-3"><Wrench size={21} className="text-[#476700] dark:text-signal-green" aria-hidden="true" /><h2 className="text-xl font-semibold">My architectural contribution</h2></div>
             <ul className="mt-6 space-y-4">
               {leadership.map(x => <li key={x} className="text-sm leading-7 text-muted-foreground">— {x}</li>)}
             </ul>
@@ -283,7 +284,7 @@ export default function BankingModernizationPage() {
         </section>
 
         <section className="rounded-xl border border-border bg-secondary/30 p-7 md:p-9" aria-labelledby="scope">
-          <p className="font-mono text-xs uppercase tracking-widest text-signal-green">05 / Proof boundary</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">05 / Proof boundary</p>
           <h2 id="scope" className="mt-3 text-2xl font-semibold">Reproducible artifacts are not functional parity</h2>
           <p className="mt-5 max-w-4xl text-sm leading-8 text-muted-foreground">
             The reported work was a bounded technical proof of concept. Repeatability under declared conditions does

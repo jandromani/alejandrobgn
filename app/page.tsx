@@ -221,7 +221,7 @@ export default function Page() {
 
       {/* ── WRITING PREVIEW ──────────────────────────────────────── */}
       <section aria-labelledby="writing-heading" className="container max-w-6xl mx-auto px-4 py-20 space-y-8">
-        <div className="flex items-end justify-between gap-4 border-b border-border pb-5">
+        <div className="flex flex-col items-start gap-4 border-b border-border pb-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="font-mono text-xs uppercase tracking-[.2em] text-signal-green">Technical field notes / published</p>
             <h2 id="writing-heading" className="mt-2 text-4xl font-bold text-foreground">Production AI, after the demo.</h2>

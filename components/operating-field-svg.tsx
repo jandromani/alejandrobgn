@@ -7,7 +7,7 @@ const particles = Array.from({ length: 54 }, (_, i) => ({
 
 export function OperatingFieldSvg() {
   return (
-    <svg viewBox="0 0 1200 550" role="img" aria-labelledby="field-title field-desc" className="h-full w-full" preserveAspectRatio="xMidYMid slice">
+    <svg viewBox="0 0 1200 550" role="img" aria-labelledby="field-title field-desc" className="h-full w-full overflow-hidden" preserveAspectRatio="xMidYMid slice">
       <title id="field-title">Production AI operating field</title>
       <desc id="field-desc">Diffuse input converges through policy and runtime controls, then leaves as structured evidence traces.</desc>
       <defs>

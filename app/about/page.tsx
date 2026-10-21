@@ -59,7 +59,7 @@ export default function AboutPage() {
     </section>
 
     <section className="border-b border-border">
-      <div className="container mx-auto grid max-w-[1500px] lg:grid-cols-2">
+      <div className="container mx-auto grid min-w-0 max-w-[1500px] grid-cols-[minmax(0,1fr)] lg:grid-cols-2">
         <div className="border-border px-4 py-12 lg:border-r lg:px-10">
           <p className="font-mono text-xs uppercase tracking-[.2em] text-signal-cyan">Operating scope / 01</p>
           <div className="mt-3 flex items-end justify-between gap-4"><div><h2 className="text-3xl font-bold text-foreground">What I do</h2><p className="mt-2 max-w-xl text-sm leading-6 text-muted-foreground">I design the architecture that reliably turns intent into governed execution.</p></div><Link href="/systems" className="hidden items-center gap-2 font-mono text-xs uppercase tracking-[.15em] text-signal-green md:flex">Inspect evidence <ArrowUpRight className="h-3 w-3"/></Link></div>
