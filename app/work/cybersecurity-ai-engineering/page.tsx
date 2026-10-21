@@ -307,6 +307,26 @@ export default function CybersecurityEngineeringCasePage() {
           </div>
         </section>
 
+        <section aria-labelledby="decisions-title" className="rounded-xl border border-border bg-card p-7 md:p-9">
+          <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">05 / Decision record · public reconstruction</p>
+          <h2 id="decisions-title" className="mt-3 text-2xl font-semibold">Why a team operating model, not an isolated assistant</h2>
+          <p className="mt-4 max-w-4xl text-sm leading-7 text-muted-foreground">These architectural rationales are a retrospective explanation by a participant; they are not signed customer ADRs or verbatim contemporaneous approvals.</p>
+          <div className="mt-7 grid gap-4 md:grid-cols-3">
+            {[
+              {question:"Shared context",decision:"Put project-specific information and conventions before individual assistant behaviors.",alternative:"Independent prompt files per engineer without shared project grounding.",risk:"Needs controlled ownership, updates and access to project material."},
+              {question:"Reviewable agent changes",decision:"Route proposed changes through ordinary PR review rather than granting agents unattended deployment rights.",alternative:"Treat generated commits as implicitly accepted work.",risk:"Requires reviewers, branch policy and a visible exception path."},
+              {question:"Adoption through workflows",decision:"Introduce backend, frontend, QA and Gherkin-oriented assistance as task roles with a repeatable delivery process.",alternative:"Report adoption from tool installation counts alone.",risk:"Time-to-use is not proof of enduring usage, higher throughput or lower defects."},
+            ].map(d=><article key={d.question} className="rounded-lg border border-border bg-background p-5">
+              <h3 className="text-lg font-semibold">{d.question}</h3>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground"><strong className="text-foreground">Design rationale: </strong>{d.decision}</p>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground"><strong className="text-foreground">Alternative: </strong>{d.alternative}</p>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground"><strong className="text-foreground">Risk: </strong>{d.risk}</p>
+            </article>)}
+          </div>
+          <h3 className="mt-9 text-xl font-semibold">What would establish an independently stronger outcome?</h3>
+          <p className="mt-3 text-sm leading-7 text-muted-foreground">An approved count of participating engineers, baseline-to-follow-up PR lead times, reviewer acceptance and rework, and evidence of sustained usage. None is presented here without client authorization and a defined denominator.</p>
+        </section>
+
         <section aria-labelledby="evidence-title" className="rounded-xl border border-border bg-secondary/30 p-7 md:p-9">
           <div className="flex items-start gap-3">
             <FileCheck2 className="mt-1 shrink-0 text-[#476700] dark:text-signal-green" size={23} aria-hidden="true" />
