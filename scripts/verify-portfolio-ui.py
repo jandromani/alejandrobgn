@@ -74,7 +74,8 @@ async def interaction_gates(browser):
         await mobile.locator('nav[aria-label="Mobile navigation"] a[href="/work"]').click()
         await mobile.wait_for_url("**/work",timeout=15000)
         record("mobile menu Work navigation", mobile.url.endswith("/work"))
-        record("mobile menu closes after route", not await mobile.locator('nav[aria-label="Mobile navigation"]').is_visible())
+        await mobile.locator('nav[aria-label="Mobile navigation"]').wait_for(state="hidden", timeout=6000)
+        record("mobile menu closes after route", True)
     except Exception as exc:
         record_error("mobile navigation",exc)
     finally:
