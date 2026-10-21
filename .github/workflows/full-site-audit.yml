@@ -84,6 +84,26 @@ jobs:
           (folder/'summary.json').write_text(json.dumps(rows,indent=2))
           print(json.dumps(rows,indent=2))
           PY
+      - name: Enforce five complete Lighthouse mobile profiles and quality floor
+        run: |
+          python - <<'PY'
+          import json,sys
+          from pathlib import Path
+          folder=Path('artifacts/full-site-audit/lighthouse')
+          expected={'home','work','atlas','banking','cybersecurity'}
+          rows=json.loads((folder/'summary.json').read_text())
+          got={row.get('page') for row in rows}
+          problems=[]
+          if got!=expected:problems.append('Missing Lighthouse profiles: '+str(sorted(expected-got)))
+          for row in rows:
+            if row.get('error'):problems.append(str(row))
+            for key in ('performance','accessibility','best-practices','seo'):
+              score=row.get('scores',{}).get(key)
+              if not isinstance(score,(int,float)) or score<90:
+                problems.append(f"{row.get('page')} {key}: {score} (<90)")
+          print(json.dumps({'profiles':len(rows),'gate':'PASS' if not problems else 'FAIL','issues':problems},indent=2))
+          sys.exit(1 if problems else 0)
+          PY
       - name: Inspect canonical production over real HTTPS
         if: always()
         continue-on-error: true
