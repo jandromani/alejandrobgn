@@ -41,13 +41,6 @@ export const enterpriseEvidence = {
     scope:"Time spent in the bounded reference-module engagement",
     caveat:"Not a full system migration or a production release",route:"/work/banking-modernization",
   },
-  contextReduction: {
-    id:"context-reduction",value:"89.9%",short:"89.9%",
-    name:"Reduction in working context",provenance:"Engineering-team process measurement",
-    scope:"Working context used in the evaluated method within a reference scope",
-    caveat:"Not 89.9% less engineering time, cost or token spend; baseline source is not public",
-    route:"/work/banking-modernization",
-  },
   modernizationGates: {
     id:"modernization-gates",value:"13 gates",short:"13",
     name:"Technical gates reported green",provenance:"Engineering-team internal test account",
