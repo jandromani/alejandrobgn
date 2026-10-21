@@ -359,7 +359,7 @@ export default function ExperiencePage() {
           <ol className="grid grid-cols-1 md:grid-cols-2 gap-4" role="list">
             {howIWork.map((item) => (
               <li key={item.step} className="p-6 border border-border rounded-xl bg-card space-y-3">
-                <p className="text-3xl font-bold font-mono text-muted-foreground/20">{item.step}</p>
+                <p className="text-3xl font-bold font-mono text-muted-foreground/80">{item.step}</p>
                 <h3 className="text-sm font-bold text-foreground">{item.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{item.body}</p>
               </li>
