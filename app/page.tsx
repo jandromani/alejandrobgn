@@ -196,7 +196,7 @@ export default function Page() {
         <div className="relative container max-w-6xl mx-auto px-4 py-20">
           <div className="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
             <div>
-              <p className="text-[11px] font-mono text-signal-green uppercase tracking-[0.22em]">43 months building with AI</p>
+              <p className="text-xs font-mono text-signal-green uppercase tracking-[0.22em]">43 months building with AI</p>
               <h2 id="evolution-heading" className="mt-3 text-3xl md:text-5xl font-bold text-foreground leading-tight">
                 The systems did not appear overnight.
               </h2>
@@ -223,11 +223,11 @@ export default function Page() {
       <section aria-labelledby="writing-heading" className="container max-w-6xl mx-auto px-4 py-20 space-y-8">
         <div className="flex items-end justify-between gap-4 border-b border-border pb-5">
           <div>
-            <p className="font-mono text-[9px] uppercase tracking-[.2em] text-signal-green">Technical field notes / published</p>
+            <p className="font-mono text-xs uppercase tracking-[.2em] text-signal-green">Technical field notes / published</p>
             <h2 id="writing-heading" className="mt-2 text-4xl font-bold text-foreground">Production AI, after the demo.</h2>
             <p className="mt-2 max-w-xl text-sm text-muted-foreground">Long-form engineering with inspectable architecture, explicit evidence boundaries and real related systems.</p>
           </div>
-          <Link href="/writing" className="inline-flex flex-shrink-0 items-center gap-2 font-mono text-[9px] uppercase tracking-[.14em] text-signal-green">
+          <Link href="/writing" className="inline-flex flex-shrink-0 items-center gap-2 font-mono text-xs uppercase tracking-[.14em] text-signal-green">
             All articles <ArrowRight className="w-3 h-3" aria-hidden="true" />
           </Link>
         </div>
@@ -239,7 +239,7 @@ export default function Page() {
               href={`/writing/${article.slug}`}
               className={`group relative overflow-hidden border border-border bg-[#07090d] text-white transition-colors hover:border-signal-green/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${index===0?"md:col-span-2 md:grid md:grid-cols-[1.05fr_.95fr]":""}`}
             >
-              <div className="flex min-h-[250px] flex-col p-6"><span className="font-mono text-[8px] uppercase tracking-[.18em] text-signal-green">FN-{String(article.id).padStart(3,"0")} / {pillarLabels[article.pillar]}</span><h3 className={`${index===0?"text-2xl":"text-lg"} mt-4 font-mono font-bold leading-tight tracking-[-.03em]`}>{article.title}</h3><p className="mt-3 line-clamp-3 font-mono text-[9px] leading-5 text-white/60">{article.summary}</p><div className="mt-auto flex items-center justify-between border-t border-white/10 pt-3 font-mono text-[8px] text-white/55"><span>{article.wordCount.toLocaleString("en-US")} words</span><span className="text-signal-green">Read note →</span></div></div>
+              <div className="flex min-h-[250px] flex-col p-6"><span className="font-mono text-xs uppercase tracking-[.18em] text-signal-green">FN-{String(article.id).padStart(3,"0")} / {pillarLabels[article.pillar]}</span><h3 className={`${index===0?"text-2xl":"text-lg"} mt-4 font-mono font-bold leading-tight tracking-[-.03em]`}>{article.title}</h3><p className="mt-3 line-clamp-3 font-mono text-xs leading-5 text-white/60">{article.summary}</p><div className="mt-auto flex items-center justify-between border-t border-white/10 pt-3 font-mono text-xs text-white/55"><span>{article.wordCount.toLocaleString("en-US")} words</span><span className="text-signal-green">Read note →</span></div></div>
               {index===0&&<div className="min-h-[210px]"><SignalPattern kind={article.pillar} label={`Visual index for ${article.title}`}/></div>}
             </Link>
           ))}
@@ -265,7 +265,7 @@ export default function Page() {
         <div className="relative container max-w-6xl mx-auto px-4 py-20">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
             <div className="space-y-3 max-w-xl">
-              <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-[0.2em]">Open to serious work</p>
+              <p className="text-xs font-mono text-muted-foreground uppercase tracking-[0.2em]">Open to serious work</p>
               <h2 id="cta-heading" className="text-3xl font-bold text-foreground">
                 Agentic systems, governance, observability.
               </h2>
