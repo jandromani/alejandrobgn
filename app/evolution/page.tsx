@@ -149,7 +149,7 @@ export default async function EvolutionPage({
         <div className="relative container max-w-6xl mx-auto px-4 py-20 md:py-28">
           <div className="grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-signal-green">AI Co-Evolution · Jan 2023 — 14 Oct 2026</p>
+              <p className="font-mono text-xs uppercase tracking-[0.24em] text-signal-green">AI Co-Evolution · Jan 2023 — 14 Oct 2026</p>
               <h1 className="mt-6 text-5xl font-bold leading-[.96] tracking-[-0.055em] text-foreground md:text-7xl">
                 From CONTINUA
                 <span className="block text-muted-foreground">to control planes.</span>
@@ -193,7 +193,7 @@ export default async function EvolutionPage({
       <section id="story" aria-labelledby="story-heading" className="container max-w-6xl mx-auto px-4 py-24">
         <div className="grid gap-6 lg:grid-cols-[1fr_.7fr] lg:items-end">
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-signal-cyan">Five shifts in the work</p>
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-signal-cyan">Five shifts in the work</p>
             <h2 id="story-heading" className="mt-3 text-3xl font-bold text-foreground md:text-5xl">Capability did not arrive. It accumulated.</h2>
           </div>
           <p className="text-sm leading-relaxed text-muted-foreground">
@@ -206,10 +206,10 @@ export default async function EvolutionPage({
             <article key={era.key} className="relative overflow-hidden rounded-2xl border border-border bg-card p-5">
               <div className="absolute inset-x-0 top-0 h-px" style={{ backgroundColor: era.color }} />
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Stage {era.index}</span>
+                <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">Stage {era.index}</span>
                 <span className="h-2 w-2 rounded-full" style={{ backgroundColor: era.color }} />
               </div>
-              <p className="mt-8 text-[10px] font-mono uppercase tracking-wider" style={{ color: era.color }}>{era.years}</p>
+              <p className="mt-8 text-xs font-mono uppercase tracking-wider" style={{ color: era.color }}>{era.years}</p>
               <h3 className="mt-2 text-lg font-bold leading-snug text-foreground">{era.title}</h3>
               <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{era.copy}</p>
               <div className="mt-6 flex -space-x-1">
@@ -235,7 +235,7 @@ export default async function EvolutionPage({
       <section className="border-y border-border bg-card/35">
         <div className="container max-w-6xl mx-auto px-4 py-24">
           <div className="max-w-3xl">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-signal-green">The transfer function</p>
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-signal-green">The transfer function</p>
             <h2 className="mt-3 text-3xl font-bold text-foreground md:text-5xl">The current systems are compressed history.</h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
               The archive matters because it exposes lineage. Governance was not added as a fashionable layer at the end; it emerged after repeated work on state, execution, observability, failure and evidence.
@@ -264,7 +264,7 @@ export default async function EvolutionPage({
       <section aria-labelledby="families-heading" className="container max-w-6xl mx-auto px-4 py-24">
         <div className="grid gap-6 lg:grid-cols-[1fr_.7fr] lg:items-end">
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-signal-amber">Five public lanes</p>
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-signal-amber">Five public lanes</p>
             <h2 id="families-heading" className="mt-3 text-3xl font-bold text-foreground md:text-5xl">Breadth, without flattening importance.</h2>
           </div>
           <p className="text-sm leading-relaxed text-muted-foreground">
@@ -280,7 +280,7 @@ export default async function EvolutionPage({
         <div className="container max-w-6xl mx-auto px-4 py-24">
           <div className="grid gap-6 lg:grid-cols-[1fr_.72fr] lg:items-end">
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#b8ff5a]">Technical DNA</p>
+              <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#b8ff5a]">Technical DNA</p>
               <h2 id="dna-heading" className="mt-3 text-3xl font-bold text-white md:text-5xl">Not “used AI”. Built across the system.</h2>
             </div>
             <p className="text-sm leading-relaxed text-white/55">
@@ -293,7 +293,7 @@ export default async function EvolutionPage({
               <div className="flex items-center gap-3">
                 <Braces className="h-5 w-5 text-[#22d3ee]" />
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">Stack constellation</p>
+                  <p className="font-mono text-xs uppercase tracking-[0.18em] text-white/45">Stack constellation</p>
                   <p className="text-xs text-white/35">Most recurrent recovered building blocks</p>
                 </div>
               </div>
@@ -314,7 +314,7 @@ export default async function EvolutionPage({
               <div className="flex items-center gap-3">
                 <Database className="h-5 w-5 text-[#b8ff5a]" />
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">Recurring architecture patterns</p>
+                  <p className="font-mono text-xs uppercase tracking-[0.18em] text-white/45">Recurring architecture patterns</p>
                   <p className="text-xs text-white/35">Problems the work repeatedly solves</p>
                 </div>
               </div>
@@ -336,7 +336,7 @@ export default async function EvolutionPage({
 
       <section aria-labelledby="models-heading" className="container max-w-6xl mx-auto px-4 py-24">
         <div className="max-w-3xl">
-          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-signal-cyan">Probable collaborator eras</p>
+          <p className="font-mono text-xs uppercase tracking-[0.22em] text-signal-cyan">Probable collaborator eras</p>
           <h2 id="models-heading" className="mt-3 text-3xl font-bold text-foreground md:text-5xl">The models changed. So did the questions.</h2>
           <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
             GPT-3.5 is explicitly confirmed for the earliest CONTINUA work. Later labels indicate the model family available during each period unless a recovered artefact named the model. They are context, not project-level telemetry.
@@ -347,11 +347,11 @@ export default async function EvolutionPage({
           <div className="grid min-w-[1100px] grid-cols-8 overflow-hidden rounded-2xl border border-border bg-border">
             {modelEras.map((model) => (
               <article key={model.key} className="bg-background p-5">
-                <p className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">{model.date}</p>
+                <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">{model.date}</p>
                 <h3 className="mt-6 text-sm font-bold leading-snug text-foreground">{model.name}</h3>
-                <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">{model.copy}</p>
+                <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{model.copy}</p>
                 <p className="mt-6 font-mono text-3xl font-bold text-foreground">{countByModel(model.key)}</p>
-                <p className="text-[9px] font-mono uppercase tracking-wider text-muted-foreground">records in era</p>
+                <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">records in era</p>
               </article>
             ))}
           </div>
@@ -366,7 +366,7 @@ export default async function EvolutionPage({
           <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
             <div>
               <ShieldCheck className="h-7 w-7 text-signal-green" />
-              <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.22em] text-signal-green">Method before mythology</p>
+              <p className="mt-5 font-mono text-xs uppercase tracking-[0.22em] text-signal-green">Method before mythology</p>
               <h2 id="method-heading" className="mt-3 text-3xl font-bold text-foreground">The uncertainty is part of the interface.</h2>
             </div>
             <div className="space-y-5 text-sm leading-relaxed text-muted-foreground">
