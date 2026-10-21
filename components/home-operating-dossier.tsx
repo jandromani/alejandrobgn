@@ -196,7 +196,7 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
         <div className="relative flex min-w-0 flex-col justify-between border-b border-border px-5 py-10 md:px-10 xl:border-b-0 xl:px-12 xl:py-12">
           <div className="pointer-events-none absolute bottom-0 left-6 top-10 hidden w-px bg-border md:block" aria-hidden="true">
             <span className="absolute left-[-5px] top-[34%] h-px w-5 bg-signal-green" />
-            <span className="absolute left-[-27px] top-[32.5%] font-mono text-xs text-[#476700] dark:text-signal-green">01</span>
+            <span className="absolute left-[10px] top-[32.5%] font-mono text-xs text-[#476700] dark:text-signal-green">01</span>
           </div>
 
           <div className="relative min-w-0 md:pl-12">
