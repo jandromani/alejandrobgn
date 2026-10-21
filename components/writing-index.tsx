@@ -17,7 +17,7 @@ export function WritingIndex(){
   const [selected,setSelected]=useState<WritingPillar|null>(null)
   const displayed=selected?getArticlesByPillar(selected):[...articles].sort((a,b)=>+new Date(b.published)-+new Date(a.published))
   const [featured,...rest]=displayed
-  return <main className="writing-journal min-h-screen bg-background">
+  return <div className="writing-journal min-h-screen bg-background">
     <header className="relative overflow-hidden border-b border-border">
       <div className="journal-registration" aria-hidden="true"/>
       <div className="container relative mx-auto grid max-w-[1320px] gap-10 px-4 py-12 md:grid-cols-[1.35fr_.65fr] md:items-center md:py-14">
@@ -71,5 +71,5 @@ export function WritingIndex(){
         </Link>)}</div>
       </>}
     </div>
-  </main>
+  </div>
 }
