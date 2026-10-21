@@ -22,7 +22,7 @@ export function RelatedEvidence({ id, limit = 4 }: { id: string; limit?: number 
       </div>
       <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {links.map(({ node, why, relation }) => (
-          <Link key={node.id} href={node.href} className="group flex flex-col rounded-xl border border-border bg-background p-5 transition-colors hover:border-foreground/35">
+          <Link key={node.id} href={node.href} className="group flex flex-col evidence-card p-5 transition-colors hover:border-foreground/35">
             <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">{node.kind} / {relation}</span>
             <h3 className="mt-3 text-base font-semibold leading-snug">{node.title}</h3>
             <p className="mt-3 flex-1 text-xs leading-6 text-muted-foreground">{why}</p>
