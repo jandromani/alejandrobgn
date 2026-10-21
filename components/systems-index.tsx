@@ -48,7 +48,7 @@ function MapSystemCard({ system }: { system: System }) {
           <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${st.dot}`} aria-hidden="true" />
           {system.status}
         </span>
-        <span className="text-[10px] font-mono text-muted-foreground">{system.year}</span>
+        <span className="text-xs font-mono text-muted-foreground">{system.year}</span>
       </div>
       <h3 className="font-bold text-foreground group-hover:text-accent transition-colors">{system.name}</h3>
       <p className="text-xs font-mono text-muted-foreground mt-1 mb-3">{system.tagline}</p>
@@ -59,7 +59,7 @@ function MapSystemCard({ system }: { system: System }) {
         ))}
       </div>
       <div className="flex items-center justify-between mt-3 pt-3 border-t border-border">
-        <span className="text-[10px] font-mono text-muted-foreground uppercase">{system.category} · L{system.level}</span>
+        <span className="text-xs font-mono text-muted-foreground uppercase">{system.category} · L{system.level}</span>
         <ArrowRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
       </div>
     </Link>
@@ -84,7 +84,7 @@ export function SystemsIndex() {
       <header className="border-b border-border relative overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" aria-hidden="true" />
         <div className="relative container max-w-6xl mx-auto px-4 py-16">
-          <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-[0.2em] mb-4">Systems catalogue</p>
+          <p className="text-xs font-mono text-muted-foreground uppercase tracking-[0.2em] mb-4">Systems catalogue</p>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
             <div>
               <h1 className="text-5xl font-bold text-foreground mb-3">AI Systems</h1>
@@ -123,7 +123,7 @@ export function SystemsIndex() {
 
         {/* Filter bar */}
         <nav aria-label="Filter by status" className="space-y-3">
-          <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
+          <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
             {view === "gallery" ? "Filter by status" : "Filter by domain"}
           </p>
           <div className="flex flex-wrap gap-2">
