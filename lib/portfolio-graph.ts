@@ -41,6 +41,10 @@ const editorialNodes: PortfolioNode[] = [
   { id: "index:systems", title: "Engineering systems catalogue", kind: "index", href: "/systems", description: "All systems and their maturity, evidence labels and known limits." },
   { id: "index:labs", title: "Original HTML laboratories", kind: "index", href: "/labs", description: "Browse recovered, runnable research artifacts and their QA caveats." },
   { id: "index:writing", title: "Technical field notes", kind: "index", href: "/writing", description: "Long-form technical writing and related implementations." },
+  { id: "index:atlas", title: "Engineering Atlas", kind: "index", href: "/atlas", description: "Visual and machine-readable navigation of the editorial graph." },
+  { id: "index:thesis", title: "Engineering principles", kind: "index", href: "/thesis", description: "The operating principles behind the public technical systems." },
+  { id: "index:venture-lab", title: "Venture lab", kind: "index", href: "/venture-lab", description: "An exploratory catalogue of commercially-oriented AI prototypes." },
+  { id: "index:meet", title: "Book a session", kind: "index", href: "/meet", description: "An alternative professional contact path." },
   { id: "index:contact", title: "Start a conversation", kind: "index", href: "/contact", description: "Professional contact and optional scheduling." },
 ]
 
@@ -100,6 +104,11 @@ const explicitEdges: PortfolioEdge[] = [
   { from:"index:systems", to:"system:aiactmiddleware", relation:"context", why:"An entry into the public engineering systems catalogue." },
   { from:"index:labs", to:"lab:openspec", relation:"evidence", why:"Browse the original HTML archive and bounded browser QA." },
   { from:"index:writing", to:"writing:orchestration-patterns", relation:"context", why:"A long-form introduction to agent orchestration." },
+  { from:"index:work", to:"index:atlas", relation:"context", why:"Inspect related methods after reviewing enterprise results." },
+  { from:"index:atlas", to:"index:labs", relation:"context", why:"The atlas helps navigate the preserved research archive." },
+  { from:"index:thesis", to:"writing:governing-agentic-systems", relation:"context", why:"Operating principles reflected in long-form technical writing." },
+  { from:"index:venture-lab", to:"system:agnosticengine", relation:"context", why:"A commercially-oriented application also represented in the system catalogue." },
+  { from:"index:meet", to:"index:contact", relation:"context", why:"Scheduling is one optional contact route." },
   { from:"index:contact", to:"index:experience", relation:"context", why:"Contact follows inspection of responsibilities and evidence." },
 ]
 
