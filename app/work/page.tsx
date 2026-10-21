@@ -58,6 +58,23 @@ export default function WorkPage() {
           </Link>
         })}
       </div>
+      <section className="mt-14 border-t border-border pt-10" aria-labelledby="engineering-evidence">
+        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">Second tier / inspectable engineering & capability architecture</p>
+        <h2 id="engineering-evidence" className="mt-3 text-2xl font-semibold">What the source can prove—and what it cannot.</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">The two cards above are anonymized enterprise engagements. The examples below are different: a public reference implementation and a high-level description of reusable patterns, with no implied customer deployment.</p>
+        <div className="mt-7 grid gap-4 md:grid-cols-2">
+          <Link href="/engineering/a2a" className="group flex flex-col rounded-xl border border-border bg-card p-6 hover:border-foreground/35">
+            <h3 className="text-xl font-semibold">A2A / Governed agent platform</h3>
+            <p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground">Public code, selected protocol tests, explicit human approvals, production preflight and decision records. Rapid AI-assisted build, not a certified live platform.</p>
+            <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold">Inspect architecture <ArrowUpRight size={16}/></span>
+          </Link>
+          <Link href="/engineering/delivery-systems" className="group flex flex-col rounded-xl border border-border bg-card p-6 hover:border-foreground/35">
+            <h3 className="text-xl font-semibold">Reusable delivery capabilities</h3>
+            <p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground">Versioned context, technical knowledge, product knowledge and specification gates—separate modules and an explicitly non-client-specific architectural explanation.</p>
+            <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold">Inspect method <ArrowUpRight size={16}/></span>
+          </Link>
+        </div>
+      </section>
       <div className="mt-10 flex flex-wrap gap-4">
         <Link href="/experience" className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-semibold">Career and responsibilities <ArrowUpRight className="h-4 w-4"/></Link>
         <Link href="/atlas" className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-semibold">Evidence graph <ArrowUpRight className="h-4 w-4"/></Link>
