@@ -84,10 +84,10 @@ function Constellation({
       <div className="absolute inset-0 bg-grid opacity-15" aria-hidden="true" />
       <div className="relative flex flex-col gap-2 border-b border-white/10 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-signal-green">Project constellation</p>
-          <p className="mt-1 text-xs text-white/50">Family on the x-axis · year on the y-axis · one node per reconstructed artefact</p>
+          <p className="text-xs font-mono uppercase tracking-[0.22em] text-signal-green">Project constellation</p>
+          <p className="mt-1 text-xs text-white/80">Family on the x-axis · year on the y-axis · one node per reconstructed artefact</p>
         </div>
-        <div className="flex flex-wrap gap-3 text-[10px] font-mono text-white/45">
+        <div className="flex flex-wrap gap-3 text-xs font-mono text-white/80">
           {[2023, 2024, 2025, 2026].map((year) => (
             <span key={year} className="inline-flex items-center gap-1.5">
               <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: yearColor[year] }} />
@@ -108,7 +108,7 @@ function Constellation({
           {[2023, 2024, 2025, 2026].map((year, index) => (
             <g key={year}>
               <line x1="45" x2="990" y1={102 + index * 82} y2={102 + index * 82} stroke="white" strokeOpacity=".065" />
-              <text x="14" y={106 + index * 82} fill="white" opacity=".34" className="font-mono text-[10px]">{year}</text>
+              <text x="14" y={106 + index * 82} fill="white" opacity=".34" className="font-mono text-xs">{year}</text>
             </g>
           ))}
           {evolutionFamilies.map((family, index) => (
@@ -119,7 +119,7 @@ function Constellation({
                 y="30"
                 fill={familyColor[family]}
                 textAnchor="middle"
-                className="font-mono text-[10px] font-bold"
+                className="font-mono text-xs font-bold"
               >
                 {family.toUpperCase()}
               </text>
@@ -146,10 +146,10 @@ function Constellation({
           {hovered && (
             <g transform={`translate(${Math.min(hovered.x + 12, 720)} ${Math.max(hovered.y - 52, 42)})`} pointerEvents="none">
               <rect width="250" height="54" rx="8" fill="#11151c" stroke="white" strokeOpacity=".18" />
-              <text x="12" y="20" fill="white" className="font-mono text-[10px] font-bold">
+              <text x="12" y="20" fill="white" className="font-mono text-xs font-bold">
                 {hovered.record.displayName.length > 35 ? `${hovered.record.displayName.slice(0, 35)}…` : hovered.record.displayName}
               </text>
-              <text x="12" y="39" fill="white" opacity=".48" className="font-mono text-[9px]">
+              <text x="12" y="39" fill="white" opacity=".48" className="font-mono text-xs">
                 {hovered.record.year} · {hovered.record.family}
               </text>
             </g>
@@ -207,7 +207,7 @@ function ProjectDrawer({
       <button className="absolute inset-0 cursor-default bg-black/70 backdrop-blur-sm" onClick={onClose} aria-label="Close artefact details" />
       <article className="absolute inset-y-0 right-0 w-full max-w-3xl overflow-y-auto border-l border-border bg-background shadow-2xl">
         <header className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-border bg-background/90 px-4 py-3 backdrop-blur-md md:px-7">
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
             Public-safe record · {String(record.id).padStart(3, "0")} / {evolutionRecords.length}
           </p>
           <div className="flex items-center gap-2">
@@ -237,7 +237,7 @@ function ProjectDrawer({
               </span>
             ))}
           </div>
-          <p className="mt-7 font-mono text-[10px] uppercase tracking-[0.2em] text-signal-cyan">
+          <p className="mt-7 font-mono text-xs uppercase tracking-[0.2em] text-signal-cyan">
             {record.type} · {record.category} · {record.date}
           </p>
           <h2 id="artifact-title" className="mt-3 text-3xl font-bold leading-tight text-foreground md:text-5xl">
@@ -245,7 +245,7 @@ function ProjectDrawer({
           </h2>
           <div className="mt-5 flex flex-wrap gap-2">
             {record.patterns.map((pattern) => (
-              <span key={pattern} className="rounded-full border border-border bg-card px-3 py-1 text-[10px] font-mono text-muted-foreground">
+              <span key={pattern} className="rounded-full border border-border bg-card px-3 py-1 text-xs font-mono text-muted-foreground">
                 {pattern}
               </span>
             ))}
@@ -253,18 +253,18 @@ function ProjectDrawer({
           <p className="mt-7 text-lg leading-relaxed text-muted-foreground">{record.description}</p>
 
           <section className="mt-10 rounded-2xl border border-signal-green/20 bg-signal-green/[0.045] p-6">
-            <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-signal-green">What this demonstrates</p>
+            <p className="text-xs font-mono uppercase tracking-[0.2em] text-signal-green">What this demonstrates</p>
             <p className="mt-3 leading-relaxed text-foreground">{record.professionalSignal}</p>
           </section>
 
           <div className="mt-10 grid gap-8">
             <section>
-              <h3 className="text-[10px] font-mono uppercase tracking-[0.2em] text-signal-cyan">Why it mattered</h3>
+              <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-signal-cyan">Why it mattered</h3>
               <p className="mt-3 leading-relaxed text-muted-foreground">{record.whyItMatters}</p>
             </section>
 
             <section>
-              <h3 className="text-[10px] font-mono uppercase tracking-[0.2em] text-signal-cyan">Reconstructed system flow</h3>
+              <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-signal-cyan">Reconstructed system flow</h3>
               <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center">
                 {record.architectureFlow.map((node, index) => (
                   <div key={`${node}-${index}`} className="contents">
@@ -278,7 +278,7 @@ function ProjectDrawer({
             </section>
 
             <section>
-              <h3 className="text-[10px] font-mono uppercase tracking-[0.2em] text-signal-cyan">Recovered technical stack</h3>
+              <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-signal-cyan">Recovered technical stack</h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {record.techTags.map((technology) => (
                   <span key={technology} className="rounded-lg border border-signal-cyan/15 bg-signal-cyan/[0.045] px-3 py-2 text-xs font-mono text-foreground">
@@ -291,24 +291,24 @@ function ProjectDrawer({
 
             <section className="grid gap-3 sm:grid-cols-3">
               <div className="rounded-xl border border-border bg-card p-4">
-                <p className="text-[9px] font-mono uppercase tracking-wider text-muted-foreground">Complexity</p>
+                <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Complexity</p>
                 <p className="mt-2 text-sm font-semibold text-foreground">{record.complexityScore} / 5</p>
                 <ScoreDots score={record.complexityScore} />
               </div>
               <div className="rounded-xl border border-border bg-card p-4">
-                <p className="text-[9px] font-mono uppercase tracking-wider text-muted-foreground">Maturity</p>
+                <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Maturity</p>
                 <p className="mt-2 text-sm font-semibold text-foreground">{record.maturityLabel}</p>
                 <ScoreDots score={record.maturityScore} color="bg-signal-cyan" />
               </div>
               <div className="rounded-xl border border-border bg-card p-4">
-                <p className="text-[9px] font-mono uppercase tracking-wider text-muted-foreground">Autonomy</p>
+                <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Autonomy</p>
                 <p className="mt-2 text-sm font-semibold text-foreground">{record.autonomyLabel}</p>
                 <ScoreDots score={Math.min(record.autonomyScore + 1, 5)} color="bg-signal-green" />
               </div>
             </section>
 
             <section className="rounded-2xl border border-border p-5">
-              <h3 className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground">Evidence surface</h3>
+              <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">Evidence surface</h3>
               <p className="mt-3 font-medium text-foreground">{record.evidenceSurface}</p>
               {record.provenance ? (
                 <div className="mt-4 rounded-lg border border-border bg-background p-4 text-sm leading-6">
@@ -333,18 +333,18 @@ function ProjectDrawer({
                 </p>
               )}
               <div className="mt-4 flex flex-wrap gap-2">
-                <span className={`rounded-full border px-3 py-1 text-[10px] font-mono ${confidenceClass[record.confidence]}`}>
+                <span className={`rounded-full border px-3 py-1 text-xs font-mono ${confidenceClass[record.confidence]}`}>
                   {record.confidence}
                 </span>
-                <span className="rounded-full border border-border bg-card px-3 py-1 text-[10px] font-mono text-muted-foreground">{record.status}</span>
-                <span className="rounded-full border border-border bg-card px-3 py-1 text-[10px] font-mono text-muted-foreground">{record.model.label}</span>
+                <span className="rounded-full border border-border bg-card px-3 py-1 text-xs font-mono text-muted-foreground">{record.status}</span>
+                <span className="rounded-full border border-border bg-card px-3 py-1 text-xs font-mono text-muted-foreground">{record.model.label}</span>
               </div>
               <p className="mt-4 text-xs leading-relaxed text-muted-foreground">{record.model.note}</p>
               {record.notes && <p className="mt-3 text-xs leading-relaxed text-signal-amber">Recovery note: {record.notes}</p>}
             </section>
 
             <section>
-              <h3 className="text-[10px] font-mono uppercase tracking-[0.2em] text-signal-cyan">Roles exercised</h3>
+              <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-signal-cyan">Roles exercised</h3>
               <div className="mt-3 flex flex-wrap gap-2">
                 {record.roles.map((role) => (
                   <span key={role} className="rounded-full border border-signal-amber/20 bg-signal-amber/[0.04] px-3 py-1.5 text-xs text-foreground">
@@ -482,22 +482,22 @@ export function EvolutionExplorer({ initialArtifact }: { initialArtifact?: numbe
               className="card-lift group min-h-[260px] rounded-2xl border border-border bg-card p-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <div className="flex items-start justify-between gap-3">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
+                <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
                   {String(record.id).padStart(3, "0")} · {record.date}
                 </p>
                 <span className="text-sm">{record.symbols.slice(0, 3).map((symbol) => symbol.icon).join(" ")}</span>
               </div>
-              <p className="mt-5 text-[9px] font-mono uppercase tracking-[0.16em]" style={{ color: familyColor[record.family] }}>{record.family}</p>
+              <p className="mt-5 text-xs font-mono uppercase tracking-[0.16em]" style={{ color: familyColor[record.family] }}>{record.family}</p>
               <h3 className="mt-2 text-lg font-bold leading-snug text-foreground transition-colors group-hover:text-accent">{record.displayName}</h3>
               <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground">{record.description}</p>
               <div className="mt-5 flex flex-wrap gap-1.5">
                 {record.techTags.slice(0, 3).map((technology) => (
-                  <span key={technology} className="rounded-md border border-border px-2 py-1 text-[9px] font-mono text-muted-foreground">{technology}</span>
+                  <span key={technology} className="rounded-md border border-border px-2 py-1 text-xs font-mono text-muted-foreground">{technology}</span>
                 ))}
               </div>
               <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
-                <span className={`rounded-full border px-2 py-1 text-[9px] font-mono ${confidenceClass[record.confidence]}`}>{record.confidence}</span>
-                <span className="text-[10px] text-muted-foreground transition-colors group-hover:text-foreground">Open record →</span>
+                <span className={`rounded-full border px-2 py-1 text-xs font-mono ${confidenceClass[record.confidence]}`}>{record.confidence}</span>
+                <span className="text-xs text-muted-foreground transition-colors group-hover:text-foreground">Open record →</span>
               </div>
             </button>
           ))}
