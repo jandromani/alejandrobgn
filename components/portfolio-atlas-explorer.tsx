@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import Link from "next/link"
 import { ArrowUpRight, Network, RotateCcw } from "lucide-react"
 import type { PortfolioEdge, PortfolioKind, PortfolioNode } from "@/lib/portfolio-graph"
@@ -30,6 +30,35 @@ const centers: Record<PortfolioKind, { x: number; y: number; rx: number; ry: num
 export function PortfolioAtlasExplorer({ nodes, edges }: Props) {
   const [focus, setFocus] = useState("case:cybersecurity-ai-engineering")
   const [filter, setFilter] = useState<PortfolioKind | "all">("all")
+  const [query, setQuery] = useState("")
+  // URL query state opens a selected node without creating a second canonical page.
+  useEffect(() => {
+    const restore = () => {
+      const id = new URLSearchParams(window.location.search).get("node")
+      if (id && nodes.some(node => node.id === id)) setFocus(id)
+    }
+    restore()
+    window.addEventListener("popstate", restore)
+    return () => window.removeEventListener("popstate", restore)
+  }, [nodes])
+  const selectNode = (id: string) => {
+    setFocus(id)
+    const url = new URL(window.location.href)
+    url.searchParams.set("node", id)
+    window.history.replaceState(window.history.state, "", url.pathname + url.search + url.hash)
+  }
+  const reset = () => {
+    setFocus("case:cybersecurity-ai-engineering")
+    setFilter("all")
+    setQuery("")
+    const url = new URL(window.location.href)
+    url.searchParams.delete("node")
+    window.history.replaceState(window.history.state, "", url.pathname + url.search + url.hash)
+  }
+  const matches = nodes.filter(node =>
+    (filter === "all" || node.kind === filter) &&
+    (query.trim().length === 0 || [node.title,node.description,node.kind].join(" ").toLowerCase().includes(query.trim().toLowerCase()))
+  )
   const positions = useMemo(() => {
     const map = new Map<string, { x: number; y: number }>()
     for (const kind of Object.keys(centers) as PortfolioKind[]) {
@@ -50,7 +79,7 @@ export function PortfolioAtlasExplorer({ nodes, edges }: Props) {
       why: edge.why, relation: edge.relation,
     }))
     .filter((row): row is { node: PortfolioNode; why: string; relation: PortfolioEdge["relation"] } => Boolean(row.node))
-  const visible = new Set(nodes.filter((n) => filter === "all" || n.kind === filter || n.id === current.id).map((n) => n.id))
+  const visible = new Set([...matches.map(n => n.id), current.id])
   const connected = new Set(related.map((r) => r.node.id))
 
   return (
@@ -58,7 +87,7 @@ export function PortfolioAtlasExplorer({ nodes, edges }: Props) {
       <div className="min-w-0 overflow-hidden rounded-2xl border border-border bg-[#0a1018]">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-4 py-3">
           <span className="inline-flex items-center gap-2 font-mono text-xs text-white/75"><Network className="h-4 w-4" /> EDITORIAL RELATIONSHIPS / NOT LIVE SYSTEM DEPENDENCIES</span>
-          <button type="button" onClick={() => {setFilter("all");setFocus("case:cybersecurity-ai-engineering")}}
+          <button type="button" onClick={reset}
             className="inline-flex items-center gap-2 rounded-md border border-white/20 px-3 py-1.5 text-xs text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white">
             <RotateCcw className="h-3.5 w-3.5" /> Reset
           </button>
@@ -71,13 +100,27 @@ export function PortfolioAtlasExplorer({ nodes, edges }: Props) {
             </button>
           ))}
         </div>
+        <div className="border-b border-white/10 px-4 py-4">
+          <label htmlFor="atlas-search" className="mb-2 block text-sm font-semibold text-white">Find an artifact or topic</label>
+          <input id="atlas-search" type="search" value={query} onChange={event => setQuery(event.target.value)}
+            placeholder="Search cases, systems, technical writing…"
+            className="min-h-11 w-full rounded-lg border border-white/30 bg-[#162836] px-3 text-base text-white placeholder:text-white/60 focus-visible:ring-2 focus-visible:ring-[#b9e462]" />
+          <p className="mt-2 text-xs text-white/75" role="status">{matches.length} matching entries · {nodes.length} total</p>
+          {query.trim() !== "" && <div className="mt-3 max-h-48 overflow-y-auto" aria-label="Atlas search results">
+            {matches.slice(0,12).map(node => <button type="button" key={node.id} onClick={() => selectNode(node.id)}
+              className="block w-full rounded-md px-3 py-2 text-left text-sm text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white">
+              <span className="font-semibold">{node.title}</span><span className="ml-2 text-xs text-white/65">/ {node.kind}</span>
+            </button>)}
+            {matches.length === 0 && <p className="py-3 text-sm text-white/80">No matches. Clear the search or choose All.</p>}
+          </div>}
+        </div>
         <div className="p-4 lg:hidden">
           <label htmlFor="atlas-mobile-node" className="mb-2 block text-sm font-semibold text-white">
             Browse a portfolio entry without the graph
           </label>
-          <select id="atlas-mobile-node" value={focus} onChange={(event) => setFocus(event.target.value)}
+          <select id="atlas-mobile-node" value={focus} onChange={(event) => selectNode(event.target.value)}
             className="min-h-12 w-full rounded-md border border-white/30 bg-[#162836] px-3 text-base text-white focus-visible:ring-2 focus-visible:ring-[#b9e462]">
-            {nodes.filter((node) => filter === "all" || node.kind === filter || node.id === focus).map((node) =>
+            {nodes.filter((node) => matches.some(item => item.id === node.id) || node.id === focus).map((node) =>
               <option key={node.id} value={node.id}>{node.kind} / {node.title}</option>
             )}
           </select>
@@ -105,8 +148,8 @@ export function PortfolioAtlasExplorer({ nodes, edges }: Props) {
               const active = n.id === current.id, adjacent = connected.has(n.id)
               return <g key={n.id} transform={`translate(${p.x} ${p.y})`} role="button" tabIndex={0}
                 aria-label={`Select ${n.title}`} aria-pressed={active}
-                onClick={() => setFocus(n.id)}
-                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") {e.preventDefault();setFocus(n.id)} }}
+                onClick={() => selectNode(n.id)}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") {e.preventDefault();selectNode(n.id)} }}
                 className="cursor-pointer outline-none focus-visible:opacity-70">
                 {active && <circle r="20" fill="none" stroke="#b9e462" strokeWidth="1.5" strokeDasharray="3 3"/>}
                 <circle r={active ? 12 : adjacent ? 9 : 6.5} fill={tint[n.kind]} stroke="#111a25" strokeWidth="3" />
@@ -125,9 +168,13 @@ export function PortfolioAtlasExplorer({ nodes, edges }: Props) {
         </p>
       </div>
       <aside className="rounded-2xl border border-border bg-card p-5 md:p-7" aria-live="polite">
-        <p className="font-mono text-xs uppercase tracking-widest text-[#587f00] dark:text-signal-green">Selected evidence · {current.kind}</p>
+        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">Selected evidence · {current.kind}</p>
         <h2 className="mt-4 text-2xl font-semibold leading-tight">{current.title}</h2>
         <p className="mt-3 text-sm leading-7 text-muted-foreground">{current.description}</p>
+        <div className="mt-4 flex flex-wrap gap-2" aria-label="Editorial relationship legend">
+          {(["method","evidence","context","theme"] as const).map(tag => <span key={tag} className="rounded-md border border-border px-2.5 py-1.5 text-xs text-muted-foreground">{tag}</span>)}
+        </div>
+        <a href={`/atlas?node=${encodeURIComponent(current.id)}#map`} className="mt-4 block text-sm font-semibold underline underline-offset-4">Permalink to this entry</a>
         <Link href={current.href} className="mt-5 inline-flex items-center gap-2 rounded-md bg-foreground px-4 py-3 text-sm font-semibold text-background">
           Open source page <ArrowUpRight className="h-4 w-4"/>
         </Link>
@@ -135,7 +182,7 @@ export function PortfolioAtlasExplorer({ nodes, edges }: Props) {
         <div className="mt-3 max-h-[370px] space-y-2 overflow-y-auto">
           {related.map(({ node, why, relation }) => (
             <div key={node.id} className="rounded-md border border-border p-3">
-              <button type="button" className="text-left text-sm font-semibold text-foreground hover:underline focus-visible:underline" onClick={() => setFocus(node.id)}>
+              <button type="button" className="text-left text-sm font-semibold text-foreground hover:underline focus-visible:underline" onClick={() => selectNode(node.id)}>
                 {node.title}
               </button>
               <p className="mt-1 font-mono text-xs uppercase text-muted-foreground">{node.kind} / {relation}</p>
