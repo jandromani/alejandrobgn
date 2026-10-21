@@ -49,6 +49,8 @@ jobs:
         run: |
           python -m pip install "playwright==1.58.0"
           python -m playwright install --with-deps chromium
+      - name: Install pinned axe-core for automated WCAG rules
+        run: npm install --prefix /tmp/portfolio-axe --no-save --ignore-scripts axe-core@4.10.3
       - name: Boot local production server
         run: |
           (pnpm start > /tmp/portfolio-next.log 2>&1 & echo $! > /tmp/portfolio-next.pid)
@@ -63,10 +65,19 @@ jobs:
           exit 1
       - name: Check responsive UI, links and Anatomy with real Chromium
         run: python scripts/verify-portfolio-ui.py
+      - name: Crawl graph, claims, sitemap, canonical routes and internal links
+        run: python scripts/verify-portfolio-inventory.py
+      - name: End-to-end Anatomy, Atlas and automated accessibility
+        run: python scripts/verify-portfolio-deep-e2e.py
+        env:
+          AXE_CORE_PATH: /tmp/portfolio-axe/node_modules/axe-core/axe.min.js
       - name: Upload screenshots and machine-readable findings
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: portfolio-responsive-qa
-          path: artifacts/portfolio-ui-qa/
+          path: |
+            artifacts/portfolio-ui-qa/
+            artifacts/portfolio-integrity/
+            artifacts/portfolio-final-qa/
           if-no-files-found: warn
