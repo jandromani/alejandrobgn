@@ -53,8 +53,11 @@ jobs:
       - name: Crawl every public route, internal link, image and axe mobile/desktop
         run: python scripts/audit-all-public-routes.py
       - name: Check all 60 external destinations (nonblocking observations)
+        if: always()
+        continue-on-error: true
         run: python scripts/audit-external-links.py
       - name: Lighthouse 5 representative pages / mobile simulated throttle
+        if: always()
         continue-on-error: true
         run: |
           mkdir -p artifacts/full-site-audit/lighthouse
@@ -79,6 +82,31 @@ jobs:
             except Exception as exc:
               rows.append({'page':p.stem,'error':str(exc)})
           (folder/'summary.json').write_text(json.dumps(rows,indent=2))
+          print(json.dumps(rows,indent=2))
+          PY
+      - name: Inspect canonical production over real HTTPS
+        if: always()
+        continue-on-error: true
+        run: |
+          mkdir -p artifacts/full-site-audit
+          python - <<'PY'
+          import json,urllib.request,urllib.error
+          from pathlib import Path
+          base='https://alejandrobgn.vercel.app'
+          rows=[]
+          for route in ('/','/work','/atlas','/sitemap.xml','/release-info','/evidence/claims.json','/anatomy/figures/agentic.html'):
+            u=base+route
+            try:
+              request=urllib.request.Request(u,headers={'User-Agent':'PortfolioProductionAudit/1.0'})
+              with urllib.request.urlopen(request,timeout=25) as resp:
+                body=resp.read(1000000)
+                item={'path':route,'status':resp.status,'finalUrl':resp.geturl(),'sizeSample':len(body),'contentType':resp.headers.get('Content-Type')}
+                if route=='/release-info':
+                  try:item['release']=json.loads(body)
+                  except ValueError:item['releaseError']=body[:250].decode(errors='replace')
+                rows.append(item)
+            except Exception as e: rows.append({'path':route,'error':str(e)[:250]})
+          Path('artifacts/full-site-audit/production-http.json').write_text(json.dumps(rows,indent=2))
           print(json.dumps(rows,indent=2))
           PY
       - uses: actions/upload-artifact@v4
