@@ -70,7 +70,7 @@ const publications = read("app/publications/page.tsx")
 const issueIds = [...publications.matchAll(/number:\s*"(00\d)"/g)].map((m) => m[1])
 assert.deepEqual([...issueIds].sort(), ["001", "002", "003", "004", "005"], "Editorial issue list changed")
 assert.ok(publications.includes("/mateo/leer"), "Original Mateo reader link absent")
-assert.ok(read("components/navbar.tsx").includes('href: "/publications"'), "Publications omitted from navigation")
+assert.match(read("components/navbar.tsx"), /href:\\s*["\x27]\\/publications["\x27]/, "Publications omitted from navigation")
 
 console.log(JSON.stringify({
   contract: "static/offline evidence consistency only",
