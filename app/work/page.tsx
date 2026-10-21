@@ -21,9 +21,9 @@ const cases = [
   },
   {
     category:"Banking · Modernization PoC", title:"Traceable modernization, not blind code translation.",
-    number:enterpriseEvidence.contextReduction.value, label:"Reported reduction in working context",
+    number:enterpriseEvidence.modernizationDuration.value, label:"Bounded modernization proof-of-concept duration",
     description:"Source relationships, a canonical model, bounded generation and reproducibility checks supported a scoped reference exercise.",
-    limit:"Not a completed migration, measured savings or verified functional parity.",
+    limit:"Not a completed migration, measured savings or verified functional parity. Engineering gates and scope are described in the case.",
     url:"/work/banking-modernization", icon:GitBranch,
   },
 ]
