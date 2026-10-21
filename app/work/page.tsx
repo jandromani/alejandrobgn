@@ -46,7 +46,7 @@ export default function WorkPage() {
       <div className="grid gap-5 md:grid-cols-2">
         {cases.map(item=>{
           const Icon=item.icon
-          return <Link key={item.url} href={item.url} className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 transition-colors hover:border-[#5b8f00] focus-visible:ring-2 focus-visible:ring-ring md:p-8">
+          return <Link key={item.url} href={item.url} className="group flex h-full flex-col evidence-card p-6 transition-colors hover:border-[#5b8f00] focus-visible:ring-2 focus-visible:ring-ring md:p-8">
             <p className="font-mono text-xs uppercase tracking-wider text-[#5b8f00] dark:text-signal-green">{item.category}</p>
             <div className="mt-8 flex items-center justify-between gap-4"><strong className="font-mono text-4xl tracking-tight text-foreground">{item.number}</strong><Icon className="h-7 w-7 text-muted-foreground" aria-hidden="true"/></div>
             <p className="mt-2 text-sm text-muted-foreground">{item.label}</p>
