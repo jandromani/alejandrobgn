@@ -49,7 +49,7 @@ export default function LabsPage() {
         </div>
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           {originalLabs.map((lab) => (
-            <article key={lab.slug} className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-colors hover:border-foreground/35">
+            <article key={lab.slug} className="group flex flex-col overflow-hidden evidence-card transition-colors hover:border-foreground/35">
               <Link href={`/labs/${lab.slug}`} className="relative block h-[230px] overflow-hidden bg-[#0b121b]" aria-label={`Explore original ${lab.title} HTML laboratory`}>
                 <LabCover slug={lab.slug} title={lab.title} family={lab.family} />
                 <span className="absolute bottom-3 left-4 rounded-md border border-white/25 bg-[#070b12]/90 px-3 py-1.5 font-mono text-xs text-white">
