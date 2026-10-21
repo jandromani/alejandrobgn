@@ -33,6 +33,10 @@ for (const [slug, variant, casePath] of [
 for (const page of routes.filter((p) => p.includes("[slug]") || p.includes("/work/"))) {
   assert.ok(read(page).includes("<RelatedEvidence "), `Crawlable cross-reference cards missing: ${page}`)
 }
+requireFile("app/engineering/a2a/page.tsx")
+requireFile("app/engineering/delivery-systems/page.tsx")
+assert.ok(read("app/sitemap.ts").includes('absoluteUrl("/engineering/a2a")'),"V3: A2A evidence must be indexed")
+assert.ok(!read("app/page.tsx").includes('LLMTRACE source ↗'),"V3: unsafe LLMTRACE hero promotion")
 const nav = read("components/navbar.tsx")
 const footer = read("components/footer.tsx")
 const sitemap = read("app/sitemap.ts")
