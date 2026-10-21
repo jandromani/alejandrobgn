@@ -10,7 +10,8 @@ export function GET() {
   return Response.json(
     {
       schema: "https://alejandrobgn.vercel.app/atlas/graph.json",
-      version: 1,
+      version: 2,
+      relatedClaims: absoluteUrl("/evidence/claims.json"),
       updated: "2026-10-21",
       semantics: "Curated editorial relationships; not runtime dependencies or independent verification.",
       nodes: portfolioNodes.map((node) => ({ ...node, url: absoluteUrl(node.href) })),
