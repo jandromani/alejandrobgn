@@ -60,7 +60,7 @@ function evidenceTone(label: string) {
   if (label.startsWith("Real")) {
     return {
       dot: "bg-signal-green",
-      text: "text-[#587f00] dark:text-signal-green",
+      text: "text-[#476700] dark:text-signal-green",
       border: "group-hover:border-signal-green/45",
     }
   }
@@ -196,11 +196,11 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
         <div className="relative flex min-w-0 flex-col justify-between border-b border-border px-5 py-10 md:px-10 xl:border-b-0 xl:px-12 xl:py-12">
           <div className="pointer-events-none absolute bottom-0 left-6 top-10 hidden w-px bg-border md:block" aria-hidden="true">
             <span className="absolute left-[-5px] top-[34%] h-px w-5 bg-signal-green" />
-            <span className="absolute left-[-27px] top-[32.5%] font-mono text-xs text-[#587f00] dark:text-signal-green">01</span>
+            <span className="absolute left-[-27px] top-[32.5%] font-mono text-xs text-[#476700] dark:text-signal-green">01</span>
           </div>
 
           <div className="relative min-w-0 md:pl-12">
-            <p className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.18em] text-[#587f00] dark:text-signal-green">
+            <p className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.18em] text-[#476700] dark:text-signal-green">
               <span className="flex h-4 w-4 items-center justify-center border border-border bg-card">
                 <span className="h-1.5 w-1.5 bg-signal-green" />
               </span>
@@ -218,7 +218,7 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
               <br />
               engineering
               <br />
-              <span className="text-[#5b8f00] dark:text-signal-green dark:drop-shadow-[0_0_22px_hsl(var(--signal-green)/.2)]">
+              <span className="text-[#476700] dark:text-signal-green dark:drop-shadow-[0_0_22px_hsl(var(--signal-green)/.2)]">
                 teams can use.
               </span>
             </h1>
@@ -247,7 +247,7 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
 
           <dl className="relative mt-10 grid grid-cols-2 gap-3 border-t border-border pt-5 md:ml-0">
             {[
-              ["<1mo", "team AI workflow", "activation¹", "text-[#5b8f00] dark:text-signal-green"],
+              ["<1mo", "team AI workflow", "activation¹", "text-[#476700] dark:text-signal-green"],
               ["89.9%", "working context", "reduction¹", "text-foreground"],
               ["13", "scoped quality", "gates green¹", "text-foreground"],
               ["11+", "years in", "engineering", "text-cyan-700 dark:text-signal-cyan"],
@@ -273,7 +273,7 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-4">
             <p className="text-xs font-mono uppercase tracking-[0.16em] text-foreground">Systems topology</p>
             <div className="flex items-center gap-4 text-xs font-mono">
-              <span className="flex items-center gap-2 text-[#587f00] dark:text-signal-green">
+              <span className="flex items-center gap-2 text-[#476700] dark:text-signal-green">
                 <span className="h-1.5 w-1.5 rounded-full bg-signal-green" />
                 {publicCount} public
               </span>
@@ -333,7 +333,7 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
             <div className="absolute left-1/2 top-1/2 z-10 w-[190px] -translate-x-1/2 -translate-y-1/2 rounded-2xl p-px"
               style={{ background: "linear-gradient(135deg, hsl(var(--signal-green)), hsl(var(--signal-cyan)), hsl(var(--border)))" }}>
               <div className="rounded-[15px] bg-background/95 px-5 py-4 text-center backdrop-blur">
-                <Radio className="mx-auto h-5 w-5 text-[#5b8f00] dark:text-signal-green" aria-hidden="true" />
+                <Radio className="mx-auto h-5 w-5 text-[#476700] dark:text-signal-green" aria-hidden="true" />
                 <p className="mt-2 text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">Shared operating thesis</p>
                 <p className="mt-1 text-sm font-bold text-foreground">Production AI</p>
                 <p className="mt-1 text-xs font-mono leading-relaxed text-muted-foreground">Intent · control · runtime · evidence</p>
@@ -355,13 +355,13 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
         <div className="mx-auto max-w-[1536px] px-5 py-7 md:px-9">
           <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
             <div className="flex min-w-0 items-center gap-3">
-              <Gauge className="h-4 w-4 flex-none text-[#5b8f00] dark:text-signal-green" aria-hidden="true" />
+              <Gauge className="h-4 w-4 flex-none text-[#476700] dark:text-signal-green" aria-hidden="true" />
               <h2 className="text-xs font-mono uppercase tracking-[0.14em] text-foreground">Evidence ledger</h2>
               <span className="hidden text-xs font-mono text-muted-foreground md:inline">
                 Real interfaces · real traces · representative outputs
               </span>
             </div>
-            <Link href="/systems" className="inline-flex items-center gap-2 text-xs font-mono text-[#587f00] hover:text-foreground dark:text-signal-green">
+            <Link href="/systems" className="inline-flex items-center gap-2 text-xs font-mono text-[#476700] hover:text-foreground dark:text-signal-green">
               View all evidence
               <ArrowRight className="h-3 w-3" aria-hidden="true" />
             </Link>
