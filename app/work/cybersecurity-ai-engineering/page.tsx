@@ -112,17 +112,32 @@ export default function CybersecurityEngineeringCasePage() {
 
       <header className="relative overflow-hidden border-b border-border">
         <div className="bg-grid pointer-events-none absolute inset-0 opacity-20" aria-hidden="true" />
-        <div className="relative container mx-auto max-w-6xl px-4 pb-16 pt-12 md:pb-20 md:pt-20">
-          <Link href="/experience" className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
-            <ArrowLeft size={16} aria-hidden="true" /> Professional experience
+        <div className="relative container mx-auto max-w-6xl px-4 pb-12 pt-10 md:pb-16 md:pt-16">
+          <Link href="/work" className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
+            <ArrowLeft size={16} aria-hidden="true" /> All enterprise work
           </Link>
-          <p className="mt-12 font-mono text-xs uppercase tracking-[0.19em] text-signal-green">
+          <p className="mt-6 font-mono text-xs uppercase tracking-[0.19em] text-signal-green">
             Selected work / Cybersecurity sector / Anonymized
           </p>
           <h1 className="mt-4 max-w-5xl text-4xl font-bold leading-[1.08] tracking-tight text-foreground md:text-6xl">
             From zero project context to an operating AI-assisted engineering workflow.
           </h1>
-          <p className="mt-7 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
+          <div className="mt-7 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
+            <div className="bg-card p-5">
+              <p className="font-mono text-3xl font-bold text-foreground">&lt; 1 month</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Reported time to use in participating workflows</p>
+            </div>
+            <div className="bg-card p-5">
+              <p className="font-mono text-3xl font-bold text-foreground">2 peers</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Initial technical delivery nucleus, not the whole team</p>
+            </div>
+            <div className="bg-card p-5">
+              <p className="font-mono text-3xl font-bold text-foreground">4 roles</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Backend, frontend, QA and Gherkin assistance introduced in team workflows</p>
+            </div>
+          </div>
+
+          <p className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
             In August 2026, two technical peers formed a delivery nucleus with an unfamiliar engineering team.
             We established shared project knowledge, role-specific assistance, agent-driven pull requests
             and an adapted specification-and-review workflow — with team-level use in under one month.
@@ -135,22 +150,8 @@ export default function CybersecurityEngineeringCasePage() {
             ))}
           </div>
           <a href="#anatomy" className="mt-6 inline-flex items-center gap-2 rounded-md border border-border bg-card px-4 py-2.5 text-sm font-semibold text-foreground hover:border-foreground/40">
-            Try the interactive engineering Anatomy <ArrowRight className="h-4 w-4" aria-hidden="true"/>
+            Explore the interactive engineering Anatomy <ArrowRight className="h-4 w-4" aria-hidden="true"/>
           </a>
-          <div className="mt-10 grid max-w-4xl gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
-            <div className="bg-card p-5">
-              <p className="font-mono text-3xl font-bold text-foreground">&lt; 1 month</p>
-              <p className="mt-2 text-xs leading-5 text-muted-foreground">Reported time to use in participating workflows</p>
-            </div>
-            <div className="bg-card p-5">
-              <p className="font-mono text-3xl font-bold text-foreground">2 peers</p>
-              <p className="mt-2 text-xs leading-5 text-muted-foreground">Initial technical delivery nucleus, not the whole team</p>
-            </div>
-            <div className="bg-card p-5">
-              <p className="font-mono text-3xl font-bold text-foreground">4 roles</p>
-              <p className="mt-2 text-xs leading-5 text-muted-foreground">Backend, frontend, QA and Gherkin assistance introduced in team workflows</p>
-            </div>
-          </div>
           <p className="mt-4 max-w-4xl text-xs leading-6 text-muted-foreground">
             All three figures describe the delivery team's own activity, not customer financial results or independently measured adoption. Specialist roles refer to distinct assistance workflows, not four autonomous production agents. Human review and acceptance remained mandatory.
           </p>
