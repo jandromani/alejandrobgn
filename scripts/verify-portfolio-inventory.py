@@ -48,7 +48,7 @@ for n in nodes:
 for e in edges:
     if e["from"] not in nodeids or e["to"] not in nodeids:fail("graph-edge",e)
 if c.get("auditStatus")!="NOT independently customer-audited":fail("claim-disclosure",c.get("auditStatus"))
-if len(metrics)!=6 or len({m["id"] for m in metrics})!=len(metrics):fail("claim-inventory","Expected six unique reported process measures")
+if len(metrics)!=5 or len({m["id"] for m in metrics})!=len(metrics):fail("claim-inventory","Expected five public process measures; context reduction must not leak")
 for m in metrics:
     if not m.get("scope") or not m.get("caveat") or not m.get("provenance") or m.get("url")!=CANONICAL+m["route"]:fail("claim-provenance",m)
 if set(m["route"] for m in metrics)!={"/work/cybersecurity-ai-engineering","/work/banking-modernization"}:fail("claim-route","Unexpected public claim targets")
