@@ -1,3 +1,4 @@
+import { enterpriseEvidence } from "@/lib/enterprise-evidence"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { ArrowRight, ArrowUpRight, GitBranch, ShieldCheck } from "lucide-react"
@@ -13,14 +14,14 @@ export const metadata: Metadata = createPageMetadata({
 const cases = [
   {
     category:"Cybersecurity · AI engineering", title:"AI workflows teams could use in under a month.",
-    number:"<1 month", label:"Delivery-team-reported time to use",
+    number:enterpriseEvidence.deliveryTime.value, label:"Delivery-team-reported time to use",
     description:"Two technical peers helped activate project-aware specialist assistance, reviewable PRs and specification-driven collaboration. Human review remained central.",
     limit:"Not an independently audited, company-wide adoption or ROI claim.",
     url:"/work/cybersecurity-ai-engineering", icon:ShieldCheck,
   },
   {
     category:"Banking · Modernization PoC", title:"Traceable modernization, not blind code translation.",
-    number:"89.9%", label:"Reported reduction in working context",
+    number:enterpriseEvidence.contextReduction.value, label:"Reported reduction in working context",
     description:"Source relationships, a canonical model, bounded generation and reproducibility checks supported a scoped reference exercise.",
     limit:"Not a completed migration, measured savings or verified functional parity.",
     url:"/work/banking-modernization", icon:GitBranch,
