@@ -33,7 +33,7 @@ export function FrontierShowcase() {
           {selections.map(({ slug, role, why }) => {
             const lab = originalLabs.find(item => item.slug === slug)!
             return (
-              <Link key={lab.slug} href={`/labs/${lab.slug}`} className="group flex flex-col overflow-hidden rounded-xl border border-border bg-background transition-colors hover:border-foreground/35">
+              <Link key={lab.slug} href={`/labs/${lab.slug}`} className="group flex flex-col overflow-hidden evidence-card transition-colors hover:border-foreground/35">
                 <div className="relative h-[158px] overflow-hidden bg-[#0c1720]">
                   <LabCover slug={lab.slug} title={lab.title} family={lab.family} />
                   <span className="absolute bottom-3 left-3 rounded bg-[#0b1018]/90 px-2 py-1 font-mono text-xs text-[#b8ff5a]">{role} / ORIGINAL HTML</span>
