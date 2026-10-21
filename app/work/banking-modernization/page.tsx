@@ -1,3 +1,4 @@
+import { enterpriseEvidence, modernizationMetrics, metricProperties } from "@/lib/enterprise-evidence"
 import { relatedPortfolioNodes } from "@/lib/portfolio-graph"
 import { EngineeringAnatomy } from "@/components/engineering-anatomy"
 import { RelatedEvidence } from "@/components/related-evidence"
@@ -89,6 +90,7 @@ export default function BankingModernizationPage() {
             headline: "A deterministic modernization factory from legacy source to evidence",
             description: summary,
             author: { "@id": personId },
+            additionalProperty: metricProperties(modernizationMetrics),
             mentions: relatedPortfolioNodes("case:banking-modernization").map(({node}) => ({
               "@type":"CreativeWork",
               name:node.title,
@@ -124,15 +126,15 @@ export default function BankingModernizationPage() {
           </h1>
           <div className="mt-7 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
             <div className="bg-card p-5">
-              <p className="font-mono text-2xl font-bold text-foreground">4 weeks</p>
+              <p className="font-mono text-2xl font-bold text-foreground">{enterpriseEvidence.modernizationDuration.value}</p>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">Reported PoC engagement duration</p>
             </div>
             <div className="bg-card p-5">
-              <p className="font-mono text-2xl font-bold text-foreground">89.9%</p>
+              <p className="font-mono text-2xl font-bold text-foreground">{enterpriseEvidence.contextReduction.value}</p>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">Team-reported reduction in working context for the scoped method, not time saved</p>
             </div>
             <div className="bg-card p-5">
-              <p className="font-mono text-2xl font-bold text-foreground">13 gates</p>
+              <p className="font-mono text-2xl font-bold text-foreground">{enterpriseEvidence.modernizationGates.value}</p>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">Internal technical checks reported green in the evaluated scope; not functional parity</p>
             </div>
           </div>
