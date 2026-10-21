@@ -63,7 +63,10 @@ const lateCount = (recent.match(/\{date:"2026-/g) ?? []).length
 const provenanceCount = (recent.match(/kind:"(?:public-repository|preserved-html|archived-document|delivery-team-account|historical-reference)"/g) ?? []).length
 assert.equal(lateCount, 17, "Recent milestones changed: review homepage/evolution totals")
 assert.equal(provenanceCount, lateCount, "Each recent milestone requires explicit provenance")
-assert.match(read("app/page.tsx"), /201 documented records/, "Homepage ledger total is outdated")
+assert.match(read("app/page.tsx"), /201 technical records/, "V3: Homepage record total missing")
+assert.match(read("app/page.tsx"), /140 are internally tagged Confirmed/, "V3: historical provenance breakdown missing")
+assert.ok(!read("app/page.tsx").includes("LLMTRACE source ↗"), "V3: mock instrumentor must not be a flagship source")
+assert.ok(!read("app/page.tsx").includes("43 months"), "V3: stale career history")
 assert.match(read("app/evolution/page.tsx"), /201 documented artefacts/, "Evolution ledger total is outdated")
 
 const publications = read("app/publications/page.tsx")
