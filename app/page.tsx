@@ -126,7 +126,7 @@ export default function Page() {
             <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-foreground">Explore evidence <ArrowRight className="h-4 w-4" aria-hidden="true" /></span>
           </Link>
 
-          <Link key="03" href="https://github.com/jandromani/A2A" className="group rounded-xl border border-border bg-background p-6 transition-colors hover:border-foreground/30">
+          <Link key="03" href="/engineering/a2a" className="group rounded-xl border border-border bg-background p-6 transition-colors hover:border-foreground/30">
             <p className="font-mono text-xs text-[#587f00] dark:text-signal-green">03 / ACCOUNTABILITY</p>
             <h3 className="mt-4 text-lg font-semibold text-foreground">Agentic platform architecture</h3>
             <p className="mt-3 text-sm leading-7 text-muted-foreground">Design orchestration, scoped tools, human approvals, observability and technical governance.</p>
@@ -142,6 +142,7 @@ export default function Page() {
             </div>
             <div className="flex flex-wrap gap-3">
               <a href="https://github.com/jandromani/A2A" target="_blank" rel="noopener noreferrer" className="rounded-md border border-border px-4 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">A2A source ↗</a>
+              <Link href="/engineering/a2a" className="rounded-md border border-border px-4 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">Engineering proof ↗</Link>
             </div>
           </div>
         </div>
