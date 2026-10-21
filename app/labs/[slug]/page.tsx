@@ -27,7 +27,7 @@ export default async function OriginalLabPage({ params }: Props) {
   const originalSource = lab.archive ?? lab.demo
   const hasRuntimePatch = Boolean(lab.archive)
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       <JsonLd data={[
         {
           "@type":"CreativeWork",
@@ -118,6 +118,6 @@ export default async function OriginalLabPage({ params }: Props) {
         </aside>
       </section>
       <RelatedEvidence id={`lab:${lab.slug}`} />
-    </main>
+    </div>
   )
 }
