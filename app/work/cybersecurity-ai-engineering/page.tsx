@@ -116,7 +116,7 @@ export default function CybersecurityEngineeringCasePage() {
           <Link href="/work" className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
             <ArrowLeft size={16} aria-hidden="true" /> All enterprise work
           </Link>
-          <p className="mt-6 font-mono text-xs uppercase tracking-[0.19em] text-signal-green">
+          <p className="mt-6 font-mono text-xs uppercase tracking-[0.19em] text-[#476700] dark:text-signal-green">
             Selected work / Cybersecurity sector / Anonymized
           </p>
           <h1 className="mt-4 max-w-5xl text-4xl font-bold leading-[1.08] tracking-tight text-foreground md:text-6xl">
@@ -160,7 +160,7 @@ export default function CybersecurityEngineeringCasePage() {
 
       <section id="anatomy" aria-labelledby="anatomy-heading" className="scroll-mt-20 border-b border-border bg-card/15">
         <div className="container mx-auto max-w-6xl px-4 py-12 md:py-16">
-          <p className="font-mono text-xs uppercase tracking-widest text-signal-green">Interactive engineering Anatomy / Original explanatory model</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">Interactive engineering Anatomy / Original explanatory model</p>
           <h2 id="anatomy-heading" className="mt-3 text-2xl font-bold tracking-tight md:text-3xl">Interactive Anatomy · SDD quality interlock</h2>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">Click the three pins to explore the minimum conditions for reviewable AI-assisted change. This is an interactive explanatory model, not a recording of client infrastructure.</p>
           <div className="mt-7">
@@ -185,7 +185,7 @@ export default function CybersecurityEngineeringCasePage() {
       <article className="container mx-auto max-w-6xl space-y-20 px-4 py-16 md:py-24">
         <section className="grid gap-8 border-b border-border pb-16 md:grid-cols-[220px_1fr] md:gap-16" aria-labelledby="challenge-title">
           <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-signal-green">01 / Starting point</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">01 / Starting point</p>
             <h2 id="challenge-title" className="mt-3 text-xl font-semibold">The engineering challenge</h2>
           </div>
           <div className="max-w-3xl space-y-5 text-base leading-8 text-muted-foreground">
@@ -203,7 +203,7 @@ export default function CybersecurityEngineeringCasePage() {
 
         <section aria-labelledby="results-title" className="space-y-7">
           <div className="max-w-3xl">
-            <p className="font-mono text-xs uppercase tracking-widest text-signal-green">02 / Delivery outcomes</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">02 / Delivery outcomes</p>
             <h2 id="results-title" className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">What was different after the engagement</h2>
             <p className="mt-4 text-base leading-8 text-muted-foreground">
               The result was not a set of prompts waiting to be adopted. The participating team was
@@ -218,7 +218,7 @@ export default function CybersecurityEngineeringCasePage() {
               { label: "Adoption mechanism", result: "Shared context, collaboration rhythm and adapted SDD", evidence: "Described by the delivery team; no organisation-wide usage percentage claimed." },
             ].map((item) => (
               <article key={item.label} className="bg-card p-6">
-                <p className="font-mono text-xs uppercase tracking-widest text-signal-green">{item.label}</p>
+                <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">{item.label}</p>
                 <h3 className="mt-3 text-lg font-semibold leading-7 text-foreground">{item.result}</h3>
                 <p className="mt-4 border-t border-border pt-4 text-sm leading-6 text-muted-foreground">{item.evidence}</p>
               </article>
@@ -227,7 +227,7 @@ export default function CybersecurityEngineeringCasePage() {
         </section>
 
         <section aria-labelledby="decisions-title" className="rounded-xl border border-border bg-card/40 p-7 md:p-9">
-          <p className="font-mono text-xs uppercase tracking-widest text-signal-green">03 / Technical judgement</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">03 / Technical judgement</p>
           <h2 id="decisions-title" className="mt-3 text-2xl font-semibold">Decisions behind the speed</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             {[
@@ -247,9 +247,9 @@ export default function CybersecurityEngineeringCasePage() {
 
         <section aria-labelledby="mechanism-title">
           <div className="flex items-start gap-3">
-            <Layers3 size={23} className="mt-1 shrink-0 text-signal-green" aria-hidden="true" />
+            <Layers3 size={23} className="mt-1 shrink-0 text-[#476700] dark:text-signal-green" aria-hidden="true" />
             <div>
-              <p className="font-mono text-xs uppercase tracking-widest text-signal-green">04 / Delivery sequence</p>
+              <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">04 / Delivery sequence</p>
               <h2 id="mechanism-title" className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">How we moved from context to delivery</h2>
               <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
                 A readable reconstruction of the engineering sequence. This is not customer telemetry or a screenshot of a private system.
@@ -260,13 +260,13 @@ export default function CybersecurityEngineeringCasePage() {
             {deliverySteps.map((step) => (
               <li key={step.number} className="flex flex-col rounded-xl border border-border bg-card p-6">
                 <div className="flex items-center justify-between gap-4">
-                  <span className="font-mono text-sm font-bold text-signal-green">{step.number}</span>
+                  <span className="font-mono text-sm font-bold text-[#476700] dark:text-signal-green">{step.number}</span>
                   <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">{step.label}</span>
                 </div>
                 <h3 className="mt-6 text-lg font-semibold text-foreground">{step.title}</h3>
                 <p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground">{step.body}</p>
                 <p className="mt-6 border-t border-border pt-4 text-xs leading-6 text-foreground">
-                  <span className="font-mono text-xs uppercase tracking-widest text-signal-green">Output / </span>
+                  <span className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">Output / </span>
                   {step.output}
                 </p>
               </li>
@@ -277,13 +277,13 @@ export default function CybersecurityEngineeringCasePage() {
         <section className="grid gap-4 lg:grid-cols-2" aria-labelledby="contribution-title">
           <div className="rounded-xl border border-border bg-card p-7 md:p-8">
             <div className="flex items-center gap-3">
-              <Users className="text-signal-green" size={22} aria-hidden="true" />
+              <Users className="text-[#476700] dark:text-signal-green" size={22} aria-hidden="true" />
               <h2 id="contribution-title" className="text-xl font-semibold">My contribution</h2>
             </div>
             <ul className="mt-6 space-y-4">
               {personalContributions.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm leading-7 text-muted-foreground">
-                  <CheckCircle2 size={16} className="mt-1.5 shrink-0 text-signal-green" aria-hidden="true" />
+                  <CheckCircle2 size={16} className="mt-1.5 shrink-0 text-[#476700] dark:text-signal-green" aria-hidden="true" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -307,9 +307,9 @@ export default function CybersecurityEngineeringCasePage() {
 
         <section aria-labelledby="evidence-title" className="rounded-xl border border-border bg-secondary/30 p-7 md:p-9">
           <div className="flex items-start gap-3">
-            <FileCheck2 className="mt-1 shrink-0 text-signal-green" size={23} aria-hidden="true" />
+            <FileCheck2 className="mt-1 shrink-0 text-[#476700] dark:text-signal-green" size={23} aria-hidden="true" />
             <div className="max-w-4xl">
-              <p className="font-mono text-xs uppercase tracking-widest text-signal-green">05 / Evidence boundary</p>
+              <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">05 / Evidence boundary</p>
               <h2 id="evidence-title" className="mt-3 text-2xl font-semibold">What this case supports — and what it does not</h2>
               <p className="mt-5 text-sm leading-8 text-muted-foreground">
                 This account describes the delivery team's reported time-to-use and participating workflows.
