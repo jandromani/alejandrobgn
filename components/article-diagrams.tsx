@@ -17,10 +17,10 @@ function DiagramFrame({ label, title, note, children }: { label: string; title: 
     <figure className="my-10 overflow-hidden rounded-2xl border border-border bg-[#080b10] text-white shadow-[0_24px_80px_rgba(0,0,0,0.22)]">
       <figcaption className="flex flex-col gap-2 border-b border-white/10 px-5 py-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-[9px] font-mono uppercase tracking-[0.22em] text-signal-green">{label}</p>
+          <p className="text-xs font-mono uppercase tracking-[0.22em] text-signal-green">{label}</p>
           <h3 className="mt-1 text-base font-semibold text-white">{title}</h3>
         </div>
-        <p className="max-w-sm text-[10px] leading-relaxed text-white/45">{note}</p>
+        <p className="max-w-sm text-xs leading-relaxed text-white/80">{note}</p>
       </figcaption>
       {children}
     </figure>
@@ -33,7 +33,7 @@ function Detail({ node }: { node: Node }) {
       <div className="flex items-start gap-3">
         <CircleDot className="mt-0.5 h-4 w-4 flex-none text-signal-green" />
         <div>
-          <p className="text-[9px] font-mono uppercase tracking-[0.18em] text-white/40">{node.eyebrow}</p>
+          <p className="text-xs font-mono uppercase tracking-[0.18em] text-white/80">{node.eyebrow}</p>
           <p className="mt-1 text-sm font-semibold text-white">{node.label}</p>
           <p className="mt-1 max-w-3xl text-xs leading-6 text-white/60">{node.detail}</p>
         </div>
@@ -58,28 +58,28 @@ function GovernanceControlPlane() {
         <div className="pointer-events-none absolute left-1/2 top-10 h-[72%] w-px bg-gradient-to-b from-signal-cyan via-signal-green to-signal-amber opacity-45" />
         <div className="relative grid gap-5">
           <div className="rounded-xl border border-signal-cyan/25 bg-signal-cyan/[0.06] p-4 text-center">
-            <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-signal-cyan">Reasoning plane</p>
+            <p className="text-xs font-mono uppercase tracking-[0.2em] text-signal-cyan">Reasoning plane</p>
             <p className="mt-1 text-sm font-semibold">Model proposes an action</p>
-            <p className="mt-1 text-[10px] text-white/45">Useful intent, never the security boundary</p>
+            <p className="mt-1 text-xs text-white/80">Useful intent, never the security boundary</p>
           </div>
-          <ArrowDown className="relative mx-auto h-4 w-4 text-white/35" />
+          <ArrowDown className="relative mx-auto h-4 w-4 text-white/80" />
           <div className="relative rounded-2xl border border-signal-green/30 bg-signal-green/[0.05] p-4">
-            <p className="mb-4 text-center text-[9px] font-mono uppercase tracking-[0.2em] text-signal-green">Agent control plane</p>
+            <p className="mb-4 text-center text-xs font-mono uppercase tracking-[0.2em] text-signal-green">Agent control plane</p>
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
               {governanceNodes.map((node) => (
-                <button key={node.id} onClick={() => setSelected(node)} className={`rounded-lg border px-2 py-3 text-[10px] font-mono transition-all hover:-translate-y-0.5 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/35" : "opacity-70"}`}>
+                <button key={node.id} onClick={() => setSelected(node)} className={`rounded-lg border px-2 py-3 text-xs font-mono transition-all hover:-translate-y-0.5 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/35" : "opacity-100"}`}>
                   {node.label}
                 </button>
               ))}
             </div>
           </div>
-          <ArrowDown className="relative mx-auto h-4 w-4 text-white/35" />
+          <ArrowDown className="relative mx-auto h-4 w-4 text-white/80" />
           <div className="grid gap-2 sm:grid-cols-3">
             {[
               ["Execution plane", "Tool gateway"],
               ["External state", "Database · API · message"],
               ["Recovery plane", "Pause · revoke · compensate"],
-            ].map(([a, b]) => <div key={a} className="rounded-xl border border-white/10 bg-white/[0.03] p-3 text-center"><p className="text-[8px] font-mono uppercase tracking-wider text-white/35">{a}</p><p className="mt-1 text-xs text-white/75">{b}</p></div>)}
+            ].map(([a, b]) => <div key={a} className="rounded-xl border border-white/10 bg-white/[0.03] p-3 text-center"><p className="text-xs font-mono uppercase tracking-wider text-white/80">{a}</p><p className="mt-1 text-xs text-white/75">{b}</p></div>)}
           </div>
         </div>
       </div>
@@ -108,11 +108,11 @@ function AutonomyLadder() {
               <div style={{ height: `${44 + i * 24}px` }} className={`flex w-full items-end justify-center rounded-t-lg border px-1 pb-2 transition-all ${selected.id === node.id ? "border-signal-green bg-signal-green/20" : "border-white/10 bg-white/[0.035] hover:border-white/25"}`}>
                 <span className="text-sm font-mono text-white/80">L{i}</span>
               </div>
-              <span className="mt-2 hidden text-[8px] leading-tight text-white/40 sm:block">{node.label}</span>
+              <span className="mt-2 hidden text-xs leading-tight text-white/80 sm:block">{node.label}</span>
             </button>
           ))}
         </div>
-        <div className="mt-4 flex justify-between text-[8px] font-mono uppercase tracking-wider text-white/30"><span>Output</span><span>Consequential authority →</span></div>
+        <div className="mt-4 flex justify-between text-xs font-mono uppercase tracking-wider text-white/80"><span>Output</span><span>Consequential authority →</span></div>
       </div>
       <Detail node={selected} />
     </DiagramFrame>
@@ -129,16 +129,16 @@ function DelegationChain() {
   const [selected, setSelected] = useState(nodes[1])
   return (
     <DiagramFrame label="Interactive architecture 03" title="Delegation narrows; it never manufactures authority" note="Each handoff creates a new evidence event and a smaller capability envelope.">
-      <div className="p-5 sm:overflow-x-auto sm:p-7">
+      <div tabIndex={0} role="region" aria-label="Scrollable engineering diagram" className="p-5 sm:overflow-x-auto sm:p-7">
         <div className="mx-auto flex flex-col items-center justify-between sm:min-w-[620px] sm:flex-row">
           {nodes.map((node, i) => (
             <div key={node.id} className="contents">
-              <button onClick={() => setSelected(node)} className={`w-full rounded-xl border p-3 text-center transition-transform hover:-translate-y-1 sm:w-28 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-75"}`}>
+              <button onClick={() => setSelected(node)} className={`w-full rounded-xl border p-3 text-center transition-transform hover:-translate-y-1 sm:w-28 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-100"}`}>
                 <LockKeyhole className="mx-auto h-4 w-4" />
-                <span className="mt-2 block text-[10px] font-mono">{node.label}</span>
+                <span className="mt-2 block text-xs font-mono">{node.label}</span>
                 <span className="mt-2 block h-1 rounded bg-current" style={{ width: `${100 - i * 20}%`, marginInline: "auto" }} />
               </button>
-              {i < nodes.length - 1 && <div className="flex h-12 flex-col items-center justify-center sm:h-auto sm:flex-1 sm:px-2"><div className="h-7 w-px bg-gradient-to-b from-signal-green/70 to-white/15 sm:h-px sm:w-full sm:bg-gradient-to-r" /><p className="mt-1 text-center text-[8px] font-mono text-white/25">subset ∩ policy</p></div>}
+              {i < nodes.length - 1 && <div className="flex h-12 flex-col items-center justify-center sm:h-auto sm:flex-1 sm:px-2"><div className="h-7 w-px bg-gradient-to-b from-signal-green/70 to-white/15 sm:h-px sm:w-full sm:bg-gradient-to-r" /><p className="mt-1 text-center text-xs font-mono text-white/80">subset ∩ policy</p></div>}
             </div>
           ))}
         </div>
@@ -169,14 +169,14 @@ function EntropyDimensions() {
             <circle cx="250" cy="150" r="23" fill="rgba(77,255,172,.14)" stroke="rgba(77,255,172,.55)" />
           </svg>
           <div className="relative grid grid-cols-2 gap-2 p-4 sm:grid-cols-3">
-            {entropyDimensions.map((node) => <button key={node.id} onClick={() => setSelected(node)} className={`rounded-lg border px-2 py-3 text-[9px] font-mono backdrop-blur-sm transition-all hover:-translate-y-0.5 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-70"}`}>{node.label}</button>)}
+            {entropyDimensions.map((node) => <button key={node.id} onClick={() => setSelected(node)} className={`rounded-lg border px-2 py-3 text-xs font-mono backdrop-blur-sm transition-all hover:-translate-y-0.5 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-100"}`}>{node.label}</button>)}
           </div>
         </div>
         <div className="flex flex-col justify-center rounded-xl border border-white/10 bg-white/[0.025] p-4">
           <Activity className="h-5 w-5 text-signal-green" />
-          <p className="mt-4 text-[9px] font-mono uppercase tracking-wider text-white/35">{selected.eyebrow}</p>
+          <p className="mt-4 text-xs font-mono uppercase tracking-wider text-white/80">{selected.eyebrow}</p>
           <p className="mt-1 font-semibold text-white">{selected.label} entropy</p>
-          <p className="mt-2 text-xs leading-6 text-white/55">{selected.detail}</p>
+          <p className="mt-2 text-xs leading-6 text-white/80">{selected.detail}</p>
         </div>
       </div>
     </DiagramFrame>
@@ -195,11 +195,11 @@ function ControlLoop() {
   const [selected, setSelected] = useState(loopNodes[0])
   return (
     <DiagramFrame label="Interactive architecture 02" title="Entropic Core is a closed control loop" note="A sensor without diagnosis creates noise; an intervention without verification creates belief.">
-      <div className="p-5 sm:overflow-x-auto sm:p-7">
+      <div tabIndex={0} role="region" aria-label="Scrollable engineering diagram" className="p-5 sm:overflow-x-auto sm:p-7">
         <div className="mx-auto flex flex-col items-center sm:min-w-[650px] sm:flex-row">
-          {loopNodes.map((node, i) => <div key={node.id} className="contents"><button onClick={() => setSelected(node)} className={`w-full rounded-full border px-3 py-4 text-[10px] font-mono transition-all hover:scale-[1.02] sm:w-24 sm:py-6 sm:hover:scale-105 ${selected.id === node.id ? "border-signal-green bg-signal-green/20 text-signal-green ring-1 ring-signal-green/30" : "border-white/15 bg-white/[0.035] text-white/60"}`}>{node.label}</button>{i < loopNodes.length - 1 && <div className="h-6 w-px bg-gradient-to-b from-signal-green/60 to-signal-cyan/20 sm:h-px sm:w-auto sm:flex-1 sm:bg-gradient-to-r" />}</div>)}
+          {loopNodes.map((node, i) => <div key={node.id} className="contents"><button onClick={() => setSelected(node)} className={`w-full rounded-full border px-3 py-4 text-xs font-mono transition-all hover:scale-[1.02] sm:w-24 sm:py-6 sm:hover:scale-105 ${selected.id === node.id ? "border-signal-green bg-signal-green/20 text-signal-green ring-1 ring-signal-green/30" : "border-white/15 bg-white/[0.035] text-white/60"}`}>{node.label}</button>{i < loopNodes.length - 1 && <div className="h-6 w-px bg-gradient-to-b from-signal-green/60 to-signal-cyan/20 sm:h-px sm:w-auto sm:flex-1 sm:bg-gradient-to-r" />}</div>)}
         </div>
-        <div className="mx-auto mt-4 flex max-w-[650px] items-center justify-center gap-2 text-[8px] font-mono uppercase tracking-[0.18em] text-white/25"><span>accepted outcome</span><span>↺</span><span>new operating state</span></div>
+        <div className="mx-auto mt-4 flex max-w-[650px] items-center justify-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-white/80"><span>accepted outcome</span><span>↺</span><span>new operating state</span></div>
       </div>
       <Detail node={selected} />
     </DiagramFrame>
@@ -219,9 +219,9 @@ function OmegaArchitecture() {
     <DiagramFrame label="Lab-derived architecture 03" title="OMEGA: what the supplied notebook actually executes" note="Architecture reconstructed from entropic_lab.py. The experiment uses synthetic degradation and should be read as control-loop integration evidence.">
       <div className="p-5 sm:p-7">
         <div className="grid gap-2 sm:grid-cols-5">
-          {nodes.map((node, i) => <button key={node.id} onClick={() => setSelected(node)} className={`relative rounded-xl border p-3 text-left transition-all hover:-translate-y-1 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/35" : "opacity-75"}`}><span className="text-[8px] font-mono text-current/70">0{i + 1}</span><FlaskConical className="mt-4 h-4 w-4" /><span className="mt-2 block text-[10px] font-semibold leading-tight">{node.label}</span>{i < nodes.length - 1 && <span className="absolute -right-2.5 top-1/2 z-10 hidden text-white/25 sm:block">→</span>}</button>)}
+          {nodes.map((node, i) => <button key={node.id} onClick={() => setSelected(node)} className={`relative rounded-xl border p-3 text-left transition-all hover:-translate-y-1 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/35" : "opacity-100"}`}><span className="text-xs font-mono text-current/70">0{i + 1}</span><FlaskConical className="mt-4 h-4 w-4" /><span className="mt-2 block text-xs font-semibold leading-tight">{node.label}</span>{i < nodes.length - 1 && <span className="absolute -right-2.5 top-1/2 z-10 hidden text-white/80 sm:block">→</span>}</button>)}
         </div>
-        <div className="mt-4 grid grid-cols-3 gap-2 text-center text-[8px] font-mono uppercase tracking-wider text-white/30"><span className="rounded border border-signal-amber/20 py-2">synthetic input</span><span className="rounded border border-signal-cyan/20 py-2">runtime signal</span><span className="rounded border border-signal-green/20 py-2">recorded response</span></div>
+        <div className="mt-4 grid grid-cols-3 gap-2 text-center text-xs font-mono uppercase tracking-wider text-white/80"><span className="rounded border border-signal-amber/20 py-2">synthetic input</span><span className="rounded border border-signal-cyan/20 py-2">runtime signal</span><span className="rounded border border-signal-green/20 py-2">recorded response</span></div>
       </div>
       <Detail node={selected} />
     </DiagramFrame>
@@ -239,9 +239,9 @@ function InterventionLadder() {
     <DiagramFrame label="Interactive control model 04" title="Use the weakest intervention that can work" note="The ladder avoids turning every anomaly into an expensive escalation.">
       <div className="p-5 sm:p-7">
         <div className="grid grid-cols-3 gap-2 sm:grid-cols-9">
-          {interventionLevels.map((name, i) => <button key={name} onClick={() => setLevel(i)} className={`rounded-lg border px-1 py-3 transition-all ${level === i ? "border-signal-green bg-signal-green/20 text-signal-green" : "border-white/10 bg-white/[0.03] text-white/45 hover:border-white/25"}`}><span className="block text-sm font-mono">{i}</span><span className="mt-1 block text-[8px] leading-tight">{name}</span></button>)}
+          {interventionLevels.map((name, i) => <button key={name} onClick={() => setLevel(i)} className={`rounded-lg border px-1 py-3 transition-all ${level === i ? "border-signal-green bg-signal-green/20 text-signal-green" : "border-white/10 bg-white/[0.03] text-white/80 hover:border-white/25"}`}><span className="block text-sm font-mono">{i}</span><span className="mt-1 block text-xs leading-tight">{name}</span></button>)}
         </div>
-        <div className="mt-4 flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.025] p-4"><ShieldCheck className="mt-0.5 h-4 w-4 flex-none text-signal-green" /><div><p className="text-[9px] font-mono uppercase tracking-wider text-white/35">Level {level} · {interventionLevels[level]}</p><p className="mt-1 text-xs leading-6 text-white/65">{details[level]}</p></div></div>
+        <div className="mt-4 flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.025] p-4"><ShieldCheck className="mt-0.5 h-4 w-4 flex-none text-signal-green" /><div><p className="text-xs font-mono uppercase tracking-wider text-white/80">Level {level} · {interventionLevels[level]}</p><p className="mt-1 text-xs leading-6 text-white/65">{details[level]}</p></div></div>
       </div>
     </DiagramFrame>
   )
@@ -264,13 +264,13 @@ function VendorIntelligenceGraph() {
       <div className="p-5 sm:p-7">
         <div className="grid gap-2 sm:grid-cols-4">
           {intelligenceNodes.map((node, index) => (
-            <button key={node.id} onClick={() => setSelected(node)} className={`relative rounded-xl border p-3 text-left transition-all hover:-translate-y-0.5 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-72"}`}>
-              <span className="text-[8px] font-mono opacity-60">{String(index + 1).padStart(2, "0")}</span>
+            <button key={node.id} onClick={() => setSelected(node)} className={`relative rounded-xl border p-3 text-left transition-all hover:-translate-y-0.5 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-100"}`}>
+              <span className="text-xs font-mono opacity-100">{String(index + 1).padStart(2, "0")}</span>
               {index === 0 ? <Database className="mt-3 h-4 w-4" /> : index === 1 ? <RefreshCw className="mt-3 h-4 w-4" /> : index < 4 ? <Search className="mt-3 h-4 w-4" /> : <ShieldCheck className="mt-3 h-4 w-4" />}
-              <span className="mt-2 block text-[10px] font-semibold leading-tight">{node.label}</span>
+              <span className="mt-2 block text-xs font-semibold leading-tight">{node.label}</span>
             </button>
           ))}
-          <div className="flex items-center justify-center rounded-xl border border-dashed border-white/10 p-3 text-center text-[9px] font-mono uppercase tracking-wider text-white/30">Daily cron · release event · anomaly · freshness SLA</div>
+          <div className="flex items-center justify-center rounded-xl border border-dashed border-white/10 p-3 text-center text-xs font-mono uppercase tracking-wider text-white/80">Daily cron · release event · anomaly · freshness SLA</div>
         </div>
       </div>
       <Detail node={selected} />
@@ -292,9 +292,9 @@ function ClaimLifecycle() {
     <DiagramFrame label="Interactive state machine" title="Claims age, conflict and recover" note="Verification is a state with evidence—not a permanent badge.">
       <div className="p-5 sm:p-7">
         <div className="flex flex-col items-center sm:flex-row">
-          {claimStates.map((node, index) => <div key={node.id} className="contents"><button onClick={() => setSelected(node)} className={`w-full rounded-xl border px-3 py-4 text-[10px] font-mono transition-all hover:scale-[1.02] sm:w-28 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-70"}`}>{node.label}</button>{index < claimStates.length - 1 && <div className="h-6 w-px bg-gradient-to-b from-signal-cyan/50 to-signal-green/50 sm:h-px sm:w-auto sm:flex-1 sm:bg-gradient-to-r" />}</div>)}
+          {claimStates.map((node, index) => <div key={node.id} className="contents"><button onClick={() => setSelected(node)} className={`w-full rounded-xl border px-3 py-4 text-xs font-mono transition-all hover:scale-[1.02] sm:w-28 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-100"}`}>{node.label}</button>{index < claimStates.length - 1 && <div className="h-6 w-px bg-gradient-to-b from-signal-cyan/50 to-signal-green/50 sm:h-px sm:w-auto sm:flex-1 sm:bg-gradient-to-r" />}</div>)}
         </div>
-        <p className="mt-4 text-center text-[8px] font-mono uppercase tracking-[0.18em] text-white/25">recheck ↺ confirm · supersede · quarantine · rollback</p>
+        <p className="mt-4 text-center text-xs font-mono uppercase tracking-[0.18em] text-white/80">recheck ↺ confirm · supersede · quarantine · rollback</p>
       </div>
       <Detail node={selected} />
     </DiagramFrame>
@@ -313,7 +313,7 @@ function PortabilityContract() {
   return (
     <DiagramFrame label="Runtime architecture" title="Portability is a closed evidence loop" note="The intelligence catalogue informs eligibility; it does not choose the business outcome alone.">
       <div className="grid gap-2 p-5 sm:grid-cols-5 sm:p-7">
-        {nodes.map((node, index) => <button key={node.id} onClick={() => setSelected(node)} className={`relative rounded-xl border p-4 text-left transition-all hover:-translate-y-0.5 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-70"}`}><Waypoints className="h-4 w-4" /><span className="mt-3 block text-[10px] font-semibold">{node.label}</span>{index < nodes.length - 1 && <span className="absolute -right-2.5 top-1/2 z-10 hidden text-white/25 sm:block">→</span>}</button>)}
+        {nodes.map((node, index) => <button key={node.id} onClick={() => setSelected(node)} className={`relative rounded-xl border p-4 text-left transition-all hover:-translate-y-0.5 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-100"}`}><Waypoints className="h-4 w-4" /><span className="mt-3 block text-xs font-semibold">{node.label}</span>{index < nodes.length - 1 && <span className="absolute -right-2.5 top-1/2 z-10 hidden text-white/80 sm:block">→</span>}</button>)}
       </div>
       <Detail node={selected} />
     </DiagramFrame>
@@ -332,10 +332,10 @@ function EconomicsSystem() {
     <DiagramFrame label="Related-system architecture" title="Market data + runtime truth + budget control" note="These are connected building blocks, not a claim that one integrated FinOps product already exists.">
       <div className="p-5 sm:p-7">
         <div className="grid gap-3 sm:grid-cols-3">
-          {economicsSystems.map((node, index) => <button key={node.id} onClick={() => setSelected(node)} className={`rounded-2xl border p-5 text-left transition-all hover:-translate-y-1 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-75"}`}><span className="text-[8px] font-mono opacity-60">0{index + 1}</span><GitCompareArrows className="mt-5 h-5 w-5" /><span className="mt-3 block text-sm font-semibold">{node.label}</span></button>)}
+          {economicsSystems.map((node, index) => <button key={node.id} onClick={() => setSelected(node)} className={`rounded-2xl border p-5 text-left transition-all hover:-translate-y-1 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-100"}`}><span className="text-xs font-mono opacity-100">0{index + 1}</span><GitCompareArrows className="mt-5 h-5 w-5" /><span className="mt-3 block text-sm font-semibold">{node.label}</span></button>)}
         </div>
         <div className="mx-auto mt-4 h-8 w-px bg-gradient-to-b from-white/20 to-signal-green/60" />
-        <div className="mx-auto max-w-sm rounded-xl border border-signal-green/35 bg-signal-green/10 p-4 text-center"><DollarSign className="mx-auto h-5 w-5 text-signal-green" /><p className="mt-2 text-xs font-semibold text-white">Cost per accepted outcome</p><p className="mt-1 text-[9px] text-white/40">reconciled ledger · quality floor · business margin</p></div>
+        <div className="mx-auto max-w-sm rounded-xl border border-signal-green/35 bg-signal-green/10 p-4 text-center"><DollarSign className="mx-auto h-5 w-5 text-signal-green" /><p className="mt-2 text-xs font-semibold text-white">Cost per accepted outcome</p><p className="mt-1 text-xs text-white/80">reconciled ledger · quality floor · business margin</p></div>
       </div>
       <Detail node={selected} />
     </DiagramFrame>
@@ -356,9 +356,9 @@ function OutcomeCostStack() {
     <DiagramFrame label="Interactive unit economics" title="The provider invoice is one layer of outcome cost" note="Select a layer to inspect the costs hidden by token-only dashboards.">
       <div className="p-5 sm:p-7">
         <div className="mx-auto max-w-xl space-y-1.5">
-          {costLayers.map((node, index) => <button key={node.id} onClick={() => setSelected(node)} style={{ width: `${60 + index * 10}%` }} className={`mx-auto block rounded-lg border px-3 py-2 text-[10px] font-mono transition-all hover:scale-[1.01] ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-72"}`}>{node.label}</button>)}
+          {costLayers.map((node, index) => <button key={node.id} onClick={() => setSelected(node)} style={{ width: `${60 + index * 10}%` }} className={`mx-auto block rounded-lg border px-3 py-2 text-xs font-mono transition-all hover:scale-[1.01] ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-100"}`}>{node.label}</button>)}
         </div>
-        <p className="mt-4 text-center text-[8px] font-mono uppercase tracking-[0.18em] text-white/25">divide only by verified accepted outcomes</p>
+        <p className="mt-4 text-center text-xs font-mono uppercase tracking-[0.18em] text-white/80">divide only by verified accepted outcomes</p>
       </div>
       <Detail node={selected} />
     </DiagramFrame>
@@ -370,9 +370,9 @@ function EligibilityRouter() {
   return (
     <DiagramFrame label="Decision architecture" title="Filter first. Rank second." note="A cheap route that fails the quality or policy floor is ineligible, not efficient.">
       <div className="p-5 sm:p-7">
-        <div className="grid gap-2 sm:grid-cols-5">{nodes.map((node, index) => <div key={node} className="relative rounded-xl border border-signal-cyan/25 bg-signal-cyan/[0.06] p-4 text-center"><span className="text-[8px] font-mono text-signal-cyan/60">0{index + 1}</span><p className="mt-2 text-[10px] font-semibold text-white/75">{node}</p>{index < nodes.length - 1 && <span className="absolute -right-2.5 top-1/2 z-10 hidden text-white/25 sm:block">∩</span>}</div>)}</div>
+        <div className="grid gap-2 sm:grid-cols-5">{nodes.map((node, index) => <div key={node} className="relative rounded-xl border border-signal-cyan/25 bg-signal-cyan/[0.06] p-4 text-center"><span className="text-xs font-mono text-signal-cyan">0{index + 1}</span><p className="mt-2 text-xs font-semibold text-white/75">{node}</p>{index < nodes.length - 1 && <span className="absolute -right-2.5 top-1/2 z-10 hidden text-white/80 sm:block">∩</span>}</div>)}</div>
         <ArrowDown className="mx-auto my-4 h-4 w-4 text-signal-green" />
-        <div className="grid gap-2 sm:grid-cols-3"><div className="rounded-lg border border-white/10 p-3 text-center text-[10px] text-white/45">Eligible route A</div><div className="rounded-lg border border-signal-green/35 bg-signal-green/10 p-3 text-center text-[10px] text-signal-green">Rank by total outcome objective</div><div className="rounded-lg border border-white/10 p-3 text-center text-[10px] text-white/45">Eligible route B</div></div>
+        <div className="grid gap-2 sm:grid-cols-3"><div className="rounded-lg border border-white/10 p-3 text-center text-xs text-white/80">Eligible route A</div><div className="rounded-lg border border-signal-green/35 bg-signal-green/10 p-3 text-center text-xs text-signal-green">Rank by total outcome objective</div><div className="rounded-lg border border-white/10 p-3 text-center text-xs text-white/80">Eligible route B</div></div>
       </div>
     </DiagramFrame>
   )
@@ -390,11 +390,11 @@ function AgentGovernanceWrapper() {
   const [selected, setSelected] = useState(wrapperNodes[2])
   return <DiagramFrame label="Interactive control plane" title="The wrapper sits between intent and side effect" note="The model proposes. The governed runtime decides and records.">
     <div className="p-5 sm:p-7">
-      <div className="rounded-xl border border-signal-cyan/25 bg-signal-cyan/[0.06] p-4 text-center"><p className="text-[9px] font-mono uppercase tracking-wider text-signal-cyan">Intent plane</p><p className="mt-1 text-sm font-semibold">Principal · goal · agent · model</p></div>
-      <ArrowDown className="mx-auto my-3 h-4 w-4 text-white/30" />
-      <div className="grid grid-cols-2 gap-2 rounded-2xl border border-signal-green/30 bg-signal-green/[0.04] p-4 sm:grid-cols-5">{wrapperNodes.map(node => <button key={node.id} onClick={() => setSelected(node)} className={`rounded-xl border px-3 py-4 text-[10px] font-mono transition-all hover:-translate-y-0.5 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-70"}`}>{node.label}</button>)}</div>
-      <ArrowDown className="mx-auto my-3 h-4 w-4 text-white/30" />
-      <div className="grid gap-2 sm:grid-cols-3">{[["Attempt", "tool gateway"], ["Commit", "external state"], ["Prove", "evidence ledger"]].map(([a,b]) => <div key={a} className="rounded-xl border border-white/10 bg-white/[0.03] p-3 text-center"><p className="text-[9px] font-mono text-white/35">{a}</p><p className="mt-1 text-xs text-white/70">{b}</p></div>)}</div>
+      <div className="rounded-xl border border-signal-cyan/25 bg-signal-cyan/[0.06] p-4 text-center"><p className="text-xs font-mono uppercase tracking-wider text-signal-cyan">Intent plane</p><p className="mt-1 text-sm font-semibold">Principal · goal · agent · model</p></div>
+      <ArrowDown className="mx-auto my-3 h-4 w-4 text-white/80" />
+      <div className="grid grid-cols-2 gap-2 rounded-2xl border border-signal-green/30 bg-signal-green/[0.04] p-4 sm:grid-cols-5">{wrapperNodes.map(node => <button key={node.id} onClick={() => setSelected(node)} className={`rounded-xl border px-3 py-4 text-xs font-mono transition-all hover:-translate-y-0.5 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-100"}`}>{node.label}</button>)}</div>
+      <ArrowDown className="mx-auto my-3 h-4 w-4 text-white/80" />
+      <div className="grid gap-2 sm:grid-cols-3">{[["Attempt", "tool gateway"], ["Commit", "external state"], ["Prove", "evidence ledger"]].map(([a,b]) => <div key={a} className="rounded-xl border border-white/10 bg-white/[0.03] p-3 text-center"><p className="text-xs font-mono text-white/80">{a}</p><p className="mt-1 text-xs text-white/70">{b}</p></div>)}</div>
     </div><Detail node={selected} />
   </DiagramFrame>
 }
@@ -411,7 +411,7 @@ const evidenceNodes: Node[] = [
 function AgentEvidenceGraph() {
   const [selected, setSelected] = useState(evidenceNodes[3])
   return <DiagramFrame label="Causal evidence graph" title="A trace follows decisions and state transitions" note="Select a node. The trace is complete only when the effect and outcome can be reconciled.">
-    <div className="grid gap-3 p-5 sm:grid-cols-3 sm:p-7">{evidenceNodes.map((node,index) => <button key={node.id} onClick={() => setSelected(node)} className={`relative rounded-xl border p-4 text-left transition-all hover:-translate-y-0.5 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-72"}`}><span className="text-[8px] font-mono opacity-50">0{index+1}</span><p className="mt-2 text-xs font-semibold">{node.label}</p>{index < evidenceNodes.length - 1 && <span className="absolute -bottom-3 left-1/2 text-white/25 sm:-right-2.5 sm:bottom-auto sm:left-auto sm:top-1/2">→</span>}</button>)}</div><Detail node={selected} />
+    <div className="grid gap-3 p-5 sm:grid-cols-3 sm:p-7">{evidenceNodes.map((node,index) => <button key={node.id} onClick={() => setSelected(node)} className={`relative rounded-xl border p-4 text-left transition-all hover:-translate-y-0.5 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-100"}`}><span className="text-xs font-mono opacity-100">0{index+1}</span><p className="mt-2 text-xs font-semibold">{node.label}</p>{index < evidenceNodes.length - 1 && <span className="absolute -bottom-3 left-1/2 text-white/80 sm:-right-2.5 sm:bottom-auto sm:left-auto sm:top-1/2">→</span>}</button>)}</div><Detail node={selected} />
   </DiagramFrame>
 }
 
@@ -419,7 +419,7 @@ function GovernanceControlLoop() {
   const stages = ["Observe", "Diagnose", "Govern", "Intervene", "Prove"]
   const [active, setActive] = useState(2)
   return <DiagramFrame label="Runtime loop" title="Telemetry becomes valuable when it changes execution" note="Intervention should be progressive, reversible where possible and always evidenced.">
-    <div className="p-5 sm:p-7"><div className="flex flex-col items-center sm:flex-row">{stages.map((stage,index) => <div key={stage} className="contents"><button onClick={() => setActive(index)} className={`w-full rounded-xl border px-3 py-4 text-[10px] font-mono transition-all sm:w-28 ${index === active ? tone.green + " ring-1 ring-white/40" : "border-white/10 bg-white/[0.03] text-white/50"}`}>{stage}</button>{index < stages.length - 1 && <div className="h-5 w-px bg-white/20 sm:h-px sm:flex-1" />}</div>)}</div><div className="mt-5 rounded-xl border border-white/10 bg-white/[0.025] p-4 text-center"><Activity className="mx-auto h-5 w-5 text-signal-green" /><p className="mt-2 text-xs text-white/75">{["Collect trace, state, budget and evidence signals.","Detect loops, conflicts, drift and uncertain effects.","Evaluate purpose, authority, policy and remaining autonomy.","Warn, narrow, reroute, checkpoint, pause, revoke or compensate.","Close the record with outcome, cost and recovery evidence."][active]}</p></div></div>
+    <div className="p-5 sm:p-7"><div className="flex flex-col items-center sm:flex-row">{stages.map((stage,index) => <div key={stage} className="contents"><button onClick={() => setActive(index)} className={`w-full rounded-xl border px-3 py-4 text-xs font-mono transition-all sm:w-28 ${index === active ? tone.green + " ring-1 ring-white/40" : "border-white/10 bg-white/[0.03] text-white/80"}`}>{stage}</button>{index < stages.length - 1 && <div className="h-5 w-px bg-white/20 sm:h-px sm:flex-1" />}</div>)}</div><div className="mt-5 rounded-xl border border-white/10 bg-white/[0.025] p-4 text-center"><Activity className="mx-auto h-5 w-5 text-signal-green" /><p className="mt-2 text-xs text-white/75">{["Collect trace, state, budget and evidence signals.","Detect loops, conflicts, drift and uncertain effects.","Evaluate purpose, authority, policy and remaining autonomy.","Warn, narrow, reroute, checkpoint, pause, revoke or compensate.","Close the record with outcome, cost and recovery evidence."][active]}</p></div></div>
   </DiagramFrame>
 }
 
@@ -431,23 +431,23 @@ function PortfolioControlPlane() {
     { id:"evaluation", label:"PsycheOS", eyebrow:"Safety evaluation", detail:"Browser-local evaluation surface; currently a separate system rather than a live LLMTRACE policy engine.", tone:"cyan" },
   ]
   const [selected,setSelected] = useState(systems[0])
-  return <DiagramFrame label="Evidence boundary" title="Four real building blocks, one future integration boundary" note="The diagram maps roles without claiming a finished unified enterprise platform."><div className="grid gap-3 p-5 sm:grid-cols-4 sm:p-7">{systems.map(node => <button key={node.id} onClick={() => setSelected(node)} className={`rounded-2xl border p-5 text-left transition-all hover:-translate-y-1 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-70"}`}><ShieldCheck className="h-5 w-5"/><p className="mt-4 text-xs font-semibold">{node.label}</p></button>)}</div><Detail node={selected}/></DiagramFrame>
+  return <DiagramFrame label="Evidence boundary" title="Four real building blocks, one future integration boundary" note="The diagram maps roles without claiming a finished unified enterprise platform."><div className="grid gap-3 p-5 sm:grid-cols-4 sm:p-7">{systems.map(node => <button key={node.id} onClick={() => setSelected(node)} className={`rounded-2xl border p-5 text-left transition-all hover:-translate-y-1 ${tone[node.tone ?? "green"]} ${selected.id === node.id ? "ring-1 ring-white/40" : "opacity-100"}`}><ShieldCheck className="h-5 w-5"/><p className="mt-4 text-xs font-semibold">{node.label}</p></button>)}</div><Detail node={selected}/></DiagramFrame>
 }
 
 function EvidenceLadder() {
   const stages = ["Idea", "Architecture", "Prototype", "Reproducible", "Adopted", "Durable value"]
   const [active,setActive] = useState(3)
-  return <DiagramFrame label="Evidence maturity" title="Claims earn stronger language one rung at a time" note="A project can be valuable at any rung. The label must match the proof."><div className="p-5 sm:p-7"><div className="mx-auto flex max-w-xl flex-col-reverse gap-1">{stages.map((stage,index)=><button key={stage} onClick={()=>setActive(index)} style={{width:`${55+index*9}%`}} className={`mx-auto rounded-lg border px-3 py-2 text-[10px] font-mono transition-all ${index===active ? tone.green+" ring-1 ring-white/40" : "border-white/10 bg-white/[0.025] text-white/45"}`}>{index+1}. {stage}</button>)}</div><p className="mt-4 text-center text-xs text-white/60">{["A possibility, not a capability.","A design claim with explicit boundaries.","Executable under stated conditions.","Someone else can obtain the expected result.","Used without the builder present.","Measurable value maintained over time."][active]}</p></div></DiagramFrame>
+  return <DiagramFrame label="Evidence maturity" title="Claims earn stronger language one rung at a time" note="A project can be valuable at any rung. The label must match the proof."><div className="p-5 sm:p-7"><div className="mx-auto flex max-w-xl flex-col-reverse gap-1">{stages.map((stage,index)=><button key={stage} onClick={()=>setActive(index)} style={{width:`${55+index*9}%`}} className={`mx-auto rounded-lg border px-3 py-2 text-xs font-mono transition-all ${index===active ? tone.green+" ring-1 ring-white/40" : "border-white/10 bg-white/[0.025] text-white/80"}`}>{index+1}. {stage}</button>)}</div><p className="mt-4 text-center text-xs text-white/60">{["A possibility, not a capability.","A design claim with explicit boundaries.","Executable under stated conditions.","Someone else can obtain the expected result.","Used without the builder present.","Measurable value maintained over time."][active]}</p></div></DiagramFrame>
 }
 
 function PortfolioControlPlaneDiagram() {
   const pairs = [["Project","Registered asset"],["Claim","Capability declaration"],["Preview","Evidence class"],["Changelog","Audit trail"],["Archive","Lifecycle decision"]]
-  return <DiagramFrame label="Portfolio governance" title="The portfolio itself needed a control plane" note="Public meaning must be versioned, evidenced and retired when it stops being true."><div className="grid gap-2 p-5 sm:grid-cols-5 sm:p-7">{pairs.map(([a,b],index)=><div key={a} className="rounded-xl border border-signal-cyan/25 bg-signal-cyan/[0.05] p-4 text-center"><span className="text-[8px] font-mono text-signal-cyan/50">0{index+1}</span><p className="mt-2 text-xs font-semibold text-white">{a}</p><p className="mt-1 text-[9px] text-white/40">{b}</p></div>)}</div></DiagramFrame>
+  return <DiagramFrame label="Portfolio governance" title="The portfolio itself needed a control plane" note="Public meaning must be versioned, evidenced and retired when it stops being true."><div className="grid gap-2 p-5 sm:grid-cols-5 sm:p-7">{pairs.map(([a,b],index)=><div key={a} className="rounded-xl border border-signal-cyan/25 bg-signal-cyan/[0.05] p-4 text-center"><span className="text-xs font-mono text-signal-cyan">0{index+1}</span><p className="mt-2 text-xs font-semibold text-white">{a}</p><p className="mt-1 text-xs text-white/80">{b}</p></div>)}</div></DiagramFrame>
 }
 
 function ClaimExperimentLoop() {
   const steps = ["Wild intuition","Executable metaphor","Synthetic experiment","Testable hypothesis","Controlled benchmark","Production evidence"]
-  return <DiagramFrame label="Claim calibration" title="Downgrade the claim. Upgrade the experiment." note="Code can prove implementation; only the right experiment can support the wider claim."><div className="p-5 sm:p-7"><div className="grid gap-2 sm:grid-cols-3">{steps.map((step,index)=><div key={step} className={`relative rounded-xl border p-4 text-center ${index<2?tone.amber:index<4?tone.cyan:tone.green}`}><p className="text-[8px] font-mono opacity-50">0{index+1}</p><p className="mt-2 text-[10px] font-semibold">{step}</p></div>)}</div></div></DiagramFrame>
+  return <DiagramFrame label="Claim calibration" title="Downgrade the claim. Upgrade the experiment." note="Code can prove implementation; only the right experiment can support the wider claim."><div className="p-5 sm:p-7"><div className="grid gap-2 sm:grid-cols-3">{steps.map((step,index)=><div key={step} className={`relative rounded-xl border p-4 text-center ${index<2?tone.amber:index<4?tone.cyan:tone.green}`}><p className="text-xs font-mono opacity-100">0{index+1}</p><p className="mt-2 text-xs font-semibold">{step}</p></div>)}</div></div></DiagramFrame>
 }
 
 function PublicEvidenceLifecycle() {
@@ -458,12 +458,12 @@ function PublicEvidenceLifecycle() {
     {id:"govern",label:"Revise or retire",eyebrow:"Lifecycle",detail:"Upgrade, narrow, archive or revoke the claim as evidence and maintenance state change.",tone:"green"},
   ]
   const [selected,setSelected]=useState(stages[0])
-  return <DiagramFrame label="Public evidence lifecycle" title="The record must be able to disagree with the builder" note="Publication is a governed loop, not a launch event."><div className="flex flex-col items-center gap-2 p-5 sm:flex-row sm:p-7">{stages.map((node,index)=><div key={node.id} className="contents"><button onClick={()=>setSelected(node)} className={`w-full rounded-xl border p-4 text-[10px] font-mono ${tone[node.tone??"green"]} ${selected.id===node.id?"ring-1 ring-white/40":"opacity-70"}`}>{node.label}</button>{index<stages.length-1&&<span className="text-white/25">→</span>}</div>)}</div><Detail node={selected}/></DiagramFrame>
+  return <DiagramFrame label="Public evidence lifecycle" title="The record must be able to disagree with the builder" note="Publication is a governed loop, not a launch event."><div className="flex flex-col items-center gap-2 p-5 sm:flex-row sm:p-7">{stages.map((node,index)=><div key={node.id} className="contents"><button onClick={()=>setSelected(node)} className={`w-full rounded-xl border p-4 text-xs font-mono ${tone[node.tone??"green"]} ${selected.id===node.id?"ring-1 ring-white/40":"opacity-100"}`}>{node.label}</button>{index<stages.length-1&&<span className="text-white/80">→</span>}</div>)}</div><Detail node={selected}/></DiagramFrame>
 }
 
 function SituationGraph() {
   const controls = ["Work","Authority","State","Budget","Evidence"]
-  return <DiagramFrame label="Orchestration model" title="The situation graph is the enduring product" note="Agents are replaceable execution units; control semantics must survive model and framework changes."><div className="p-5 sm:p-7"><div className="grid gap-2 sm:grid-cols-5">{controls.map((c,index)=><div key={c} className="rounded-xl border border-signal-green/30 bg-signal-green/[0.06] p-4 text-center"><Waypoints className="mx-auto h-4 w-4 text-signal-green"/><p className="mt-2 text-xs font-semibold text-white">{c}</p><p className="mt-1 text-[8px] font-mono text-white/35">graph contract 0{index+1}</p></div>)}</div><ArrowDown className="mx-auto my-4 h-4 w-4 text-white/30"/><div className="rounded-xl border border-white/10 bg-white/[0.025] p-4 text-center text-xs text-white/60">planner · worker · evaluator · human · deterministic service</div></div></DiagramFrame>
+  return <DiagramFrame label="Orchestration model" title="The situation graph is the enduring product" note="Agents are replaceable execution units; control semantics must survive model and framework changes."><div className="p-5 sm:p-7"><div className="grid gap-2 sm:grid-cols-5">{controls.map((c,index)=><div key={c} className="rounded-xl border border-signal-green/30 bg-signal-green/[0.06] p-4 text-center"><Waypoints className="mx-auto h-4 w-4 text-signal-green"/><p className="mt-2 text-xs font-semibold text-white">{c}</p><p className="mt-1 text-xs font-mono text-white/80">graph contract 0{index+1}</p></div>)}</div><ArrowDown className="mx-auto my-4 h-4 w-4 text-white/80"/><div className="rounded-xl border border-white/10 bg-white/[0.025] p-4 text-center text-xs text-white/60">planner · worker · evaluator · human · deterministic service</div></div></DiagramFrame>
 }
 
 function HybridTopology() {
@@ -474,7 +474,7 @@ function HybridTopology() {
     {id:"evaluator",label:"Evaluator gate",eyebrow:"Independent check",detail:"Deterministic and probabilistic checks accept, revise, escalate or stop the result.",tone:"green"},
   ]
   const [selected,setSelected]=useState(nodes[0])
-  return <DiagramFrame label="Production topology" title="Hybrid usually beats theatrical multi-agent complexity" note="Autonomy is inserted only where it creates measured lift."><div className="grid gap-3 p-5 sm:grid-cols-4 sm:p-7">{nodes.map(n=><button key={n.id} onClick={()=>setSelected(n)} className={`rounded-xl border p-4 text-left ${tone[n.tone??"green"]} ${selected.id===n.id?"ring-1 ring-white/40":"opacity-70"}`}><GitCompareArrows className="h-4 w-4"/><p className="mt-3 text-xs font-semibold">{n.label}</p></button>)}</div><Detail node={selected}/></DiagramFrame>
+  return <DiagramFrame label="Production topology" title="Hybrid usually beats theatrical multi-agent complexity" note="Autonomy is inserted only where it creates measured lift."><div className="grid gap-3 p-5 sm:grid-cols-4 sm:p-7">{nodes.map(n=><button key={n.id} onClick={()=>setSelected(n)} className={`rounded-xl border p-4 text-left ${tone[n.tone??"green"]} ${selected.id===n.id?"ring-1 ring-white/40":"opacity-100"}`}><GitCompareArrows className="h-4 w-4"/><p className="mt-3 text-xs font-semibold">{n.label}</p></button>)}</div><Detail node={selected}/></DiagramFrame>
 }
 
 const safetyCaseNodes: Node[] = [
@@ -487,7 +487,7 @@ const safetyCaseNodes: Node[] = [
 
 function SafetyCaseDiagram() {
   const [selected,setSelected]=useState(safetyCaseNodes[1])
-  return <DiagramFrame label="Assurance argument" title="A safety case is a claim supported by evidence" note="It does not promise zero failure; it makes purpose, hazards, controls and residual risk inspectable."><div className="flex flex-col items-center p-5 sm:flex-row sm:p-7">{safetyCaseNodes.map((node,index)=><div key={node.id} className="contents"><button onClick={()=>setSelected(node)} className={`w-full rounded-xl border px-3 py-4 text-[10px] font-mono transition-all hover:-translate-y-0.5 sm:w-28 ${tone[node.tone??"green"]} ${selected.id===node.id?"ring-1 ring-white/40":"opacity-70"}`}>{node.label}</button>{index<safetyCaseNodes.length-1&&<div className="h-5 w-px bg-white/20 sm:h-px sm:flex-1"/>}</div>)}</div><Detail node={selected}/></DiagramFrame>
+  return <DiagramFrame label="Assurance argument" title="A safety case is a claim supported by evidence" note="It does not promise zero failure; it makes purpose, hazards, controls and residual risk inspectable."><div className="flex flex-col items-center p-5 sm:flex-row sm:p-7">{safetyCaseNodes.map((node,index)=><div key={node.id} className="contents"><button onClick={()=>setSelected(node)} className={`w-full rounded-xl border px-3 py-4 text-xs font-mono transition-all hover:-translate-y-0.5 sm:w-28 ${tone[node.tone??"green"]} ${selected.id===node.id?"ring-1 ring-white/40":"opacity-100"}`}>{node.label}</button>{index<safetyCaseNodes.length-1&&<div className="h-5 w-px bg-white/20 sm:h-px sm:flex-1"/>}</div>)}</div><Detail node={selected}/></DiagramFrame>
 }
 
 function GuardrailStack() {
@@ -500,7 +500,7 @@ function GuardrailStack() {
     {id:"post",label:"Post-action",eyebrow:"Verify + recover",detail:"Read back effects, reconcile partial commits, monitor anomalies and compensate where prevention failed.",tone:"amber"},
   ]
   const [selected,setSelected]=useState(layers[3])
-  return <DiagramFrame label="Defence stack" title="No single guardrail sees the whole risk" note="Select a layer. Safety emerges from independent controls around state transitions."><div className="p-5 sm:p-7"><div className="mx-auto max-w-xl space-y-1.5">{layers.map((node,index)=><button key={node.id} onClick={()=>setSelected(node)} style={{width:`${62+index*7}%`}} className={`mx-auto block rounded-lg border px-3 py-2 text-[10px] font-mono transition-all ${tone[node.tone??"green"]} ${selected.id===node.id?"ring-1 ring-white/40":"opacity-70"}`}>{node.label}</button>)}</div></div><Detail node={selected}/></DiagramFrame>
+  return <DiagramFrame label="Defence stack" title="No single guardrail sees the whole risk" note="Select a layer. Safety emerges from independent controls around state transitions."><div className="p-5 sm:p-7"><div className="mx-auto max-w-xl space-y-1.5">{layers.map((node,index)=><button key={node.id} onClick={()=>setSelected(node)} style={{width:`${62+index*7}%`}} className={`mx-auto block rounded-lg border px-3 py-2 text-xs font-mono transition-all ${tone[node.tone??"green"]} ${selected.id===node.id?"ring-1 ring-white/40":"opacity-100"}`}>{node.label}</button>)}</div></div><Detail node={selected}/></DiagramFrame>
 }
 
 function BehaviouralWindTunnel() {
@@ -513,14 +513,14 @@ function BehaviouralWindTunnel() {
     {id:"regression",label:"Regression",eyebrow:"Maintained evidence",detail:"A material finding becomes a versioned test for the mitigation, not a one-off jailbreak screenshot.",tone:"green"},
   ]
   const [selected,setSelected]=useState(pressures[2])
-  return <DiagramFrame label="PsycheOS model" title="A behavioural wind tunnel tests pressure, not personality" note="The scenario is primary; scores are contextual observations, not psychological facts."><div className="grid gap-2 p-5 sm:grid-cols-3 sm:p-7">{pressures.map((node,index)=><button key={node.id} onClick={()=>setSelected(node)} className={`rounded-xl border p-4 text-left transition-all hover:-translate-y-0.5 ${tone[node.tone??"green"]} ${selected.id===node.id?"ring-1 ring-white/40":"opacity-70"}`}><span className="text-[8px] font-mono opacity-50">PRESSURE 0{index+1}</span><p className="mt-2 text-xs font-semibold">{node.label}</p></button>)}</div><Detail node={selected}/></DiagramFrame>
+  return <DiagramFrame label="PsycheOS model" title="A behavioural wind tunnel tests pressure, not personality" note="The scenario is primary; scores are contextual observations, not psychological facts."><div className="grid gap-2 p-5 sm:grid-cols-3 sm:p-7">{pressures.map((node,index)=><button key={node.id} onClick={()=>setSelected(node)} className={`rounded-xl border p-4 text-left transition-all hover:-translate-y-0.5 ${tone[node.tone??"green"]} ${selected.id===node.id?"ring-1 ring-white/40":"opacity-100"}`}><span className="text-xs font-mono opacity-100">PRESSURE 0{index+1}</span><p className="mt-2 text-xs font-semibold">{node.label}</p></button>)}</div><Detail node={selected}/></DiagramFrame>
 }
 
 function ProductionSafetyArchitecture() {
   const layers=["Purpose + hazards","Evaluation + red team","Model + prompt","Context + memory","Runtime policy","Tool gateway","Monitoring + recovery","Evidence + governance"]
   const [active,setActive]=useState(4)
   const details=["Define intended and prohibited use, affected parties, authority and residual risk.","PsycheOS-style scenarios and regressions pressure the actual behavioural contract.","Version model behaviour, instruction hierarchy and application policy.","Preserve provenance, trust, classification, freshness and write controls.","Identity, authority, budgets and policy decide whether the proposed action may proceed.","Narrow tools validate, approve, execute and verify consequential effects.","LLMTRACE-style traces support detection; checkpoints, revocation and compensation restore control.","AI Act Middleware-style records connect controls and obligations without claiming automatic compliance."]
-  return <DiagramFrame label="Production architecture" title="Safety is a vertical control system" note="The highlighted layer explains its role; no moderation endpoint can replace the stack."><div className="p-5 sm:p-7"><div className="grid gap-1.5 sm:grid-cols-2">{layers.map((layer,index)=><button key={layer} onClick={()=>setActive(index)} className={`rounded-lg border px-4 py-3 text-left text-[10px] font-mono transition-all ${index===active?tone.green+" ring-1 ring-white/40":"border-white/10 bg-white/[0.025] text-white/50"}`}><span className="mr-2 text-[8px] opacity-40">0{index+1}</span>{layer}</button>)}</div><div className="mt-4 rounded-xl border border-white/10 bg-white/[0.025] p-4 text-center"><ShieldCheck className="mx-auto h-5 w-5 text-signal-green"/><p className="mt-2 text-xs leading-6 text-white/65">{details[active]}</p></div></div></DiagramFrame>
+  return <DiagramFrame label="Production architecture" title="Safety is a vertical control system" note="The highlighted layer explains its role; no moderation endpoint can replace the stack."><div className="p-5 sm:p-7"><div className="grid gap-1.5 sm:grid-cols-2">{layers.map((layer,index)=><button key={layer} onClick={()=>setActive(index)} className={`rounded-lg border px-4 py-3 text-left text-xs font-mono transition-all ${index===active?tone.green+" ring-1 ring-white/40":"border-white/10 bg-white/[0.025] text-white/80"}`}><span className="mr-2 text-xs opacity-40">0{index+1}</span>{layer}</button>)}</div><div className="mt-4 rounded-xl border border-white/10 bg-white/[0.025] p-4 text-center"><ShieldCheck className="mx-auto h-5 w-5 text-signal-green"/><p className="mt-2 text-xs leading-6 text-white/65">{details[active]}</p></div></div></DiagramFrame>
 }
 
 function SafetyStateTransition() {
@@ -532,7 +532,7 @@ function SafetyStateTransition() {
     {id:"after",label:"After",eyebrow:"Evidence",detail:"The effect is verified, budget reconciled and policy, approval and outcome recorded.",tone:"green"},
   ]
   const [selected,setSelected]=useState(states[2])
-  return <DiagramFrame label="Safety invariant" title="Invalid transitions are blocked; valid transitions remain possible" note="Production safety ultimately controls how probabilistic proposals may change real state."><div className="flex flex-col items-center p-5 sm:flex-row sm:p-7">{states.map((node,index)=><div key={node.id} className="contents"><button onClick={()=>setSelected(node)} className={`w-full rounded-xl border p-4 text-[10px] font-mono ${tone[node.tone??"green"]} ${selected.id===node.id?"ring-1 ring-white/40":"opacity-70"}`}>{node.label}</button>{index<states.length-1&&<span className="p-1 text-white/25">→</span>}</div>)}</div><Detail node={selected}/></DiagramFrame>
+  return <DiagramFrame label="Safety invariant" title="Invalid transitions are blocked; valid transitions remain possible" note="Production safety ultimately controls how probabilistic proposals may change real state."><div className="flex flex-col items-center p-5 sm:flex-row sm:p-7">{states.map((node,index)=><div key={node.id} className="contents"><button onClick={()=>setSelected(node)} className={`w-full rounded-xl border p-4 text-xs font-mono ${tone[node.tone??"green"]} ${selected.id===node.id?"ring-1 ring-white/40":"opacity-100"}`}>{node.label}</button>{index<states.length-1&&<span className="p-1 text-white/80">→</span>}</div>)}</div><Detail node={selected}/></DiagramFrame>
 }
 
 export function ArticleDiagram({ headingId, articleSlug }: DiagramProps) {
