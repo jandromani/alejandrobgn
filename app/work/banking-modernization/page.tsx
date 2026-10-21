@@ -80,7 +80,7 @@ const outcomes = [
 
 export default function BankingModernizationPage() {
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       <JsonLd
         data={[
           {
@@ -116,7 +116,7 @@ export default function BankingModernizationPage() {
           <Link href="/experience" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
             <ArrowLeft size={16} aria-hidden="true" /> Professional experience
           </Link>
-          <p className="mt-12 font-mono text-[11px] uppercase tracking-[0.19em] text-signal-green">
+          <p className="mt-12 font-mono text-xs uppercase tracking-[0.19em] text-signal-green">
             Selected work / Banking sector / Anonymized
           </p>
           <h1 className="mt-4 max-w-5xl text-4xl font-bold leading-[1.08] tracking-tight md:text-6xl">
@@ -177,7 +177,7 @@ export default function BankingModernizationPage() {
       <article className="container mx-auto max-w-6xl space-y-20 px-4 py-16 md:py-24">
         <section className="grid gap-8 border-b border-border pb-16 md:grid-cols-[220px_1fr] md:gap-16" aria-labelledby="challenge">
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">01 / Thesis</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-signal-green">01 / Thesis</p>
             <h2 id="challenge" className="mt-3 text-xl font-semibold">Why the corpus comes first</h2>
           </div>
           <div className="max-w-3xl space-y-5 text-base leading-8 text-muted-foreground">
@@ -195,7 +195,7 @@ export default function BankingModernizationPage() {
 
         <section aria-labelledby="results-title" className="space-y-7">
           <div className="max-w-3xl">
-            <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">02 / Demonstrated scope</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-signal-green">02 / Demonstrated scope</p>
             <h2 id="results-title" className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">What the reference module made possible</h2>
             <p className="mt-4 text-base leading-8 text-muted-foreground">
               The PoC connected source understanding to a repeatable generation workflow, so a technical
@@ -210,7 +210,7 @@ export default function BankingModernizationPage() {
               { label: "Reviewable evidence", result: "Repeatability checks with explicit limits", detail: "Consistency checks on a reference slice; functional parity and whole-estate coverage remain separate gates." },
             ].map((item) => (
               <article key={item.label} className="bg-card p-6">
-                <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">{item.label}</p>
+                <p className="font-mono text-xs uppercase tracking-widest text-signal-green">{item.label}</p>
                 <h3 className="mt-3 text-lg font-semibold leading-7 text-foreground">{item.result}</h3>
                 <p className="mt-4 border-t border-border pt-4 text-sm leading-6 text-muted-foreground">{item.detail}</p>
               </article>
@@ -219,7 +219,7 @@ export default function BankingModernizationPage() {
         </section>
 
         <section aria-labelledby="decisions-title" className="rounded-xl border border-border bg-card/40 p-7 md:p-9">
-          <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">03 / Architecture decisions</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-signal-green">03 / Architecture decisions</p>
           <h2 id="decisions-title" className="mt-3 text-2xl font-semibold">Why not simply translate file by file?</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             {[
@@ -241,7 +241,7 @@ export default function BankingModernizationPage() {
           <div className="flex items-start gap-3">
             <Layers3 size={23} className="mt-1 shrink-0 text-signal-green" aria-hidden="true" />
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">04 / Transformation path</p>
+              <p className="font-mono text-xs uppercase tracking-widest text-signal-green">04 / Transformation path</p>
               <h2 id="pipeline" className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">From source to evidence</h2>
               <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
                 Six connected engineering decisions — the explanation, not a claim that an entire banking estate was migrated.
@@ -259,7 +259,7 @@ export default function BankingModernizationPage() {
                 <p className="mt-4 text-xs font-medium text-foreground">{step.input}</p>
                 <p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground">{step.process}</p>
                 <p className="mt-5 border-t border-border pt-4 text-xs leading-6 text-foreground">
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-signal-green">Output / </span>
+                  <span className="font-mono text-xs uppercase tracking-widest text-signal-green">Output / </span>
                   {step.output}
                 </p>
               </li>
@@ -283,7 +283,7 @@ export default function BankingModernizationPage() {
         </section>
 
         <section className="rounded-xl border border-border bg-secondary/30 p-7 md:p-9" aria-labelledby="scope">
-          <p className="font-mono text-[11px] uppercase tracking-widest text-signal-green">05 / Proof boundary</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-signal-green">05 / Proof boundary</p>
           <h2 id="scope" className="mt-3 text-2xl font-semibold">Reproducible artifacts are not functional parity</h2>
           <p className="mt-5 max-w-4xl text-sm leading-8 text-muted-foreground">
             The reported work was a bounded technical proof of concept. Repeatability under declared conditions does
@@ -302,6 +302,6 @@ export default function BankingModernizationPage() {
         </footer>
       </article>
       <RelatedEvidence id={`case:banking-modernization`} />
-    </main>
+    </div>
   )
 }
