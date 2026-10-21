@@ -104,7 +104,18 @@ export function EngineeringAnatomy({ variant }: { variant: Variant }) {
         <span className="font-mono">FIG {variant==="delivery"?"01 / AI SDLC":"02 / LEGACY FACTORY"} · SVG INTERACTIVE MECHANISM</span>
         <span className="font-mono">{open.filter(Boolean).length}/3 GATES ENABLED</span>
       </div>
-      <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Interactive engineering anatomy diagram">
+      <div className="grid gap-2 p-4 md:hidden" role="group" aria-label="Anatomy process steps">
+        {steps.map((step,i) => (
+          <button type="button" key={step.key} onClick={() => setSelected(i)} aria-pressed={selected === i}
+            className={selected === i
+              ? "flex min-h-12 items-center gap-3 rounded-lg border border-[#b9e462] bg-[#304736] px-4 py-3 text-left text-sm font-semibold text-white"
+              : "flex min-h-12 items-center gap-3 rounded-lg border border-white/25 bg-white/5 px-4 py-3 text-left text-sm text-white"}>
+            <span className="font-mono text-xs text-[#b9e462]">{step.key}</span>{step.name}
+          </button>
+        ))}
+        <p className="pt-2 text-xs leading-6 text-white/75">The same stages and quality gates are accessible without navigating the SVG diagram.</p>
+      </div>
+      <div className="hidden overflow-x-auto md:block" tabIndex={0} role="region" aria-label="Interactive engineering anatomy diagram">
         <svg viewBox="0 0 1000 490" className="block min-w-[650px] w-full" role="img"
           aria-label={variant==="delivery"?"Isometric modules representing the development handoff, with clickable stages":"Five different isometric machines for source graph contract generation and evidence"}>
           <defs>
@@ -156,17 +167,17 @@ export function EngineeringAnatomy({ variant }: { variant: Variant }) {
         </label>
         <input id={`anatomy-scrub-${variant}`} type="range" min={0} max={steps.length-1} step={1} value={selected}
           onChange={(event)=>setSelected(Number(event.target.value))}
-          aria-valuetext={current.name} className="mb-4 w-full cursor-ew-resize accent-[#b9e462]" />
+          aria-valuetext={current.name} className="mb-4 h-10 w-full cursor-ew-resize accent-[#b9e462]" />
         <p className="font-mono text-xs text-[#c9f28a]" aria-live="polite">{status}</p>
         <div className="mt-3 flex flex-wrap gap-2">
           {gates[variant].map((g,i)=><button type="button" key={g.name} onClick={()=>swap(i)} aria-pressed={open[i]}
             className={`min-h-11 rounded-md border px-3 py-2 text-left text-xs focus-visible:ring-2 focus-visible:ring-white ${open[i]?"border-[#b9e462] bg-[#344b35] text-[#e4ffc7]":"border-white/25 bg-white/5 text-white/80 hover:border-white/50"}`}>
-            <span className="inline-flex items-center gap-2">{open[i]&&<Check className="h-3.5 w-3.5"/>}{g.name}</span><span className="block text-[10px] opacity-70">{g.subtitle}</span>
+            <span className="inline-flex items-center gap-2">{open[i]&&<Check className="h-3.5 w-3.5"/>}{g.name}</span><span className="block text-xs opacity-70">{g.subtitle}</span>
           </button>)}
         </div>
         <div className="mt-4 flex flex-wrap gap-3">
-          <button type="button" onClick={()=>setTested(true)} className="rounded-md bg-[#b9e462] px-4 py-2.5 text-sm font-semibold text-[#0b1b21]">Test interlock <ArrowRight className="ml-1 inline h-4 w-4"/></button>
-          <button type="button" onClick={restart} className="inline-flex items-center gap-2 rounded-md border border-white/20 px-4 py-2.5 text-sm text-white"><RotateCcw className="h-4 w-4"/> Reset</button>
+          <button type="button" onClick={()=>setTested(true)} className="min-h-11 rounded-md bg-[#b9e462] px-4 py-2.5 text-sm font-semibold text-[#0b1b21]">Test interlock <ArrowRight className="ml-1 inline h-4 w-4"/></button>
+          <button type="button" onClick={restart} className="inline-flex min-h-11 items-center gap-2 rounded-md border border-white/20 px-4 py-2.5 text-sm text-white"><RotateCcw className="h-4 w-4"/> Reset</button>
         </div>
       </div>
     </div>
