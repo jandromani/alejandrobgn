@@ -3,7 +3,7 @@
 import { Suspense } from "react"
 import { Download, MessageCircle, ExternalLink, ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { downloadVCard, ALEJANDRO_CONTACT } from "@/utils/vcard"
 import { openGmail, openWhatsApp, openCalendlyExternal, trackEvent } from "@/utils/contact"
 import Link from "next/link"
@@ -40,7 +40,7 @@ function MeetPageContent() {
       <div className="container max-w-5xl mx-auto">
         {/* Back button */}
         <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
-          <Button variant="ghost" asChild className="text-muted-foreground hover:text-foreground">
+          <Button variant="ghost" asChild className="text-foreground/85 hover:text-foreground">
             <Link href="/">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back
@@ -51,10 +51,10 @@ function MeetPageContent() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
           <Card className="border-border shadow-xl">
             <CardHeader>
-              <CardTitle className="text-3xl md:text-4xl text-foreground">
+              <h1 className="text-3xl md:text-4xl text-foreground font-bold">
                 Book a private session (30 min)
-              </CardTitle>
-              <p className="text-muted-foreground text-lg mt-3">Pick a time and we talk. No email back-and-forth.</p>
+              </h1>
+              <p className="text-foreground/80 text-lg mt-3">Pick a time and we talk. No email back-and-forth.</p>
             </CardHeader>
 
             <CardContent className="space-y-8">
