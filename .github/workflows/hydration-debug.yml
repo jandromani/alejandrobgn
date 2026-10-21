@@ -1,11 +1,6 @@
 name: Hydration diagnostics / development React warnings
 on:
   workflow_dispatch:
-  pull_request:
-    branches: [master]
-    paths:
-      - "scripts/debug-hydration.py"
-      - ".github/workflows/hydration-debug.yml"
 permissions:
   contents: read
 jobs:
