@@ -80,5 +80,5 @@ async def main():
   report["summary"]={"sitemapRoutes":len(paths)-3,"auditedScreens":len(report["pages"]),"internalLinkDestinations":len(internal),"externalDestinations":len(external),"majorAccessibility":sum(len(x["axeSerious"]) for x in report["pages"]),"moderateAccessibility":sum(len(x["axeModerate"]) for x in report["pages"]),"issues":len(report["issues"])}
   (OUT/"report.json").write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding="utf8")
   print(json.dumps({"summary":report["summary"],"issues":report["issues"][:50],"externalHosts":sorted({urlparse(x["url"]).netloc for x in report["externalLinks"]})},indent=2))
-  return 1 if any(x["gate"].startswith(("axe-critical","axe-serious","internal-url","status")) for x in report["issues"]) else 0
+  return 1 if any(x["gate"].startswith("axe-") or x["gate"] in ("internal-url","internal-url-request","status","h1","main","broken-image","overflow") for x in report["issues"]) else 0
 if __name__=="__main__":sys.exit(asyncio.run(main()))
