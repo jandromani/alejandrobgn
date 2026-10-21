@@ -631,7 +631,7 @@ export const systems: System[] = [
     shortDescription: "Archived 2025 alpha experiment; public OpenAI and Hugging Face adapters use mock SDKs",
     description: "An early experimental Python tracing toolkit with local storage and Flask UI. Its public OpenAI and Hugging Face adapters simulate calls rather than proving integration with contemporary provider SDKs. Not a maintained production observability service.",
     problemStatement: "Historical attempt at trace storage and evaluation; production instrumentors, version compatibility and real-provider integration remain unproven.",
-    role: "Historical research",
+    role: "Research",
     status: "Research",
     level: 3,
     year: 2025,
