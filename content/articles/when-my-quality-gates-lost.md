@@ -26,6 +26,12 @@ I use parallelism to explore and verify: define a narrow task, assign a source o
 
 One delivery rehearsal before an event with more than 300 attendees used **30 agent assignments across six waves** to inspect links, content and blocking issues. The log records **2,333 links inspected** and **12 blocking issues** over two days. These are counts of the audit workflow, not proof of attendee outcomes. I also turned a repeatable, GPU-free video production workflow into a kit and guide, yielding four training videos over two days. That is the same habit at a smaller scale: turn an improvised workflow into an artifact another person can run.
 
+## Evidence is something I build, not a slide at the end
+
+For a separate internal center-of-excellence effort, I made a dated evidence ledger with **20 records across 11 evidence folders**. Each record identifies the asset and its hash, the independent reviewer and the decision conditions; a past entry is corrected with a new record rather than silently rewritten. A professional audit I commissioned returned **138 findings, including 12 blocking findings**, and forced corrections to earlier claims. That was uncomfortable and useful. It made the boundary between what we built, what someone else checked and what a buyer could rely on much sharper.
+
+The same standard applies to credit. I designed the SDD Kit, development and documentation knowledge bases, the ledger and a distributable video workflow. I audited and documented a colleague's asset vault; I do not present that vault as code I authored. A method gains value when another engineer can see the artifact, its owner, the review decision and the remaining gap.
+
 ## What carries over to a client engagement
 
 The kit is a personal engineering asset and testbed. Client delivery is a separate evidence boundary. In a cybersecurity engagement, a two-person technical nucleus helped a team introduce project-aware assistants, agent-proposed PRs and review in less than a month. In a banking modernization PoC, I architected a deterministic, source-traceable factory; its repeatability and evidence counts are documented in the [anonymized case](/work/banking-modernization). In a public-sector engagement, we delivered role-specific copilots after repeated audits and corrections, described in the [sector-only account](/work/public-sector-copilots).

@@ -45,7 +45,7 @@ export const articles: WritingArticle[] = [
     published: "2026-10-21",
     linkedSystems: [],
     featured: true,
-    wordCount: 850,
+    wordCount: 1077,
     author: "Alejandro Baratas",
     version: "1.0",
     changelog: [{ date: "2026-10-21", note: "First public account of the personal SDD Kit, blind review and agent direction practice, sourced from private experiment and session records." }],
