@@ -121,7 +121,7 @@ export function EngineeringAnatomy({ variant }: { variant: Variant }) {
         <p className="pt-2 text-xs leading-6 text-white/75">The same stages and quality gates are accessible without navigating the SVG diagram.</p>
       </div>
       <div className="hidden overflow-x-auto md:block" tabIndex={0} role="region" aria-label="Interactive engineering anatomy diagram">
-        <svg viewBox="0 0 1000 490" className="block min-w-[650px] w-full" role="img"
+        <svg viewBox="0 0 1000 490" className="block min-w-[650px] w-full" role="group"
           aria-label={variant==="delivery"?"Isometric modules representing the development handoff, with clickable stages":"Five different isometric machines for source graph contract generation and evidence"}>
           <defs>
             <pattern id={`anatomy-grid-${variant}`} width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" stroke="#294151" strokeWidth=".5"/></pattern>
