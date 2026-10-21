@@ -294,7 +294,7 @@ export default async function EvolutionPage({
                 <Braces className="h-5 w-5 text-[#22d3ee]" />
                 <div>
                   <p className="font-mono text-xs uppercase tracking-[0.18em] text-white/45">Stack constellation</p>
-                  <p className="text-xs text-white/35">Most recurrent recovered building blocks</p>
+                  <p className="text-xs text-white/80">Most recurrent recovered building blocks</p>
                 </div>
               </div>
               <div className="mt-7 flex flex-wrap gap-2">
@@ -304,7 +304,7 @@ export default async function EvolutionPage({
                     className="rounded-full border border-[#22d3ee]/15 bg-[#22d3ee]/[0.045] px-3 py-2 font-mono text-[#c6f7ff]"
                     style={{ fontSize: `${Math.max(10, 15 - index * 0.45)}px` }}
                   >
-                    {technology} <span className="text-white/30">×{count}</span>
+                    {technology} <span className="text-white/75">×{count}</span>
                   </span>
                 ))}
               </div>
@@ -343,7 +343,7 @@ export default async function EvolutionPage({
           </p>
         </div>
 
-        <div className="graph-scrollbar mt-10 overflow-x-auto pb-3">
+        <div tabIndex={0} role="region" aria-label="Scrollable historical timeline" className="graph-scrollbar mt-10 overflow-x-auto pb-3">
           <div className="grid min-w-[1100px] grid-cols-8 overflow-hidden rounded-2xl border border-border bg-border">
             {modelEras.map((model) => (
               <article key={model.key} className="bg-background p-5">
