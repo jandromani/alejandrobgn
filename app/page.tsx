@@ -78,7 +78,7 @@ export default function Page() {
             Two sector-anonymized engagements. Each case separates personal contribution, joint delivery and the evidence actually demonstrated.
           </p>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
-          <Link key="cybersecurity-ai-engineering" href="/work/cybersecurity-ai-engineering" className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-colors hover:border-signal-green/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:p-8">
+          <Link key="cybersecurity-ai-engineering" href="/work/cybersecurity-ai-engineering" className="group flex flex-col evidence-card p-6 transition-colors hover:border-signal-green/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:p-8">
             <p className="font-mono text-xs uppercase tracking-wider text-[#587f00] dark:text-signal-green">Cybersecurity / AI engineering</p>
             <p className="mt-7 font-mono text-4xl font-bold tracking-tight text-foreground">&lt; 1 month</p>
             <h3 className="mt-4 text-xl font-semibold leading-snug text-foreground md:text-2xl">AI-assisted engineering workflows in use</h3>
@@ -87,7 +87,7 @@ export default function Page() {
             <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-foreground group-hover:text-[#587f00] dark:group-hover:text-signal-green">Inspect decisions and evidence <ArrowRight className="h-4 w-4" aria-hidden="true" /></span>
           </Link>
 
-          <Link key="banking-modernization" href="/work/banking-modernization" className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-colors hover:border-signal-green/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:p-8">
+          <Link key="banking-modernization" href="/work/banking-modernization" className="group flex flex-col evidence-card p-6 transition-colors hover:border-signal-green/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:p-8">
             <p className="font-mono text-xs uppercase tracking-wider text-[#587f00] dark:text-signal-green">Banking / modernization</p>
             <p className="mt-7 font-mono text-4xl font-bold tracking-tight text-foreground">4-week PoC</p>
             <h3 className="mt-4 text-xl font-semibold leading-snug text-foreground md:text-2xl">Source-to-evidence modernization</h3>
