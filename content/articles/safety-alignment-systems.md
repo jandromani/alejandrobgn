@@ -2095,7 +2095,7 @@ Rollback plan
 This is where PsycheOS, LLMTRACE, AI Act Middleware and Entropic Core can inform the same safety case.
 
 * PsycheOS explores behavioural failure.
-* LLMTRACE provides trace and execution evidence.
+* A production trace ledger would provide execution evidence; the current LLMTRACE alpha uses mock provider adapters.
 * AI Act Middleware maps controls and obligations.
 * Entropic Core monitors and intervenes at runtime.
 

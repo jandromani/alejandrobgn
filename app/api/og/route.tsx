@@ -10,11 +10,11 @@ const sectionContent: Record<
   { eyebrow: string; title: string; subtitle: string; signal: string; stats: string[] }
 > = {
   profile: {
-    eyebrow: "AI TECH LEAD · AGENTIC SYSTEMS ARCHITECT",
-    title: "AI systems that survive contact with reality.",
-    subtitle: "Governance · Observability · Reliability · Agentic platforms",
+    eyebrow: "ALEJANDRO BARATAS · AI TECH LEAD",
+    title: "I put AI-assisted engineering into use with enterprise teams.",
+    subtitle: "knowmad mood · Madrid / remote · Human quality gates",
     signal: "#b8ff5a",
-    stats: ["184 reconstructed artefacts", "8 flagship systems", "11+ years engineering"],
+    stats: ["Enterprise delivery", "Reviewable changes", "11+ years engineering"],
   },
   systems: {
     eyebrow: "AI SYSTEMS STUDIO",
@@ -183,11 +183,11 @@ export async function GET(request: Request) {
             <div style={{ display: "flex", width: 38, height: 38, borderRadius: 10, alignItems: "center", justifyContent: "center", background: signal, color: "#090b0f", fontSize: 16, fontWeight: 900 }}>
               AB
             </div>
-            <div style={{ display: "flex", marginLeft: 14, fontSize: 18, fontWeight: 800, letterSpacing: "-0.02em" }}>ALEJANDRO BGN</div>
+            <div style={{ display: "flex", marginLeft: 14, fontSize: 18, fontWeight: 800, letterSpacing: "-0.02em" }}>ALEJANDRO BARATAS</div>
           </div>
           <div style={{ display: "flex", alignItems: "center", fontSize: 14, color: "#9ea7b3" }}>
             <div style={{ width: 7, height: 7, borderRadius: 99, marginRight: 8, background: signal, boxShadow: `0 0 18px ${signal}` }} />
-            AI SYSTEMS STUDIO
+            AI TECH LEAD
           </div>
         </div>
 

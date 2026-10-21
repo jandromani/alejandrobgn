@@ -94,7 +94,7 @@ export const articles: WritingArticle[] = [
     slug: "ai-platform-economics",
     title: "AI Platform Economics: Cost, Margin, and Governance",
     pillar: "ai-economics",
-    summary: "How AI Vendor Compare, LLMTRACE and Entropic Core connect market prices, realised trajectories and runtime budgets to the true cost of an accepted AI outcome.",
+    summary: "A proposed architecture for connecting market prices, measured trajectories and runtime budgets; the current projects have separate evidence boundaries.",
     published: "2025-12-15",
     linkedSystems: ["AIVendorCompare", "LLMTRACE", "EntropicCore"],
     wordCount: 2684,

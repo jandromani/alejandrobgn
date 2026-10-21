@@ -1562,7 +1562,7 @@ The prototype does not claim automatic compliance. It makes the control boundary
 
 ## LLMTRACE — observability that follows the graph
 
-LLMTRACE is a real open-source instrumentation artefact and anonymised trace surface.
+LLMTRACE is a historical open-source tracing prototype. The published provider adapters wrap mocks; its dashboard is illustrative rather than evidence of a real provider trace.
 
 Its role in orchestration is to preserve one causal identity across model calls, tools, workers, retries and evaluation so topology can be compared with outcome, cost and failure evidence.
 

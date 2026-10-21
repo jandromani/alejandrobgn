@@ -5,7 +5,7 @@ import { createPageMetadata } from "@/lib/seo"
 export const metadata: Metadata = {
   ...createPageMetadata({
     title: "Book a meeting",
-    description: "Book a private 30-minute session with Alejandro BGN to discuss AI systems, agentic architecture, governance, and enterprise AI platforms.",
+    description: "Book a 30-minute conversation with Alejandro Baratas about enterprise AI engineering.",
     path: "/meet",
     ogKind: "contact",
   }),

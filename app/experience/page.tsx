@@ -123,7 +123,7 @@ const howIWork = [
 const skills = [
   { area: "Agentic Systems",    items: ["Agent orchestration", "Multi-agent architectures", "Durable runtimes", "State management"] },
   { area: "AI Governance",      items: ["EU AI Act compliance", "Risk assessment", "Audit trails", "Permission models"] },
-  { area: "LLM Operations",     items: ["Observability (LLMTRACE)", "Cost optimisation", "Vendor routing", "Model evaluation"] },
+  { area: "LLM Operations",     items: ["Trace design and observability concepts", "Cost modelling", "Vendor comparison", "Model evaluation"] },
   { area: "Platform Engineering",items: ["Python · FastAPI", "Next.js", "Cloud platforms", "PostgreSQL · Redis"] },
 ]
 

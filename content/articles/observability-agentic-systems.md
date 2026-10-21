@@ -341,7 +341,7 @@ The portfolio contains several real building blocks. They should not be presente
 
 ## LLMTRACE: the trace spine
 
-LLMTRACE is the strongest direct observability artefact: an installable open-source package and a real anonymised trace surface. It demonstrates instrumentation around sessions, model usage, latency, errors and evaluation. Its strategic role is to carry provider-neutral trace identity and runtime facts.
+LLMTRACE is an inspectable historical alpha with local session storage and a dashboard. Its published provider adapters wrap mocks, so the screenshot does not demonstrate real model usage, latency or cost telemetry. Its proposed role is to carry provider-neutral trace identity and runtime facts once real integrations and tests exist.
 
 What it proves today is narrower than a complete control plane. It does not by itself establish enterprise identity governance, policy enforcement, transactional compensation or organisation-wide evidence retention.
 
@@ -518,7 +518,7 @@ Agents turn software execution into a negotiation between intent, evidence, poli
 
 The goal is not to watch intelligence happen. The goal is to maintain control over delegated capability.
 
-LLMTRACE demonstrates a real trace surface. AI Act Middleware demonstrates a public governance prototype. Entropic Core explores runtime intervention. PsycheOS demonstrates a local safety-evaluation surface. They are honest, separate proofs of components in a larger architecture.
+LLMTRACE illustrates a trace surface backed by mock adapters. AI Act Middleware demonstrates a public governance prototype. Entropic Core explores runtime intervention. PsycheOS demonstrates a local safety-evaluation surface. These are separate projects at different levels of maturity.
 
 The enterprise opportunity is the layer that connects them:
 

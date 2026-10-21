@@ -16,10 +16,10 @@ AI platform economics begins where the provider pricing page ends.
 
 The relevant unit is not a token or API request. It is an accepted business outcome produced inside a defined quality, latency, safety and authority envelope.
 
-Three systems in this portfolio describe the complete loop:
+Three projects in this portfolio suggest parts of a possible loop:
 
 * **AI Vendor Compare** supplies time-stamped list-price claims, model capabilities, commercial assumptions and formula provenance;
-* **LLMTRACE** supplies observed model usage, route, latency, errors and cost at trajectory level;
+* **LLMTRACE** explores session and trace storage with mock provider adapters; real usage and cost integration remains to be built;
 * **Entropic Core** supplies the idea of runtime budgets, bounded intervention and stopping conditions when probabilistic work begins to drift.
 
 None of them alone produces unit economics.
@@ -48,7 +48,7 @@ Mix those four categories in one calculator without labels and the output will l
 
 The public product currently reports a runtime override of its default cache-hit assumption based on four telemetry sources. That demonstrates the intended mechanism: measured operation can replace an estimated default. The public interface does not provide enough independent evidence to treat the reported sample as a general market benchmark, so the claim must remain scoped to that snapshot and its internal telemetry.
 
-# LLMTRACE is the realised-cost layer
+# A trace ledger would be the realised-cost layer
 
 List prices tell us what one unit should cost.
 
@@ -67,7 +67,7 @@ For every trajectory, the ledger needs:
 * final acceptance or failure;
 * pricing snapshot and formula version used for attribution.
 
-This is where LLMTRACE belongs.
+This is the role a future, real-provider integration of LLMTRACE could play. The published alpha adapters are mocks and do not yet supply the usage evidence listed above.
 
 Its role is not to replace provider invoices. It is to connect usage and cost to the application’s causal unit of work. A finance invoice may say that the company spent $40,000 on a provider. A trace ledger should explain which products, tenants, task classes, routes and failed trajectories created that amount.
 
@@ -482,7 +482,7 @@ Run sensitivity analysis.
 
 If margin disappears when output length increases by 15%, the product has an architectural risk. If the forecast only works with a 70% cache hit rate that has never been measured, it is not a forecast. It is a hope with decimals.
 
-Use AI Vendor Compare’s verified prices as baseline inputs, LLMTRACE distributions as workload evidence and contract-specific adjustments as private overlays.
+Use time-stamped vendor prices as baseline inputs, measured production traces as workload evidence and contract-specific adjustments as private overlays. The historical LLMTRACE alpha does not yet provide those production distributions.
 
 # A concrete support-automation example
 
@@ -553,7 +553,7 @@ Every quarter:
 
 AI Vendor Compare can provide a real public surface for price, claim, formula and freshness snapshots.
 
-LLMTRACE can provide an inspectable mechanism for model usage and cost attribution at trace level.
+LLMTRACE explores the shape of a trace ledger; real provider usage and cost attribution remain unimplemented in the published adapters.
 
 Entropic Core can provide an experimental control model for budgets, interventions, checkpoints and termination.
 

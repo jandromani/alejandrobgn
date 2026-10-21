@@ -63,7 +63,7 @@ const lateCount = (recent.match(/\{date:"2026-/g) ?? []).length
 const provenanceCount = (recent.match(/kind:"(?:public-repository|preserved-html|archived-document|delivery-team-account|historical-reference)"/g) ?? []).length
 assert.equal(lateCount, 17, "Recent milestones changed: review homepage/evolution totals")
 assert.equal(provenanceCount, lateCount, "Each recent milestone requires explicit provenance")
-assert.match(read("app/page.tsx"), /201 documented records/, "Homepage ledger total is outdated")
+assert.match(read("app/page.tsx"), /href="\/evolution"/, "Archived ledger must remain discoverable from the homepage")
 assert.match(read("app/evolution/page.tsx"), /201 documented artefacts/, "Evolution ledger total is outdated")
 
 const publications = read("app/publications/page.tsx")

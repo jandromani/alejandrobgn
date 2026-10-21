@@ -322,7 +322,7 @@ function PortabilityContract() {
 
 const economicsSystems: Node[] = [
   { id: "market", label: "AI Vendor Compare", eyebrow: "Published market data", detail: "Time-stamped list-price claims, capabilities, formulas, assumptions and freshness evidence.", tone: "cyan" },
-  { id: "trace", label: "LLMTRACE", eyebrow: "Realised system behaviour", detail: "Route attempts, usage dimensions, latency, retries, failures and attributed cost per trajectory.", tone: "green" },
+  { id: "trace", label: "Trace ledger", eyebrow: "Target architecture", detail: "A production integration would record route attempts, usage, latency, retries, failures and cost per trajectory.", tone: "green" },
   { id: "control", label: "Entropic Core", eyebrow: "Runtime control", detail: "Budgets, intervention, checkpointing and safe termination when work exceeds its envelope.", tone: "amber" },
 ]
 
@@ -425,7 +425,7 @@ function GovernanceControlLoop() {
 
 function PortfolioControlPlane() {
   const systems: Node[] = [
-    { id:"trace", label:"LLMTRACE", eyebrow:"Trace spine", detail:"Real open-source package and anonymised trace surface for sessions, usage, latency, errors and evaluation.", tone:"cyan" },
+    { id:"trace", label:"LLMTRACE", eyebrow:"Prototype trace spine", detail:"Historical alpha with local storage and mock provider adapters; real SDK telemetry remains future work.", tone:"cyan" },
     { id:"policy", label:"AI Act Middleware", eyebrow:"Governance surface", detail:"Real public prototype for policy, obligations and audit-oriented control evidence—not automatic compliance.", tone:"green" },
     { id:"intervention", label:"Entropic Core", eyebrow:"Runtime experiment", detail:"Executable exploration of budgets, checkpoints and intervention; synthetic evidence is not production efficacy.", tone:"amber" },
     { id:"evaluation", label:"PsycheOS", eyebrow:"Safety evaluation", detail:"Browser-local evaluation surface; currently a separate system rather than a live LLMTRACE policy engine.", tone:"cyan" },

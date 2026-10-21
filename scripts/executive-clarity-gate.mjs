@@ -24,7 +24,8 @@ for(const path of ["app/work/cybersecurity-ai-engineering/page.tsx","app/work/ba
   const h=file.indexOf("<h1"),metric=file.indexOf("mt-7 grid max-w-4xl",h),intro=file.indexOf("mt-6 max-w-3xl",h)
   assert.ok(h>=0 && metric>h && metric<intro,"Case metrics must precede explanatory prose: "+path)
 }
-const hero=source("components/home-operating-dossier.tsx")
-assert.ok(hero.includes("mode === \"hero\" && <HeroEvidenceFlow />"),"Hero proof visual missing")
-assert.ok(hero.includes("href=\"/work\""),"Executive journey to Work missing")
+const home=source("app/page.tsx")
+assert.ok(home.includes("Alejandro Baratas · AI Tech Lead"),"Named executive identity missing")
+assert.ok(home.includes('href="/work/cybersecurity-ai-engineering"'),"Executive journey to a case missing")
+assert.ok(home.includes('href="/contact"'),"Direct contact route missing")
 console.log(JSON.stringify({result:"PASS",gate:"F1 editorial sequence + F2 representative contrast ratios",lightRatio:contrast(foreground,paper).toFixed(2),darkRatio:contrast(bright,dark).toFixed(2),note:"Representative design tokens only; automated axe/WCAG and human 5/30-second tests remain separate"}))

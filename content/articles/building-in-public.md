@@ -302,7 +302,7 @@ A package with placeholder authorship, unexplained compatibility or an impressiv
 
 Publishing a package is not the end of development. It is the moment internal assumptions become somebody else's dependency.
 
-LLMTRACE is useful portfolio evidence because a visitor can move beyond the interface: inspect the repository, install a release and understand the trace model. That proof path is stronger than a screenshot, even if the package remains early and scoped.
+LLMTRACE is useful as a cautionary portfolio record: a visitor can inspect the repository and see that its provider adapters are mocks. The public package and screenshots are not proof of real SDK instrumentation.
 
 # Transparency without threat modelling is leakage
 
@@ -400,11 +400,11 @@ The public prototype demonstrates a governance surface and control-plane concept
 
 ## Entropic Core
 
-Package and laboratory output demonstrate an executable control-loop hypothesis. Synthetic dynamics do not prove universal scientific laws or production efficacy.
+The laboratory illustrates a control-loop hypothesis. Its version and test figures cannot be independently reproduced from linked public source; synthetic dynamics do not prove production efficacy.
 
 ## LLMTRACE
 
-The repository, package and anonymised trace provide inspectable evidence of an observability implementation. They do not by themselves prove enterprise-scale operations.
+The repository exposes a historical prototype with mock adapters. Its screenshot illustrates the dashboard but does not establish real provider telemetry or enterprise-scale operation.
 
 This variety is a strength when the states are explicit. The portfolio no longer forces every project into the same preview category.
 

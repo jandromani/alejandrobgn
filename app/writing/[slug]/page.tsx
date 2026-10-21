@@ -76,7 +76,7 @@ export default async function WritingArticlePage({ params }: Props) {
     "entropy-problem-llms": "The OMEGA generator and degradation dynamics in the supplied laboratory are synthetic. The notebook demonstrates control-loop integration, not a universal entropy metric or production efficacy.",
     "governing-agentic-systems": "This is an engineering operating model, not legal advice or a claim of automatic EU AI Act compliance. Classification and controls depend on the concrete system and use context.",
     "avoiding-vendor-lock-in": "AI Vendor Compare is a real public interface backed by a time-stamped snapshot. The daily agent graph is the target operating architecture, with current evidence and future controls separated.",
-    "ai-platform-economics": "AI Vendor Compare, LLMTRACE and Entropic Core are real but separate building blocks. They are not presented as one already-integrated production FinOps platform.",
+    "ai-platform-economics": "AI Vendor Compare is a public snapshot; LLMTRACE is a mock-adapter alpha; Entropic Core is a concept preview. Their combination is a proposed architecture, not an integrated production FinOps platform.",
     "observability-agentic-systems": "The named systems are real but separate artefacts at different maturity levels. This maps them to a target control plane without claiming one integrated production platform.",
     "building-in-public": "Project examples retain individual evidence labels: interface, snapshot, prototype, package output, anonymised trace or conceptual architecture.",
     "orchestration-patterns": "Portfolio systems identify concrete evidence at different maturity levels; they are not all deployed together as one production multi-agent platform.",

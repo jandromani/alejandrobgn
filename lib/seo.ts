@@ -1,11 +1,11 @@
 import type { Metadata } from "next"
 
 export const siteConfig = {
-  name: "Alejandro BGN",
+  name: "Alejandro Baratas",
   legalName: "Alejandro Baratas García-Nieto",
-  title: "Alejandro BGN — AI Tech Lead & Agentic Systems Architect",
+  title: "Alejandro Baratas — AI Tech Lead | Enterprise AI Engineering",
   description:
-    "AI Tech Lead and systems architect turning complex enterprise engineering into operational AI: agent-assisted delivery, legacy modernization and governed platforms.",
+    "Alejandro Baratas is an AI Tech Lead in Madrid helping enterprise engineering teams put project-aware agents, reviewable changes and human quality gates into use.",
   url: "https://alejandrobgn.vercel.app",
   locale: "en_US",
   language: "en",
@@ -38,7 +38,7 @@ export function absoluteUrl(path = "/") {
 export type OgImageKind = "profile" | "article" | "system" | "systems" | "writing" | "evolution" | "experience" | "about" | "contact"
 
 export function ogImageUrl(kind: OgImageKind, slug?: string) {
-  const params = new URLSearchParams({ type: kind, v: "4" })
+  const params = new URLSearchParams({ type: kind, v: "5" })
   if (slug) params.set("slug", slug)
   return absoluteUrl(`/api/og?${params.toString()}`)
 }

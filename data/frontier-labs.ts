@@ -159,11 +159,11 @@ export const platformProjects: readonly PlatformProject[] = [
     evidence: "Public repository / executable examples and documented limits",
   },
   {
-    title: "Fabrik-Codek",
+    title: "Fabrik-Codek (upstream fork)",
     area: "Local AI memory · Personal knowledge architecture",
-    description: "A local-first cognitive assistant exploring retrieval, knowledge graphs and adaptive tooling around a user-managed model.",
+    description: "An upstream project by ikchain that I forked to explore local retrieval and knowledge graphs. The implementation and test results belong to the upstream author.",
     repo: "https://github.com/jandromani/Fabrik-Codek",
-    evidence: "Public repository / inspect source and setup requirements",
+    evidence: "Fork of ikchain/Fabrik-Codek; upstream implementation and test results are not my work",
   },
   {
     title: "Atlas Long Stay",

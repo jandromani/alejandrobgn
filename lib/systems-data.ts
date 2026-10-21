@@ -266,18 +266,7 @@ export const systems: System[] = [
     featured: true,
     order: 3,
     technologies: ["Python", "asyncio", "Redis", "SQLAlchemy"],
-    verifiedMetrics: [
-      {
-        name: "Release",
-        value: "v4.0.0",
-        context: "Version displayed on the public project page",
-      },
-      {
-        name: "Reported test suite",
-        value: "242 reported",
-        context: "Result displayed on the public project page; not reproduced by this portfolio",
-      },
-    ],
+    verifiedMetrics: [],
     honestLimits: [
       {
         title: "Status: Public demonstration",
@@ -305,9 +294,9 @@ export const systems: System[] = [
       assets: {
         overview: {
           src: "/projects/entropiccore/live-preview.png",
-          alt: "Entropic Core public page showing v4.0.0, 242 tests passed, entropy output, and a stability proof signal",
+          alt: "Entropic Core concept preview; displayed version and test claims are not verified by inspectable source",
           title: "Public entropy-regulation proof surface",
-          caption: "Generated from the package and public proof output: version, tests, entropy status, and stability signal. It is not a production dashboard snapshot.",
+          caption: "Concept preview. The public implementation and its test results are not independently inspectable here.",
         },
         workflow: {
           src: "/projects/entropiccore/workflow.webp",
@@ -443,12 +432,13 @@ export const systems: System[] = [
     ],
     links: {
       live: "https://ai-vendor-compare.vercel.app/",
+      repo: "https://github.com/jandromani/vendors",
     },
     evidence: {
       interfaceType: "real",
       dataType: "snapshot",
       executionType: "live",
-      codeVisibility: "private",
+      codeVisibility: "public",
       previewLabel: "Real interface · Snapshot data",
       lastVerified: "2026-07-22",
       assets: {
@@ -626,20 +616,20 @@ export const systems: System[] = [
     id: "llmtrace",
     slug: "llmtrace",
     name: "LLMTRACE",
-    tagline: "LLM Observability · Open Source Monitoring",
+    tagline: "LLM Observability · Historical Alpha",
     category: "observability",
-    shortDescription: "Python toolkit for capturing LLM prompts, responses, tokens, costs, errors, and sessions",
+    shortDescription: "Historical Python tracing prototype with local storage and mock provider adapters",
     description:
-      "An open-source Python toolkit for instrumenting LLM applications. It stores sessions locally, captures prompts and responses, tracks tokens, costs, metrics, feedback, and errors, and includes a lightweight Flask dashboard for inspection.",
+      "A historical Python alpha with local session storage and a Flask dashboard. The published provider adapters wrap mock classes: screenshots and token or cost examples do not establish telemetry from real provider SDK calls.",
     problemStatement:
-      "LLM applications become difficult to debug once prompts, outputs, costs, and failures are scattered across logs. LLMTRACE provides a small instrumentation and trace-storage layer that can run locally.",
+      "LLM applications need trustworthy traces. This repository experiments with the storage and UI concepts; real provider integration remains future work.",
     role: "Open Source",
     status: "Open Source",
     level: 3,
-    year: 2023,
-    featured: true,
+    year: 2025,
+    featured: false,
     order: 1,
-    technologies: ["Python", "OpenTelemetry", "structured logging", "cost tracking"],
+    technologies: ["Python", "SQLite", "Flask", "mock adapters"],
     verifiedMetrics: [
       {
         name: "Published",
@@ -658,8 +648,8 @@ export const systems: System[] = [
         description: "Batched reporting. Real-time dashboards need additional integration.",
       },
       {
-        title: "Cost Attribution",
-        description: "Tracks spend. Attribution to specific features requires custom tagging.",
+        title: "Provider integration",
+        description: "The current OpenAI and Hugging Face adapters wrap mock classes. No production provider SDK telemetry or real spend tracking is demonstrated.",
       },
     ],
     links: {
@@ -667,30 +657,30 @@ export const systems: System[] = [
       pypi: "https://pypi.org/project/llmtrace/",
     },
     evidence: {
-      interfaceType: "real",
-      dataType: "anonymised",
-      executionType: "recorded",
+      interfaceType: "representative",
+      dataType: "demo",
+      executionType: "simulated",
       codeVisibility: "public",
-      previewLabel: "Real anonymised trace",
+      previewLabel: "Historical prototype illustration",
       lastVerified: "2026-07-22",
       assets: {
         overview: {
           src: "/projects/llmtrace/real-trace.png",
-          alt: "LLMTRACE dashboard showing an anonymised support-triage session with model, token, cost, and timestamp fields",
-          title: "Real anonymised trace",
-          caption: "Captured from the package dashboard after a local run with anonymised user and session identifiers. The visible cost and token totals come from the trace data, not a mock card.",
+          alt: "LLMTRACE prototype dashboard with illustrative session, token and cost fields",
+          title: "Prototype dashboard illustration",
+          caption: "Illustrative alpha screenshot. The provider adapters in the public repository use mock classes; values must not be read as real provider usage.",
         },
         workflow: {
           src: "/projects/llmtrace/workflow.webp",
           alt: "Code editor showing LLMTRACE Python decorator and the resulting trace in the dashboard alongside a pip install command",
           title: "Three-line instrumentation",
-          caption: "Instrumenting any LLM call requires three lines of code: install, import, and decorate. The trace appears in the dashboard immediately.",
+          caption: "Conceptual instrumentation workflow. Current adapters do not hook a real provider SDK.",
         },
         underTheHood: {
           src: "/projects/llmtrace/underhood.webp",
           alt: "Analytics dashboard showing 7-day LLM cost breakdown by model, request counts, latency percentiles, and error rate",
           title: "Cost and performance analytics",
-          caption: "Aggregate analytics show cost breakdown by model, request volume, p95 latency, and error rate over configurable time windows.",
+          caption: "Illustrative analytics screen. Production cost, latency and error telemetry require real integrations and validation.",
         },
       },
     },

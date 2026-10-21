@@ -31,8 +31,8 @@ const groups: EvidenceGroup[] = [
     headingId: "the-omega-experiment",
     eyebrow: "Executable evidence",
     title: "From metaphor to package output",
-    note: "The surface is generated from the laboratory and package output; it is not a production reliability benchmark.",
-    items: [{ src: "/projects/entropiccore/live-preview.png", alt: "Entropic Core public proof surface with package and stability output", label: "Generated from package output", title: "Entropic Core · OMEGA", caption: "Version, test and stability signals come from the public proof surface while the wider scientific claims remain explicitly bounded." }],
+    note: "A concept preview; the displayed package version and tests have not been reproduced from public source.",
+    items: [{ src: "/projects/entropiccore/live-preview.png", alt: "Entropic Core concept preview", label: "Concept preview", title: "Entropic Core · OMEGA", caption: "A proposed reliability model. The displayed version and test signals are not independently inspectable here." }],
   },
   {
     articleSlug: "avoiding-vendor-lock-in",
@@ -50,17 +50,17 @@ const groups: EvidenceGroup[] = [
     note: "Related building blocks—not one integrated production FinOps platform.",
     items: [
       { src: "/projects/aivendorcompare/live-preview.png", alt: "AI Vendor Compare market snapshot", label: "Snapshot data", title: "Market", caption: "Published list-price and capability claims." },
-      { src: "/projects/llmtrace/real-trace.png", alt: "LLMTRACE anonymised operational trace", label: "Real anonymised trace", title: "Runtime", caption: "Observed usage, latency and cost in one trajectory." },
-      { src: "/projects/entropiccore/live-preview.png", alt: "Entropic Core package output", label: "Package output", title: "Control", caption: "Budgets, checkpoints and intervention as an executable hypothesis." },
+      { src: "/projects/llmtrace/real-trace.png", alt: "LLMTRACE prototype dashboard", label: "Prototype illustration", title: "Runtime", caption: "Illustrative session data from a historical alpha; provider adapters are mocks." },
+      { src: "/projects/entropiccore/live-preview.png", alt: "Entropic Core concept preview", label: "Concept preview", title: "Control", caption: "Budgets and interventions as a proposed runtime hypothesis." },
     ],
   },
   {
     articleSlug: "observability-agentic-systems",
     headingId: "a-trace-is-a-causal-graph-not-a-transcript",
-    eyebrow: "Operational evidence",
-    title: "A real trace is stronger than a perfect mock dashboard",
-    note: "Captured after a local package run with anonymised identifiers.",
-    items: [{ src: "/projects/llmtrace/real-trace.png", alt: "LLMTRACE dashboard with an anonymised support triage trace", label: "Real anonymised trace", title: "LLMTRACE", caption: "The trace records model, tokens, cost and time for an actual instrumented session; it does not imply enterprise-scale deployment." }],
+    eyebrow: "Prototype boundary",
+    title: "A trace needs a verifiable provider integration",
+    note: "The historical LLMTRACE adapters wrap mock provider classes.",
+    items: [{ src: "/projects/llmtrace/real-trace.png", alt: "LLMTRACE prototype dashboard illustration", label: "Prototype illustration", title: "LLMTRACE", caption: "The interface illustrates session fields; it does not prove telemetry from a real provider SDK." }],
   },
   {
     articleSlug: "building-in-public",
@@ -72,7 +72,7 @@ const groups: EvidenceGroup[] = [
       { src: "/projects/brewmatch/live-preview.png", alt: "BrewMatch public product interface", label: "Real product interface", title: "BrewMatch", caption: "A live discovery surface with merchant handoff." },
       { src: "/projects/aivendorcompare/live-preview.png", alt: "AI Vendor Compare interface", label: "Real interface · Snapshot data", title: "AI Vendor Compare", caption: "A real comparison UI whose evidence ages." },
       { src: "/projects/aiactmiddleware/live-preview.png", alt: "AI Act Middleware prototype", label: "Real public prototype", title: "AI Act Middleware", caption: "A governance interaction surface, not legal certification." },
-      { src: "/projects/llmtrace/real-trace.png", alt: "LLMTRACE anonymised trace", label: "Real anonymised trace", title: "LLMTRACE", caption: "Operational package evidence with bounded disclosure." },
+      { src: "/projects/llmtrace/real-trace.png", alt: "LLMTRACE prototype illustration", label: "Prototype illustration", title: "LLMTRACE", caption: "Historical alpha with mock adapters." },
     ],
   },
   {
@@ -83,7 +83,7 @@ const groups: EvidenceGroup[] = [
     note: "Representative workflows and real artefacts—never presented as one deployed multi-agent platform.",
     items: [
       { src: "/projects/aivendorcompare/workflow.webp", alt: "AI Vendor Compare evidence workflow", label: "Representative workflow", title: "Parallel evidence", caption: "Independent provider claims converge through verification." },
-      { src: "/projects/llmtrace/workflow.webp", alt: "LLMTRACE instrumentation workflow", label: "Package workflow", title: "Graph observability", caption: "Instrumentation connects execution to a trace surface." },
+      { src: "/projects/llmtrace/workflow.webp", alt: "LLMTRACE proposed instrumentation workflow", label: "Concept workflow", title: "Graph observability", caption: "A proposed path from execution to trace; current adapters are mocks." },
       { src: "/projects/entropiccore/workflow.webp", alt: "Entropic Core checkpoint recovery workflow", label: "Representative runtime view", title: "Recovery", caption: "Checkpoints and interventions preserve control over long trajectories." },
     ],
   },
