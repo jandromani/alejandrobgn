@@ -397,3 +397,10 @@ h4 {
   .evidence-card, .card-lift, .contact-icon { transition: none !important; transform: none !important; }
   .lineage-flow { animation: none !important; }
 }
+
+/* F2: semantic accent ink, preserving vivid brand hues for diagrams/backgrounds. */
+.light .text-signal-green,
+.light [class~="text-[#587f00]"],
+.light [class~="text-[#5b8f00]"] { color: #476700; }
+.light .text-signal-cyan { color: #076780; }
+.light .text-signal-amber { color: #755000; }
