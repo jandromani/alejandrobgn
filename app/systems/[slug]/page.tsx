@@ -233,7 +233,7 @@ export default async function SystemDetailPage({ params }: Props) {
             <div className="hidden lg:block">
               <div className="border border-border rounded-xl bg-card overflow-hidden">
                 <div className="px-5 py-3 border-b border-border bg-secondary">
-                  <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-widest">Stack</p>
+                  <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest">Stack</p>
                 </div>
                 <div className="p-5 flex flex-wrap gap-2">
                   {system.technologies.map((t) => (
@@ -245,7 +245,7 @@ export default async function SystemDetailPage({ params }: Props) {
                 {system.verifiedMetrics && system.verifiedMetrics.length > 0 && (
                   <>
                     <div className="px-5 py-3 border-t border-b border-border bg-secondary">
-                      <p className="text-[11px] font-mono text-muted-foreground uppercase tracking-widest">Key metric</p>
+                      <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest">Key metric</p>
                     </div>
                     <div className="p-5 space-y-1">
                       <p className="text-3xl font-bold font-mono text-foreground">{system.verifiedMetrics[0].value}</p>
@@ -418,7 +418,7 @@ export default async function SystemDetailPage({ params }: Props) {
                       <h3 className="font-bold text-foreground group-hover:text-accent transition-colors">{rel.name}</h3>
                       <p className="text-xs font-mono text-muted-foreground mt-1 mb-3">{rel.tagline}</p>
                       <div className="flex items-center justify-between border-t border-border pt-3 mt-3">
-                        <span className="text-[10px] font-mono text-muted-foreground uppercase">{rel.category}</span>
+                        <span className="text-xs font-mono text-muted-foreground uppercase">{rel.category}</span>
                         <ArrowRight className="w-3.5 h-3.5 text-muted-foreground group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
                       </div>
                     </Link>
