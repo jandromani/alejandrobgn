@@ -19,6 +19,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.87,
     },
     { url: absoluteUrl("/work"), lastModified: "2026-10-21", changeFrequency: "monthly", priority: 0.93 },
+    { url: absoluteUrl("/thesis"), lastModified: "2026-10-21", changeFrequency: "monthly", priority: 0.66 },
+    { url: absoluteUrl("/venture-lab"), lastModified: "2026-10-21", changeFrequency: "monthly", priority: 0.64 },
+    { url: absoluteUrl("/meet"), lastModified: "2026-10-21", changeFrequency: "yearly", priority: 0.48 },
     {
       url: absoluteUrl("/systems"),
       lastModified: "2026-07-24",
