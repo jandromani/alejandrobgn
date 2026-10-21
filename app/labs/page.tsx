@@ -15,7 +15,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function LabsPage() {
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       <header className="relative overflow-hidden border-b border-border bg-card/20">
         <div className="container mx-auto max-w-6xl px-4 py-16 md:py-24">
           <p className="font-mono text-xs uppercase tracking-[.18em] text-[#587f00] dark:text-signal-green">Research showcase / Executable original artifacts</p>
@@ -106,6 +106,6 @@ export default function LabsPage() {
         </div>
       </section>
       <RelatedEvidence id="index:labs" />
-    </main>
+    </div>
   )
 }
