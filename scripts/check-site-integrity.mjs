@@ -85,4 +85,20 @@ for (const path of ["/thesis","/venture-lab","/meet"]) {
   assert.ok(!sitemap.includes('absoluteUrl("'+path+'")'), "Noindex route advertised in sitemap: "+path)
 }
 
+const metricLedger=read("lib/enterprise-evidence.ts")
+for (const key of ["deliveryTime","deliveryPeers","deliveryRoles","modernizationDuration","contextReduction","modernizationGates"]) {
+  assert.ok(metricLedger.includes(key+":"), "Public evidence claim not registered: "+key)
+}
+assert.ok(metricLedger.includes("NOT") || metricLedger.includes("independently"),"Evidence provenance and scope disclosure missing")
+const claims=read("app/evidence/claims.json/route.ts")
+assert.ok(claims.includes("publicMetrics") && claims.includes("NOT independently customer-audited"),"Public claims endpoint has no bounded provenance")
+assert.ok(read("app/atlas/graph.json/route.ts").includes("relatedClaims"),"Atlas manifest not linked to claims")
+const atlas=read("components/portfolio-atlas-explorer.tsx")
+assert.ok(atlas.includes('id="atlas-search"') && atlas.includes("selectNode"),"Atlas search/deep-link controls missing")
+assert.ok(atlas.includes('get("node")') && atlas.includes('Permalink to this entry'),"Atlas query deep links missing")
+const anatomy=read("components/engineering-anatomy.tsx")
+assert.ok(anatomy.includes('get("stage")') && anatomy.includes('Link directly to stage'),"Anatomy stage deep links missing")
+assert.ok(anatomy.includes("gateSummary") && anatomy.includes('role="status"'),"Anatomy interlock accessibility regressed")
+for (const file of ["scripts/verify-portfolio-inventory.py","scripts/verify-portfolio-deep-e2e.py","docs/f5-human-validation.md"]) requireFile(file)
+
 console.log(JSON.stringify({ result:"PASS", checks:"offline source integrity, internal links, canonical URL, interactive Anatomy and semantic graph", externalValidation:"not included" }))
