@@ -13,7 +13,7 @@ export function HomeSignalManifesto() {
       <div className="container mx-auto max-w-6xl px-4 py-20 md:py-28">
         <div className="mb-10 grid gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-end">
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-signal-green">
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-signal-green">
               Operating thesis · 01
             </p>
             <h2 id="operating-thesis-heading" className="mt-3 max-w-xl text-3xl font-bold leading-tight text-foreground md:text-5xl">
@@ -33,16 +33,16 @@ export function HomeSignalManifesto() {
             <div className="signal-field-scan absolute inset-0" aria-hidden="true" />
 
             <div className="absolute left-4 top-4 flex flex-wrap items-center gap-2 sm:left-6 sm:top-6">
-              <span className="rounded-full border border-white/20 bg-black/60 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white backdrop-blur-md">
+              <span className="rounded-full border border-white/20 bg-black/60 px-3 py-1.5 font-mono text-xs uppercase tracking-[0.18em] text-white backdrop-blur-md">
                 Production AI · Operating field
               </span>
-              <span className="rounded-full border border-white/15 bg-black/50 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.14em] text-white/60 backdrop-blur-md">
+              <span className="rounded-full border border-white/15 bg-black/50 px-3 py-1.5 font-mono text-xs uppercase tracking-[0.14em] text-white/60 backdrop-blur-md">
                 Code-native · Inspectable system model
               </span>
             </div>
 
             <div className="absolute bottom-6 left-6 hidden max-w-sm lg:block">
-              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/50">The control loop</p>
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-white/50">The control loop</p>
               <p className="mt-2 text-xl font-semibold leading-snug text-white">
                 Uncertainty enters. Governed, observable execution leaves.
               </p>
@@ -52,10 +52,10 @@ export function HomeSignalManifesto() {
               {stages.map((stage) => (
                 <div key={stage.index} className="border-r border-white/10 px-4 py-4 last:border-r-0">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-[9px] text-signal-green">{stage.index}</span>
+                    <span className="font-mono text-xs text-signal-green">{stage.index}</span>
                     <span className="text-xs font-semibold uppercase tracking-[0.12em] text-white">{stage.name}</span>
                   </div>
-                  <p className="mt-2 font-mono text-[9px] text-white/50">{stage.detail}</p>
+                  <p className="mt-2 font-mono text-xs text-white/50">{stage.detail}</p>
                 </div>
               ))}
             </div>
@@ -65,10 +65,10 @@ export function HomeSignalManifesto() {
             {stages.map((stage) => (
               <div key={stage.index} className="border-b border-r border-white/10 p-4 even:border-r-0">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-[9px] text-signal-green">{stage.index}</span>
+                  <span className="font-mono text-xs text-signal-green">{stage.index}</span>
                   <span className="text-xs font-semibold uppercase tracking-[0.12em] text-white">{stage.name}</span>
                 </div>
-                <p className="mt-1.5 font-mono text-[9px] text-white/50">{stage.detail}</p>
+                <p className="mt-1.5 font-mono text-xs text-white/50">{stage.detail}</p>
               </div>
             ))}
           </figcaption>
