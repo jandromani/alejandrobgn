@@ -90,7 +90,7 @@ export default function LabsPage() {
           </div>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {platformProjects.map((project) => (
-              <a key={project.repo} href={project.repo} target="_blank" rel="noopener noreferrer" className="group flex flex-col rounded-xl border border-border bg-background p-6 hover:border-foreground/35">
+              <a key={project.repo} href={project.repo} target="_blank" rel="noopener noreferrer" className="group flex flex-col evidence-card p-6 hover:border-foreground/35">
                 <span className="flex items-center justify-between"><Github className="h-5 w-5 text-[#587f00] dark:text-signal-green" aria-hidden="true"/><ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground" aria-hidden="true"/></span>
                 <p className="mt-5 font-mono text-xs uppercase tracking-wider text-muted-foreground">{project.area}</p>
                 <h3 className="mt-3 text-xl font-semibold text-foreground">{project.title}</h3>
