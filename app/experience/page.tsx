@@ -40,13 +40,13 @@ const experience = [
     location: "Madrid, Spain",
     current: false,
     description:
-      "Drove Generative AI adoption across a large engineering organisation of more than 250 engineers, combining transversal R&D, technical leadership and hands-on delivery of pilots and production-ready solutions.",
+      "Contributed to AI enablement and architecture in an engineering organisation of more than 250 people. The 250+ figure describes organisation scale, not a measured count of AI adopters.",
     highlights: [
       "LLM integration architecture",
       "Agent orchestration design",
       "Governance layer implementation",
       "Cost optimisation strategies",
-      "AI enablement across 250+ engineers",
+      "AI initiatives within a 250+ engineer organisation (adoption not quantified)",
     ],
   },
   {
@@ -123,7 +123,7 @@ const howIWork = [
 const skills = [
   { area: "Agentic Systems",    items: ["Agent orchestration", "Multi-agent architectures", "Durable runtimes", "State management"] },
   { area: "AI Governance",      items: ["EU AI Act compliance", "Risk assessment", "Audit trails", "Permission models"] },
-  { area: "LLM Operations",     items: ["Observability (LLMTRACE)", "Cost optimisation", "Vendor routing", "Model evaluation"] },
+  { area: "LLM Operations",     items: ["Tracing patterns", "Cost modelling", "Vendor routing", "Model evaluation"] },
   { area: "Platform Engineering",items: ["Python · FastAPI", "Next.js", "Cloud platforms", "PostgreSQL · Redis"] },
 ]
 
@@ -156,7 +156,7 @@ export default function ExperiencePage() {
               })),
             },
             isPartOf: { "@id": websiteId },
-            dateModified: "2026-07-24",
+            dateModified: "2026-10-21",
             inLanguage: "en",
           },
           {
@@ -174,9 +174,9 @@ export default function ExperiencePage() {
         <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" aria-hidden="true" />
         <div className="relative container max-w-6xl mx-auto px-4 py-16">
           <p className="text-xs font-mono text-muted-foreground uppercase tracking-[0.2em] mb-4">Experience</p>
-          <h1 className="text-5xl font-bold text-foreground mb-3">Eleven years building systems</h1>
+          <h1 className="text-5xl font-bold text-foreground mb-3">Engineering ownership, from GIS to governed AI</h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            From GIS and enterprise backends to AI governance platforms. A narrative thread from geographic thinking to agentic systems.
+            Professional roles, accountable decisions and scope boundaries—not an assertion that every prototype reached customer production.
           </p>
         </div>
       </header>
@@ -188,7 +188,7 @@ export default function ExperiencePage() {
           {[
             { n: "11+",   label: "Years engineering" },
             { n: "7",     label: "Professional chapters" },
-            { n: String(systems.length), label: "Catalogue entries" },
+            { n: String(systems.length), label: "Catalogue entries incl. prototypes" },
             { n: "4",     label: "AI system domains" },
           ].map((stat) => (
             <div key={stat.label} className="bg-card px-6 py-5 space-y-1">
@@ -197,6 +197,17 @@ export default function ExperiencePage() {
             </div>
           ))}
         </div>
+
+        <section aria-label="Leadership responsibility boundaries" className="rounded-xl border border-border bg-card p-6 md:p-8">
+          <p className="font-mono text-xs uppercase tracking-wider text-[#476700] dark:text-signal-green">How to read this career record</p>
+          <h2 className="mt-3 text-2xl font-semibold text-foreground">Accountability, not just technology names.</h2>
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-muted-foreground">The 250+ engineering figure describes organisational scale at Ayesa, not an independently measured adoption total. Cases below distinguish my technical contributions from joint team outcomes. Confidential customer delivery records and adoption denominators are not presented as independently audited data.</p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link href="/work/cybersecurity-ai-engineering" className="rounded-md border border-border px-4 py-3 text-sm font-semibold">Team adoption decisions ↗</Link>
+            <Link href="/work/banking-modernization" className="rounded-md border border-border px-4 py-3 text-sm font-semibold">Modernization trade-offs ↗</Link>
+            <Link href="https://github.com/jandromani/A2A" className="rounded-md border border-border px-4 py-3 text-sm font-semibold">Public architecture & tests ↗</Link>
+          </div>
+        </section>
 
         {/* Selected enterprise work: deliberately separate from professional role history. */}
         <section aria-labelledby="work-cyber-heading" className="space-y-6">
