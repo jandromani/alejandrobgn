@@ -362,8 +362,38 @@ h4 {
 }
 
 /* UI/UX VC audit: consistent evidence surfaces and keyboard focus gates. */
-.evidence-card { border:1px solid hsl(var(--border)); border-radius:1rem; background:hsl(var(--card)); transition:border-color .2s ease; }
-.evidence-card:hover { border-color:hsl(var(--foreground)/.4); }
-.evidence-label { font-family:var(--font-geist-mono, monospace); font-size:.75rem; line-height:1.5rem; letter-spacing:.06em; text-transform:uppercase; }
+:root {
+  --ux-content-width: 72rem;
+  --ux-measure: 68ch;
+  --ux-body: 1rem;
+  --ux-meta: .875rem;
+  --ux-evidence-radius: 1rem;
+}
+.evidence-card {
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--ux-evidence-radius);
+  background: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  min-width: 0;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.evidence-card:hover { border-color:hsl(var(--foreground)/.4); box-shadow: 0 10px 30px hsl(var(--foreground)/.045); }
+.evidence-card:focus-within { border-color:hsl(var(--ring)); }
+.evidence-label { font-family:var(--font-geist-mono, monospace); font-size:.8125rem; line-height:1.5rem; letter-spacing:.06em; text-transform:uppercase; }
 :where(a,button,summary,input,select,textarea):focus-visible { outline:2px solid hsl(var(--ring)); outline-offset:3px; }
 @media (prefers-reduced-motion:reduce) { .evidence-card { transition:none; } html { scroll-behavior:auto !important; } }
+
+/* F2: text measure, systematic density and responsive navigation. */
+.ux-prose { max-width: var(--ux-measure); font-size: var(--ux-body); line-height: 1.75; }
+.ux-eyebrow { font-family: var(--font-geist-mono, monospace); font-size: .75rem; line-height: 1.5; letter-spacing: .09em; text-transform: uppercase; }
+.ux-stat-label { font-size: var(--ux-meta); line-height: 1.5; color: hsl(var(--muted-foreground)); }
+.ux-section { scroll-margin-top: 5.25rem; }
+@media (max-width: 639px) {
+  .ux-prose { font-size: 1rem; line-height: 1.7; }
+  .evidence-card { border-radius: .875rem; }
+  .evidence-label { letter-spacing: .045em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .evidence-card, .card-lift, .contact-icon { transition: none !important; transform: none !important; }
+  .lineage-flow { animation: none !important; }
+}
