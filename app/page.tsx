@@ -22,8 +22,15 @@ const cases = [
     sector: "Banking · Legacy modernization",
     title: "A source-traceable modernization PoC",
     role: "Architect of a corpus-first approach on a bounded reference module",
-    result: "A reproducible path from legacy source to structured knowledge and candidate target artifacts, with explicit quality gates.",
+    result: "22,995 evidence records linked to file, line and hash; 4,338 files compared across two runs of the bounded factory.",
     href: "/work/banking-modernization",
+  },
+  {
+    sector: "Public sector · Developer copilots",
+    title: "An audited copilot package delivered to engineers",
+    role: "Technical lead for the engineering copilots, working with one peer",
+    result: "Ten specialist skills and three agents; 12 audit rounds and 47 corrections before handover to the client team.",
+    href: "/work/public-sector-copilots",
   },
 ] as const
 
@@ -34,6 +41,7 @@ const services = [
 ] as const
 
 const writing = [
+  { title: "I Lost Three Rounds Against My Own Method. Here Is What I Changed.", date: "Oct 2026 · SDD Kit field note", href: "/writing/when-my-quality-gates-lost" },
   { title: "Governing Agentic Systems at Enterprise Scale", date: "Jan 2026 · updated Jul 2026", href: "/writing/governing-agentic-systems" },
   { title: "Observability for Agentic Systems", date: "Dec 2025 · updated Jul 2026", href: "/writing/observability-agentic-systems" },
   { title: "Building AI Systems in Public Without Lying to Yourself", date: "Dec 2025 · updated Jul 2026", href: "/writing/building-in-public" },
@@ -52,7 +60,7 @@ export default function Page() {
       <div className="relative container mx-auto max-w-6xl px-4 py-16 md:py-24">
         <p className="font-mono text-xs uppercase tracking-[.18em] text-[#476700] dark:text-signal-green">Alejandro Baratas · AI Tech Lead at knowmad mood · Madrid / remote</p>
         <h1 className="mt-7 max-w-4xl text-[clamp(2.7rem,6vw,5.4rem)] font-bold leading-[1.04] tracking-[-.055em] text-foreground">I put AI-assisted engineering into use with enterprise teams.</h1>
-        <p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground">I help engineering teams introduce project-aware agents, reviewable changes and human quality gates. My background spans enterprise software and technical leadership at HPE, NTT DATA, Ayesa and knowmad mood.</p>
+        <p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground">I help engineering teams introduce project-aware agents, reviewable changes and human quality gates. I also build and test my own delivery methods: an OpenSpec-based SDD Kit, blind reviews and evidence-led agent workflows. My background spans HPE, NTT DATA, Ayesa and knowmad mood.</p>
         <div className="mt-9 flex flex-wrap gap-3">
           <Link href="/work/cybersecurity-ai-engineering" className="inline-flex items-center gap-2 rounded-md bg-[#90d900] px-6 py-3 text-sm font-semibold text-[#090b0f] hover:bg-[#9cec00] focus-visible:ring-2 focus-visible:ring-ring">Read the cybersecurity case <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
           <Link href="/contact" className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:border-foreground/40 focus-visible:ring-2 focus-visible:ring-ring">Start a conversation <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
@@ -65,7 +73,7 @@ export default function Page() {
       <div className="container mx-auto max-w-6xl px-4 py-14">
         <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">01 / Selected engagements</p>
         <h2 id="cases-title" className="mt-3 text-3xl font-bold text-foreground md:text-4xl">What changed in real teams</h2>
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
           {cases.map(item => <Link key={item.href} href={item.href} className="group flex flex-col rounded-xl border border-border bg-card/40 p-6 hover:border-signal-green/50 focus-visible:ring-2 focus-visible:ring-ring md:p-8">
             <p className="font-mono text-xs uppercase tracking-wider text-[#476700] dark:text-signal-green">{item.sector}</p>
             <h3 className="mt-4 text-2xl font-semibold text-foreground">{item.title}</h3>
@@ -78,9 +86,19 @@ export default function Page() {
       </div>
     </section>
 
+    <section aria-labelledby="method-title" className="border-b border-border bg-card/20">
+      <div className="container mx-auto max-w-6xl px-4 py-14">
+        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">02 / My engineering laboratory</p>
+        <div className="mt-3 grid gap-8 md:grid-cols-[1.2fr_.8fr] md:items-center">
+          <div><h2 id="method-title" className="text-3xl font-bold text-foreground">I test my own quality gates against independent review.</h2><p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground">My SDD Kit lost three blind comparisons on a public codebase. I used the findings to improve the review process and harden its archive hook to 225 passing shell cases. The experiment is a personal engineering asset; its failures and limits are part of the story.</p><Link href="/writing/when-my-quality-gates-lost" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground underline underline-offset-4">Read the experiment and agent workflow <ArrowRight className="h-4 w-4" /></Link></div>
+          <div className="rounded-xl border border-border bg-background p-6"><p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">29 Sep – 21 Oct 2026 / private session log</p><p className="mt-5 font-mono text-4xl font-bold text-foreground">129</p><p className="mt-2 text-sm text-muted-foreground">agent tasks directed in 14 active days</p><p className="mt-5 font-mono text-4xl font-bold text-foreground">36</p><p className="mt-2 text-sm text-muted-foreground">pull requests across five repositories</p><p className="mt-5 border-t border-border pt-4 text-xs leading-6 text-muted-foreground">Personal and professional work combined. Task and PR counts are activity measures, not accepted production changes or client outcomes.</p></div>
+        </div>
+      </div>
+    </section>
+
     <section aria-labelledby="services-title" className="border-b border-border bg-card/20">
       <div className="container mx-auto max-w-6xl px-4 py-14">
-        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">02 / What I do</p>
+        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">03 / What I do</p>
         <h2 id="services-title" className="mt-3 text-3xl font-bold text-foreground">From a team’s problem to a reviewable result</h2>
         <div className="mt-8 grid gap-4 md:grid-cols-3">{services.map(item => <Link key={item.title} href={item.href} className="rounded-xl border border-border bg-background p-6 hover:border-foreground/30 focus-visible:ring-2 focus-visible:ring-ring"><h3 className="text-lg font-semibold text-foreground">{item.title}</h3><p className="mt-3 text-sm leading-7 text-muted-foreground">{item.detail}</p><span className="mt-5 inline-flex items-center gap-2 text-sm text-foreground">Inspect the work <ArrowRight className="h-4 w-4" aria-hidden="true" /></span></Link>)}</div>
       </div>
@@ -88,7 +106,7 @@ export default function Page() {
 
     <section aria-labelledby="writing-title" className="border-b border-border">
       <div className="container mx-auto max-w-6xl px-4 py-14">
-        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">03 / Selected writing</p>
+        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">04 / Selected writing</p>
         <h2 id="writing-title" className="mt-3 text-3xl font-bold text-foreground">Field notes on control and evidence</h2>
         <div className="mt-7 divide-y divide-border border-y border-border">{writing.map(item => <Link href={item.href} key={item.href} className="flex flex-wrap items-center justify-between gap-3 py-5 focus-visible:ring-2 focus-visible:ring-ring"><span className="font-semibold text-foreground">{item.title}</span><span className="flex items-center gap-3 font-mono text-xs text-muted-foreground">{item.date}<ArrowRight className="h-4 w-4" aria-hidden="true" /></span></Link>)}</div>
       </div>
@@ -96,7 +114,7 @@ export default function Page() {
 
     <section aria-labelledby="source-title" className="border-b border-border bg-card/20">
       <div className="container mx-auto max-w-6xl px-4 py-14">
-        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">04 / Inspectable source</p>
+        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">05 / Inspectable source</p>
         <h2 id="source-title" className="mt-3 text-3xl font-bold text-foreground">Engineering you can inspect</h2>
         <div className="mt-6 flex flex-wrap gap-3">
           <a href="https://github.com/jandromani/A2A" className="rounded-md border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">A2A · developing platform ↗</a>
@@ -108,7 +126,7 @@ export default function Page() {
     </section>
 
     <section aria-labelledby="contact-title" className="container mx-auto max-w-6xl px-4 py-16">
-      <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">05 / Contact</p>
+      <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">06 / Contact</p>
       <h2 id="contact-title" className="mt-3 text-3xl font-bold text-foreground md:text-4xl">Let’s talk about your engineering problem.</h2>
       <p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground">Tell me what your team is trying to change, where AI enters the workflow and what a responsible person must be able to verify.</p>
       <Link href="/contact" className="mt-7 inline-flex items-center gap-2 rounded-md bg-foreground px-6 py-3 text-sm font-semibold text-background hover:opacity-90">Get in touch <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>

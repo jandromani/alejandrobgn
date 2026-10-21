@@ -37,6 +37,20 @@ export const pillarLabels: Record<WritingPillar, string> = {
 
 export const articles: WritingArticle[] = [
   {
+    id: "sdd-kit-blind-review",
+    slug: "when-my-quality-gates-lost",
+    title: "I Lost Three Rounds Against My Own Method. Here Is What I Changed.",
+    pillar: "ai-engineering",
+    summary: "A blind comparison on Documenso exposed defects my specification gates missed. How I rebuilt the OpenSpec-based SDD Kit, tested its archive hook and direct independent agent audits.",
+    published: "2026-10-21",
+    linkedSystems: [],
+    featured: true,
+    wordCount: 850,
+    author: "Alejandro Baratas",
+    version: "1.0",
+    changelog: [{ date: "2026-10-21", note: "First public account of the personal SDD Kit, blind review and agent direction practice, sourced from private experiment and session records." }],
+  },
+  {
     id: 1,
     slug: "governing-agentic-systems",
     title: "Governing Agentic Systems at Enterprise Scale",

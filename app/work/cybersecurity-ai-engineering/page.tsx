@@ -76,7 +76,7 @@ const personalContributions = [
 const teamOutcomes = [
   "AI-assisted engineering workflows were in use by the participating team within the engagement, according to the delivery team's account.",
   "Role-specific copilots, PR-producing agents and practical review practices were activated rather than left as a slide-deck proposal.",
-  "Knowledge and quality practices remained part of the working approach rather than an isolated experiment.",
+  "At follow-up, the backend copilot was back in production and the participating team was using the workflow, according to the delivery account.",
 ] as const
 
 export default function CybersecurityEngineeringCasePage() {
@@ -210,6 +210,7 @@ export default function CybersecurityEngineeringCasePage() {
             <p className="mt-4 text-base leading-8 text-muted-foreground">
               The result was not a set of prompts waiting to be adopted. The participating team was
               using AI-assisted engineering workflows, with project-specific context and reviewable changes.
+              At follow-up, the backend copilot was back in production and the participating team continued using the approach.
               These are delivery-team-reported outcomes, not independently audited adoption figures.
             </p>
           </div>

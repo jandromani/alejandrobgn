@@ -30,6 +30,13 @@ const caseNodes: PortfolioNode[] = [
     href: "/work/banking-modernization",
     description: "A bounded source-linked modernization proof of concept.",
   },
+  {
+    id: "case:public-sector-copilots",
+    title: "Audited development copilots",
+    kind: "case",
+    href: "/work/public-sector-copilots",
+    description: "An anonymized account of specialist copilots delivered after repeated audit and correction.",
+  },
 ]
 const editorialNodes: PortfolioNode[] = [
   { id: "publication:the-intelligence-ahead", title: "The Intelligence Ahead", kind: "publication", href: "/publications", description: "Independent editorial work and original readers." },
@@ -75,6 +82,11 @@ export const portfolioNodes: PortfolioNode[] = [
 ]
 
 const explicitEdges: PortfolioEdge[] = [
+  { from:"case:public-sector-copilots", to:"writing:when-my-quality-gates-lost", relation:"method", why:"Related practice of agent roles, audit and human review; a separate personal experiment." },
+  { from:"index:work", to:"case:public-sector-copilots", relation:"evidence", why:"Anonymized delivery and audit account." },
+  { from:"index:writing", to:"writing:when-my-quality-gates-lost", relation:"evidence", why:"Personal OpenSpec-based SDD Kit, blind review and session log." },
+  { from:"writing:when-my-quality-gates-lost", to:"lab:openspec", relation:"method", why:"Public explanatory lab for the specification workflow; distinct from the private kit and experiment." },
+  { from:"case:banking-modernization", to:"writing:when-my-quality-gates-lost", relation:"theme", why:"Both distinguish repeatable engineering checks from functional acceptance." },
   { from:"case:cybersecurity-ai-engineering", to:"lab:openspec", relation:"method", why:"Specifications, context and human-review gates — illustrative method, not client runtime." },
   { from:"case:cybersecurity-ai-engineering", to:"writing:orchestration-patterns", relation:"context", why:"Design choices for bounded agent coordination." },
   { from:"case:cybersecurity-ai-engineering", to:"writing:governing-agentic-systems", relation:"context", why:"Permission boundaries and accountability." },

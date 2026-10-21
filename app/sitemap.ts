@@ -58,6 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.72,
     },
+    { url: absoluteUrl("/work/public-sector-copilots"), lastModified: "2026-10-21", changeFrequency: "monthly", priority: 0.72 },
     {
       url: absoluteUrl("/labs"),
       lastModified: "2026-10-20",

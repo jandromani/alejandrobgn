@@ -1,14 +1,14 @@
 import { enterpriseEvidence } from "@/lib/enterprise-evidence"
 import Link from "next/link"
 import type { Metadata } from "next"
-import { ArrowRight, ArrowUpRight, GitBranch, ShieldCheck } from "lucide-react"
+import { ArrowRight, ArrowUpRight, GitBranch, ShieldCheck, FileCheck2 } from "lucide-react"
 import { JsonLd } from "@/components/json-ld"
 import { RelatedEvidence } from "@/components/related-evidence"
 import { absoluteUrl, breadcrumbJsonLd, createPageMetadata, personId, websiteId } from "@/lib/seo"
 
 export const metadata: Metadata = createPageMetadata({
   title: "Selected Enterprise Work — Agentic Delivery and Modernization",
-  description: "Two anonymized engineering outcomes: AI-assisted developer workflows put into use in under a month and a source-linked, quality-gated modernization proof.",
+  description: "Three anonymized engineering engagements across cybersecurity, banking modernization and public-sector developer copilots, with their audit and delivery boundaries.",
   path: "/work", ogKind: "experience", keywords:["enterprise AI engineering","agent-assisted delivery","legacy modernization","technical leadership"],
 })
 const cases = [
@@ -21,10 +21,17 @@ const cases = [
   },
   {
     category:"Banking · Modernization PoC", title:"Traceable modernization, not blind code translation.",
-    number:enterpriseEvidence.contextReduction.value, label:"Reported reduction in working context",
-    description:"Source relationships, a canonical model, bounded generation and reproducibility checks supported a scoped reference exercise.",
-    limit:"Not a completed migration, measured savings or verified functional parity.",
+    number:"22,995", label:"Evidence records with file, line and SHA-256",
+    description:"A canonical model and deterministic factory generated candidate artifacts. Two runs compared 4,338 files in the bounded reference exercise.",
+    limit:"Traceability and reproducibility do not establish functional parity or a completed migration.",
     url:"/work/banking-modernization", icon:GitBranch,
+  },
+  {
+    category:"Public sector · Developer copilots", title:"An audited copilot package delivered to engineers.",
+    number:"47", label:"Recorded corrections across twelve audit rounds",
+    description:"With a peer, I led ten specialist skills, three agents and 25 supporting references for ticket-to-spec and Java backend work.",
+    limit:"Engagement records support delivery and team use; no measured organisation-wide adoption or productivity claim.",
+    url:"/work/public-sector-copilots", icon:FileCheck2,
   },
 ]
 export default function WorkPage() {
@@ -39,12 +46,12 @@ export default function WorkPage() {
       <div className="container mx-auto max-w-6xl px-4 py-10 md:py-14">
         <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">01 / Enterprise outcomes</p>
         <h1 className="mt-5 max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">Enterprise AI engineering, with evidence you can inspect.</h1>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-muted-foreground md:text-lg">I build and introduce AI-assisted engineering workflows, and I lead source-linked modernization. These two anonymized cases distinguish team-reported outcomes from unproven client-wide results.</p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted-foreground md:text-lg">I build and introduce AI-assisted engineering workflows and lead source-linked modernization. These three anonymized engagements document what was delivered, measured and reviewed.</p>
       </div>
     </header>
     <section className="container mx-auto max-w-6xl px-4 py-8 md:py-12" aria-labelledby="work-cases">
-      <h2 id="work-cases" className="mb-5 text-xl font-semibold md:text-2xl">Two outcomes. Inspect the method.</h2>
-      <div className="grid gap-5 md:grid-cols-2">
+      <h2 id="work-cases" className="mb-5 text-xl font-semibold md:text-2xl">Three engagements. Inspect the method.</h2>
+      <div className="grid gap-5 md:grid-cols-3">
         {cases.map(item=>{
           const Icon=item.icon
           return <Link key={item.url} href={item.url} className="group flex h-full flex-col evidence-card p-6 transition-colors hover:border-[#5b8f00] focus-visible:ring-2 focus-visible:ring-ring md:p-8">
@@ -58,6 +65,7 @@ export default function WorkPage() {
           </Link>
         })}
       </div>
+      <p className="mt-8 max-w-3xl text-sm leading-7 text-muted-foreground">My own OpenSpec-based SDD Kit, blind evaluations and agent-direction practice are documented separately in <Link href="/writing/when-my-quality-gates-lost" className="font-semibold text-foreground underline underline-offset-4">the field note on how I test my method</Link>.</p>
       <div className="mt-10 flex flex-wrap gap-4">
         <Link href="/experience" className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-semibold">Career and responsibilities <ArrowUpRight className="h-4 w-4"/></Link>
         <Link href="/atlas" className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-semibold">Evidence graph <ArrowUpRight className="h-4 w-4"/></Link>

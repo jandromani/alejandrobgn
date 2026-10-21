@@ -1,4 +1,4 @@
-import { enterpriseEvidence, modernizationMetrics, metricProperties } from "@/lib/enterprise-evidence"
+import { modernizationMetrics, metricProperties } from "@/lib/enterprise-evidence"
 import { relatedPortfolioNodes } from "@/lib/portfolio-graph"
 import { EngineeringAnatomy } from "@/components/engineering-anatomy"
 import { RelatedEvidence } from "@/components/related-evidence"
@@ -126,16 +126,16 @@ export default function BankingModernizationPage() {
           </h1>
           <div className="mt-7 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
             <div className="bg-card p-5">
-              <p className="font-mono text-2xl font-bold text-foreground">{enterpriseEvidence.modernizationDuration.value}</p>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">Reported PoC engagement duration</p>
+              <p className="font-mono text-2xl font-bold text-foreground">22,995</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Evidence records with file, line and SHA-256</p>
             </div>
             <div className="bg-card p-5">
-              <p className="font-mono text-2xl font-bold text-foreground">{enterpriseEvidence.contextReduction.value}</p>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">Team-reported reduction in working context for the scoped method, not time saved</p>
+              <p className="font-mono text-2xl font-bold text-foreground">4,338</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Files compared between two clean factory runs</p>
             </div>
             <div className="col-span-2 bg-card p-5 sm:col-span-1">
-              <p className="font-mono text-2xl font-bold text-foreground">{enterpriseEvidence.modernizationGates.value}</p>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">Internal technical checks reported green in the evaluated scope; not functional parity</p>
+              <p className="font-mono text-2xl font-bold text-foreground">1,383</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Engine regression tests passed; 22 of 1,405 skipped</p>
             </div>
           </div>
 
@@ -148,7 +148,7 @@ export default function BankingModernizationPage() {
             Explore the interactive engineering Anatomy <ArrowRight className="h-4 w-4" aria-hidden="true"/>
           </a>
           <p className="mt-4 max-w-4xl text-xs leading-6 text-muted-foreground">
-            These are engineering-team-reported process measurements from a bounded reference scope, not customer business KPIs or independent certification. The baseline and test evidence are not published because source material is confidential; no estate-wide migration or functional equivalence is claimed.
+            These are figures from the team's sealed RC4.7 engineering record for a bounded reference scope. They describe evidence lineage, run reproducibility and tests, not customer business KPIs, independent certification, estate-wide migration or functional equivalence. The underlying client material is private.
           </p>
         </div>
       </header>
@@ -219,6 +219,18 @@ export default function BankingModernizationPage() {
               </article>
             ))}
           </div>
+        </section>
+
+        <section aria-labelledby="factory-record" className="rounded-xl border border-border bg-card p-7 md:p-10">
+          <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">Factory record / RC4.7</p>
+          <h2 id="factory-record" className="mt-3 text-2xl font-bold md:text-3xl">An inspectable factory output, with a clear acceptance boundary</h2>
+          <p className="mt-5 max-w-4xl text-base leading-8 text-muted-foreground">The internal release record catalogued <strong className="text-foreground">91 canonical functions</strong> across 18 capability areas. It processed 197 legacy JSF screens into 173 candidate Angular views. Its evidence registry held 23,811 records: 23,228 with a SHA-256 hash, and <strong className="text-foreground">22,995</strong> with a file, line and hash together. Those are different levels of traceability; the full registry count should not be read as 23,811 fully linked records.</p>
+          <div className="mt-7 grid gap-4 md:grid-cols-3">
+            <div className="rounded-lg border border-border bg-background p-5"><strong className="font-mono text-2xl">4,338 files</strong><p className="mt-2 text-sm leading-7 text-muted-foreground">Compared between two runs: 3,952 normalized-identical, 22 hash-only differences, 99 identity-only differences and 265 declared volatile files. No defect was recorded in the defined reproducibility check.</p></div>
+            <div className="rounded-lg border border-border bg-background p-5"><strong className="font-mono text-2xl">1,405 tests</strong><p className="mt-2 text-sm leading-7 text-muted-foreground">Engine regression suite: 1,383 passed and 22 skipped. Separate suites reported 257 microservice/API and 227 frontend tests; these are engineering checks, not a customer acceptance test.</p></div>
+            <div className="rounded-lg border border-border bg-background p-5"><strong className="font-mono text-2xl">91 / 7 / 6 / 0</strong><p className="mt-2 text-sm leading-7 text-muted-foreground">Canonical functions represented / implemented / exercised / compared against legacy behavior. No functional equivalence was proven in the reference scope.</p></div>
+          </div>
+          <p className="mt-6 text-sm leading-7 text-muted-foreground">I architected the corpus-first approach and presented the PoC to the client. The record demonstrates reproducibility and source lineage in the evaluated slice; further comparison and client acceptance were still required. Counts come from a private engineering defense record and are summarized here without client identifiers or source files.</p>
         </section>
 
         <section aria-labelledby="decisions-title" className="rounded-xl border border-border bg-card/40 p-7 md:p-9">
