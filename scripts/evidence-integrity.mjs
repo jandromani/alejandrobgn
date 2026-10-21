@@ -67,7 +67,7 @@ assert.match(read("app/page.tsx"), /201 technical records/, "V3: Homepage record
 assert.match(read("app/page.tsx"), /140 are internally tagged Confirmed/, "V3: historical provenance breakdown missing")
 assert.ok(!read("app/page.tsx").includes("LLMTRACE source ↗"), "V3: mock instrumentor must not be a flagship source")
 assert.ok(!read("app/page.tsx").includes("43 months"), "V3: stale career history")
-assert.match(read("app/evolution/page.tsx"), /201 documented artefacts/, "Evolution ledger total is outdated")
+assert.match(read("app/evolution/page.tsx"), /201 technical records/, "Evolution ledger total is outdated")
 
 const publications = read("app/publications/page.tsx")
 const issueIds = [...publications.matchAll(/number:\s*"(00\d)"/g)].map((m) => m[1])
