@@ -9,7 +9,7 @@ const read = (p) => readFileSync(join(root, p), "utf8")
 const requireFile = (p) => assert.ok(exists(p), `Missing required site file: ${p}`)
 
 const routes = [
-  "app/atlas/page.tsx", "app/atlas/graph.json/route.ts",
+  "app/atlas/page.tsx", "app/atlas/graph.json/route.ts", "app/work/page.tsx",
   "app/work/cybersecurity-ai-engineering/page.tsx",
   "app/work/banking-modernization/page.tsx",
   "app/labs/[slug]/page.tsx",
@@ -36,7 +36,9 @@ for (const page of routes.filter((p) => p.includes("[slug]") || p.includes("/wor
 const nav = read("components/navbar.tsx")
 const footer = read("components/footer.tsx")
 const sitemap = read("app/sitemap.ts")
-assert.ok(nav.includes('href: "/atlas"'), "Atlas missing from main navigation")
+assert.ok(nav.includes('href:"/atlas"'), "Atlas missing from explore navigation")
+assert.ok(nav.includes('href:"/work"'), "Enterprise work missing from main navigation")
+assert.ok(!nav.includes('role="menubar"') && !nav.includes('role="menuitem"'), "Navigation must not use application-menu ARIA")
 assert.ok(footer.includes('href="/atlas"'), "Atlas missing from footer")
 assert.ok(sitemap.includes('absoluteUrl("/atlas")'), "Atlas missing from sitemap")
 const seo = read("lib/seo.ts")
