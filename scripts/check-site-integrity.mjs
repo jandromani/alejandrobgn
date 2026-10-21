@@ -51,4 +51,26 @@ const client = read("components/engineering-anatomy.tsx")
 for (const field of ["onClick", "onKeyDown", "aria-pressed", "setOpen", "setSelected"]) {
   assert.ok(client.includes(field), `Anatomy accessibility/interaction regression: ${field}`)
 }
+
+import { readdirSync } from "node:fs"
+function walkPages(dir) {
+  for (const item of readdirSync(join(root,dir),{withFileTypes:true})) {
+    const path=dir+"/"+item.name
+    if(item.isDirectory()) walkPages(path)
+    else if(item.name==="page.tsx") {
+      assert.ok(!/<main(?:\\s|>)/.test(read(path)), "Nested main landmark in "+path)
+    }
+  }
+}
+walkPages("app")
+for (const path of ["components/home-operating-dossier.tsx","components/portfolio-atlas-explorer.tsx","components/engineering-anatomy.tsx"]) {
+  assert.ok(!/text-\\[(?:8|9|10|11)px\\]/.test(read(path)), "Unreadable microtype in "+path)
+}
+assert.ok(read("components/portfolio-atlas-explorer.tsx").includes('id="atlas-mobile-node"'), "Native mobile Atlas selector missing")
+assert.ok(read("components/engineering-anatomy.tsx").includes('aria-label="Anatomy process steps"'), "Touch Anatomy controls missing")
+for (const path of ["app/meet/layout.tsx","app/thesis/layout.tsx","app/venture-lab/layout.tsx"]) {
+  assert.ok(read(path).includes("index: false"), "Expected legacy/utility noindex missing: "+path)
+}
+assert.ok(!/absoluteUrl\\("\\/(?:thesis|venture-lab|meet)"\\)/.test(read("app/sitemap.ts")), "Noindex utility pages must not be advertised in sitemap")
+
 console.log(JSON.stringify({ result:"PASS", checks:"offline source integrity, internal links, canonical URL, interactive Anatomy and semantic graph", externalValidation:"not included" }))
