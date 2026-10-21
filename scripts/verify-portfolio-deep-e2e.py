@@ -35,6 +35,12 @@ async def atlas(browser,width):
         check(f"atlas {width} permalink",await p.get_by_role("link",name="Permalink to this entry").count()==1)
         await p.get_by_role("button",name="Reset").click()
         check(f"atlas {width} reset",await p.locator("#atlas-search").input_value()=="" and "node=" not in p.url)
+        if width>=600:
+            graph_controls=p.locator('svg g[role="button"]')
+            check("atlas keyboard-usable SVG nodes",await graph_controls.count()>5)
+            await graph_controls.nth(1).focus()
+            await p.keyboard.press("Enter")
+            check("atlas keyboard node selection", "node=" in p.url)
         if width<600:
             await p.locator("#atlas-mobile-node").select_option("case:banking-modernization")
             check("atlas mobile native select", "node=case" in p.url)
@@ -47,6 +53,12 @@ async def anatomy(browser,width,route,expected):
         await p.goto(BASE+route+"?stage=2#anatomy",wait_until="domcontentloaded")
         await p.get_by_role("heading",name=expected).wait_for(timeout=10000)
         check(f"{route} {width} stage deep link",True)
+        if width>=600:
+            svg_stage=p.locator('svg g[role="button"]')
+            check(f"{route} {width} keyboard stage controls",await svg_stage.count()>=4)
+            await svg_stage.nth(2).focus()
+            await p.keyboard.press("Enter")
+            check(f"{route} {width} keyboard stage selection",await svg_stage.nth(2).get_attribute("aria-pressed")=="true")
         status=p.locator('[id^="anatomy-status-"]')
         await p.get_by_role("button",name="Test interlock").click()
         check(f"{route} {width} blocked", "Blocked by one or more" in await status.inner_text())
@@ -89,6 +101,8 @@ async def accessibility(browser):
         p=await browser.new_page(viewport={"width":390,"height":844})
         try:
             await p.goto(BASE+route,wait_until="domcontentloaded")
+            await p.emulate_media(reduced_motion="reduce")
+            check("reduced-motion preference "+route,await p.evaluate("window.matchMedia('(prefers-reduced-motion: reduce)').matches"))
             await p.add_script_tag(path=AXE)
             findings=await p.evaluate("""async () => {
               const r=await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}});
