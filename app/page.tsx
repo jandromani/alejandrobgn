@@ -148,10 +148,6 @@ export default function Page() {
         </div>
       </section>
 
-      <FrontierShowcase />
-
-      <HomeSignalManifesto />
-
       {/* Complete legacy cards remain at /systems; home is a curated introduction. */}
       <section aria-labelledby="systems-heading" className="border-t border-border bg-background">
         <div className="container mx-auto flex max-w-6xl flex-col justify-between gap-6 px-4 py-10 md:flex-row md:items-center">
@@ -245,6 +241,11 @@ export default function Page() {
       </section>
 
       <div className="border-t border-border" />
+
+      {/* Independent labs follow enterprise proof, technical systems and writing. */}
+      <FrontierShowcase />
+
+      <HomeSignalManifesto />
 
       <section aria-labelledby="editorial-heading" className="border-t border-border bg-card/20">
         <div className="container mx-auto grid max-w-6xl gap-7 px-4 py-14 md:grid-cols-[1fr_auto] md:items-center">
