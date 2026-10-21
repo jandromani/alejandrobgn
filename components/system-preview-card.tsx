@@ -57,7 +57,7 @@ export function FeaturedSystemCard({ system }: { system: System }) {
   const previewTone = system.evidence ? getEvidenceTone(system.evidence) : "text-muted-foreground border-border bg-background/70"
 
   return (
-    <article className="group card-lift border border-border rounded-xl bg-card overflow-hidden hover:border-foreground/30 transition-all">
+    <article className="group card-lift evidence-card overflow-hidden hover:border-foreground/30 transition-all">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] min-h-[320px]">
 
         {/* Preview image */}
@@ -148,7 +148,7 @@ export function MediumSystemCard({ system }: { system: System }) {
   return (
     <Link
       href={`/systems/${system.slug}`}
-      className="group card-lift flex flex-col border border-border rounded-xl bg-card overflow-hidden hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="group card-lift flex flex-col evidence-card overflow-hidden hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
     >
       {/* Preview */}
       <div className="relative aspect-[3/2] border-b border-border bg-secondary overflow-hidden">
@@ -200,7 +200,7 @@ export function SmallSystemCard({ system }: { system: System }) {
   return (
     <Link
       href={`/systems/${system.slug}`}
-      className="group card-lift flex flex-col border border-border rounded-xl bg-card overflow-hidden hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="group card-lift flex flex-col evidence-card overflow-hidden hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
     >
       {/* Compact image strip */}
       {previewSrc && (
@@ -239,7 +239,7 @@ export function AppliedProductCard({ system }: { system: System }) {
   const previewTone = system.evidence ? getEvidenceTone(system.evidence) : "text-muted-foreground border-border bg-background/70"
 
   return (
-    <article className="group card-lift border border-border rounded-xl bg-card overflow-hidden hover:border-foreground/30 transition-all">
+    <article className="group card-lift evidence-card overflow-hidden hover:border-foreground/30 transition-all">
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr]">
         {/* Content first on mobile */}
         <div className="flex flex-col justify-between p-7">
@@ -310,7 +310,7 @@ export function FoundationCard({ system }: { system: System }) {
   const previewTone = system.evidence ? getEvidenceTone(system.evidence) : "text-muted-foreground border-border bg-background/70"
 
   return (
-    <article className="group card-lift border border-border rounded-xl bg-card overflow-hidden hover:border-signal-cyan/40 transition-all">
+    <article className="group card-lift evidence-card overflow-hidden hover:border-signal-cyan/40 transition-all">
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr]">
         <div className="relative border-b md:border-b-0 md:border-r border-border overflow-hidden bg-secondary min-h-[200px]">
           {previewSrc ? (
