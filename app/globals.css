@@ -153,7 +153,7 @@
 }
 
 @media (max-width: 639px) {
-  .about-lineage { width: 154%; margin-left: -30%; }
+  .about-lineage { width: 100%; margin-left: 0; min-width: 0; overflow: hidden; }
   .lineage-legend { display: none; }
   .about-lineage svg text { font-size: 8px; }
 }
