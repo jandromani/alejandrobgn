@@ -130,8 +130,8 @@ export default function BankingModernizationPage() {
               <p className="mt-2 text-sm leading-6 text-muted-foreground">Reported PoC engagement duration</p>
             </div>
             <div className="bg-card p-5">
-              <p className="font-mono text-2xl font-bold text-foreground">{enterpriseEvidence.contextReduction.value}</p>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">Team-reported reduction in working context for the scoped method, not time saved</p>
+              <p className="font-mono text-2xl font-bold text-foreground">Source-linked</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Reference scope uses source attribution and selected contracts; no unverified context-reduction headline</p>
             </div>
             <div className="col-span-2 bg-card p-5 sm:col-span-1">
               <p className="font-mono text-2xl font-bold text-foreground">{enterpriseEvidence.modernizationGates.value}</p>
