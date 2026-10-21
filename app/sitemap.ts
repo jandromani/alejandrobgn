@@ -19,6 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.87,
     },
     { url: absoluteUrl("/work"), lastModified: "2026-10-21", changeFrequency: "monthly", priority: 0.93 },
+    { url: absoluteUrl("/engineering/a2a"), lastModified: "2026-10-21", changeFrequency: "monthly", priority: 0.84 },
+    { url: absoluteUrl("/engineering/delivery-systems"), lastModified: "2026-10-21", changeFrequency: "monthly", priority: 0.75 },
     {
       url: absoluteUrl("/systems"),
       lastModified: "2026-07-24",
