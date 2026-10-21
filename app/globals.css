@@ -404,3 +404,12 @@ h4 {
 .light [class~="text-[#5b8f00]"] { color: #476700; }
 .light .text-signal-cyan { color: #076780; }
 .light .text-signal-amber { color: #755000; }
+
+/* Full-site F5 follow-up: previously dim metadata must remain legible on dark surfaces.
+   Contrast is audited on every sitemap route rather than assumed from the hero. */
+.dark [class~="text-white/25"], .dark [class~="text-white/30"],
+.dark [class~="text-white/35"], .dark [class~="text-white/40"],
+.dark [class~="text-white/45"], .dark [class~="text-white/50"] { color:rgba(255,255,255,.82) !important; }
+.dark [class~="text-muted-foreground/20"], .dark [class~="text-muted-foreground/30"],
+.dark [class~="text-muted-foreground/40"], .dark [class~="text-muted-foreground/50"] { color:hsl(var(--muted-foreground)) !important; }
+.dark [class~="text-signal-cyan/50"], .dark [class~="text-signal-green/50"] { opacity:1 !important; }
