@@ -1,3 +1,4 @@
+import { enterpriseEvidence } from "@/lib/enterprise-evidence"
 import { HeroEvidenceFlow } from "@/components/hero-evidence-flow"
 import Image from "next/image"
 import Link from "next/link"
@@ -247,9 +248,9 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
 
           <dl className="relative mt-10 grid grid-cols-2 gap-3 border-t border-border pt-5 md:ml-0">
             {[
-              ["<1mo", "team AI workflow", "activation¹", "text-[#476700] dark:text-signal-green"],
-              ["89.9%", "working context", "reduction¹", "text-foreground"],
-              ["13", "scoped quality", "gates green¹", "text-foreground"],
+              [enterpriseEvidence.deliveryTime.short, "team AI workflow", "activation¹", "text-[#476700] dark:text-signal-green"],
+              [enterpriseEvidence.contextReduction.short, "working context", "reduction¹", "text-foreground"],
+              [enterpriseEvidence.modernizationGates.short, "scoped quality", "gates green¹", "text-foreground"],
               ["11+", "years in", "engineering", "text-cyan-700 dark:text-signal-cyan"],
             ].map(([value, first, second, color], index) => (
               <div key={value + first} className="rounded-lg border border-border bg-card/35 px-3 py-3">
