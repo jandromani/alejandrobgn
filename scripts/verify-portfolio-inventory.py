@@ -18,13 +18,20 @@ EXCLUDED={"/meet","/venture-lab","/thesis"}
 issues=[]
 class Index(HTMLParser):
     def __init__(self):
-        super().__init__();self.ids=set();self.links=[];self.canonical=[];self.robots=[]
+        super().__init__();self.ids=set();self.links=[];self.canonical=[];self.robots=[];self.schema=[];self.in_schema=False
     def handle_starttag(self,tag,attrs):
         d=dict(attrs)
         if "id" in d:self.ids.add(d["id"])
         if tag=="a" and d.get("href"):self.links.append(d["href"])
         if tag=="link" and d.get("rel")=="canonical":self.canonical.append(d.get("href"))
         if tag=="meta" and d.get("name")=="robots":self.robots.append(d.get("content",""))
+        if tag=="script" and d.get("type")=="application/ld+json":self.in_schema=True
+    def handle_data(self,data):
+        if self.in_schema:
+            try:self.schema.append(json.loads(data))
+            except ValueError:fail("invalid-jsonld",data[:120])
+    def handle_endtag(self,tag):
+        if tag=="script":self.in_schema=False
 def get(path):
     try:
         with urlopen(BASE+path,timeout=25) as r:
@@ -61,6 +68,36 @@ for path,(status,html,headers) in retrieved.items():
     if path in EXCLUDED and not any("noindex" in v for v in page.robots):fail("noindex",path)
     if path in paths and path not in listed and path not in EXCLUDED and not any("noindex" in v for v in page.robots):
         fail("graph-orphan",{"path":path,"error":"Listed in public graph but missing from sitemap or noindex"})
+# Semantic consistency: structured case metrics must match the source registry.
+for path,required in [
+    ("/",{"Person","WebSite"}),
+    ("/work",{"CollectionPage","ItemList"}),
+    ("/atlas",{"CollectionPage","ItemList","BreadcrumbList"}),
+    ("/work/cybersecurity-ai-engineering",{"Article","BreadcrumbList"}),
+    ("/work/banking-modernization",{"Article","BreadcrumbList"}),
+]:
+    if path not in parsed:continue
+    scripts=parsed[path].schema
+    def walk(value, types, properties):
+        if isinstance(value,list):
+            for item in value:walk(item,types,properties)
+        elif isinstance(value,dict):
+            kind=value.get("@type")
+            if isinstance(kind,str):types.add(kind)
+            elif isinstance(kind,list):types.update(kind)
+            if isinstance(value.get("additionalProperty"),list):
+                properties.extend(value["additionalProperty"])
+            for child in value.values():walk(child,types,properties)
+    kinds=set();props=[]
+    walk(scripts,kinds,props)
+    missing=required-kinds
+    if missing:fail("semantic-types",{"path":path,"missing":sorted(missing)})
+    if path.startswith("/work/"):
+        case_claims=[m for m in metrics if m["route"]==path]
+        shown={(p.get("name"),str(p.get("value"))) for p in props if isinstance(p,dict)}
+        for m in case_claims:
+            if (m["name"],m["value"]) not in shown:fail("semantic-metric",{"route":path,"metric":m["id"]})
+
 # Critical in-document jump links should target real elements.
 for path in ["/","/work","/atlas","/work/cybersecurity-ai-engineering","/work/banking-modernization"]:
     page=parsed.get(path)
