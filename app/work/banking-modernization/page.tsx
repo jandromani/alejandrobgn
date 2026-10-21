@@ -301,7 +301,7 @@ export default function BankingModernizationPage() {
               <p className="mt-3 text-sm leading-7 text-muted-foreground"><strong className="text-foreground">Falsifiable check: </strong>{d.proof}</p>
             </article>)}
           </div>
-          <p className="mt-7 border-t border-border pt-5 text-sm leading-7 text-muted-foreground"><strong className="text-foreground">Why the 89.9% figure is not the headline: </strong>its original context-size denominator and reproducible measurement protocol are not public. This case therefore leads with the bounded PoC and quality method, not an implied time or cost saving.</p>
+          <p className="mt-7 border-t border-border pt-5 text-sm leading-7 text-muted-foreground"><strong className="text-foreground">Why no context-reduction percentage is published: </strong>its original context-size denominator and reproducible measurement protocol are not public. This case therefore leads with the bounded PoC and quality method, not an implied time or cost saving.</p>
         </section>
 
         <section className="rounded-xl border border-border bg-secondary/30 p-7 md:p-9" aria-labelledby="scope">
