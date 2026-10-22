@@ -53,7 +53,7 @@ export default function Page() {
       "@type": "WebPage", "@id": `${absoluteUrl("/")}#webpage`, url: absoluteUrl("/"),
       name: siteConfig.title, description: siteConfig.description,
       isPartOf: { "@id": websiteId }, about: { "@id": personId },
-      inLanguage: "en", dateModified: "2026-10-21",
+      inLanguage: "en", dateModified: "2026-10-22",
     }]} />
     <header className="relative overflow-hidden border-b border-border">
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-15" aria-hidden="true" />
@@ -86,19 +86,29 @@ export default function Page() {
       </div>
     </section>
 
+    <section aria-labelledby="engineering-title" className="border-b border-border bg-card/20">
+      <div className="container mx-auto max-w-6xl px-4 py-14 md:py-16">
+        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">02 / Engineering method</p>
+        <div className="mt-3 grid gap-8 md:grid-cols-[1.3fr_.7fr] md:items-center">
+          <div><h2 id="engineering-title" className="max-w-2xl text-3xl font-bold md:text-4xl">From a specification to a delivery someone can challenge.</h2><p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">Alejandría turns requirements into a traceable delivery pack. A deterministic Factoría explored source-linked modernization. AgentCycle blocked its own factory when evidence was insufficient; the SDD Kit turns that lesson into explicit review gates. Separate assets, one engineering method.</p><Link href="/engineering" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground underline underline-offset-4">Explore the method and proof boundaries <ArrowRight className="h-4 w-4" /></Link></div>
+          <div className="rounded-xl border border-border bg-background p-6"><p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">The evidence, in scope</p><p className="mt-4 font-mono text-3xl font-bold">50 → 22</p><p className="mt-1 text-sm leading-6 text-muted-foreground">requirements in the Alejandría reference pack → verifier checks on the local pipeline</p><p className="mt-5 border-t border-border pt-4 font-mono text-3xl font-bold">7/100 · blocked</p><p className="mt-1 text-sm leading-6 text-muted-foreground">AgentCycle’s self-assessment of the early factory; it refused delivery.</p><p className="mt-4 text-xs leading-6 text-muted-foreground">Private technical audit and self-produced records; not third-party client outcome measures.</p></div>
+        </div>
+      </div>
+    </section>
+
     <section aria-labelledby="method-title" className="border-b border-border bg-card/20">
       <div className="container mx-auto max-w-6xl px-4 py-14">
-        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">02 / My engineering laboratory</p>
+        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">03 / My engineering laboratory</p>
         <div className="mt-3 grid gap-8 md:grid-cols-[1.2fr_.8fr] md:items-center">
           <div><h2 id="method-title" className="text-3xl font-bold text-foreground">I test my own quality gates against independent review.</h2><p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground">My SDD Kit lost three blind comparisons on a public codebase. I used the findings to improve the review process and harden its archive hook to 225 passing shell cases. The experiment is a personal engineering asset; its failures and limits are part of the story.</p><Link href="/writing/when-my-quality-gates-lost" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground underline underline-offset-4">Read the experiment and agent workflow <ArrowRight className="h-4 w-4" /></Link></div>
-          <div className="rounded-xl border border-border bg-background p-6"><p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">29 Sep – 21 Oct 2026 / private session log</p><p className="mt-5 font-mono text-4xl font-bold text-foreground">129</p><p className="mt-2 text-sm text-muted-foreground">agent tasks directed in 14 active days</p><p className="mt-5 font-mono text-4xl font-bold text-foreground">36</p><p className="mt-2 text-sm text-muted-foreground">pull requests across five repositories</p><p className="mt-5 border-t border-border pt-4 text-xs leading-6 text-muted-foreground">Personal and professional work combined. Task and PR counts are activity measures, not accepted production changes or client outcomes.</p></div>
+          <div className="rounded-xl border border-border bg-background p-6"><p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">Blind review / public-code experiment</p><p className="mt-5 font-mono text-4xl font-bold text-foreground">3 losses</p><p className="mt-2 text-sm text-muted-foreground">against independent blind comparisons of the method</p><p className="mt-5 font-mono text-4xl font-bold text-foreground">225</p><p className="mt-2 text-sm text-muted-foreground">passing shell cases after the archive hook was hardened</p><p className="mt-5 border-t border-border pt-4 text-xs leading-6 text-muted-foreground">These are laboratory checks and a disclosed negative result, not production adoption or proof of complete gate coverage.</p></div>
         </div>
       </div>
     </section>
 
     <section aria-labelledby="services-title" className="border-b border-border bg-card/20">
       <div className="container mx-auto max-w-6xl px-4 py-14">
-        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">03 / What I do</p>
+        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">04 / What I do</p>
         <h2 id="services-title" className="mt-3 text-3xl font-bold text-foreground">From a team’s problem to a reviewable result</h2>
         <div className="mt-8 grid gap-4 md:grid-cols-3">{services.map(item => <Link key={item.title} href={item.href} className="rounded-xl border border-border bg-background p-6 hover:border-foreground/30 focus-visible:ring-2 focus-visible:ring-ring"><h3 className="text-lg font-semibold text-foreground">{item.title}</h3><p className="mt-3 text-sm leading-7 text-muted-foreground">{item.detail}</p><span className="mt-5 inline-flex items-center gap-2 text-sm text-foreground">Inspect the work <ArrowRight className="h-4 w-4" aria-hidden="true" /></span></Link>)}</div>
       </div>
@@ -106,7 +116,7 @@ export default function Page() {
 
     <section aria-labelledby="writing-title" className="border-b border-border">
       <div className="container mx-auto max-w-6xl px-4 py-14">
-        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">04 / Selected writing</p>
+        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">05 / Selected writing</p>
         <h2 id="writing-title" className="mt-3 text-3xl font-bold text-foreground">Field notes on control and evidence</h2>
         <div className="mt-7 divide-y divide-border border-y border-border">{writing.map(item => <Link href={item.href} key={item.href} className="flex flex-wrap items-center justify-between gap-3 py-5 focus-visible:ring-2 focus-visible:ring-ring"><span className="font-semibold text-foreground">{item.title}</span><span className="flex items-center gap-3 font-mono text-xs text-muted-foreground">{item.date}<ArrowRight className="h-4 w-4" aria-hidden="true" /></span></Link>)}</div>
       </div>
@@ -114,7 +124,7 @@ export default function Page() {
 
     <section aria-labelledby="source-title" className="border-b border-border bg-card/20">
       <div className="container mx-auto max-w-6xl px-4 py-14">
-        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">05 / Inspectable source</p>
+        <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">06 / Inspectable source</p>
         <h2 id="source-title" className="mt-3 text-3xl font-bold text-foreground">Engineering you can inspect</h2>
         <div className="mt-6 flex flex-wrap gap-3">
           <a href="https://github.com/jandromani/A2A" className="rounded-md border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground hover:border-foreground/40">A2A · developing platform ↗</a>
@@ -126,11 +136,11 @@ export default function Page() {
     </section>
 
     <section aria-labelledby="contact-title" className="container mx-auto max-w-6xl px-4 py-16">
-      <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">06 / Contact</p>
+      <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">07 / Contact</p>
       <h2 id="contact-title" className="mt-3 text-3xl font-bold text-foreground md:text-4xl">Let’s talk about your engineering problem.</h2>
       <p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground">Tell me what your team is trying to change, where AI enters the workflow and what a responsible person must be able to verify.</p>
       <Link href="/contact" className="mt-7 inline-flex items-center gap-2 rounded-md bg-foreground px-6 py-3 text-sm font-semibold text-background hover:opacity-90">Get in touch <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
-      <p className="mt-9 text-sm text-muted-foreground">More detail: <Link href="/experience" className="underline underline-offset-4">experience</Link> · <Link href="/systems" className="underline underline-offset-4">systems</Link> · <Link href="/labs" className="underline underline-offset-4">labs</Link> · <Link href="/atlas" className="underline underline-offset-4">evidence atlas</Link> · <Link href="/evolution" className="underline underline-offset-4">evolution</Link> · <Link href="/publications" className="underline underline-offset-4">publications</Link></p>
+      <p className="mt-9 text-sm text-muted-foreground">More detail: <Link href="/engineering" className="underline underline-offset-4">method</Link> · <Link href="/experience" className="underline underline-offset-4">experience</Link> · <Link href="/systems" className="underline underline-offset-4">systems</Link> · <Link href="/labs" className="underline underline-offset-4">labs</Link> · <Link href="/atlas" className="underline underline-offset-4">evidence atlas</Link> · <Link href="/evolution" className="underline underline-offset-4">evolution</Link> · <Link href="/publications" className="underline underline-offset-4">publications</Link></p>
     </section>
   </div>
 }

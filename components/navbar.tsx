@@ -7,7 +7,7 @@ import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 
-const core = [{name:"Work",href:"/work"},{name:"Experience",href:"/experience"},{name:"Writing",href:"/writing"},{name:"About",href:"/about"}]
+const core = [{name:"Work",href:"/work"},{name:"Method",href:"/engineering"},{name:"Experience",href:"/experience"},{name:"Writing",href:"/writing"},{name:"About",href:"/about"}]
 const explore = [{name:"Systems",href:"/systems",hint:"Prototypes, tools and their maturity"},{name:"Labs",href:"/labs",hint:"Inspect original research artifacts"},{name:"Atlas",href:"/atlas",hint:"Navigate the evidence graph"},{name:"Evolution",href:"/evolution",hint:"Timeline, confidence and provenance"},{name:"Publications",href:"/publications",hint:"Editorial work and books"}]
 const active = (path: string, href: string) => path === href || path.startsWith(href + "/")
 const itemClass = "rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"

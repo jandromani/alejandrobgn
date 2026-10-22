@@ -65,7 +65,7 @@ export default function WorkPage() {
           </Link>
         })}
       </div>
-      <p className="mt-8 max-w-3xl text-sm leading-7 text-muted-foreground">My own OpenSpec-based SDD Kit, blind evaluations and agent-direction practice are documented separately in <Link href="/writing/when-my-quality-gates-lost" className="font-semibold text-foreground underline underline-offset-4">the field note on how I test my method</Link>.</p>
+      <p className="mt-8 max-w-3xl text-sm leading-7 text-muted-foreground">The reusable thread across these bounded engagements is documented in <Link href="/engineering" className="font-semibold text-foreground underline underline-offset-4">my engineering method and evidence register</Link>. The OpenSpec-based SDD Kit and its blind evaluations have a <Link href="/writing/when-my-quality-gates-lost" className="font-semibold text-foreground underline underline-offset-4">separate field note</Link>.</p>
       <div className="mt-10 flex flex-wrap gap-4">
         <Link href="/experience" className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-semibold">Career and responsibilities <ArrowUpRight className="h-4 w-4"/></Link>
         <Link href="/atlas" className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-semibold">Evidence graph <ArrowUpRight className="h-4 w-4"/></Link>
