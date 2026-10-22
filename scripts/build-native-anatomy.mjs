@@ -13,8 +13,11 @@ mkdirSync(TARGET, { recursive: true });
 const resizeBridge = `<script>(()=>{const report=()=>parent.postMessage({kind:"portfolio-anatomy-height",height:Math.ceil(document.documentElement.scrollHeight)},"*");new ResizeObserver(report).observe(document.body);addEventListener("load",report);document.fonts?.ready.then(report);requestAnimationFrame(report)})();</script>`;
 for (const name of ["three-gates-press", "blind-review-balance", "modernization-duplicator"]) {
   const source = readFileSync(join(HERE, "..", "content", "figures", `${name}.html`), "utf8");
-  if (!source.includes("</body>")) throw new Error(`Anatomy figure ${name} is missing its body close tag`);
-  writeFileSync(join(TARGET, `${name}.html`), source.replace("</body>", `${resizeBridge}</body>`));
+  const bodyClose = source.lastIndexOf("</body>");
+  if (bodyClose < 0 || !source.slice(bodyClose).match(/^<\/body>\s*<\/html>\s*$/i)) {
+    throw new Error(`Anatomy figure ${name} is missing its final body close tag`);
+  }
+  writeFileSync(join(TARGET, `${name}.html`), source.slice(0, bodyClose) + resizeBridge + source.slice(bodyClose));
 }
 const scenes = {
  agentic: { title: "SDD quality interlock", hint: "Press 1 / 2 / 3 to lift a pin · Space to test", desc: "Three real controls model business context, specification and human review. All three must lift before the proof carriage travels. A generated PR alone is not a reviewed delivery.", names: ["Context", "Spec", "Review"], fig: "Fig A", gateLegend:"Context · Specification · Human review" },
