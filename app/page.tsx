@@ -30,7 +30,7 @@ const cases = [
     sector: "Public sector · Developer copilots",
     title: "An audited copilot package delivered to engineers",
     role: "Technical lead for the engineering copilots",
-    result: "Ten specialist skills and three agents; 12 audit rounds and 47 corrections before handover to the client team.",
+    result: "Ten specialist skills and three agents; twelve reported audit rounds with corrections documented before handover.",
     href: "/work/public-sector-copilots",
   },
 ] as const

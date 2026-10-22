@@ -68,17 +68,17 @@ function node(
 export const systemWorkflows: Record<string, SystemWorkflow> = {
   aiactmiddleware: {
     title: "Governed inference path",
-    summary: "A request becomes a governed model interaction with explicit policy gates and an evidence trail.",
-    disclosure: "Representative workflow based on the public prototype surface and stated architecture.",
+    summary: "A prototype request path illustrates classification, controls and a review state.",
+    disclosure: "Representative workflow, not a record of an authenticated production control plane or legal compliance.",
     edges: fanInEdges,
     nodes: [
       node("n1", "Input", "AI request", "A prompt arrives with the use case and runtime context needed for a governance decision.", ["request context", "use case"], "input", "The public prototype exposes governance-focused prompts through a real chat surface."),
-      node("n2", "Context", "Use-case capture", "The runtime records purpose, actor, model path, and the context required to interpret risk.", ["FastAPI", "typed context"], "agent", "Context capture is architectural; it is not a legal determination by itself."),
+      node("n2", "Context", "Use-case capture", "The proposed design supplies context needed to interpret the request.", ["request context", "use case"], "agent", "This is an architectural stage, not evidence that every field is recorded in the live demo."),
       node("n3", "Policy", "Risk signals", "Rules map the interaction to candidate risk signals and required control checks.", ["policy rules", "EU AI Act"], "control", "Signals are assistive controls and still require organisation-specific legal interpretation."),
       node("n4", "Control plane", "Policy gates", "The middleware decides which controls, disclosures, logging, or review steps must execute.", ["control plane", "guardrails"], "control", "This is the core middleware responsibility represented by the public prototype."),
       node("n5", "Runtime", "Managed model", "Approved requests continue through a server-managed model path.", ["LLM runtime", "server managed"], "model", "The public prototype explicitly identifies its server-managed runtime."),
-      node("n6", "Escalation", "Human review", "Higher-risk or ambiguous cases are routed to a human decision point.", ["review gate", "override"], "output", "A human gate is a control boundary, not a claim of automated compliance."),
-      node("n7", "Evidence", "Audit event", "Decision context, applied controls, and the resulting response are assembled into an inspectable event.", ["OpenTelemetry", "PostgreSQL"], "store", "The graph is representative; the lead screenshot remains the real public prototype."),
+      node("n6", "Escalation", "Review state", "The interface illustrates escalation of ambiguous cases.", ["review state", "human decision"], "output", "Authenticated human approval has not been established by the available demo evidence."),
+      node("n7", "Evidence", "Decision record", "The prototype displays decision data for inspection.", ["event hash", "demo state"], "store", "No complete append-only ledger, guaranteed logging or independent verification is claimed."),
     ],
   },
   agnosticengine: {

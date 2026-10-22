@@ -28,7 +28,7 @@ const cases = [
   },
   {
     category:"Public sector · Developer copilots", title:"An audited copilot package delivered to engineers.",
-    number:"47", label:"Recorded corrections across twelve audit rounds",
+    number:"12", label:"Reported audit rounds; correction totals need item-level evidence",
     description:"With a peer, I led ten specialist skills, three agents and 25 supporting references for ticket-to-spec and Java backend work.",
     limit:"Engagement records support delivery and team use; no measured organisation-wide adoption or productivity claim.",
     url:"/work/public-sector-copilots", icon:FileCheck2,
