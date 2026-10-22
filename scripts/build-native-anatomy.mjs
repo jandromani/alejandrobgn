@@ -1,4 +1,4 @@
-import { copyFileSync, mkdirSync, writeFileSync } from "node:fs";
+import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import * as k from "../.agents/skills/anatomy/kit/iso-kit.mjs";
@@ -6,9 +6,16 @@ import { kitScript } from "../.agents/skills/anatomy/scripts/inline-kit.mjs";
 const HERE = dirname(fileURLToPath(import.meta.url));
 const TARGET = join(HERE, "..", "public", "anatomy", "figures");
 mkdirSync(TARGET, { recursive: true });
-// Keep the supplied self-contained press as a tracked source. /public/anatomy is
-// generated during builds and is intentionally ignored by git.
-copyFileSync(join(HERE, "..", "content", "figures", "three-gates-press.html"), join(TARGET, "three-gates-press.html"));
+// These supplied standalone figures are tracked sources. /public/anatomy is
+// generated during builds and intentionally ignored by git. An isolated iframe
+// reports only its height to the parent, allowing the full story to be visible
+// without nested scrolling even when fonts or chapter text reflow.
+const resizeBridge = `<script>(()=>{const report=()=>parent.postMessage({kind:"portfolio-anatomy-height",height:Math.ceil(document.documentElement.scrollHeight)},"*");new ResizeObserver(report).observe(document.body);addEventListener("load",report);document.fonts?.ready.then(report);requestAnimationFrame(report)})();</script>`;
+for (const name of ["three-gates-press", "blind-review-balance", "modernization-duplicator"]) {
+  const source = readFileSync(join(HERE, "..", "content", "figures", `${name}.html`), "utf8");
+  if (!source.includes("</body>")) throw new Error(`Anatomy figure ${name} is missing its body close tag`);
+  writeFileSync(join(TARGET, `${name}.html`), source.replace("</body>", `${resizeBridge}</body>`));
+}
 const scenes = {
  agentic: { title: "SDD quality interlock", hint: "Press 1 / 2 / 3 to lift a pin · Space to test", desc: "Three real controls model business context, specification and human review. All three must lift before the proof carriage travels. A generated PR alone is not a reviewed delivery.", names: ["Context", "Spec", "Review"], fig: "Fig A", gateLegend:"Context · Specification · Human review" },
  factory: { title: "Legacy evidence lock", hint: "Press 1 / 2 / 3 to lift a pin · Space to test", desc: "A lineage, contract and reproducibility lock. Only when all three interlocks are engaged can the proof carriage travel. Deterministic generation is not functional parity.", names: ["Lineage", "Contract", "Repeatability"], fig:"Fig B", gateLegend:"Source lineage · Accepted contract · Repeatability"}
