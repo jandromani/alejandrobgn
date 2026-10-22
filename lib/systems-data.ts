@@ -737,6 +737,18 @@ export function getSystemBySlug(slug: string): System | undefined {
   return systems.find((system) => system.slug === slug)
 }
 
+// The public catalogue leads with the four systems that support the current
+// engineering narrative. Older or exploratory work remains available by URL.
+export const selectedSystemSlugs = ["aiactmiddleware", "llmtrace", "entropiccore", "aivendorcompare"] as const
+export const selectedSystems = selectedSystemSlugs
+  .map((slug) => systems.find((system) => system.slug === slug))
+  .filter((system): system is System => system !== undefined)
+
+export const earlierSystemSlugs = ["brewmatch", "healthsync", "servisenior"] as const
+export const earlierSystems = earlierSystemSlugs
+  .map((slug) => systems.find((system) => system.slug === slug))
+  .filter((system): system is System => system !== undefined)
+
 export function getSystemById(id: string): System | undefined {
   return systems.find((system) => system.id === id)
 }

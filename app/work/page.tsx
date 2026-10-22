@@ -15,7 +15,7 @@ const cases = [
   {
     category:"Cybersecurity · AI engineering", title:"AI workflows teams could use in under a month.",
     number:enterpriseEvidence.deliveryTime.value, label:"Delivery-team-reported time to use",
-    description:"Two technical peers helped activate project-aware specialist assistance, reviewable PRs and specification-driven collaboration. Human review remained central.",
+    description:"A small engineering group helped activate project-aware specialist assistance, reviewable PRs and specification-driven collaboration. Human review remained central.",
     limit:"Not an independently audited, company-wide adoption or ROI claim.",
     url:"/work/cybersecurity-ai-engineering", icon:ShieldCheck,
   },
@@ -69,7 +69,7 @@ export default function WorkPage() {
       <div className="mt-10 flex flex-wrap gap-4">
         <Link href="/experience" className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-semibold">Career and responsibilities <ArrowUpRight className="h-4 w-4"/></Link>
         <Link href="/atlas" className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-semibold">Evidence graph <ArrowUpRight className="h-4 w-4"/></Link>
-        <Link href="/contact" className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-foreground px-5 py-3 text-sm font-semibold text-background">Start a conversation <ArrowRight className="h-4 w-4"/></Link>
+        <Link href="/contact" className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-foreground px-5 py-3 text-sm font-semibold text-background">Contact me <ArrowRight className="h-4 w-4"/></Link>
       </div>
     </section>
     <RelatedEvidence id="index:work"/>

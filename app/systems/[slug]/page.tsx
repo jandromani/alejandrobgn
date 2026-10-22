@@ -443,7 +443,7 @@ export default async function SystemDetailPage({ params }: Props) {
               href="/contact"
               className="inline-flex items-center gap-2 px-5 py-2.5 border border-border text-foreground text-sm font-semibold rounded-md hover:bg-card transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              Start a conversation
+              Contact the author
             </Link>
           </div>
         </div>

@@ -77,7 +77,6 @@ export default function RootLayout({
       <html lang="en" className="bg-background" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        <link rel="preconnect" href="https://calendly.com" />
         <meta name="theme-color" content="#F3F0E8" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#090B0F" media="(prefers-color-scheme: dark)" />
       </head>

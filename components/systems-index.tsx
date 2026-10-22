@@ -3,26 +3,22 @@
 import { useState } from "react"
 import Link from "next/link"
 import { ArrowRight, LayoutGrid, Map } from "lucide-react"
-import { systems, type System } from "@/lib/systems-data"
+import { systems, selectedSystems, earlierSystems, type System } from "@/lib/systems-data"
 import { MediumSystemCard, SmallSystemCard } from "@/components/system-preview-card"
 
 type ViewMode = "map" | "gallery"
-type FilterStatus = "all" | "Live System" | "Public Demo" | "Open Source" | "Prototype" | "Research" | "Case Study"
+type FilterStatus = "all" | "Public Demo" | "Open Source"
 
 const statusFilters: Array<{ id: FilterStatus; label: string }> = [
   { id: "all",          label: "All"           },
-  { id: "Live System",  label: "Live system"   },
   { id: "Public Demo",  label: "Public demo"   },
   { id: "Open Source",  label: "Open source"   },
-  { id: "Research",     label: "Research"      },
-  { id: "Prototype",    label: "Prototype"     },
-  { id: "Case Study",   label: "Case study"    },
 ]
 
 const levelMeta: Record<number, { label: string; description: string; accent: string }> = {
-  1: { label: "Core AI Systems",           description: "Flagship platforms and core infrastructure.",             accent: "hsl(var(--signal-green))"      },
-  2: { label: "Intelligence & Products",   description: "Intelligence systems and vertical products.", accent: "hsl(var(--signal-cyan))"       },
-  3: { label: "Foundations & Open Source", description: "Open-source foundations and utilities.",                 accent: "hsl(var(--signal-amber))"      },
+  1: { label: "AI governance & reliability", description: "Control and reliability experiments.", accent: "hsl(var(--signal-green))" },
+  2: { label: "Evaluation", description: "Provider comparison with stated limits.", accent: "hsl(var(--signal-cyan))" },
+  3: { label: "Observability", description: "Historical tracing alpha with mock adapters.", accent: "hsl(var(--signal-amber))" },
   4: { label: "Venture Lab",               description: "Research projects and early experiments.",                accent: "hsl(var(--muted-foreground))"  },
 }
 
@@ -71,8 +67,8 @@ export function SystemsIndex() {
   const [filterStatus, setFilterStatus] = useState<FilterStatus>("all")
 
   const filtered = filterStatus === "all"
-    ? systems
-    : systems.filter(s => s.status === filterStatus)
+    ? selectedSystems
+    : selectedSystems.filter(s => s.status === filterStatus)
 
   const byLevel: Record<number, System[]> = { 1: [], 2: [], 3: [], 4: [] }
   filtered.forEach(s => byLevel[s.level]?.push(s))
@@ -89,7 +85,7 @@ export function SystemsIndex() {
             <div>
               <h1 className="text-5xl font-bold text-foreground mb-3">AI Systems</h1>
               <p className="text-lg text-muted-foreground max-w-2xl">
-                Frameworks, products, tools, and platforms built against real constraints. Every preview is labeled so you can tell a live surface from a representative or conceptual artefact.
+                Four selected projects on AI governance, reliability, observability and evaluation. Each page states what the public artifact demonstrates and what it does not.
               </p>
             </div>
             {/* View toggle */}
@@ -124,7 +120,7 @@ export function SystemsIndex() {
         {/* Filter bar */}
         <nav aria-label="Filter by status" className="space-y-3">
           <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
-            {view === "gallery" ? "Filter by status" : "Filter by domain"}
+            Filter by status
           </p>
           <div className="flex flex-wrap gap-2">
             {statusFilters.map(f => (
@@ -175,7 +171,7 @@ export function SystemsIndex() {
         {view === "gallery" && (
           <div className="space-y-16">
             {[1, 2, 3, 4].map(level => {
-              const levelSystems = byLevel[level]?.filter(s => s.featured)
+              const levelSystems = byLevel[level]
               if (!levelSystems?.length) return null
               const meta = levelMeta[level]
               return (
@@ -212,17 +208,33 @@ export function SystemsIndex() {
           </div>
         )}
 
-        {/* CTA */}
+        <section className="border-t border-border pt-10" aria-labelledby="archive-heading">
+          <h2 id="archive-heading" className="text-xl font-bold text-foreground">Earlier experiments</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-7 text-muted-foreground">BrewMatch, HealthSync and ServiSenior remain part of the project history. They are not presented as evidence of the current AI engineering practice.</p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            {earlierSystems.map(system => <Link key={system.slug} href={`/systems/${system.slug}`} className="rounded-md border border-border px-4 py-2 text-sm text-foreground hover:border-foreground/40">{system.name} ↗</Link>)}
+          </div>
+          <details className="mt-6 text-sm text-muted-foreground">
+            <summary className="cursor-pointer font-medium text-foreground">Other exploratory systems</summary>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {systems.filter(system => !selectedSystems.includes(system) && !earlierSystems.includes(system)).map(system =>
+                <Link key={system.slug} href={`/systems/${system.slug}`} className="rounded-md border border-border px-4 py-2 text-sm text-foreground hover:border-foreground/40">{system.name} ↗</Link>
+              )}
+            </div>
+          </details>
+        </section>
+
+        {/* Professional contact */}
         <div className="border-t border-border pt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-            <h2 className="text-xl font-bold text-foreground">Interested in one of these systems?</h2>
-            <p className="text-sm text-muted-foreground mt-1">Open to integrations, collaborations, and serious technical conversations.</p>
+            <h2 className="text-xl font-bold text-foreground">Discuss the engineering ideas</h2>
+            <p className="text-sm text-muted-foreground mt-1">A personal portfolio of projects and research, open to professional exchange.</p>
           </div>
           <Link
-            href="/meet"
+            href="/contact"
             className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background text-sm font-semibold rounded-md hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring flex-shrink-0"
           >
-            Book a session
+            Contact me
             <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </Link>
         </div>

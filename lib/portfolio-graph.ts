@@ -51,8 +51,8 @@ const editorialNodes: PortfolioNode[] = [
   { id: "index:atlas", title: "Engineering Atlas", kind: "index", href: "/atlas", description: "Visual and machine-readable navigation of the editorial graph." },
   { id: "index:thesis", title: "Engineering principles", kind: "index", href: "/thesis", description: "The operating principles behind the public technical systems." },
   { id: "index:venture-lab", title: "Venture lab", kind: "index", href: "/venture-lab", description: "An exploratory catalogue of commercially-oriented AI prototypes." },
-  { id: "index:meet", title: "Book a session", kind: "index", href: "/meet", description: "An alternative professional contact path." },
-  { id: "index:contact", title: "Start a conversation", kind: "index", href: "/contact", description: "Professional contact and optional scheduling." },
+  { id: "index:meet", title: "Professional contact", kind: "index", href: "/meet", description: "A legacy route that redirects to professional contact." },
+  { id: "index:contact", title: "Professional contact", kind: "index", href: "/contact", description: "Contact for research and technical discussion." },
 ]
 
 export const portfolioNodes: PortfolioNode[] = [

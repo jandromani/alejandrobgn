@@ -15,7 +15,7 @@ const cases = [
   {
     sector: "Cybersecurity · AI-assisted delivery",
     title: "A team using AI workflows within a month",
-    role: "One of two engineers establishing the delivery nucleus with the client team",
+    role: "Engineering contributor establishing the delivery workflow with the team",
     result: "Project-aware assistants, agent-proposed PRs and an adapted specification-and-review process were put into use by the participating team.",
     href: "/work/cybersecurity-ai-engineering",
   },
@@ -29,7 +29,7 @@ const cases = [
   {
     sector: "Public sector · Developer copilots",
     title: "An audited copilot package delivered to engineers",
-    role: "Technical lead for the engineering copilots, working with one peer",
+    role: "Technical lead for the engineering copilots",
     result: "Ten specialist skills and three agents; 12 audit rounds and 47 corrections before handover to the client team.",
     href: "/work/public-sector-copilots",
   },
@@ -140,9 +140,9 @@ export default function Page() {
 
     <section aria-labelledby="contact-title" className="container mx-auto max-w-6xl px-4 py-16">
       <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">08 / Contact</p>
-      <h2 id="contact-title" className="mt-3 text-3xl font-bold text-foreground md:text-4xl">Let’s talk about your engineering problem.</h2>
-      <p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground">Tell me what your team is trying to change, where AI enters the workflow and what a responsible person must be able to verify.</p>
-      <Link href="/contact" className="mt-7 inline-flex items-center gap-2 rounded-md bg-foreground px-6 py-3 text-sm font-semibold text-background hover:opacity-90">Get in touch <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+      <h2 id="contact-title" className="mt-3 text-3xl font-bold text-foreground md:text-4xl">Connect around engineering and research.</h2>
+      <p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground">This is a personal record of my work and experiments. I welcome professional conversations about technical leadership, research and the ideas documented here.</p>
+      <Link href="/contact" className="mt-7 inline-flex items-center gap-2 rounded-md bg-foreground px-6 py-3 text-sm font-semibold text-background hover:opacity-90">Contact me <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
       <p className="mt-9 text-sm text-muted-foreground">More detail: <Link href="/engineering" className="underline underline-offset-4">method</Link> · <Link href="/experience" className="underline underline-offset-4">experience</Link> · <Link href="/systems" className="underline underline-offset-4">systems</Link> · <Link href="/labs" className="underline underline-offset-4">labs</Link> · <Link href="/atlas" className="underline underline-offset-4">evidence atlas</Link> · <Link href="/evolution" className="underline underline-offset-4">evolution</Link> · <Link href="/publications" className="underline underline-offset-4">publications</Link></p>
     </section>
   </div>

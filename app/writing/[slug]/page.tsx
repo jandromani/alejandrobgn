@@ -149,7 +149,7 @@ export default async function WritingArticlePage({ params }: Props) {
           </Button>
           <Button asChild>
             <Link href="/contact">
-              Start a conversation
+              Contact the author
               <ExternalLink className="w-4 h-4 ml-2" aria-hidden="true" />
             </Link>
           </Button>

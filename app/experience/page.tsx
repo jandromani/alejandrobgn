@@ -206,7 +206,7 @@ export default function ExperiencePage() {
               What changed for the engineering team
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
-              Two sector-anonymized engagements, with a clear distinction between personal contribution,
+              Three sector-anonymized cases, with a clear distinction between personal contribution,
               collaborative outcomes and the evidence actually demonstrated.
             </p>
           </div>
@@ -216,7 +216,7 @@ export default function ExperiencePage() {
           >
             <div className="max-w-3xl">
               <p className="font-mono text-xs uppercase tracking-wider text-signal-green">
-                Cybersecurity sector · August 2026 · AI-assisted engineering
+                Cybersecurity sector · AI-assisted engineering
               </p>
               <h3 className="mt-3 text-xl font-semibold text-foreground md:text-2xl">
                 From zero project context to team-level AI-assisted delivery.

@@ -19,14 +19,14 @@ export const enterpriseEvidence = {
     value:"<1 month",short:"<1mo",
     name:"Time to AI workflow use",
     provenance:"Delivery-team account",
-    scope:"Participating engineering workflows; August 2026 engagement",
+    scope:"Participating engineering workflows in a bounded engagement",
     caveat:"Not independently audited company-wide adoption or measured ROI",
     route:"/work/cybersecurity-ai-engineering",
   },
   deliveryPeers: {
-    id:"delivery-peers",value:"2 peers",short:"2",
+    id:"delivery-peers",value:"Small team",short:"Team",
     name:"Initial technical delivery nucleus",provenance:"Delivery-team account",
-    scope:"Two collaborating engineering practitioners, not the full client team",
+    scope:"A focused technical group, not the full client team",
     caveat:"Not a headcount for all participating engineers",route:"/work/cybersecurity-ai-engineering",
   },
   deliveryRoles: {

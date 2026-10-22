@@ -11,7 +11,7 @@ import { absoluteUrl, breadcrumbJsonLd, createPageMetadata, personId, websiteId 
 
 const urlPath = "/work/cybersecurity-ai-engineering"
 const description =
-  "An anonymized account of a cybersecurity engineering engagement: two technical peers helped a new team adopt agent-assisted development, shared project context and human-reviewed delivery practices in under one month."
+  "An anonymized account of engineering enablement in the cybersecurity sector: a small technical group helped a team use agent-assisted development, shared project context and human-reviewed delivery practices in under one month."
 
 export const metadata: Metadata = createPageMetadata({
   title: "AI-enabled engineering in under one month · Enterprise case",
@@ -67,7 +67,7 @@ const deliverySteps = [
 ] as const
 
 const personalContributions = [
-  "Co-established the focused technical delivery nucleus with a colleague.",
+  "Helped establish the focused technical delivery group.",
   "Helped define the working agreements and collaboration rhythm with the client engineering team.",
   "Contributed directly to project knowledge capture, role-specific assistance, agent PR workflows and adapting SDD to delivery.",
   "Supported hands-on enablement so the participating engineers could work with the resulting system.",
@@ -140,7 +140,7 @@ export default function CybersecurityEngineeringCasePage() {
           </div>
 
           <p className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
-            In August 2026, two technical peers formed a delivery nucleus with an unfamiliar engineering team.
+            A small technical group joined an unfamiliar engineering team.
             We established shared project knowledge, role-specific assistance, agent-driven pull requests
             and an adapted specification-and-review workflow — with team-level use in under one month.
           </p>

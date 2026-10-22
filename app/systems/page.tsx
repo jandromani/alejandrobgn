@@ -2,10 +2,10 @@ import { RelatedEvidence } from "@/components/related-evidence"
 import type { Metadata } from "next"
 import { SystemsIndex } from "@/components/systems-index"
 import { JsonLd } from "@/components/json-ld"
-import { systems } from "@/lib/systems-data"
+import { selectedSystems } from "@/lib/systems-data"
 import { absoluteUrl, createPageMetadata, personId, websiteId } from "@/lib/seo"
 
-const description = "A catalogue of AI governance, agent orchestration, observability, reliability, safety, intelligence, and vertical product systems—with evidence labels and honest limits."
+const description = "Four selected systems on AI governance, reliability, observability and provider comparison, with evidence labels and honest limits."
 
 export const metadata: Metadata = createPageMetadata({
   title: "AI Systems Catalogue",
@@ -16,7 +16,7 @@ export const metadata: Metadata = createPageMetadata({
 })
 
 export default function SystemsPage() {
-  const orderedSystems = [...systems].sort((a, b) => a.order - b.order)
+  const orderedSystems = selectedSystems
 
   return (
     <>
