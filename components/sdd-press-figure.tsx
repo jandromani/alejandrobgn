@@ -11,7 +11,7 @@ export function SddPressFigure() {
         title="Interactive three-gate press: a visual simulation of the SDD Kit"
         loading="lazy"
         sandbox="allow-scripts"
-        className="h-[1320px] w-full border-0 sm:h-[1250px]"
+        className="h-[1460px] w-full border-0 sm:h-[1370px]"
       />
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border px-5 py-4 text-xs leading-5 text-muted-foreground sm:px-7">
         <span>This is an animated explanation. It does not run validators or authorize a real change.</span>
