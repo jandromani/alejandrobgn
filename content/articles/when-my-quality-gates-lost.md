@@ -12,6 +12,12 @@ The blind reviews were harsher. Reviewers found weaknesses in both implementatio
 
 The documented iteration produced roughly **30 improvements** across the experiment and follow-up work, including changes to the kit and its archive hook. These are process improvements from a personal experiment, not a measured productivity gain in a client team. The independent review gave me a much better signal than a self-assessed demonstration would have.
 
+## How the method evolved
+
+The SDD Kit is the compact expression of a longer line of engineering work. In separate internal projects, I first used a canonical brief with numbered requirements and deterministic checks, then a modernization factory with release gates and a source-linked evidence registry, and then a governance cycle willing to block its own delivery when evidence was weak. Those were distinct systems, built in different contexts; they are not one integrated product or codebase. Their shared rule is simple: a generated result is not a completed change until a person can inspect the specification, the work and the decision record.
+
+The factory case records **23,811 evidence entries**, of which **22,995** link a file, line and hash together. That distinction matters more than quoting the larger number alone. The governance prototype even rated a trial run **7/100 and blocked delivery**. These records document the checks and the willingness to stop; they do not establish client business impact or independent adoption of the later SDD Kit. The [anonymized modernization case](/work/banking-modernization) explains the factory's scope and limitations.
+
 ## Three human decisions, one enforceable boundary
 
 The kit follows a change from **Ready** through implementation to **Done** and **Archive**. Ready asks whether the change has enough context to start. Done asks a person to review implementation against the intended behavior and evidence. Archive records the final verdict. Agents can prepare material and point out problems; they do not sign the human decision.

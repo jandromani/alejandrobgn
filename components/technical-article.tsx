@@ -1,6 +1,7 @@
 import type { ReactNode } from "react"
 import { ArticleDiagram } from "@/components/article-diagrams"
 import { ArticleEvidenceFigure } from "@/components/article-evidence-figures"
+import { SddPressFigure } from "@/components/sdd-press-figure"
 
 type Block =
   | { type: "heading"; level: number; text: string; id: string }
@@ -149,6 +150,7 @@ export function TechnicalArticle({ markdown, articleSlug }: { markdown: string; 
                 </Heading>
                 <ArticleDiagram headingId={block.id} articleSlug={articleSlug} />
                 <ArticleEvidenceFigure headingId={block.id} articleSlug={articleSlug} />
+                {articleSlug === "when-my-quality-gates-lost" && block.id === "three-human-decisions-one-enforceable-boundary" && <SddPressFigure />}
               </div>
             )
           }
