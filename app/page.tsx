@@ -54,7 +54,7 @@ export default function Page() {
       "@type": "WebPage", "@id": `${absoluteUrl("/")}#webpage`, url: absoluteUrl("/"),
       name: siteConfig.title, description: siteConfig.description,
       isPartOf: { "@id": websiteId }, about: { "@id": personId },
-      inLanguage: "en", dateModified: "2026-10-22",
+      inLanguage: "en", dateModified: "2026-10-23",
     }]} />
     <header className="relative overflow-hidden border-b border-border">
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-15" aria-hidden="true" />
@@ -65,6 +65,7 @@ export default function Page() {
         <div className="mt-9 flex flex-wrap gap-3">
           <Link href="/work/cybersecurity-ai-engineering" className="inline-flex items-center gap-2 rounded-md bg-[#90d900] px-6 py-3 text-sm font-semibold text-[#090b0f] hover:bg-[#9cec00] focus-visible:ring-2 focus-visible:ring-ring">Read the cybersecurity case <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
           <Link href="/contact" className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:border-foreground/40 focus-visible:ring-2 focus-visible:ring-ring">Start a conversation <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+          <a href="/Alejandro-Baratas-CV.pdf" download className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:border-foreground/40 focus-visible:ring-2 focus-visible:ring-ring">Download CV · PDF <ArrowRight className="h-4 w-4" aria-hidden="true" /></a>
         </div>
         <p className="mt-10 border-t border-border pt-5 text-sm text-muted-foreground">11+ years in software engineering <span className="mx-3 text-border">/</span> AI enablement at Ayesa <span className="mx-3 text-border">/</span> HPE · NTT DATA · Ayesa · knowmad mood</p>
       </div>

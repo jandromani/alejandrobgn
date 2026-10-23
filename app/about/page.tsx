@@ -38,7 +38,7 @@ function CapabilityGraphic({ color }: { color: string }) {
 
 export default function AboutPage() {
   return <div className="min-h-screen bg-background">
-    <JsonLd data={[personJsonLd(), { "@type": "ProfilePage", "@id": `${absoluteUrl("/about")}#profile`, url: absoluteUrl("/about"), name: "About Alejandro Baratas", description: aboutDescription, mainEntity: { "@id": personId }, isPartOf: { "@id": websiteId }, dateModified: "2026-08-03", inLanguage: "en" }, { ...breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "About", path: "/about" }]), "@id": `${absoluteUrl("/about")}#breadcrumb` }]} />
+    <JsonLd data={[personJsonLd(), { "@type": "ProfilePage", "@id": `${absoluteUrl("/about")}#profile`, url: absoluteUrl("/about"), name: "About Alejandro Baratas", description: aboutDescription, mainEntity: { "@id": personId }, isPartOf: { "@id": websiteId }, dateModified: "2026-10-23", inLanguage: "en" }, { ...breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "About", path: "/about" }]), "@id": `${absoluteUrl("/about")}#breadcrumb` }]} />
 
     <section className="about-poster relative overflow-hidden border-b border-border">
       <div className="about-registration" aria-hidden="true" />
@@ -46,7 +46,8 @@ export default function AboutPage() {
         <div className="relative z-10 flex flex-col justify-center border-border py-16 lg:border-r lg:pr-12">
           <p className="font-mono text-xs font-semibold uppercase tracking-[.24em] text-signal-green">About / systems thinking</p>
           <h1 className="mt-7 max-w-[620px] text-[clamp(3.2rem,5.1vw,6rem)] font-bold leading-[.93] tracking-[-.06em] text-foreground">I started by reading territories. <span className="text-muted-foreground">I now design systems.</span></h1>
-          <p className="mt-7 max-w-[540px] text-base leading-8 text-muted-foreground">I connect geography and spatial thinking to software architecture, then extend it into production AI—where intent becomes action under uncertainty. My work lives at the intersection of design, control and evidence.</p>
+          <p className="mt-7 max-w-[540px] text-base leading-8 text-muted-foreground">I’m Alejandro Baratas, an AI Tech Lead at knowmad mood with eleven years in software engineering. I started in geographic systems, built enterprise Java and cloud platforms, and now help teams use project-aware agents with specifications, reviewable changes and human approval. I publish what the work demonstrates, including failed comparisons and the limits of internal evidence.</p>
+          <a href="/Alejandro-Baratas-CV.pdf" download className="mt-6 inline-flex w-fit items-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-semibold text-foreground hover:border-foreground/40 focus-visible:ring-2 focus-visible:ring-ring">Download CV · PDF <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></a>
           <div className="mt-9 flex items-center gap-3 font-mono text-xs text-muted-foreground"><span className="relative flex h-6 w-6 items-center justify-center"><span className="absolute h-6 w-px bg-signal-green"/><span className="absolute h-px w-6 bg-signal-green"/><span className="h-2 w-2 rounded-full border border-signal-green"/></span>40.4168° N · 3.7038° W <span className="text-border">/</span> Madrid · Remote</div>
           <p className="mt-12 font-mono text-xs uppercase tracking-[.18em] text-foreground/45">Alejandro Baratas · AI Systems Architect · Tech Lead</p>
         </div>

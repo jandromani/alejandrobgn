@@ -24,13 +24,13 @@ const experience = [
     location: "Madrid · Remote",
     current: true,
     description:
-      "Leading the definition, architecture and activation of AI solutions across business and technology units, from adoption strategy and pre-sales to scalable delivery and executive enablement.",
+      "Contributing to knowmad mood's AI CoE and enterprise delivery: an OpenSpec-based SDD Kit, project-aware agent workflows, source-linked modernization and human review gates. Published case studies separate local checks from client outcomes.",
     highlights: [
-      "AI adoption strategy",
-      "Multi-agent · RAG · copilots",
-      "AI offerings and pre-sales",
-      "Executive enablement",
-      "Business impact",
+      "SDD Kit · quality gates",
+      "Project-aware agent workflows",
+      "Source-linked modernization",
+      "Reviewable evidence",
+      "Team enablement",
     ],
   },
   {
@@ -156,7 +156,7 @@ export default function ExperiencePage() {
               })),
             },
             isPartOf: { "@id": websiteId },
-            dateModified: "2026-07-24",
+            dateModified: "2026-10-23",
             inLanguage: "en",
           },
           {
@@ -178,6 +178,7 @@ export default function ExperiencePage() {
           <p className="text-lg text-muted-foreground max-w-2xl">
             From GIS and enterprise backends to AI governance platforms. A narrative thread from geographic thinking to agentic systems.
           </p>
+          <a href="/Alejandro-Baratas-CV.pdf" download className="mt-6 inline-flex items-center gap-2 rounded-md border border-border bg-card px-4 py-2 text-sm font-semibold text-foreground hover:border-foreground/40 focus-visible:ring-2 focus-visible:ring-ring">Download CV · PDF <ArrowRight className="h-4 w-4" aria-hidden="true" /></a>
         </div>
       </header>
 
