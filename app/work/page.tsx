@@ -27,9 +27,9 @@ const cases = [
     url:"/work/banking-modernization", icon:GitBranch,
   },
   {
-    category:"Public sector · Developer copilots", title:"An audited copilot package delivered to engineers.",
+    category:"Public sector · Developer copilots", title:"An audited agent package prepared for handover.",
     number:"12", label:"Reported audit rounds; correction totals need item-level evidence",
-    description:"With a peer, I led ten specialist skills, three agents and 25 supporting references for ticket-to-spec and Java backend work.",
+    description:"With a peer, I led the Java backend agent package (ten skills, three agents and 25 references) and a separate ticket-to-spec package.",
     limit:"Engagement records support delivery and team use; no measured organisation-wide adoption or productivity claim.",
     url:"/work/public-sector-copilots", icon:FileCheck2,
   },

@@ -249,8 +249,8 @@ export function HomeOperatingDossier({ mode = "all" }: { mode?: "hero" | "techni
           <dl className="relative mt-10 grid grid-cols-2 gap-3 border-t border-border pt-5 md:ml-0">
             {[
               [enterpriseEvidence.deliveryTime.short, "team AI workflow", "activation¹", "text-[#476700] dark:text-signal-green"],
-              [enterpriseEvidence.contextReduction.short, "working context", "reduction¹", "text-foreground"],
-              [enterpriseEvidence.modernizationGates.short, "scoped quality", "gates green¹", "text-foreground"],
+              [enterpriseEvidence.modernizationLineage.short, "linked source", "records¹", "text-foreground"],
+              [enterpriseEvidence.modernizationRepeatability.short, "files compared", "across runs¹", "text-foreground"],
               ["11+", "years in", "engineering", "text-cyan-700 dark:text-signal-cyan"],
             ].map(([value, first, second, color], index) => (
               <div key={value + first} className="rounded-lg border border-border bg-card/35 px-3 py-3">

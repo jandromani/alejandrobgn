@@ -40,13 +40,13 @@ const experience = [
     location: "Madrid, Spain",
     current: false,
     description:
-      "Drove Generative AI adoption across a large engineering organisation of more than 250 engineers, combining transversal R&D, technical leadership and hands-on delivery of pilots and production-ready solutions.",
+      "Drove Generative AI adoption across a large engineering organisation, combining transversal R&D, technical leadership and hands-on delivery of pilots and production-ready solutions.",
     highlights: [
       "LLM integration architecture",
       "Agent orchestration design",
       "Governance layer implementation",
       "Cost optimisation strategies",
-      "AI enablement across 250+ engineers",
+      "AI enablement across engineering teams",
     ],
   },
   {
@@ -99,7 +99,7 @@ const experience = [
     current: false,
     description:
       "Developed geospatial solutions for enterprise and industrial use cases, building custom GIS tools and automating spatial workflows across integrated systems.",
-    highlights: ["ArcGIS JavaScript API", "FME automation", "REST · SOAP", "40%+ workflow reduction"],
+    highlights: ["ArcGIS JavaScript API", "FME automation", "REST · SOAP", "Spatial workflow automation"],
   },
   {
     company: "Esri España",

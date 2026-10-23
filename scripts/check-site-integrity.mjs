@@ -85,7 +85,7 @@ for (const path of ["/thesis","/venture-lab","/meet"]) {
 }
 
 const metricLedger=read("lib/enterprise-evidence.ts")
-for (const key of ["deliveryTime","deliveryPeers","deliveryRoles","modernizationDuration","contextReduction","modernizationGates"]) {
+for (const key of ["deliveryTime","deliveryPeers","deliveryRoles","modernizationLineage","modernizationRepeatability"]) {
   assert.ok(metricLedger.includes(key+":"), "Public evidence claim not registered: "+key)
 }
 assert.ok(metricLedger.includes("NOT") || metricLedger.includes("independently"),"Evidence provenance and scope disclosure missing")

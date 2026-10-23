@@ -82,9 +82,9 @@ export const portfolioNodes: PortfolioNode[] = [
 ]
 
 const explicitEdges: PortfolioEdge[] = [
-  { from:"case:public-sector-copilots", to:"writing:when-my-quality-gates-lost", relation:"method", why:"Related practice of agent roles, audit and human review; a separate personal experiment." },
+  { from:"case:public-sector-copilots", to:"writing:when-my-quality-gates-lost", relation:"method", why:"Related practice of agent roles, audit and human review; a separate AI CoE experiment." },
   { from:"index:work", to:"case:public-sector-copilots", relation:"evidence", why:"Anonymized delivery and audit account." },
-  { from:"index:writing", to:"writing:when-my-quality-gates-lost", relation:"evidence", why:"Personal OpenSpec-based SDD Kit, blind review and session log." },
+  { from:"index:writing", to:"writing:when-my-quality-gates-lost", relation:"evidence", why:"AI CoE SDD Kit, bounded agent review and private session log." },
   { from:"writing:when-my-quality-gates-lost", to:"lab:openspec", relation:"method", why:"Public explanatory lab for the specification workflow; distinct from the private kit and experiment." },
   { from:"case:banking-modernization", to:"writing:when-my-quality-gates-lost", relation:"theme", why:"Both distinguish repeatable engineering checks from functional acceptance." },
   { from:"case:cybersecurity-ai-engineering", to:"lab:openspec", relation:"method", why:"Specifications, context and human-review gates — illustrative method, not client runtime." },
@@ -120,7 +120,7 @@ const explicitEdges: PortfolioEdge[] = [
   { from:"index:atlas", to:"index:labs", relation:"context", why:"The atlas helps navigate the preserved research archive." },
   { from:"index:thesis", to:"writing:governing-agentic-systems", relation:"context", why:"Operating principles reflected in long-form technical writing." },
   { from:"index:venture-lab", to:"system:agnosticengine", relation:"context", why:"A commercially-oriented application also represented in the system catalogue." },
-  { from:"index:meet", to:"index:contact", relation:"context", why:"Scheduling is one optional contact route." },
+  { from:"index:meet", to:"index:contact", relation:"context", why:"Email is the main contact route." },
   { from:"index:contact", to:"index:experience", relation:"context", why:"Contact follows inspection of responsibilities and evidence." },
 ]
 

@@ -99,7 +99,7 @@ export const systemWorkflows: Record<string, SystemWorkflow> = {
   entropiccore: {
     title: "Entropy regulation loop",
     summary: "Agent state is measured, compared with policy, and corrected before instability compounds.",
-    disclosure: "Representative control loop; package version and test counts come from the public proof surface.",
+    disclosure: "Representative control loop. The linked landing states its own version and test counts; its source link was unavailable to this audit, so those claims remain unverified.",
     edges: fanInEdges,
     nodes: [
       node("n1", "Runtime", "Agent state", "The running agent exposes the state and signals needed for stability analysis.", ["agent state", "runtime"], "input", "The graph explains the package concept; it is not a claim of one universal stability metric."),
@@ -118,7 +118,7 @@ export const systemWorkflows: Record<string, SystemWorkflow> = {
     edges: fanInEdges,
     nodes: [
       node("n1", "Target", "Model config", "The evaluator receives a target configuration and user-provided model access path.", ["BYOK", "target config"], "input", "The public product describes a bring-your-own-key, browser-local model."),
-      node("n2", "Library", "Attack protocols", "Selected adversarial protocols define the behaviours the evaluation will probe.", ["700+ protocols", "red teaming"], "store", "The protocol count is a current public product claim, not an external certification."),
+      node("n2", "Library", "Attack protocols", "Selected adversarial protocols define the behaviours the evaluation will probe.", ["107 base protocols", "red teaming"], "store", "The protocol count is a current public product claim, not an external certification."),
       node("n3", "Context", "Persona + environment", "Personas and environments shape the scenario in which each protocol is executed.", ["personas", "environments"], "agent", "The public product lists multiple personas and environments as evaluation dimensions."),
       node("n4", "Execution", "Local evaluator", "The browser orchestrates prompts and model responses without a PsycheOS server receiving the test data.", ["browser local", "zero server"], "model", "Browser-local and no-telemetry are stated properties of the public surface."),
       node("n5", "Analysis", "Behaviour scoring", "Observed responses are mapped to risk dimensions and severity signals.", ["risk scoring", "signals"], "agent", "Scores support investigation; they do not replace domain-specific safety review."),
@@ -164,7 +164,7 @@ export const systemWorkflows: Record<string, SystemWorkflow> = {
     nodes: [
       node("n1", "Input", "Taste intent", "The buyer describes flavour, brew method, caffeine preference, and what is wrong in the cup.", ["taste", "brew context"], "input", "The live public product exposes taste and discovery entry points."),
       node("n2", "Profile", "Intent interpreter", "Natural preferences are translated into a reusable roast and preparation profile.", ["intent model", "profile"], "agent", "The profile is guidance for discovery, not a guarantee of taste."),
-      node("n3", "Catalog", "Coffee offers", "Merchant offers are normalised with roast, origin, process, and availability signals.", ["1,487 offers", "catalog"], "store", "Offer and recommendation-ready counts are public product counters and can change."),
+      node("n3", "Catalog", "Coffee offers", "Merchant offers are normalised with roast, origin, process, and availability signals.", ["1,487 offers", "catalog"], "store", "The offer count is from a June 2026 snapshot, not a live inventory."),
       node("n4", "Decision", "Match engine", "The taste profile and catalog attributes produce ranked, explainable candidate coffees.", ["matching", "ranking"], "agent", "Recommendation quality depends on catalog detail and user input."),
       node("n5", "Experience", "Coffee guidance", "The product explains the match with roast guidance, brew tips, and buying keywords.", ["Next.js", "explanations"], "output", "The output helps the buyer decide before leaving the product."),
       node("n6", "Commerce", "Offer routing", "High-intent users are routed to the merchant that owns price, stock, checkout, and fulfilment.", ["merchant link", "handoff"], "output", "BrewMatch does not claim to sell coffee or manage fulfilment."),

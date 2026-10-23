@@ -8,15 +8,15 @@ import { AnimatedFigureFrame } from "@/components/animated-figure-frame"
 const figures = [
   {
     number: "01", label: "Three gates", title: "A change must earn its archive decision",
-    context: "The SDD Kit makes readiness, completion and adversarial review visible. Sabotage mode illustrates how a flawed change is held before archive.",
+    context: "The SDD Kit makes readiness, completion and adversarial review visible. Sabotage mode is illustrative; in the historical seeded test the entry gate returned NOT READY for all four remaining defects.",
     src: "/anatomy/figures/three-gates-press.html", source: "/writing/when-my-quality-gates-lost", sourceLabel: "SDD field note",
     boundary: "Animated model: the gates do not execute real checks, authorize a change or prove that a person signed it.",
   },
   {
-    number: "02", label: "Blind review", title: "The method lost three rounds",
-    context: "A balance replays the two recorded score pairs, 23–28 and 26–28, and the third loss whose exact score was not preserved.",
+    number: "02", label: "Blind review", title: "Two scored comparisons lost",
+    context: "A balance replays the two scored plan comparisons, 23–28 and 26–28. Its third beat is an illustration, not another scored loss.",
     src: "/anatomy/figures/blind-review-balance.html", source: "/writing/when-my-quality-gates-lost", sourceLabel: "Experiment and findings",
-    boundary: "One controlled change and blind reviews; the comparison does not measure general productivity.",
+    boundary: "AI-agent judges assessed plans with partial blinding; the experiment does not measure general productivity.",
   },
   {
     number: "03", label: "Repeatable copies", title: "Reproducibility is one proof, not a migration",

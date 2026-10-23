@@ -21,7 +21,7 @@ const executionLabels: Record<ProductEvidence["executionType"], { label: string;
 }
 
 const codeLabels: Record<ProductEvidence["codeVisibility"], { label: string }> = {
-  public:   { label: "Public — open source" },
+  public:   { label: "Public source (licence varies)" },
   private:  { label: "Private"              },
   selected: { label: "Selected disclosure"  },
 }

@@ -59,7 +59,7 @@ export default function AtlasPage() {
     </section>
     <section className="border-t border-border bg-card/20">
       <div className="container mx-auto max-w-6xl px-4 py-12 md:py-16">
-        <h2 className="text-2xl font-bold">Start with the two enterprise cases</h2>
+        <h2 className="text-2xl font-bold">Start with the three enterprise cases</h2>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">The clearest account of what was owned, what changed and what remains unproven.</p>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {portfolioNodes.filter(n => n.kind === "case").map(n => (

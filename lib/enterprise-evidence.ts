@@ -35,30 +35,24 @@ export const enterpriseEvidence = {
     scope:"Backend, frontend, QA and Gherkin assistance workflows",
     caveat:"Not four independent production agents",route:"/work/cybersecurity-ai-engineering",
   },
-  modernizationDuration: {
-    id:"modernization-duration",value:"4 weeks",short:"4w",
-    name:"PoC duration",provenance:"Engineering-team account",
-    scope:"Time spent in the bounded reference-module engagement",
-    caveat:"Not a full system migration or a production release",route:"/work/banking-modernization",
-  },
-  contextReduction: {
-    id:"context-reduction",value:"89.9%",short:"89.9%",
-    name:"Reduction in working context",provenance:"Engineering-team process measurement",
-    scope:"Working context used in the evaluated method within a reference scope",
-    caveat:"Not 89.9% less engineering time, cost or token spend; baseline source is not public",
+  modernizationLineage: {
+    id:"modernization-lineage", value:"22,995 / 23,811",short:"22,995",
+    name:"Records with file, line and SHA-256",provenance:"AI-agent audit of private registry (October 2026)",
+    scope:"A bounded banking modernization proof of concept; 23,811 total registry records",
+    caveat:"Record count, not 23,811 fully linked records or proof of functional parity",
     route:"/work/banking-modernization",
   },
-  modernizationGates: {
-    id:"modernization-gates",value:"13 gates",short:"13",
-    name:"Technical gates reported green",provenance:"Engineering-team internal test account",
-    scope:"Quality checks inside the bounded modernization proof of concept",
-    caveat:"Not client certification, full-estate coverage or functional parity",
+  modernizationRepeatability: {
+    id:"modernization-repeatability",value:"4,338 files · 0 defects",short:"4,338",
+    name:"Files compared across two runs",provenance:"Internal reproducibility record examined by AI-agent audit",
+    scope:"Two bounded factory runs; 265 files declared volatile and 121 checked by hash or identity only",
+    caveat:"No independent client acceptance or full migration outcome",
     route:"/work/banking-modernization",
   },
 } as const satisfies Record<string,PublicEngineeringMetric>
 
 export const deliveryMetrics = [enterpriseEvidence.deliveryTime,enterpriseEvidence.deliveryPeers,enterpriseEvidence.deliveryRoles]
-export const modernizationMetrics = [enterpriseEvidence.modernizationDuration,enterpriseEvidence.contextReduction,enterpriseEvidence.modernizationGates]
+export const modernizationMetrics = [enterpriseEvidence.modernizationLineage,enterpriseEvidence.modernizationRepeatability]
 export const publicMetrics = [...deliveryMetrics,...modernizationMetrics]
 export function metricProperties(metrics: readonly PublicEngineeringMetric[]) {
   return metrics.map((metric)=>({

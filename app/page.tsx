@@ -28,9 +28,9 @@ const cases = [
   },
   {
     sector: "Public sector · Developer copilots",
-    title: "An audited copilot package delivered to engineers",
-    role: "Technical lead for the engineering copilots",
-    result: "Ten specialist skills and three agents; twelve reported audit rounds with corrections documented before handover.",
+    title: "An audited agent package prepared for handover",
+    role: "Technical lead for the engineering agent packages",
+    result: "Ten specialist skills and three agents; twelve reported audit rounds with 36 detailed corrections in the July preparation records.",
     href: "/work/public-sector-copilots",
   },
 ] as const
@@ -42,10 +42,10 @@ const services = [
 ] as const
 
 const writing = [
-  { title: "I Lost Three Rounds Against My Own Method. Here Is What I Changed.", date: "Oct 2026 · SDD Kit field note", href: "/writing/when-my-quality-gates-lost" },
-  { title: "Governing Agentic Systems at Enterprise Scale", date: "Jan 2026 · updated Jul 2026", href: "/writing/governing-agentic-systems" },
-  { title: "Observability for Agentic Systems", date: "Dec 2025 · updated Jul 2026", href: "/writing/observability-agentic-systems" },
-  { title: "Building AI Systems in Public Without Lying to Yourself", date: "Dec 2025 · updated Jul 2026", href: "/writing/building-in-public" },
+  { title: "My Method Lost Two Scored Comparisons. Here Is What I Changed.", date: "Oct 2026 · SDD Kit field note", href: "/writing/when-my-quality-gates-lost" },
+  { title: "Governing Agentic Systems at Enterprise Scale", date: "Drafted Jul 2026", href: "/writing/governing-agentic-systems" },
+  { title: "Observability for Agentic Systems", date: "Drafted Jul 2026", href: "/writing/observability-agentic-systems" },
+  { title: "Building AI Systems in Public Without Lying to Yourself", date: "Drafted Jul 2026", href: "/writing/building-in-public" },
 ] as const
 
 export default function Page() {
@@ -61,12 +61,12 @@ export default function Page() {
       <div className="relative container mx-auto max-w-6xl px-4 py-16 md:py-24">
         <p className="font-mono text-xs uppercase tracking-[.18em] text-[#476700] dark:text-signal-green">Alejandro Baratas · AI Tech Lead at knowmad mood · Madrid / remote</p>
         <h1 className="mt-7 max-w-4xl text-[clamp(2.7rem,6vw,5.4rem)] font-bold leading-[1.04] tracking-[-.055em] text-foreground">I put AI-assisted engineering into use with enterprise teams.</h1>
-        <p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground">I help engineering teams introduce project-aware agents, reviewable changes and human quality gates. I also build and test my own delivery methods: an OpenSpec-based SDD Kit, blind reviews and evidence-led agent workflows. My background spans HPE, NTT DATA, Ayesa and knowmad mood.</p>
+        <p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground">I help engineering teams introduce project-aware agents, reviewable changes and human quality gates. At knowmad mood’s AI CoE I helped build and test an OpenSpec-based SDD Kit and evidence-led agent workflows. My background spans HPE, NTT DATA, Ayesa and knowmad mood.</p>
         <div className="mt-9 flex flex-wrap gap-3">
           <Link href="/work/cybersecurity-ai-engineering" className="inline-flex items-center gap-2 rounded-md bg-[#90d900] px-6 py-3 text-sm font-semibold text-[#090b0f] hover:bg-[#9cec00] focus-visible:ring-2 focus-visible:ring-ring">Read the cybersecurity case <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
           <Link href="/contact" className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:border-foreground/40 focus-visible:ring-2 focus-visible:ring-ring">Start a conversation <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
         </div>
-        <p className="mt-10 border-t border-border pt-5 text-sm text-muted-foreground">11+ years in software engineering <span className="mx-3 text-border">/</span> AI enablement spanning 250+ engineers at Ayesa <span className="mx-3 text-border">/</span> HPE · NTT DATA · Ayesa · knowmad mood</p>
+        <p className="mt-10 border-t border-border pt-5 text-sm text-muted-foreground">11+ years in software engineering <span className="mx-3 text-border">/</span> AI enablement at Ayesa <span className="mx-3 text-border">/</span> HPE · NTT DATA · Ayesa · knowmad mood</p>
       </div>
     </header>
 
@@ -94,7 +94,7 @@ export default function Page() {
         <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">03 / Engineering method</p>
         <div className="mt-3 grid gap-8 md:grid-cols-[1.3fr_.7fr] md:items-center">
           <div><h2 id="engineering-title" className="max-w-2xl text-3xl font-bold md:text-4xl">From a specification to a delivery someone can challenge.</h2><p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">Alejandría turns requirements into a traceable delivery pack. A deterministic Factoría explored source-linked modernization. AgentCycle blocked its own factory when evidence was insufficient; the SDD Kit turns that lesson into explicit review gates. Separate assets, one engineering method.</p><Link href="/engineering" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground underline underline-offset-4">Explore the method and proof boundaries <ArrowRight className="h-4 w-4" /></Link></div>
-          <div className="rounded-xl border border-border bg-background p-6"><p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">The evidence, in scope</p><p className="mt-4 font-mono text-3xl font-bold">50 → 22</p><p className="mt-1 text-sm leading-6 text-muted-foreground">requirements in the Alejandría reference pack → verifier checks on the local pipeline</p><p className="mt-5 border-t border-border pt-4 font-mono text-3xl font-bold">7/100 · blocked</p><p className="mt-1 text-sm leading-6 text-muted-foreground">AgentCycle’s self-assessment of the early factory; it refused delivery.</p><p className="mt-4 text-xs leading-6 text-muted-foreground">Private technical audit and self-produced records; not third-party client outcome measures.</p></div>
+          <div className="rounded-xl border border-border bg-background p-6"><p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">The evidence, in scope</p><p className="mt-4 font-mono text-3xl font-bold">50 → 22</p><p className="mt-1 text-sm leading-6 text-muted-foreground">requirements in the Alejandría reference pack → verifier checks on the local pipeline</p><p className="mt-5 border-t border-border pt-4 font-mono text-3xl font-bold">7/100 · blocked</p><p className="mt-1 text-sm leading-6 text-muted-foreground">AgentCycle’s assessment of an earlier factory; another self-audit gave a conflicting score.</p><p className="mt-4 text-xs leading-6 text-muted-foreground">Private technical audit and self-produced records; not third-party client outcome measures.</p></div>
         </div>
       </div>
     </section>
@@ -103,8 +103,8 @@ export default function Page() {
       <div className="container mx-auto max-w-6xl px-4 py-14">
         <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">04 / My engineering laboratory</p>
         <div className="mt-3 grid gap-8 md:grid-cols-[1.2fr_.8fr] md:items-center">
-          <div><h2 id="method-title" className="text-3xl font-bold text-foreground">I test my own quality gates against independent review.</h2><p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground">My SDD Kit lost three blind comparisons on a public codebase. I used the findings to improve the review process and harden its archive hook to 225 passing shell cases. The experiment is a personal engineering asset; its failures and limits are part of the story.</p><Link href="/writing/when-my-quality-gates-lost" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground underline underline-offset-4">Read the experiment and agent workflow <ArrowRight className="h-4 w-4" /></Link></div>
-          <div className="rounded-xl border border-border bg-background p-6"><p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">Blind review / public-code experiment</p><p className="mt-5 font-mono text-4xl font-bold text-foreground">3 losses</p><p className="mt-2 text-sm text-muted-foreground">against independent blind comparisons of the method</p><p className="mt-5 font-mono text-4xl font-bold text-foreground">225</p><p className="mt-2 text-sm text-muted-foreground">passing shell cases after the archive hook was hardened</p><p className="mt-5 border-t border-border pt-4 text-xs leading-6 text-muted-foreground">These are laboratory checks and a disclosed negative result, not production adoption or proof of complete gate coverage.</p></div>
+          <div><h2 id="method-title" className="text-3xl font-bold text-foreground">I test my own quality gates against critical review.</h2><p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground">An SDD kit I helped develop at knowmad mood lost two scored comparisons of plans on public code, judged by AI agents with partial blinding. The findings improved our review process; a separate October audit grew its source hook to 225 passing simulated shell cases. The kit and experiment are AI CoE work.</p><Link href="/writing/when-my-quality-gates-lost" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground underline underline-offset-4">Read the experiment and agent workflow <ArrowRight className="h-4 w-4" /></Link></div>
+          <div className="rounded-xl border border-border bg-background p-6"><p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">Blind review / public-code experiment</p><p className="mt-5 font-mono text-4xl font-bold text-foreground">2 losses</p><p className="mt-2 text-sm text-muted-foreground">in scored comparisons judged by AI agents</p><p className="mt-5 font-mono text-4xl font-bold text-foreground">225</p><p className="mt-2 text-sm text-muted-foreground">simulated shell cases passing in the source hook</p><p className="mt-5 border-t border-border pt-4 text-xs leading-6 text-muted-foreground">These are laboratory checks and a disclosed negative result, not production adoption or proof of complete gate coverage.</p></div>
         </div>
       </div>
     </section>

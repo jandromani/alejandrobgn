@@ -43,8 +43,8 @@ export function HeroEvidenceFlow() {
         </Link>
         <Link href="/work/banking-modernization" className="group rounded-xl border border-border bg-background p-4 transition-colors hover:border-[#587f00] focus-visible:ring-2 focus-visible:ring-ring">
           <FileCode2 className="h-5 w-5 text-cyan-700 dark:text-signal-cyan" aria-hidden="true"/>
-          <strong className="mt-3 block text-xl leading-tight text-foreground">{enterpriseEvidence.modernizationGates.value}</strong>
-          <span className="mt-1 block text-sm leading-6 text-muted-foreground">Scoped technical checks reported green</span>
+          <strong className="mt-3 block text-xl leading-tight text-foreground">{enterpriseEvidence.modernizationRepeatability.value}</strong>
+          <span className="mt-1 block text-sm leading-6 text-muted-foreground">Files compared in two bounded factory runs; no reproducibility defects recorded</span>
           <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-foreground">Inspect case <ArrowRight className="h-3.5 w-3.5"/></span>
         </Link>
       </div>

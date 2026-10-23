@@ -35,7 +35,7 @@ const sectionContent: Record<
     title: "From CONTINUA to control planes.",
     subtitle: "A public-safe technical record of increasingly capable human–AI collaboration.",
     signal: "#fbbf24",
-    stats: ["184 artefacts", "133 confirmed", "43 months"],
+    stats: ["184 artefacts", "133 confirmed", "Since Jan 2023"],
   },
   experience: {
     eyebrow: "PROFESSIONAL EXPERIENCE",

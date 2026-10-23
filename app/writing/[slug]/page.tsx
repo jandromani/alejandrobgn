@@ -73,7 +73,7 @@ export default async function WritingArticlePage({ params }: Props) {
     ? [...markdown.matchAll(/^#{1,3}\s+(.+)$/gm)].map(match => match[1].replace(/\*\*/g, "")).filter(title => title !== article.title)
     : content!.sections.map(section => section.title)
   const evidenceBoundaries: Record<string, string> = {
-    "when-my-quality-gates-lost": "Personal experiment and private session log, summarized with the author's figures. Client work is anonymized and separately scoped; the private experiment records are not published.",
+    "when-my-quality-gates-lost": "AI CoE experiment records and a private session log, summarized with limits. Two scored plan comparisons used AI-agent judges and partial blinding; company code and client records are not public.",
     "entropy-problem-llms": "The OMEGA generator and degradation dynamics in the supplied laboratory are synthetic. The notebook demonstrates control-loop integration, not a universal entropy metric or production efficacy.",
     "governing-agentic-systems": "This is an engineering operating model, not legal advice or a claim of automatic EU AI Act compliance. Classification and controls depend on the concrete system and use context.",
     "avoiding-vendor-lock-in": "AI Vendor Compare is a real public interface backed by a time-stamped snapshot. The daily agent graph is the target operating architecture, with current evidence and future controls separated.",

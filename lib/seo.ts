@@ -141,7 +141,7 @@ export function personJsonLd() {
       { "@type": "EducationalOrganization", name: "UCAM Universidad Católica San Antonio" },
       { "@type": "EducationalOrganization", name: "Universidad Complutense de Madrid" },
     ],
-    sameAs: [siteConfig.linkedin, siteConfig.github, siteConfig.x],
+    sameAs: [siteConfig.linkedin, siteConfig.github],
     knowsAbout: [
       "Agentic systems",
       "AI governance",

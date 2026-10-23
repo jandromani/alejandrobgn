@@ -114,7 +114,7 @@ export const systems: System[] = [
     role: "Research",
     status: "Public Demo",
     level: 1,
-    year: 2024,
+    year: 2026,
     featured: true,
     order: 1,
     technologies: ["TypeScript", "React", "Vite", "Vercel Functions"],
@@ -182,13 +182,13 @@ export const systems: System[] = [
     category: "orchestration",
     shortDescription: "Product discovery runtime that turns shopper intent into catalog actions and storefront conversion",
     description:
-      "A public product-discovery surface for Shopify and WooCommerce. It connects a real catalog to intent-led conversations, product recommendations, storefront handoff, and a small proof board for observing the commercial loop.",
+      "An intermittently available product-discovery demo for Shopify and WooCommerce. It connects a seeded catalog to intent-led conversations, product recommendations, storefront handoff, and a small proof board for observing the commercial loop.",
     problemStatement:
       "Most storefronts make the shopper translate their own problem into a catalog query. Agnostic Engine turns that friction into a guided path from plain-language intent to a product click or assisted conversion.",
     role: "Product",
-    status: "Public Demo",
+    status: "Prototype",
     level: 1,
-    year: 2024,
+    year: 2026,
     featured: true,
     order: 2,
     technologies: ["Next.js", "Shopify", "WooCommerce", "intent routing"],
@@ -200,14 +200,14 @@ export const systems: System[] = [
       },
       {
         name: "Intent proof",
-        value: "41 conversations",
-        context: "Public proof-board snapshot; not presented as a production benchmark",
+        value: "Proof-board counter",
+        context: "Live counter changes; not an independently audited conversion measure",
       },
     ],
     honestLimits: [
       {
         title: "Proof-board scope",
-        description: "The public page shows a bounded proof surface, not a complete commerce analytics suite.",
+        description: "The landing page returned HTTP 500 during the October 2026 audit; the proof board is a bounded demo with synthetic or seeded tenant data, not evidence of a real merchant or conversion.",
       },
       {
         title: "Tenant-specific work",
@@ -222,8 +222,8 @@ export const systems: System[] = [
       dataType: "snapshot",
       executionType: "live",
       codeVisibility: "selected",
-      previewLabel: "Representative runtime view",
-      lastVerified: "2026-07-22",
+      previewLabel: "Representative view · Demo unstable",
+      lastVerified: "2026-10-23",
       assets: {
         overview: {
           src: "/projects/agnosticengine/live-preview.png",
@@ -233,15 +233,15 @@ export const systems: System[] = [
         },
         workflow: {
           src: "/projects/agnosticengine/workflow.webp",
-          alt: "Live routing session showing document summarization request routed to Groq with streaming response and real-time cost counter",
-          title: "Live routing session",
-          caption: "Routing happens transparently. The application sends a standard request; the engine selects the provider, streams the response, and tracks cost.",
+          alt: "Illustrative provider-routing mockup from an earlier concept, unrelated to the current shopping discovery runtime",
+          title: "Earlier provider-routing concept",
+          caption: "Legacy concept illustration of a different routing idea. The current product matches shopper intent to catalogue products and storefront actions; this image is not runtime evidence.",
         },
         underTheHood: {
           src: "/projects/agnosticengine/underhood.webp",
-          alt: "Architecture diagram showing application connected to routing layer with arrows to five LLM providers and routing statistics panel",
-          title: "Routing layer architecture",
-          caption: "The routing layer sits between application and providers. Routing weights are configured via YAML and updated without redeployment.",
+          alt: "Legacy conceptual provider-routing architecture; not the current commerce product architecture",
+          title: "Earlier routing architecture concept",
+          caption: "Legacy concept, not the current implementation. The product-discovery layer connects shopper conversations, tenant-specific catalogues and storefront handoffs.",
         },
       },
     },
@@ -270,7 +270,7 @@ export const systems: System[] = [
     honestLimits: [
       {
         title: "Status: Public demonstration",
-        description: "A public demo is available. Source availability, production readiness, uptime, compliance and support have not been independently verified here.",
+        description: "The public landing is available, but its linked source returned 404 in the October audit; package version and test counts are unverified here.",
       },
       {
         title: "Unverified scale",
@@ -289,7 +289,7 @@ export const systems: System[] = [
       dataType: "demo",
       executionType: "recorded",
       codeVisibility: "selected",
-      previewLabel: "Generated from package output",
+      previewLabel: "Concept preview",
       lastVerified: "2026-07-22",
       assets: {
         overview: {
@@ -329,15 +329,15 @@ export const systems: System[] = [
     role: "Platform",
     status: "Public Demo",
     level: 1,
-    year: 2024,
+    year: 2026,
     featured: true,
     order: 4,
-    technologies: ["Python", "pytest", "adversarial testing", "prompt engineering"],
+    technologies: ["TypeScript", "browser runtime", "adversarial testing"],
     verifiedMetrics: [
       {
         name: "Attack protocols",
-        value: "700+",
-        context: "Public product claim; scope shown on the live landing page",
+        value: "107 base",
+        context: "Public landing describes 107 base protocols and more than 700 combinations; no external audit",
       },
       {
         name: "Execution model",
@@ -404,7 +404,7 @@ export const systems: System[] = [
     role: "Product",
     status: "Public Demo",
     level: 2,
-    year: 2024,
+    year: 2026,
     featured: true,
     order: 1,
     technologies: ["Next.js", "Python", "versioned snapshots", "claim provenance"],
@@ -416,8 +416,8 @@ export const systems: System[] = [
       },
       {
         name: "Freshness",
-        value: "21+ days stale",
-        context: "The public interface explicitly ages the latest recorded verification cycle instead of claiming live freshness",
+        value: "30 Jun 2026",
+        context: "Last verification cycle; snapshot may be materially stale",
       },
     ],
     honestLimits: [
@@ -473,26 +473,21 @@ export const systems: System[] = [
     category: "intelligence",
     shortDescription: "Semantic search and understanding for large document collections",
     description:
-      "Enterprise search powered by semantic understanding rather than keyword matching. Works with large document collections (policies, contracts, regulatory documents, knowledge bases). Returns grounded results with evidence chains. Built for teams that need to find and understand information fast.",
+      "An earlier semantic document-search prototype with a representative grounding and citation interface. Public evaluation material does not establish the claimed retrieval accuracy, collection scale or latency.",
     problemStatement:
       "Keyword search fails on nuanced queries. Semantic search without grounding produces hallucinations. aiGILE Document Intelligence bridges the gap: semantic understanding grounded in real document evidence.",
     role: "Product",
     status: "Case Study",
     level: 2,
-    year: 2023,
+    year: 2026,
     featured: true,
     order: 2,
     technologies: ["Python", "vector search", "RAG", "document processing"],
     verifiedMetrics: [
       {
-        name: "Search Accuracy",
-        value: "94%",
-        context: "Compared to manual document review on test queries",
-      },
-      {
-        name: "Processing Speed",
-        value: "<2s per query",
-        context: "On 50K document collections",
+        name: "Evidence boundary",
+        value: "Earlier prototype",
+        context: "No public evaluation artefact for search accuracy or performance",
       },
     ],
     honestLimits: [
@@ -518,19 +513,19 @@ export const systems: System[] = [
           src: "/projects/aigile-document-intelligence/overview.webp",
           alt: "Document intelligence interface showing user query with grounded answer containing inline citations pointing to source passages and confidence score",
           title: "Grounded answer with citations",
-          caption: "Every answer is grounded in retrieved document passages. Citations link directly to the source paragraph. No answer is presented without a retrievable evidence chain.",
+          caption: "Representative grounding interface; source-level citations and answer coverage are not independently verified here.",
         },
         workflow: {
           src: "/projects/aigile-document-intelligence/workflow.webp",
           alt: "Pipeline visualization showing document ingestion, embedding, semantic retrieval with similarity scores, and answer assembly with citations",
           title: "Retrieval and grounding pipeline",
-          caption: "The pipeline ingests documents, creates embeddings, retrieves the most relevant passages for each query, and assembles a grounded answer with confidence scores.",
+          caption: "Illustrative ingestion and retrieval pipeline; no public performance benchmark or reproducible run.",
         },
         underTheHood: {
           src: "/projects/aigile-document-intelligence/underhood.webp",
           alt: "RAG architecture diagram showing embedding model, vector store, hybrid retrieval strategy, and document version history table",
           title: "RAG architecture and document versioning",
-          caption: "Hybrid retrieval combines semantic and keyword search. Documents are versioned so the knowledge base stays current when source documents are updated.",
+          caption: "Illustrative hybrid retrieval and versioning design; implementation coverage requires a source or runtime review.",
         },
       },
     },
@@ -551,20 +546,20 @@ export const systems: System[] = [
     role: "Product",
     status: "Live System",
     level: 2,
-    year: 2023,
+    year: 2026,
     featured: true,
     order: 3,
     technologies: ["Next.js", "Python", "intent classification", "personalization"],
     verifiedMetrics: [
       {
-        name: "Live offers",
+        name: "Catalogue snapshot",
         value: "1,487",
-        context: "Public product counter; current catalog coverage may change",
+        context: "1,487 offers in the June 2026 catalogue snapshot; current inventory unverified",
       },
       {
         name: "Recommendation-ready coffees",
         value: "179",
-        context: "Public product counter; not a conversion benchmark",
+        context: "June 2026 catalogue snapshot; not a conversion benchmark",
       },
     ],
     honestLimits: [
@@ -582,10 +577,10 @@ export const systems: System[] = [
     },
     evidence: {
       interfaceType: "real",
-      dataType: "live",
+      dataType: "snapshot",
       executionType: "live",
       codeVisibility: "private",
-      previewLabel: "Real product interface",
+      previewLabel: "Real interface · Snapshot data",
       lastVerified: "2026-07-22",
       assets: {
         overview: {

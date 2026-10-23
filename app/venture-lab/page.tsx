@@ -12,8 +12,8 @@ const ventures = [
     title: "Agnostic Engine",
     tagline: "Intent-to-product discovery runtime",
     description:
-      "A public Shopify and WooCommerce surface that turns shopper intent into catalog actions, product clicks, and assisted conversion.",
-    status: "active",
+      "An intermittently available Shopify and WooCommerce demo for shopper intent, catalogue recommendations and storefront handoff.",
+    status: "early",
     focus: ["Catalog Intelligence", "Shopify + WooCommerce", "Assisted Conversion"],
     tech: ["Next.js", "Shopify", "WooCommerce"],
     github: null,
@@ -26,7 +26,7 @@ const ventures = [
     title: "PsycheOS",
     tagline: "AI safety operating surface",
     description:
-      "An open-source public surface for adversarial protocols, personas, environments, and guardrails around LLM behaviour.",
+      "A public browser-based surface for adversarial protocols, personas and guardrails. Its source is not published.",
     status: "active",
     focus: ["Adversarial Protocols", "Personas & Environments", "Browser-local Guardrails"],
     tech: ["TypeScript", "browser runtime", "AI safety"],
@@ -38,9 +38,9 @@ const ventures = [
   {
     id: "llmtrace",
     title: "LLMTRACE",
-    tagline: "Open-source LLM observability toolkit",
+    tagline: "Historical LLM tracing alpha",
     description:
-      "A Python toolkit for tracing prompts, responses, tokens, costs, metrics, feedback, and errors across local LLM applications.",
+      "A historical Python alpha with local session storage; its provider adapters wrap mock classes rather than production SDKs.",
     status: "alpha",
     focus: ["Token Accounting", "Latency Analysis", "Cost Tracking", "Session Tracing"],
     tech: ["Python", "Flask", "SQLite"],
@@ -54,7 +54,7 @@ const ventures = [
     title: "Entropic Core",
     tagline: "Entropy regulation for AI agents",
     description:
-      "A public package surface for monitoring agent entropy, detecting anomalies, and intervening before hallucinations, cost explosions, or context drift cascade.",
+      "A concept landing for agent stability and recovery; its linked source was unavailable during the October audit, so the package claims are unverified.",
     status: "early",
     focus: ["Entropy Monitoring", "Anomaly Detection", "Package Proof", "Bounded Controls"],
     tech: ["Python", "asyncio", "runtime controls"],
@@ -68,7 +68,7 @@ const ventures = [
     title: "AI Vendor Compare",
     tagline: "Model pricing, claims & drift snapshot",
     description:
-      "A public comparison surface for provider pricing, claim verification, lineup drift, and runtime freshness. The current page explicitly discloses when its snapshot is stale.",
+      "A public comparison surface for provider pricing and claims, based on a snapshot last verified on 30 June 2026.",
     status: "public",
     focus: ["Claim Verification", "Cost Analysis", "Lineup Drift", "Snapshot Freshness"],
     tech: ["TypeScript", "React", "Next.js"],
@@ -80,12 +80,12 @@ const ventures = [
   {
     id: "aiactmiddleware",
     title: "AI Act Middleware",
-    tagline: "EU AI Act compliance layer",
+    tagline: "EU AI Act-inspired control prototype",
     description:
-      "A public prototype for evaluating prompts against EU AI Act-inspired controls, with demo scenarios, audit logging, and human-review surfaces.",
+      "A public prototype with illustrative risk decisions and review states. Authenticated human review, complete logging and compliance have not been verified.",
     status: "research",
     focus: ["Impact Assessment", "Explainability Layer", "High-Risk Controls", "Compliance Logging"],
-    tech: ["Python", "FastAPI", "SQLAlchemy"],
+    tech: ["TypeScript", "React", "Vite", "Vercel Functions"],
     github: null,
     live: "https://aiactmiddleware.vercel.app/chat",
     blog: null,
@@ -115,7 +115,7 @@ export default function VentureLabPage() {
           <p className="text-sm text-foreground/80 uppercase tracking-wider">The Lab</p>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground">Venture Lab</h1>
           <p className="text-lg text-muted-foreground">
-            Systems and frameworks for building reliable AI in production. Open-source projects grounded in real architectural principles.
+            Personal experiments and public prototypes exploring AI systems, with explicit evidence and maturity boundaries.
           </p>
         </motion.div>
 
@@ -129,12 +129,10 @@ export default function VentureLabPage() {
           <Card className="border-neon/20 bg-card/50 backdrop-blur-sm">
             <CardContent className="pt-6 space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                These are not polished products. They're working systems built to solve real problems we encountered building AI infrastructure. Each one is grounded in
-                one of the five architectural principles—they exist to prove those principles work in practice.
+                These projects explore problems I encountered in engineering and delivery. Most are prototypes or research experiments, with different levels of public evidence.
               </p>
               <p>
-                Some are open-source and production-ready. Some are alpha. Some are research prototypes. All are built with the same philosophy: measurable, governable,
-                cost-aware, safe, and vendor-independent.
+                Some have public source; others are demos with selected disclosure. None of these listings establishes production readiness.
               </p>
             </CardContent>
           </Card>

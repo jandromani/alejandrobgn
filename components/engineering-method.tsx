@@ -32,7 +32,7 @@ const steps = [
     title: "Make the release decision explicit",
     system: "AgentCycle → SDD Kit · related methods, separate implementations",
     detail: "Inspect traces against a contract, return actionable evidence and refuse completion when checks fail. Later, the OpenSpec-based SDD Kit formalized readiness, done and adversarial review at a change boundary.",
-    evidence: "AgentCycle scored its own factory 7/100 and blocked delivery · SDD Kit lost three blind comparisons and revised its gates",
+    evidence: "AgentCycle scored an earlier factory 7/100 and blocked delivery · the SDD Kit lost two scored AI-agent plan comparisons",
     boundary: "The systems share a method, not a common deployed runtime. A hook does not cryptographically establish who approved a decision.",
   },
   {
