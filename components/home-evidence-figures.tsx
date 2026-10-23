@@ -8,21 +8,18 @@ import { AnimatedFigureFrame } from "@/components/animated-figure-frame"
 const figures = [
   {
     number: "01", label: "Three gates", title: "A change must earn its archive decision",
-    context: "The SDD Kit makes readiness, completion and adversarial review visible. Sabotage mode is illustrative; in the historical seeded test the entry gate returned NOT READY for all four remaining defects.",
+    context: "Inspect the three review decisions in the SDD Kit. The seeded test stopped at readiness with four documented blockers.",
     src: "/anatomy/figures/three-gates-press.html", source: "/writing/when-my-quality-gates-lost", sourceLabel: "SDD field note",
-    boundary: "Animated model: the gates do not execute real checks, authorize a change or prove that a person signed it.",
   },
   {
-    number: "02", label: "Blind review", title: "Two scored comparisons lost",
-    context: "A balance replays the two scored plan comparisons, 23–28 and 26–28. Its third beat is an illustration, not another scored loss.",
+    number: "02", label: "Blind review", title: "An experiment that changed the gates",
+    context: "See the two scored plan comparisons, what the reviewers found and what changed in the method.",
     src: "/anatomy/figures/blind-review-balance.html", source: "/writing/when-my-quality-gates-lost", sourceLabel: "Experiment and findings",
-    boundary: "AI-agent judges assessed plans with partial blinding; the experiment does not measure general productivity.",
   },
   {
-    number: "03", label: "Repeatable copies", title: "Reproducibility is one proof, not a migration",
-    context: "The banking PoC links 22,995 evidence records to file, line and hash, and compares 4,338 files from two bounded factory runs.",
+    number: "03", label: "Repeatable copies", title: "A modernization factory with source lineage",
+    context: "Follow source evidence through a bounded generation run and its defined reproducibility check.",
     src: "/anatomy/figures/modernization-duplicator.html", source: "/work/banking-modernization", sourceLabel: "Banking modernization case",
-    boundary: "This does not establish functional parity, production rollout or estate-wide results.",
   },
 ] as const
 
@@ -34,7 +31,7 @@ export function HomeEvidenceFigures() {
     <div className="container mx-auto max-w-6xl px-4 py-14 md:py-16">
       <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">02 / Animated evidence</p>
       <h2 id="figures-title" className="mt-3 max-w-3xl text-3xl font-bold md:text-4xl">See the decisions behind the results</h2>
-      <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">Three interactive Anatomy figures turn the method, its losses and the modernization proof boundary into scenes you can inspect. Choose a figure, play its chapters or open it full size.</p>
+      <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">Three interactive Anatomy figures show the review gates, a blind comparison and the modernization factory. Choose a figure, play its chapters or open it full size.</p>
       <div role="group" aria-label="Choose an interactive figure" className="mt-7 grid gap-3 sm:grid-cols-3">
         {figures.map((figure, index) => <button type="button" key={figure.number} onClick={() => setSelected(index)} aria-pressed={selected === index} aria-controls="selected-evidence-figure" className={`rounded-lg border p-4 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${selected === index ? "border-[#5b8f00] bg-[#90d900]/15" : "border-border bg-background hover:border-foreground/40"}`}><span className="font-mono text-xs uppercase tracking-wider text-[#476700] dark:text-signal-green">Fig {figure.number} / {figure.label}</span><span className="mt-2 block text-sm font-semibold leading-6 text-foreground">{figure.title}</span></button>)}
       </div>
@@ -43,8 +40,8 @@ export function HomeEvidenceFigures() {
           <div className="max-w-2xl"><figcaption className="text-xl font-semibold text-foreground">{active.title}</figcaption><p className="mt-2 text-sm leading-7 text-muted-foreground">{active.context}</p></div>
           <a href={active.src} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-foreground underline underline-offset-4">Open full size <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></a>
         </div>
-        <AnimatedFigureFrame key={active.src} src={active.src} title={`Animated Anatomy figure: ${active.title}`} />
-        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border px-5 py-5 text-xs leading-6 text-muted-foreground sm:px-7"><span className="max-w-2xl"><strong className="text-foreground">Proof boundary:</strong> {active.boundary}</span><Link href={active.source} className="inline-flex items-center gap-1 font-semibold text-foreground underline underline-offset-4">Read {active.sourceLabel} <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" /></Link></div>
+        <AnimatedFigureFrame key={active.src} src={`${active.src}?embed=1`} title={`Animated Anatomy figure: ${active.title}`} />
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border px-5 py-5 text-xs leading-6 text-muted-foreground sm:px-7"><span>Methods and evidence are documented with each figure.</span><Link href={active.source} className="inline-flex items-center gap-1 font-semibold text-foreground underline underline-offset-4">Read {active.sourceLabel} <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" /></Link></div>
       </figure>
     </div>
   </section>

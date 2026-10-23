@@ -300,7 +300,7 @@ export default function VentureLabPage() {
               Read the Thesis
             </Link>
             <a
-              href="mailto:abaratas@ucm.es"
+              href="mailto:alejandrobgn@gmail.com"
               className="px-6 py-2 border border-neon text-foreground hover:bg-neon/20 font-semibold rounded-lg transition-colors"
             >
               Get in Touch
