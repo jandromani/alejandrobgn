@@ -1,69 +1,66 @@
-# Alejandro Baratas — AI systems field portfolio
+# Alejandro Baratas
 
-[![Live portfolio](https://img.shields.io/badge/live-alejandrobgn.vercel.app-00D9FF?style=flat-square)](https://alejandrobgn.vercel.app)
-[![Next.js](https://img.shields.io/badge/Next.js-16-111111?style=flat-square&logo=nextdotjs)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+**AI Tech Lead · agent-assisted engineering · Madrid**
 
-[![Alejandro Baratas — AI Tech Lead and Agentic Systems Architect](https://alejandrobgn.vercel.app/api/og?type=profile)](https://alejandrobgn.vercel.app)
+I help engineering teams put project-aware agents, reviewable changes and human quality gates to work. My background spans HPE, NTT DATA, Ayesa and knowmad mood.
 
-This is not a downloadable CV wrapped in a landing page. It is an evidence-led portfolio about designing, shipping and governing production AI systems: their interfaces, architectures, operating limits, traces and economic consequences.
+[Explore the portfolio](https://alejandrobgn.vercel.app/) · [Selected work](https://alejandrobgn.vercel.app/work) · [Engineering method](https://alejandrobgn.vercel.app/engineering) · [CV (PDF)](https://alejandrobgn.vercel.app/Alejandro-Baratas-CV.pdf)
 
-The site connects four kinds of evidence:
+[![An illustrated map of three separate engineering settings: Alejandría for traceable specifications, a banking Factoría proof of concept for source-linked candidates, and the SDD Kit for review gates and human decisions.](.github/readme/engineering-field-map.svg)](https://alejandrobgn.vercel.app/engineering)
 
-- **Systems** — product and infrastructure case studies with deliberately honest preview states.
-- **Labs** — eight original browser artifacts, their captured interfaces, and explicit runtime/QA limitations.
-- **Writing** — eight long-form technical field notes on agent governance, orchestration, observability, safety, entropy and AI platform economics.
-- **Evolution** — 201 documented records: 184 reconstructed historical entries and 17 later milestones, each presented with its evidence limits rather than as equivalent products.
+*Three settings, one recurring question: what evidence makes an AI-assisted change safe to review? The illustration maps related work; these assets do not run together as one deployed system.*
 
-## Design principles
+## Start with the work
 
-### Evidence before theatre
+| Setting | What changed | Inspect |
+| --- | --- | --- |
+| **Cybersecurity · engineering enablement** | A participating team began using project-aware assistance, agent-proposed PRs and an adapted specification-and-review process within a month, according to the delivery account. | [Read the case →](https://alejandrobgn.vercel.app/work/cybersecurity-ai-engineering) |
+| **Banking · modernization PoC** | A bounded reference exercise produced source-linked candidate assets; 22,995 records link to file, line and SHA-256, and 4,338 files were compared across two runs. | [Read the case →](https://alejandrobgn.vercel.app/work/banking-modernization) |
+| **Public sector · developer copilots** | A Java backend agent package with ten specialist skills and three agents went through twelve reported audit rounds before handover. | [Read the case →](https://alejandrobgn.vercel.app/work/public-sector-copilots) |
 
-Every project preview identifies what the visitor is actually seeing: a real product interface, demo data, a representative workflow, an architecture diagram, a recorded execution or a live result. Conceptual visuals are never presented as production telemetry.
+These engagements are anonymized. Their pages distinguish delivery-team records and bounded technical checks from independently verified client outcomes.
 
-### The portfolio is the interface
+## The method behind the cases
 
-The visual language borrows from operating consoles, research dossiers and technical field manuals. Maps, traces, diagrams and runtime views are implemented as first-class interface components—not decorative screenshots pasted over generic cards.
+I work from a specification and source context toward a candidate change that an engineer can inspect, challenge and authorize. The portfolio shows how that idea developed in **separate settings**:
 
-### Technical writing belongs inside the system
+- **Alejandría** — a company-owned internal accelerator for traceable requirements, delivery packs and a verifier. [See its recorded scope](https://alejandrobgn.vercel.app/engineering#evidence).
+- **Banking Factoría** — a client PoC exploring source inventory, a canonical model, deterministic generation and repeatability on a bounded reference module. [Inspect the Anatomy](https://alejandrobgn.vercel.app/work/banking-modernization#anatomy).
+- **SDD Kit** — an OpenSpec-based review-gate experiment developed with colleagues in the AI CoE. Its blind comparisons also exposed where the method lost to a simpler baseline. [Read the field note and interactive press](https://alejandrobgn.vercel.app/writing/when-my-quality-gates-lost).
 
-Articles include original diagrams, source trails, changelogs, related systems, reading progress and share controls. The writing and the products cross-reference each other so claims can be investigated instead of merely trusted.
+The [evidence register](https://alejandrobgn.vercel.app/engineering#evidence) records what each asset demonstrates, who owns it and where the proof ends.
 
-## Architecture
+## Choose a path through the portfolio
 
-```text
-app/                    Next.js App Router pages, metadata and dynamic OG images
-components/             Portfolio surfaces, diagrams and shared UI primitives
-content/articles/       Long-form Markdown source material
-data/                   Article metadata, expanded content and capability data
-lib/                    SEO, systems, workflows and evolution models
-public/projects/        Product evidence and project-specific visual assets
-scripts/                SEO, image-conversion and optional visual-QA utilities
-```
+| If you want to… | Go to… |
+| --- | --- |
+| Evaluate delivery in real organizations | [Three anonymized enterprise cases](https://alejandrobgn.vercel.app/work) |
+| Explore the source, candidate and review decisions | [Engineering method and evidence register](https://alejandrobgn.vercel.app/engineering) |
+| Inspect public code and its actual maturity | [Engineering systems](https://alejandrobgn.vercel.app/systems) · [A2A platform repository](https://github.com/jandromani/A2A) |
+| Follow links between work, systems, labs and writing | [Interactive Atlas](https://alejandrobgn.vercel.app/atlas) · [JSON graph](https://alejandrobgn.vercel.app/atlas/graph.json) |
+| See original browser experiments | [Labs](https://alejandrobgn.vercel.app/labs) |
+| Read the decisions and failed evaluations | [Technical writing](https://alejandrobgn.vercel.app/writing) |
 
-Notable routes:
+## This repository
 
-- `/systems` and `/systems/[slug]` — system index and evidence-rich case studies
-- `/atlas` and `/atlas/graph.json` — interactive, strongly connected editorial evidence graph and public machine-readable manifest
-- `/writing` and `/writing/[slug]` — technical journal and long-form articles
-- `/evolution` — 201-record learning timeline and capability map (184 historical reconstructions + 17 later milestones)
-- `/labs` and `/labs/[slug]` — eight preserved standalone HTML experiments, Chromium captures and scope-limited QA notes
-- `/publications` — independent editorial issues and the original Mateo visual-book reader
-- `/about` — professional lineage rendered as a systems map
-- `/api/og` — dynamic Open Graph artwork for profile, system and article sharing
+This is the source for the [live portfolio](https://alejandrobgn.vercel.app/). The site uses Next.js 16, React 19 and TypeScript. Case studies, the Atlas, interactive Anatomy figures and the evidence register are implemented here; confidential client material is not.
 
-## Local development
+| Directory | Purpose |
+| --- | --- |
+| `app/` | Pages, metadata, JSON routes and Open Graph images |
+| `components/` | Anatomy diagrams, Atlas explorer and shared interface |
+| `content/` and `data/` | Field notes, figures and structured portfolio content |
+| `lib/` | Evidence models, graph relationships and SEO |
+| `public/labs/original/` | Preserved standalone HTML experiments |
 
-Requirements: Node.js 20.9 or newer and pnpm.
+Run locally with Node.js **20.9+** and **pnpm 10.12.1**:
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-Then open [http://localhost:3000](http://localhost:3000).
-
-Production checks:
+Open `http://localhost:3000`. For a production build and the repository's content checks:
 
 ```bash
 pnpm build
@@ -72,24 +69,10 @@ node scripts/seo-audit.mjs
 node scripts/evidence-integrity.mjs
 ```
 
-## Stack
+## Evidence and reuse
 
-- Next.js 16 and React 19
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-- Radix UI and Base UI primitives
-- Recharts for data-driven views
-- Vercel Analytics and Vercel deployment
-
-## Public surfaces represented here
-
-The portfolio links to live or published work including AI Act Middleware, Agnostic Engine, Entropic Core, PsycheOS, AI Vendor Compare, BrewMatch and LLMTRACE. Each case study states its evidence boundary and maturity level independently.
-
-## Content and reuse
-
-The source is public for inspection and discussion. Personal copy, project evidence, brand assets and article content remain the property of their respective owners. No open-source licence is granted by default.
+Public source and interactive illustrations let you inspect the presentation and implementation. Enterprise measurements come from bounded private records and are described as such on their respective pages; this repository does not contain client source, independent testimonials or proof of full-estate migration. Company and client assets remain with their respective owners. No open-source licence is granted for this portfolio by default.
 
 ---
 
-Built and maintained by [Alejandro Baratas](https://www.linkedin.com/in/alejandro-bgn/) · [Live portfolio](https://alejandrobgn.vercel.app)
+[Portfolio](https://alejandrobgn.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/alejandro-bgn/) · [Contact](https://alejandrobgn.vercel.app/contact)

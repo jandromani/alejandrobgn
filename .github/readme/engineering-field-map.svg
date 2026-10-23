@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="496" viewBox="0 0 1200 496" role="img" aria-labelledby="title description">
+  <title id="title">Alejandro Baratas — engineering field map</title>
+  <desc id="description">Three separate settings explored a common engineering question: Alejandría made specifications traceable, a banking Factoría generated source-linked candidates, and an SDD Kit explored review gates and human decisions. They are related work, not one deployed platform.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#202832" stroke-width="1"/></pattern>
+    <linearGradient id="ground" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#10161d"/><stop offset="1" stop-color="#090b0f"/></linearGradient>
+    <linearGradient id="trace" x1="0" x2="1"><stop stop-color="#90d900"/><stop offset=".5" stop-color="#74e3dc"/><stop offset="1" stop-color="#90d900"/></linearGradient>
+  </defs>
+  <rect x="1" y="1" width="1198" height="494" rx="21" fill="url(#ground)" stroke="#323b45" stroke-width="2"/>
+  <rect x="2" y="2" width="1196" height="492" rx="20" fill="url(#grid)" opacity=".5"/>
+  <path d="M36 36h32M36 36v32M1164 36h-32M1164 36v32M36 460h32M36 460v-32M1164 460h-32M1164 460v-32" fill="none" stroke="#90d900" stroke-width="2" opacity=".65"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" letter-spacing="2" fill="#a8b8c2">
+    <text x="54" y="63">ALEJANDRO BARATAS / FIELD PORTFOLIO</text>
+    <text x="1146" y="63" text-anchor="end">AI ENGINEERING · MADRID</text>
+  </g>
+  <text x="54" y="119" font-family="Inter, Arial, sans-serif" font-size="43" font-weight="750" letter-spacing="-1.8" fill="#f3f0e8">From intent to a change</text>
+  <text x="54" y="169" font-family="Inter, Arial, sans-serif" font-size="43" font-weight="750" letter-spacing="-1.8" fill="#90d900">someone can challenge.</text>
+  <text x="55" y="201" font-family="Inter, Arial, sans-serif" font-size="16" fill="#b7c4c9">Source context, reviewable candidates and human decisions.</text>
+
+  <path d="M56 232H1144" stroke="#3b4852" stroke-width="1"/>
+  <path d="M73 258H1126" stroke="url(#trace)" stroke-width="2" stroke-dasharray="4 8" opacity=".55"/>
+  <circle cx="234" cy="258" r="5" fill="#90d900"/><circle cx="600" cy="258" r="5" fill="#74e3dc"/><circle cx="966" cy="258" r="5" fill="#90d900"/>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="54" y="279" width="346" height="149" rx="12" fill="#151e25" stroke="#48585e"/>
+    <rect x="427" y="279" width="346" height="149" rx="12" fill="#151e25" stroke="#48585e"/>
+    <rect x="800" y="279" width="346" height="149" rx="12" fill="#151e25" stroke="#48585e"/>
+
+    <text x="76" y="309" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.6" fill="#a8e45a">01 / SPECIFY</text>
+    <text x="76" y="343" font-size="25" font-weight="700" fill="#f3f0e8">Alejandría</text>
+    <text x="76" y="374" font-size="15" fill="#c5d2d5">Traceable requirements</text>
+    <text x="76" y="399" font-size="13" fill="#9aaeb6">Internal company asset</text>
+
+    <text x="449" y="309" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.6" fill="#74e3dc">02 / BUILD</text>
+    <text x="449" y="343" font-size="25" font-weight="700" fill="#f3f0e8">Banking Factoría</text>
+    <text x="449" y="374" font-size="15" fill="#c5d2d5">Source-linked candidates</text>
+    <text x="449" y="399" font-size="13" fill="#9aaeb6">Bounded client PoC</text>
+
+    <text x="822" y="309" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.6" fill="#a8e45a">03 / REVIEW</text>
+    <text x="822" y="343" font-size="25" font-weight="700" fill="#f3f0e8">SDD Kit</text>
+    <text x="822" y="374" font-size="15" fill="#c5d2d5">Quality gates + human decision</text>
+    <text x="822" y="399" font-size="13" fill="#9aaeb6">AI CoE experiment</text>
+  </g>
+
+  <text x="76" y="462" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" letter-spacing="1" fill="#9aadb5">THREE SEPARATE SETTINGS  /  DISTINCT OWNERSHIP  /  EXPLICIT PROOF BOUNDARIES</text>
+  <circle cx="1132" cy="455" r="5" fill="#90d900"/>
+</svg>
