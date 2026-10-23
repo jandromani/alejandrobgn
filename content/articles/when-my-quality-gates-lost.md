@@ -34,7 +34,7 @@ One delivery rehearsal before a release planned for more than 300 people used **
 
 ## Evidence is something I build, not a slide at the end
 
-For a separate internal center-of-excellence effort, I made a dated evidence ledger with **17 tabulated records**. The record format ties assets to decisions and review notes. An audit I commissioned from four AI subagents reported **138 findings, including 12 blocking findings**, and forced corrections to earlier claims. That was an internal agent review, not an external professional audit. That was uncomfortable and useful. It made the boundary between what we built, what someone else checked and what a buyer could rely on much sharper.
+For a separate internal center-of-excellence effort, I made a dated evidence ledger with **17 tabulated records**. The record format ties assets to decisions and review notes. An audit I commissioned from four AI subagents reported **138 findings, including 12 blocking findings**, and forced corrections to earlier claims. It was an internal agent review, not an external professional audit. The result helped distinguish what we built from what someone else checked and what a buyer could rely on.
 
 The same standard applies to credit. I designed the SDD Kit, development and documentation knowledge bases, the ledger and a distributable video workflow. I audited and documented a colleague's asset vault; I do not present that vault as code I authored. A method gains value when another engineer can see the artifact, its owner, the review decision and the remaining gap.
 

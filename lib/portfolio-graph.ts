@@ -35,7 +35,7 @@ const caseNodes: PortfolioNode[] = [
     title: "Audited development copilots",
     kind: "case",
     href: "/work/public-sector-copilots",
-    description: "An anonymized account of specialist copilots delivered after repeated audit and correction.",
+    description: "An anonymized account of specialist agent packages prepared through repeated audit and correction.",
   },
 ]
 const editorialNodes: PortfolioNode[] = [
