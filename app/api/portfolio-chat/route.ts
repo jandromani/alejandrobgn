@@ -7,6 +7,7 @@ type ChatMessage = { role: "user" | "assistant"; content: string }
 const WINDOW_MS = 10 * 60 * 1000
 const MAX_PER_WINDOW = 8
 const MAX_DAILY_PER_INSTANCE = 40
+const FREE_CHAT_MODEL = "xingchen-agi/xing4.0-29b-a4b:free"
 const buckets = new Map<string, { count: number; until: number }>()
 let daily = { day: "", count: 0 }
 
@@ -74,7 +75,7 @@ export async function POST(request: NextRequest) {
   try {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
-      signal: AbortSignal.timeout(18_000),
+      signal: AbortSignal.timeout(25_000),
       headers: {
         Authorization: `Bearer ${key}`,
         "Content-Type": "application/json",
@@ -82,7 +83,7 @@ export async function POST(request: NextRequest) {
         "X-OpenRouter-Title": "Alejandro Baratas · Portfolio guide",
       },
       body: JSON.stringify({
-        model: "openrouter/free",
+        model: FREE_CHAT_MODEL,
         messages: [
           {
             role: "system",
@@ -98,8 +99,12 @@ export async function POST(request: NextRequest) {
     if (!response.ok) return guided()
     const data = await response.json() as { choices?: Array<{ message?: { content?: unknown } }> }
     const answer = data.choices?.[0]?.message?.content
-    if (typeof answer !== "string" || !answer.trim()) return guided()
-    return json({ answer: answer.trim().slice(0, 2_000), sources: references, mode: "live" })
+    if (typeof answer !== "string") return guided()
+    const cleaned = answer.trim().replace(/\*\*/g, "")
+    if (cleaned.length < 60 || /^(?:user safety|safety classification|category|label)\s*:/i.test(cleaned)) return guided()
+    if (sources.some((source) => source.url === "/work/banking-modernization") &&
+      /4[,.]338\s+files?\s+(?:were\s+)?(?:identical|matched exactly)/i.test(cleaned)) return guided()
+    return json({ answer: cleaned.slice(0, 2_000), sources: references, mode: "live" })
   } catch {
     return guided()
   }
