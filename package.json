@@ -13,9 +13,11 @@
     "node": ">=20.9.0"
   },
   "scripts": {
-    "build": "node scripts/build-native-anatomy.mjs && next build",
-    "dev": "node scripts/build-native-anatomy.mjs && next dev",
-    "typecheck": "tsc --noEmit",
+    "build": "node scripts/build-native-anatomy.mjs && node scripts/ensure-rag-index.mjs && next build && node scripts/build-portfolio-rag.mjs && next build && node scripts/check-portfolio-rag.mjs",
+    "dev": "node scripts/build-native-anatomy.mjs && node scripts/ensure-rag-index.mjs && next dev",
+    "rag:refresh": "node scripts/build-portfolio-rag.mjs",
+    "rag:check": "node scripts/check-portfolio-rag.mjs",
+    "typecheck": "node scripts/ensure-rag-index.mjs && tsc --noEmit",
     "start": "next start"
   },
   "dependencies": {

@@ -61,7 +61,7 @@ export function PortfolioChat() {
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-background/60 px-5 py-4">
         <div className="flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#90d900] text-[#090b0f]"><Sparkles className="h-5 w-5" aria-hidden="true" /></span>
-          <div><h2 className="font-semibold">Portfolio guide</h2><p className="text-xs text-muted-foreground">Public facts · linked sources · AI when available</p></div>
+          <div><h2 className="font-semibold">Portfolio guide</h2><p className="text-xs text-muted-foreground">Public page retrieval · cited passages · free AI</p></div>
         </div>
         {messages.length > 0 && <button type="button" disabled={pending} onClick={() => { setMessages([]); setDraft(""); setError("") }} className="inline-flex min-h-10 items-center gap-2 rounded-md px-3 text-sm text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50"><RotateCcw className="h-4 w-4" aria-hidden="true" /> New conversation</button>}
       </div>
@@ -69,11 +69,11 @@ export function PortfolioChat() {
       <div role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions" className="flex min-h-[290px] max-h-[55vh] flex-col gap-4 overflow-y-auto px-4 py-6 sm:px-6">
         {messages.length === 0 && <div className="max-w-xl space-y-4">
           <p className="text-lg font-semibold">What would you like to investigate?</p>
-          <p className="text-sm leading-7 text-muted-foreground">Ask about the enterprise cases, the engineering method or public systems. This guide uses published material and links back to the evidence.</p>
+          <p className="text-sm leading-7 text-muted-foreground">Ask about any public case, system, article, lab or method. The guide searches the published pages and points back to the passages used.</p>
           <div className="flex flex-wrap gap-2">{prompts.map((prompt) => <button key={prompt} type="button" disabled={pending} onClick={() => void ask(prompt)} className="rounded-lg border border-border bg-background px-3 py-2 text-left text-sm leading-6 hover:border-[#90d900] focus-visible:ring-2 focus-visible:ring-ring">{prompt}</button>)}</div>
         </div>}
         {messages.map((message, index) => <div key={index} className={message.role === "user" ? "ml-auto max-w-[90%] rounded-xl bg-foreground px-4 py-3 text-sm leading-7 text-background sm:max-w-[80%]" : "max-w-[95%] rounded-xl border border-border bg-background px-4 py-4 text-sm leading-7 sm:max-w-[88%]"}>
-          {message.role === "assistant" && <p className="mb-2 font-mono text-[11px] uppercase tracking-wider text-[#587f00] dark:text-signal-green">{message.mode === "live" ? "AI answer · verify sources" : "Guided answer · public sources"}</p>}
+          {message.role === "assistant" && <p className="mb-2 font-mono text-[11px] uppercase tracking-wider text-[#587f00] dark:text-signal-green">{message.mode === "live" ? "AI answer · verify cited passages" : "Source excerpts · free model unavailable"}</p>}
           <p className="whitespace-pre-wrap">{message.content}</p>
           {message.sources && message.sources.length > 0 && <div className="mt-4 flex flex-wrap gap-2 border-t border-border pt-3">{message.sources.map((source) => <Link key={source.url} href={source.url} className="inline-flex items-center gap-1 rounded-md border border-border px-2.5 py-1 text-xs font-semibold text-foreground hover:border-foreground/40 focus-visible:ring-2 focus-visible:ring-ring">{source.title} <ArrowRight className="h-3 w-3" aria-hidden="true" /></Link>)}</div>}
         </div>)}
