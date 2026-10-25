@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     { url: absoluteUrl("/work"), lastModified: "2026-10-21", changeFrequency: "monthly", priority: 0.93 },
     { url: absoluteUrl("/engineering"), lastModified: "2026-10-22", changeFrequency: "monthly", priority: 0.94 },
+    { url: absoluteUrl("/ask"), lastModified: "2026-10-25", changeFrequency: "monthly", priority: 0.7 },
     {
       url: absoluteUrl("/systems"),
       lastModified: "2026-07-24",

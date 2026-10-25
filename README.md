@@ -6,6 +6,8 @@ I help engineering teams put project-aware agents, reviewable changes and human 
 
 [Explore the portfolio](https://alejandrobgn.vercel.app/) · [Selected work](https://alejandrobgn.vercel.app/work) · [Engineering method](https://alejandrobgn.vercel.app/engineering) · [CV (PDF)](https://alejandrobgn.vercel.app/Alejandro-Baratas-CV.pdf)
 
+[Ask the portfolio](https://alejandrobgn.vercel.app/ask) offers source-linked answers about the public work. It identifies itself as an automated guide and uses guided answers when live AI is unavailable.
+
 [![An illustrated map of three separate engineering settings: Alejandría for traceable specifications, a banking Factoría proof of concept for source-linked candidates, and the SDD Kit for review gates and human decisions.](.github/readme/engineering-field-map.svg)](https://alejandrobgn.vercel.app/engineering)
 
 *Three settings, one recurring question: what evidence makes an AI-assisted change safe to review? The illustration maps related work; these assets do not run together as one deployed system.*
