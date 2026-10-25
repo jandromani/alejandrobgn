@@ -84,6 +84,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         model: FREE_CHAT_MODEL,
+        reasoning: { enabled: false },
         messages: [
           {
             role: "system",
@@ -91,7 +92,7 @@ export async function POST(request: NextRequest) {
           },
           ...messages.slice(-4),
         ],
-        max_tokens: 350,
+        max_tokens: 450,
         temperature: 0.2,
       }),
       cache: "no-store",
@@ -102,9 +103,15 @@ export async function POST(request: NextRequest) {
     }
     const data = await response.json() as { choices?: Array<{ message?: { content?: unknown } }> }
     const answer = data.choices?.[0]?.message?.content
-    if (typeof answer !== "string") return guided()
+    if (typeof answer !== "string") {
+      console.warn("Free portfolio model returned no text", { model: FREE_CHAT_MODEL })
+      return guided()
+    }
     const cleaned = answer.trim().replace(/\*\*/g, "")
-    if (cleaned.length < 60 || /^(?:user safety|safety classification|category|label)\s*:/i.test(cleaned)) return guided()
+    if (cleaned.length < 60 || /^(?:user safety|safety classification|category|label)\s*:/i.test(cleaned)) {
+      console.warn("Free portfolio model returned a non-answer", { model: FREE_CHAT_MODEL, length: cleaned.length })
+      return guided()
+    }
     if (sources.some((source) => source.url === "/work/banking-modernization") &&
       /4[,.]338\s+files?\s+(?:were\s+)?(?:identical|matched exactly)/i.test(cleaned)) return guided()
     return json({ answer: cleaned.slice(0, 2_000), sources: references, mode: "live" })
