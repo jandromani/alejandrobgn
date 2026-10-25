@@ -7,7 +7,7 @@ type ChatMessage = { role: "user" | "assistant"; content: string }
 const WINDOW_MS = 10 * 60 * 1000
 const MAX_PER_WINDOW = 8
 const MAX_DAILY_PER_INSTANCE = 40
-const FREE_CHAT_MODEL = "xingchen-agi/xing4.0-29b-a4b:free"
+const FREE_CHAT_MODEL = "nvidia/nemotron-3-ultra-550b-a55b:free"
 const buckets = new Map<string, { count: number; until: number }>()
 let daily = { day: "", count: 0 }
 
@@ -96,7 +96,10 @@ export async function POST(request: NextRequest) {
       }),
       cache: "no-store",
     })
-    if (!response.ok) return guided()
+    if (!response.ok) {
+      console.warn("Free portfolio model unavailable", { status: response.status, model: FREE_CHAT_MODEL })
+      return guided()
+    }
     const data = await response.json() as { choices?: Array<{ message?: { content?: unknown } }> }
     const answer = data.choices?.[0]?.message?.content
     if (typeof answer !== "string") return guided()
@@ -105,7 +108,8 @@ export async function POST(request: NextRequest) {
     if (sources.some((source) => source.url === "/work/banking-modernization") &&
       /4[,.]338\s+files?\s+(?:were\s+)?(?:identical|matched exactly)/i.test(cleaned)) return guided()
     return json({ answer: cleaned.slice(0, 2_000), sources: references, mode: "live" })
-  } catch {
+  } catch (error) {
+    console.warn("Free portfolio model request failed", { kind: error instanceof Error ? error.name : "unknown" })
     return guided()
   }
 }
