@@ -16,7 +16,7 @@ export const ragCoverage = { pages: corpus.pages, passages: passages.length }
 
 const stop = new Set(`a about after all an and are as at be before by can did do does for from had has have how i in into is it me my not of on or our out over the their them there these this to was were what when where which who why with you your
 al algo ante como con cual cuando de del desde donde el ella en entre es esta este estos fue ha hay la las le lo los me mi no o para por que se ser si sin sobre son su sus te tu un una unos y ya
-et en la les le des du de pour par au aux dans est sont que qui quoi où comment pourquoi avec sans un une`.split(/\s+/))
+et en la les le des du de pour par au aux dans est sont que qui quoi où comment pourquoi avec sans un une original html`.split(/\s+/))
 const synonyms: Record<string, string[]> = {
   banca: ["banking", "bank"], bancario: ["banking"], banco: ["banking"],
   factoria: ["factory", "modernization"], fabrica: ["factory"],
@@ -62,9 +62,11 @@ const meanLength = rows.reduce((total, row) => total + row.length, 0) / rows.len
 export function retrievePortfolioPassages(question: string, limit = 7): SearchHit[] {
   const terms = [...new Set(words(question).flatMap((word) => [word, ...(synonyms[word] ?? [])]))]
   if (!terms.length) return []
+  const originalRequested = /(?:html\s+original|original\s+html)/i.test(question)
   const scored = rows.map((row) => {
     let score = 0
     let textMatches = 0
+    let headingMatches = 0
     for (const term of terms) {
       const df = documentFrequency.get(term) ?? 0
       if (!df) continue
@@ -74,19 +76,22 @@ export function retrievePortfolioPassages(question: string, limit = 7): SearchHi
         textMatches++
         score += idf * (tf * 2.2) / (tf + 1.2 * (0.25 + 0.75 * row.length / meanLength))
       }
-      if (row.title.has(term)) score += idf * 0.8
-      if (row.section.has(term)) score += idf * 1.2
+      if (row.title.has(term)) { score += idf * 0.8; headingMatches++ }
+      if (row.section.has(term)) { score += idf * 1.2; headingMatches++ }
     }
     const phrase = normalize(question).trim()
     if (phrase.length >= 8 && row.normalized.includes(phrase)) score += 12
+    if (originalRequested && row.passage.page.startsWith("/labs/original/") && headingMatches >= 2) score += 40
     // A relevant title alone cannot make an unrelated paragraph into evidence.
-    if (!textMatches) score *= 0.18
+    if (headingMatches >= 3) score += 10
+    if (!textMatches) score *= headingMatches >= 3 ? 0.8 : 0.18
     return { passage: row.passage, score }
   }).filter((hit) => hit.score > 2).sort((a, b) => b.score - a.score || a.passage.id - b.passage.id)
   const selected: SearchHit[] = []
   const byPage = new Map<string, number>()
   const seenUrl = new Set<string>()
   for (const hit of scored) {
+    if (hit.score < scored[0].score * 0.27) break
     if ((byPage.get(hit.passage.page) ?? 0) >= 2) continue
     if (seenUrl.has(hit.passage.url)) continue
     selected.push(hit)
