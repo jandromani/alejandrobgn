@@ -7,7 +7,7 @@ import { ArrowRight, RotateCcw, Send, Sparkles } from "lucide-react"
 type Source = { title: string; url: string }
 type Message = { role: "user" | "assistant"; content: string; sources?: Source[]; mode?: "live" | "guided" }
 const prompts = [
-  "What did you do in the cybersecurity engagement?",
+  "What did you do with the engineering team in the cybersecurity sector?",
   "What does the banking PoC actually prove?",
   "What changed after the SDD evaluation lost?",
 ]

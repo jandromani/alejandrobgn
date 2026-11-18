@@ -17,7 +17,7 @@ export const capabilities: Capability[] = [
       'Agent evaluation and testing',
       'Hierarchical and mesh topologies',
     ],
-    linkedSystems: ['AgnosticEngine', 'PsycheOS', 'AIActMiddleware'],
+    linkedSystems: ['AgnosticEngine', 'EvalYourAI', 'AIActMiddleware'],
   },
   {
     domain: 'AI Governance & Compliance',
@@ -56,7 +56,7 @@ export const capabilities: Capability[] = [
       'Production metrics',
       'Real-time debugging',
     ],
-    linkedSystems: ['LLMTRACE', 'PsycheOS'],
+    linkedSystems: ['LLMTRACE', 'EvalYourAI'],
   },
   {
     domain: 'Backend & Platform Engineering',

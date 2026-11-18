@@ -29,7 +29,7 @@ export function HomeEvidenceFigures() {
 
   return <section aria-labelledby="figures-title" className="border-b border-border bg-card/20">
     <div className="container mx-auto max-w-6xl px-4 py-14 md:py-16">
-      <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">02 / Animated evidence</p>
+      <p className="font-mono text-xs uppercase tracking-widest text-[#476700] dark:text-signal-green">04 / Animated evidence</p>
       <h2 id="figures-title" className="mt-3 max-w-3xl text-3xl font-bold md:text-4xl">See the decisions behind the results</h2>
       <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">Three interactive Anatomy figures show the review gates, a blind comparison and the modernization factory. Choose a figure, play its chapters or open it full size.</p>
       <div role="group" aria-label="Choose an interactive figure" className="mt-7 grid gap-3 sm:grid-cols-3">

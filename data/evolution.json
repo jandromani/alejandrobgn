@@ -5326,7 +5326,7 @@
     ],
     "era": "explosion",
     "importance": 2,
-    "displayName": "PsycheOS — Adversarial Behaviour Laboratory",
+    "displayName": "Adversarial Behaviour Laboratory",
     "techTags": [
       "Next.js",
       "TypeScript",
@@ -5405,7 +5405,7 @@
     ],
     "era": "explosion",
     "importance": 2,
-    "displayName": "PsycheOS Adversarial Actor Protocols",
+    "displayName": "Adversarial Actor Protocol Library",
     "techTags": [
       "Scenario graphs",
       "Attacker / target agents",
@@ -5483,7 +5483,7 @@
     ],
     "era": "explosion",
     "importance": 1,
-    "displayName": "PsycheOS Forensic Evidence Reports",
+    "displayName": "Forensic Model-Evaluation Reports",
     "techTags": [
       "TypeScript",
       "PDF generation",
@@ -12321,7 +12321,7 @@
     "phase": "Thought leadership",
     "type": "Long-form article",
     "category": "AI Safety",
-    "description": "Connected runtime guardrails, evaluation, red teaming and PsycheOS into a production safety architecture.",
+    "description": "Explained how runtime guardrails, model-level evaluation, red teaming and monitoring may fit into a safety architecture, without claiming a deployed integration.",
     "stack": "English article",
     "output": "Portfolio flagship article",
     "status": "Drafted",

@@ -1,13 +1,14 @@
 # Alejandro Baratas — engineering evidence portfolio
 > Canonical origin: https://alejandrobgn.vercel.app/
-> Updated 2026-10-21. All materials are public-safe and authored or curated by the site owner.
+> Updated 2026-11-18. All materials are public-safe and authored or curated by the site owner.
 
 ## Executive evidence
-- [Enterprise AI team activation](https://alejandrobgn.vercel.app/work/cybersecurity-ai-engineering): An anonymized delivery-team account of agent-assisted SDLC activation, not a client-wide adoption audit.
+- [Enterprise AI team activation](https://alejandrobgn.vercel.app/work/cybersecurity-ai-engineering): An anonymized account of agent-assisted SDLC enablement for a team in the cybersecurity sector, not a cybersecurity product or client-wide adoption audit.
 - [Source-to-evidence modernization](https://alejandrobgn.vercel.app/work/banking-modernization): Bounded proof of concept, not an estate-wide migration or functional parity claim.
 - [Professional experience](https://alejandrobgn.vercel.app/experience): Roles, boundaries and technical responsibility.
 
 ## Inspectable engineering
+- [EvalYourAI](https://alejandrobgn.vercel.app/systems/evalyourai): Browser-local LLM red teaming and a preliminary, model-judged comparison; not a safety ranking or deployed-agent evaluation.
 - [Portfolio evidence atlas](https://alejandrobgn.vercel.app/atlas): Canonical clickable map of editorial relationships.
 - [Machine-readable graph](https://alejandrobgn.vercel.app/atlas/graph.json): Versioned links, IDs and descriptions. Connections are editorial, not deployed runtime dependencies.
 - [Systems catalogue](https://alejandrobgn.vercel.app/systems): Public systems, prototypes and their documented limits.

@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/json-ld"
 import { selectedSystems } from "@/lib/systems-data"
 import { absoluteUrl, createPageMetadata, personId, websiteId } from "@/lib/seo"
 
-const description = "Four selected systems on AI governance, reliability, observability and provider comparison, with evidence labels and honest limits."
+const description = "Five selected AI systems spanning model evaluation, governance, reliability, observability and provider comparison, each with explicit evidence labels and limits."
 
 export const metadata: Metadata = createPageMetadata({
   title: "AI Systems Catalogue",

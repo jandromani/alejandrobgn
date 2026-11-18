@@ -7,7 +7,7 @@ import { getEvidenceLabel, type System } from "@/lib/systems-data"
 
 const positions: Record<string, { x: number; y: number }> = {
   aiactmiddleware: { x: 180, y: 100 },
-  psycheos: { x: 500, y: 70 },
+  evalyourai: { x: 500, y: 70 },
   entropiccore: { x: 820, y: 100 },
   aivendorcompare: { x: 875, y: 300 },
   brewmatch: { x: 775, y: 490 },

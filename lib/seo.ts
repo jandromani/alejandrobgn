@@ -3,9 +3,9 @@ import type { Metadata } from "next"
 export const siteConfig = {
   name: "Alejandro Baratas",
   legalName: "Alejandro Baratas García-Nieto",
-  title: "Alejandro Baratas — AI Tech Lead | Enterprise AI Engineering",
+  title: "Alejandro Baratas — AI Tech Lead | Agentic Systems",
   description:
-    "Alejandro Baratas is an AI Tech Lead in Madrid helping enterprise engineering teams put project-aware agents, reviewable changes and human quality gates into use.",
+    "Alejandro Baratas is an AI Tech Lead building agentic systems and the infrastructure around them: orchestration, evaluation, governance, observability and reliability.",
   url: "https://alejandrobgn.vercel.app",
   locale: "en_US",
   language: "en",
@@ -20,7 +20,10 @@ export const websiteId = `${siteConfig.url}/#website`
 
 export const defaultKeywords = [
   "AI Tech Lead",
-  "Agentic Systems Architect",
+  "Agentic Systems",
+  "Agentic Systems Architecture",
+  "AI Agent Evaluation",
+  "Agent Observability",
   "AI Systems Architecture",
   "AI Governance",
   "LLM Observability",
