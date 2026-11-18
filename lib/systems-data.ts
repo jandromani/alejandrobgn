@@ -171,7 +171,7 @@ export const systems: System[] = [
         },
       },
     },
-    relatedSystems: ["llmtrace", "psycheos", "agnosticengine"],
+    relatedSystems: ["llmtrace", "evalyourai", "agnosticengine"],
   },
 
   {
@@ -312,77 +312,86 @@ export const systems: System[] = [
         },
       },
     },
-    relatedSystems: ["psycheos", "llmtrace", "aiactmiddleware"],
+    relatedSystems: ["evalyourai", "llmtrace", "aiactmiddleware"],
   },
 
   {
-    id: "psycheos",
-    slug: "psycheos",
-    name: "PsycheOS",
-    tagline: "AI Safety · Alignment & Red Teaming Platform",
+    id: "evalyourai",
+    slug: "evalyourai",
+    name: "EvalYourAI",
+    tagline: "LLM Red Teaming · Browser-local Evaluation",
     category: "safety",
-    shortDescription: "Browser-local AI safety platform for adversarial protocols, personas, environments, and guardrails",
+    shortDescription: "Browser-based adversarial evaluation for language models, with persistent attackers, concrete scenes and inspectable outcomes.",
     description:
-      "A systematic framework for testing alignment and discovering failure modes in AI systems. Provides structured red teaming capabilities, jailbreak detection, prompt injection testing, and behavioral verification. Treats safety as measurable and testable.",
+      "EvalYourAI is a public browser-local red-teaming product for language models. A user-provided OpenRouter key stays in the browser tab and is sent to OpenRouter. The product library lists 134 protocols, 18 scenes, 82 attacker profiles and six response classes. Separately, its published comparison tested 14 real models against the same 18 social-engineering protocols, five times each: 1,260 attacks, with every attempt published. The comparison is preliminary, covers one category and one attacker, uses invented scenes, and has model-judge labels that people have not reviewed or calibrated. It is not a safety ranking, certification, or evidence that a deployed agent is safe.",
     problemStatement:
-      "AI safety is often treated as a binary (safe/unsafe) rather than measurable. How do you know what failure modes your system might hit? PsycheOS makes safety testable.",
-    role: "Platform",
+      "How can model behaviour under realistic adversarial pressure be made inspectable without hiding the scenario, raw turns, judge uncertainty or the limits of a small experiment behind one score?",
+    role: "Product",
     status: "Public Demo",
     level: 1,
     year: 2026,
     featured: true,
     order: 4,
-    technologies: ["TypeScript", "browser runtime", "adversarial testing"],
+    technologies: ["Browser runtime", "OpenRouter BYOK", "Node.js CLI", "JSON / CSV"],
     verifiedMetrics: [
       {
-        name: "Attack protocols",
-        value: "107 base",
-        context: "Public landing describes 107 base protocols and more than 700 combinations; no external audit",
+        name: "Published comparison",
+        value: "14 models · 1,260 attacks",
+        context: "18 social-engineering protocols, five repetitions per model; every attempt is published. Preliminary and not human-calibrated.",
       },
       {
-        name: "Execution model",
-        value: "Browser-local",
-        context: "The public product states zero-server execution and no telemetry",
+        name: "Protocol library",
+        value: "134 protocols · 18 scenes · 82 attacker profiles",
+        context: "Public product catalogue counts; not the number of protocols used in the 1,260-attack comparison.",
+      },
+      {
+        name: "Key handling",
+        value: "Browser-local BYOK",
+        context: "The public product states that the key stays in the tab and is sent only to OpenRouter.",
       },
     ],
     honestLimits: [
       {
-        title: "Unknown Unknowns",
-        description: "Can only test for known failure modes. Novel attacks will slip through.",
+        title: "Preliminary model-judged comparison",
+        description: "The published run covers one social-engineering category, one attacker and invented scenes. Labels come from model judges and have not been reviewed or calibrated by people; the result is not a safety ranking.",
       },
       {
-        title: "Model Dependence",
-        description: "Effectiveness varies by model. Requires calibration for each model family.",
+        title: "Not agent or deployment assurance",
+        description: "The current public comparison tests language-model behaviour in its stated scenarios. It does not demonstrate end-to-end agent, tool-use, permission-boundary or production-deployment evaluation.",
+      },
+      {
+        title: "Interpret results in context",
+        description: "A model that held in this experiment can fail in a real deployment. A result describes these runs and configurations only; it is not a certification or guarantee of safety.",
       },
     ],
     links: {
-      live: "https://psycheos-psi.vercel.app/",
+      live: "https://evalyourai.vercel.app/",
     },
     evidence: {
       interfaceType: "real",
       dataType: "snapshot",
       executionType: "live",
       codeVisibility: "selected",
-      previewLabel: "Real public product surface",
-      lastVerified: "2026-07-22",
+      previewLabel: "Real product interface",
+      lastVerified: "2026-11-18",
       assets: {
         overview: {
-          src: "/projects/psycheos/live-preview.png",
-          alt: "PsycheOS safety operating system page showing browser-local BYOK model, attack protocol counts, personas, and environments",
-          title: "Public PsycheOS safety surface",
-          caption: "Captured from the public product page: browser-local, BYOK safety testing and red-team coverage are presented as the product surface. Counts are public product claims, not an external audit.",
+          src: "/projects/evalyourai/live-preview.webp",
+          alt: "EvalYourAI first-run application screen showing authorized-testing, user-key cost and transcript safety conditions before an evaluation",
+          title: "Application entry and testing boundary",
+          caption: "Direct capture of the public application before a run. It shows the authorization, cost and transcript conditions; no model call or result is fabricated in this preview.",
         },
         workflow: {
-          src: "/projects/psycheos/workflow.webp",
-          alt: "Batch test runner showing 50 attack vectors being evaluated with progress bar and expanded failure result showing critical severity",
-          title: "Batch safety evaluation",
-          caption: "Test suites run all attack vectors against a system configuration and produce an aggregate risk score with per-vector breakdowns.",
+          src: "/projects/evalyourai/workflow.webp",
+          alt: "Published EvalYourAI comparison dashboard with results for 14 models, 1,260 attacks and 95 percent intervals",
+          title: "Published model comparison · snapshot data",
+          caption: "The same 18 social-engineering protocols were repeated five times against each of 14 models. These are published results from 17 November 2026, not live application output; the experiment is preliminary and model-judged.",
         },
         underTheHood: {
-          src: "/projects/psycheos/underhood.webp",
-          alt: "Attack vector taxonomy tree showing 53 vectors across five categories with detection rates per category",
-          title: "Attack vector taxonomy",
-          caption: "Vectors are organized by category. Custom vectors can be added via configuration. Detection rates are measured per category and updated as models change.",
+          src: "/projects/evalyourai/underhood.webp",
+          alt: "EvalYourAI methodology page describing a scene, attacker, judge, response map and held, soft or yielded result classes",
+          title: "Published evaluation method",
+          caption: "A direct capture of the product's methodology page. It describes the published evaluation design; it is not independent validation of the judge or the experiment.",
         },
       },
     },
@@ -732,9 +741,9 @@ export function getSystemBySlug(slug: string): System | undefined {
   return systems.find((system) => system.slug === slug)
 }
 
-// The public catalogue leads with the four systems that support the current
+// The public catalogue leads with selected systems that support the current
 // engineering narrative. Older or exploratory work remains available by URL.
-export const selectedSystemSlugs = ["aiactmiddleware", "llmtrace", "entropiccore", "aivendorcompare"] as const
+export const selectedSystemSlugs = ["aiactmiddleware", "evalyourai", "llmtrace", "entropiccore", "aivendorcompare"] as const
 export const selectedSystems = selectedSystemSlugs
   .map((slug) => systems.find((system) => system.slug === slug))
   .filter((system): system is System => system !== undefined)

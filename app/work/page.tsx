@@ -8,12 +8,12 @@ import { absoluteUrl, breadcrumbJsonLd, createPageMetadata, personId, websiteId 
 
 export const metadata: Metadata = createPageMetadata({
   title: "Selected Enterprise Work — Agentic Delivery and Modernization",
-  description: "Three anonymized engineering engagements across cybersecurity, banking modernization and public-sector developer copilots, with their audit and delivery boundaries.",
+  description: "Three anonymized engineering engagements in the cybersecurity sector, banking modernization and public-sector developer copilots, with their audit and delivery boundaries.",
   path: "/work", ogKind: "experience", keywords:["enterprise AI engineering","agent-assisted delivery","legacy modernization","technical leadership"],
 })
 const cases = [
   {
-    category:"Cybersecurity · AI engineering", title:"AI workflows teams could use in under a month.",
+    category:"Cybersecurity sector · AI engineering", title:"AI workflows teams could use in under a month.",
     number:enterpriseEvidence.deliveryTime.value, label:"Delivery-team-reported time to use",
     description:"A small engineering group helped activate project-aware specialist assistance, reviewable PRs and specification-driven collaboration. Human review remained central.",
     limit:"Not an independently audited, company-wide adoption or ROI claim.",

@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: absoluteUrl("/"),
-      lastModified: "2026-10-20",
+      lastModified: "2026-11-18",
       changeFrequency: "weekly",
       priority: 1,
     },
@@ -18,18 +18,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.87,
     },
-    { url: absoluteUrl("/work"), lastModified: "2026-10-21", changeFrequency: "monthly", priority: 0.93 },
+    { url: absoluteUrl("/work"), lastModified: "2026-11-18", changeFrequency: "monthly", priority: 0.93 },
     { url: absoluteUrl("/engineering"), lastModified: "2026-10-22", changeFrequency: "monthly", priority: 0.94 },
     { url: absoluteUrl("/ask"), lastModified: "2026-10-25", changeFrequency: "monthly", priority: 0.7 },
     {
       url: absoluteUrl("/systems"),
-      lastModified: "2026-07-24",
+      lastModified: "2026-11-18",
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: absoluteUrl("/evolution"),
-      lastModified: "2026-10-20",
+      lastModified: "2026-11-18",
       changeFrequency: "monthly",
       priority: 0.9,
     },

@@ -1,8 +1,8 @@
 # Alejandro Baratas
 
-**AI Tech Lead · agent-assisted engineering · Madrid**
+**AI Tech Lead · agentic systems · Madrid**
 
-I help engineering teams put project-aware agents, reviewable changes and human quality gates to work. My background spans HPE, NTT DATA, Ayesa and knowmad mood.
+I build agentic systems and the infrastructure around them: orchestration, evaluation, governance, observability and reliability. In enterprise teams, I help turn AI-assisted workflows into reviewable delivery. My background spans HPE, NTT DATA, Ayesa and knowmad mood.
 
 [Explore the portfolio](https://alejandrobgn.vercel.app/) · [Selected work](https://alejandrobgn.vercel.app/work) · [Engineering method](https://alejandrobgn.vercel.app/engineering) · [CV (PDF)](https://alejandrobgn.vercel.app/Alejandro-Baratas-CV.pdf)
 
@@ -16,7 +16,7 @@ I help engineering teams put project-aware agents, reviewable changes and human 
 
 | Setting | What changed | Inspect |
 | --- | --- | --- |
-| **Cybersecurity · engineering enablement** | A participating team began using project-aware assistance, agent-proposed PRs and an adapted specification-and-review process within a month, according to the delivery account. | [Read the case →](https://alejandrobgn.vercel.app/work/cybersecurity-ai-engineering) |
+| **Cybersecurity sector · engineering enablement** | A participating team began using project-aware assistance, agent-proposed PRs and an adapted specification-and-review process within a month, according to the delivery account. | [Read the case →](https://alejandrobgn.vercel.app/work/cybersecurity-ai-engineering) |
 | **Banking · modernization PoC** | A bounded reference exercise produced source-linked candidate assets; 22,995 records link to file, line and SHA-256, and 4,338 files were compared across two runs. | [Read the case →](https://alejandrobgn.vercel.app/work/banking-modernization) |
 | **Public sector · developer copilots** | A Java backend agent package with ten specialist skills and three agents went through twelve reported audit rounds before handover. | [Read the case →](https://alejandrobgn.vercel.app/work/public-sector-copilots) |
 
@@ -39,6 +39,7 @@ The [evidence register](https://alejandrobgn.vercel.app/engineering#evidence) re
 | Evaluate delivery in real organizations | [Three anonymized enterprise cases](https://alejandrobgn.vercel.app/work) |
 | Explore the source, candidate and review decisions | [Engineering method and evidence register](https://alejandrobgn.vercel.app/engineering) |
 | Inspect public code and its actual maturity | [Engineering systems](https://alejandrobgn.vercel.app/systems) · [A2A platform repository](https://github.com/jandromani/A2A) |
+| Inspect model-level red teaming and its limits | [EvalYourAI](https://alejandrobgn.vercel.app/systems/evalyourai) · [live product](https://evalyourai.vercel.app/) |
 | Follow links between work, systems, labs and writing | [Interactive Atlas](https://alejandrobgn.vercel.app/atlas) · [JSON graph](https://alejandrobgn.vercel.app/atlas/graph.json) |
 | See original browser experiments | [Labs](https://alejandrobgn.vercel.app/labs) |
 | Read the decisions and failed evaluations | [Technical writing](https://alejandrobgn.vercel.app/writing) |

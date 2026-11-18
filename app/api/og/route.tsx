@@ -11,15 +11,15 @@ const sectionContent: Record<
 > = {
   profile: {
     eyebrow: "ALEJANDRO BARATAS · AI TECH LEAD",
-    title: "I put AI-assisted engineering into use with enterprise teams.",
-    subtitle: "knowmad mood · Madrid / remote · Human quality gates",
+    title: "I build agentic systems for enterprise teams.",
+    subtitle: "knowmad mood · Madrid / remote · Orchestration · Evaluation · Governance",
     signal: "#b8ff5a",
-    stats: ["Enterprise delivery", "Reviewable changes", "11+ years engineering"],
+    stats: ["Agent orchestration", "Observable systems", "11+ years engineering"],
   },
   systems: {
     eyebrow: "AI SYSTEMS STUDIO",
     title: "Systems, not demos.",
-    subtitle: "Runtimes, governance layers, observability tooling and vertical AI products.",
+    subtitle: "Orchestration, model evaluation, governance, observability and runtime reliability.",
     signal: "#22d3ee",
     stats: ["Public surfaces", "Evidence-labelled previews", "Honest limits"],
   },

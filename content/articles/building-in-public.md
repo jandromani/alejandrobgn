@@ -2,7 +2,7 @@
 
 **How public work became an evidence system for separating interfaces from products, executable metaphors from validated claims, attention from adoption, and speed from maturity.**
 
-*Published December 1, 2025 · Updated July 2026*
+*Published December 1, 2025 · Updated November 18, 2026*
 
 ---
 
@@ -139,7 +139,7 @@ This did more than improve presentation. It revealed what I had been building al
 
 # The public record became an architectural mirror
 
-AI Act Middleware, Entropic Core, PsycheOS, LLMTRACE and AI Vendor Compare initially looked like separate obsessions.
+AI Act Middleware, Entropic Core, a model-red-teaming product, LLMTRACE and AI Vendor Compare initially looked like separate obsessions.
 
 Publishing them forced comparison. The repeated concerns became visible:
 

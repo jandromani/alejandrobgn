@@ -26,6 +26,6 @@ for(const path of ["app/work/cybersecurity-ai-engineering/page.tsx","app/work/ba
 }
 const home=source("app/page.tsx")
 assert.ok(home.includes("Alejandro Baratas · AI Tech Lead"),"Named executive identity missing")
-assert.ok(home.includes('href="/work/cybersecurity-ai-engineering"'),"Executive journey to a case missing")
+assert.ok(home.includes('href="/work/cybersecurity-ai-engineering"') && home.includes("Read the agent-assisted delivery case"),"Executive journey to the agent-assisted delivery case missing")
 assert.ok(home.includes('href="/contact"'),"Direct contact route missing")
 console.log(JSON.stringify({result:"PASS",gate:"F1 editorial sequence + F2 representative contrast ratios",lightRatio:contrast(foreground,paper).toFixed(2),darkRatio:contrast(bright,dark).toFixed(2),note:"Representative design tokens only; automated axe/WCAG and human 5/30-second tests remain separate"}))

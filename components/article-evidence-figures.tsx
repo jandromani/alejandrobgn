@@ -89,11 +89,11 @@ const groups: EvidenceGroup[] = [
   },
   {
     articleSlug: "safety-alignment-systems",
-    headingId: "psycheos-pressure-testing-model-behaviour",
-    eyebrow: "Existing product evidence",
-    title: "The behavioural wind tunnel has a public surface",
-    note: "Browser-local BYOK evaluation—not clinical diagnosis or a universal alignment score.",
-    items: [{ src: "/projects/psycheos/live-preview.png", alt: "PsycheOS browser-local safety evaluation interface", label: "Real public product surface", title: "PsycheOS", caption: "The public interface organises protocols, personas and environments while keeping model access in the browser." }],
+    headingId: "model-behaviour-evaluation",
+    eyebrow: "Current model-evaluation evidence",
+    title: "EvalYourAI: a real public red-teaming interface",
+    note: "The application entry is shown before a user accepts its authorized-testing and cost conditions; no live model run is implied.",
+    items: [{ src: "/projects/evalyourai/live-preview.webp", alt: "EvalYourAI first-run screen describing authorized testing, OpenRouter key cost and transcript safety", label: "Real product interface", title: "EvalYourAI · first-run boundary", caption: "Direct capture of the public app. Its published 1,260-attack comparison is model-judged, preliminary and not human-calibrated." }],
   },
 ]
 

@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      { source: "/systems/psycheos", destination: "/systems/evalyourai", permanent: true },
+    ]
+  },
   async headers() {
     // Archive and standalone executable copies are intentionally reachable but
     // not competing search landing pages. Canonical indexable pages are /labs

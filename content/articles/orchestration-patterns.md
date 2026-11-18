@@ -4,7 +4,7 @@
 
 *Alejandro Baratas*
 
-*Published November 25, 2025 · Updated July 2026*
+*Published November 25, 2025 · Updated November 18, 2026*
 
 ---
 
@@ -1541,9 +1541,11 @@ A target Truth Graph links claims to versions and sources. The public product cu
 
 The value comes from parallel coverage and evidence separation, not from agents debating in a chat.
 
-## PsycheOS — independent evaluation
+## EvalYourAI — one independent model-evaluation layer
 
-Safety and human-benchmark scenarios benefit from:
+EvalYourAI is a public browser-local red-teaming product for language models. Its published comparison covers one social-engineering category, one attacker and invented scenes across 14 models; the 1,260 attempts are labelled by models and have not been human-reviewed or calibrated. It is preliminary evidence about those model runs—not an evaluation of deployed multi-agent workflows, tool permissions or production safety.
+
+Broader safety and human-benchmark scenarios benefit from:
 
 * isolated attempts;
 * adversarial perspectives;

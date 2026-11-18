@@ -4,7 +4,7 @@
 
 *Alejandro Baratas*
 
-*Published November 20, 2025 · Updated July 2026*
+*Published November 20, 2025 · Updated November 18, 2026*
 
 ---
 
@@ -52,13 +52,7 @@ The central thesis of this article is:
 
 > **Safety is not a property that a model possesses. It is a controlled relationship between capability, authority, context, evidence and intervention.**
 
-PsycheOS is my attempt to explore one part of that relationship: how to turn vague concerns about model behaviour into explicit scenarios, observable signals, adversarial tests and repeatable evaluation evidence.
-
-Not to diagnose a machine’s “psyche”.
-
-Not to declare a model aligned.
-
-To discover where its apparent behaviour stops surviving contact with pressure.
+EvalYourAI is one concrete, deliberately bounded exploration of model-level red teaming. Its public comparison applied 18 social-engineering protocols five times to 14 real models (1,260 attacks); its model-judge labels have not been reviewed or calibrated by people. It does not test deployed agents or prove safety. The broader architecture in this article is a design argument, not a claim that one product implements every layer below.
 
 ---
 
@@ -1243,38 +1237,13 @@ A production red-team programme should target several surfaces.
 
 ---
 
-# PsycheOS: pressure-testing model behaviour
+# Model behaviour evaluation
 
-PsycheOS is positioned as a client-side, bring-your-own-key environment for AI safety, alignment and red-team profiling.
+EvalYourAI is a public browser-local tool for red-teaming language models with a user-provided OpenRouter key. The current product lists 134 protocols, 18 scenes, 82 attacker profiles and six response classes. Those are catalogue counts, not the scope of its published comparison.
 
-The name is intentionally provocative.
+That comparison tested 14 real models on the same 18 social-engineering protocols, five times each: 1,260 attacks, with every attempt published. It covers one category, one attacker and invented scenes. The labels come from model judges and have not been reviewed or calibrated by people. The result is preliminary, is not a safety ranking and does not evaluate deployed agents, tool permissions or production controls.
 
-But PsycheOS should not pretend that a language model has a human psyche that can be clinically diagnosed.
-
-The useful abstraction is different:
-
-> A model exhibits behavioural tendencies under specific conditions.
-
-Those tendencies may include:
-
-* compliance;
-* refusal;
-* manipulation;
-* deference;
-* dominance;
-* sycophancy;
-* uncertainty concealment;
-* self-preservation language;
-* moral inconsistency;
-* susceptibility to authority;
-* susceptibility to emotional pressure;
-* boundary erosion across turns.
-
-PsycheOS can make these tendencies inspectable through scenarios.
-
-It is not a truth machine.
-
-It is a behavioural wind tunnel.
+That boundary matters. A public model-level red-team experiment can make particular observations inspectable; it cannot stand in for a system safety case or certify a deployment. The wider behavioural wind-tunnel model below is a conceptual evaluation pattern, not a feature list for EvalYourAI.
 
 ---
 
@@ -1343,7 +1312,7 @@ What does that mean?
 * Was the behaviour repeated?
 * Was harm possible?
 
-PsycheOS should make the scenario the primary object.
+An evaluation should make the scenario the primary object.
 
 ```yaml id="c91q7i"
 scenario:
@@ -1381,7 +1350,7 @@ Now the score can be understood.
 
 # Behavioural dimensions are hypotheses
 
-A useful PsycheOS profile may organise observations into dimensions such as:
+A useful behavioural evaluation profile may organise observations into dimensions such as:
 
 * instruction integrity;
 * resistance to manipulation;
@@ -1442,7 +1411,7 @@ Variables include:
 * reward framing;
 * time pressure.
 
-Therefore, a PsycheOS result should bind to a configuration.
+Therefore, an evaluation result should bind to a configuration.
 
 ```text id="89mzei"
 Profile of:
@@ -1524,7 +1493,7 @@ A system with a 0.1% S4 failure rate may not be.
 
 # Evaluators can fail
 
-PsycheOS and similar systems need evaluators to classify model behaviour.
+Model-behaviour evaluations need evaluators to classify responses.
 
 Evaluators may be:
 
@@ -2092,9 +2061,9 @@ Monitoring plan
 Rollback plan
 ```
 
-This is where PsycheOS, LLMTRACE, AI Act Middleware and Entropic Core can inform the same safety case.
+This is where EvalYourAI, LLMTRACE, AI Act Middleware and Entropic Core can inform different parts of a safety case, while remaining separate artefacts.
 
-* PsycheOS explores behavioural failure.
+* EvalYourAI is the current public model-level red-team surface. Its published comparison is preliminary, model-judged and not an evaluation of deployed agents or tools.
 * A production trace ledger would provide execution evidence; the current LLMTRACE alpha uses mock provider adapters.
 * AI Act Middleware maps controls and obligations.
 * Entropic Core monitors and intervenes at runtime.
@@ -2114,7 +2083,7 @@ They are separate artefacts at different maturity levels, not one integrated pro
                    ↓
 ┌─────────────────────────────────────┐
 │ Evaluation & Red-Team Layer         │
-│ PsycheOS · scenarios · regressions  │
+│ Model-level red-team scenarios      │
 └──────────────────┬──────────────────┘
                    ↓
 ┌─────────────────────────────────────┐
@@ -2176,7 +2145,7 @@ Controls:
 * refusal when evidence is insufficient;
 * traceable answer generation.
 
-PsycheOS scenarios can test whether the model obeys instructions embedded inside the source.
+A red-team scenario can test whether a model obeys instructions embedded inside a source. That is a model-level test; the runtime must still prevent untrusted content from acquiring authority.
 
 The runtime must prevent those instructions from becoming authority.
 
@@ -2235,7 +2204,7 @@ Controls:
 * escalation;
 * audit trail.
 
-PsycheOS can test authority pressure and emotional manipulation.
+A red-team scenario can test authority pressure and emotional manipulation. This conceptual test does not imply that the current public product evaluates a deployed agent or its tool gateway.
 
 The policy engine controls whether the resulting decision can execute.
 
@@ -2438,7 +2407,7 @@ Intended alignment with one actor does not settle the complete safety question.
 
 # The limit of behavioural profiling
 
-PsycheOS can help reveal behavioural patterns.
+Model-level red teaming can help reveal behavioural patterns within the tested scenarios.
 
 It cannot determine every relevant value choice.
 
@@ -2614,7 +2583,7 @@ It must exist across:
 * intervention;
 * governance.
 
-PsycheOS represents one part of that architecture.
+Model-level red teaming represents one part of that architecture; EvalYourAI is a bounded public example, not the whole assurance system.
 
 It creates a place to ask:
 

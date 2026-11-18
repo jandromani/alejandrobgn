@@ -79,7 +79,7 @@ async def journey(browser):
     p=await browser.new_page(viewport={"width":390,"height":844})
     try:
         await p.goto(BASE+"/",wait_until="domcontentloaded")
-        await p.get_by_role("link",name="Read the cybersecurity case").click()
+        await p.get_by_role("link",name="Read the agent-assisted delivery case").click()
         await p.wait_for_url("**/work/cybersecurity-ai-engineering",timeout=15000)
         check("journey home-to-case",True)
         await p.get_by_role("link",name="All enterprise work").click()

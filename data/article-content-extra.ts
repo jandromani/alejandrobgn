@@ -408,7 +408,7 @@ export const articleContentExtra: Record<string, DeepArticle> = {
       { title: "OpenAI Model Spec", publisher: "OpenAI", url: "https://model-spec.openai.com/", note: "OpenAI's evolving specification for intended model behaviour and instruction priority; a behavioural reference, not an application security boundary." },
       { title: "Fine-tuning safety checks", publisher: "OpenAI Developers", url: "https://developers.openai.com/api/docs/guides/direct-preference-optimization#safety-checks", note: "Official guidance that model-level checks do not replace use-case-specific evaluation before production." },
       { title: "Agentic Misalignment", publisher: "Anthropic Research", url: "https://www.anthropic.com/research/agentic-misalignment", note: "Controlled simulated stress tests showing why autonomy, sensitive information and unmonitored action require targeted safeguards; not evidence of observed real-deployment incidents." },
-      { title: "PsycheOS public safety surface", publisher: "Alejandro Baratas", url: "https://psycheos-psi.vercel.app/", note: "The browser-local BYOK evaluation surface discussed as a behavioural wind tunnel, not a diagnostic or universal alignment oracle." },
+      { title: "EvalYourAI public model red-team surface", publisher: "Alejandro Baratas", url: "https://evalyourai.vercel.app/", note: "A browser-local BYOK red-teaming product. Its published 14-model comparison is preliminary, model-judged and not a safety ranking or agent-deployment evaluation." },
     ],
   },
 }

@@ -2,7 +2,7 @@
 
 **Why enterprises need a governance wrapper around agents—and how to turn traces, policy decisions, budgets, side effects and human interventions into operational control.**
 
-*Published December 10, 2025 · Updated July 2026*
+*Published December 10, 2025 · Updated November 18, 2026*
 
 ---
 
@@ -355,9 +355,9 @@ The public interface is not evidence of automatic legal compliance. It is eviden
 
 Entropic Core provides an executable experimental vocabulary for drift, budgets, checkpoints and runtime intervention. It demonstrates how signals can affect a control loop. Its synthetic experiments do not prove production efficacy or a universal measure of system entropy.
 
-## PsycheOS: the behavioural evaluation surface
+## EvalYourAI: a separate model-red-teaming surface
 
-PsycheOS demonstrates a browser-local safety evaluation surface using user-provided model access. It can inform the evaluation layer by producing versioned scenarios, protocols and outcomes while avoiding a central server receiving test content.
+EvalYourAI is a browser-local LLM red-teaming product using the user's own OpenRouter key. Its public library lists 134 protocols, 18 scenes and 82 attacker profiles. Separately, its published comparison ran 18 social-engineering protocols five times against 14 real models (1,260 attacks). The labels are model-judged and have not been reviewed or calibrated by people; the experiment is preliminary, is not a safety ranking and does not evaluate deployed agents or tool-use boundaries. It is one model-evaluation surface, not an integrated part of LLMTRACE or a production assurance system.
 
 It is a separate safety product, not currently a live policy engine inside LLMTRACE.
 
@@ -518,7 +518,7 @@ Agents turn software execution into a negotiation between intent, evidence, poli
 
 The goal is not to watch intelligence happen. The goal is to maintain control over delegated capability.
 
-LLMTRACE illustrates a trace surface backed by mock adapters. AI Act Middleware demonstrates a public governance prototype. Entropic Core explores runtime intervention. PsycheOS demonstrates a local safety-evaluation surface. These are separate projects at different levels of maturity.
+LLMTRACE illustrates a trace surface backed by mock adapters. AI Act Middleware demonstrates a public governance prototype. Entropic Core explores runtime intervention. EvalYourAI provides a browser-local model-red-teaming surface with a preliminary published comparison. These are separate projects at different levels of maturity; they are not integrated into a live control plane.
 
 The enterprise opportunity is the layer that connects them:
 

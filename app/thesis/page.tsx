@@ -22,7 +22,7 @@ const principles = [
       "Compliance, safety, and control can't be added later. They need to be architectural concerns, embedded in how your system actually operates.",
     expanded:
       "Governance bolted onto the side is either ineffective or suffocating. When compliance is architectural, it becomes a feature, not a burden. The AI Act requirement to explain decisions? That's built into observability. Permission checks? That's part of the agent's execution. This approach makes systems safer and faster, not slower.",
-    systems: ["aiactmiddleware", "psycheos"],
+    systems: ["aiactmiddleware", "evalyourai"],
   },
   {
     number: "03",
@@ -40,7 +40,7 @@ const principles = [
       "Safety isn't a promise; it's a measurable property enforced by the system. Without mechanisms—rate limits, timeouts, circuit breakers—safety is just hope.",
     expanded:
       "An AI system that might behave unsafely 0.1% of the time looks safe in testing. But in production with millions of requests, that 0.1% happens constantly. Safety needs mechanisms: circuit breakers that cut off failing systems, timeouts that prevent infinite loops, rate limits that prevent runaway cost, assertion checks that verify outputs make sense. These aren't restrictions—they're guardrails that let systems operate faster.",
-    systems: ["psycheos", "entropiccore"],
+    systems: ["evalyourai", "entropiccore"],
   },
   {
     number: "05",
@@ -141,7 +141,7 @@ export default function ThesisPage() {
                                 agnosticengine: "Agnostic Engine",
                                 aivendorcompare: "AI Vendor Compare",
                                 aiactmiddleware: "AI Act Middleware",
-                                psycheos: "PsycheOS",
+                                evalyourai: "EvalYourAI",
                                 llmtrace: "LLMTRACE",
                                 entropiccore: "Entropic Core",
                               }

@@ -16,7 +16,7 @@ const statusFilters: Array<{ id: FilterStatus; label: string }> = [
 ]
 
 const levelMeta: Record<number, { label: string; description: string; accent: string }> = {
-  1: { label: "AI governance & reliability", description: "Control and reliability experiments.", accent: "hsl(var(--signal-green))" },
+  1: { label: "Evaluation, governance & reliability", description: "Model red-teaming, runtime-control and recovery experiments.", accent: "hsl(var(--signal-green))" },
   2: { label: "Evaluation", description: "Provider comparison with stated limits.", accent: "hsl(var(--signal-cyan))" },
   3: { label: "Observability", description: "Historical tracing alpha with mock adapters.", accent: "hsl(var(--signal-amber))" },
   4: { label: "Venture Lab",               description: "Research projects and early experiments.",                accent: "hsl(var(--muted-foreground))"  },
@@ -85,7 +85,7 @@ export function SystemsIndex() {
             <div>
               <h1 className="text-5xl font-bold text-foreground mb-3">AI Systems</h1>
               <p className="text-lg text-muted-foreground max-w-2xl">
-                Four selected projects on AI governance, reliability, observability and evaluation. Each page states what the public artifact demonstrates and what it does not.
+                Five selected projects across model evaluation, governance, reliability, observability and provider intelligence. Each page states what the public artifact demonstrates—and what it does not.
               </p>
             </div>
             {/* View toggle */}

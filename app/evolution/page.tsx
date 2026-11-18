@@ -128,7 +128,7 @@ export default async function EvolutionPage({
               "aiactmiddleware",
               "agnosticengine",
               "entropiccore",
-              "psycheos",
+              "evalyourai",
               "aivendorcompare",
               "llmtrace",
               "brewmatch",
