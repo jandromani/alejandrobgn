@@ -23,7 +23,7 @@ concurrency:
 jobs:
   responsive-ui:
     name: Desktop, tablet, mobile and interactive evidence
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 35
     env:
       NEXT_TELEMETRY_DISABLED: "1"

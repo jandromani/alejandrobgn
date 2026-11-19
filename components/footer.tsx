@@ -31,7 +31,7 @@ export function Footer() {
           </a>
         </nav>
 
-        <nav aria-label="Footer navigation" className="flex items-center gap-4">
+        <nav aria-label="Footer navigation" className="flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:w-auto">
           <Link href="/work" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Work</Link>
           <Link href="/engineering" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Method</Link>
           <Link
@@ -53,6 +53,7 @@ export function Footer() {
           >
             Contact
           </Link>
+          <Link href="/privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">Privacy</Link>
         </nav>
 
       </div>
