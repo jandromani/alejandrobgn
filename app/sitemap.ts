@@ -85,6 +85,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.5,
     },
+    {
+      url: absoluteUrl("/privacy"),
+      lastModified: "2026-11-19",
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
   ]
 
   const systemPages: MetadataRoute.Sitemap = systems.map((system) => ({
