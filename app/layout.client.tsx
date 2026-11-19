@@ -1,6 +1,8 @@
 import type React from "react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { AnalyticsEvents } from "@/components/analytics-events"
+import { Analytics } from "@vercel/analytics/next"
 
 export function LayoutClient({ children }: { children: React.ReactNode }) {
   return (
@@ -8,6 +10,8 @@ export function LayoutClient({ children }: { children: React.ReactNode }) {
       <Navbar />
       <main id="main-content" className="min-w-0 w-full flex-1" tabIndex={-1}>{children}</main>
       <Footer />
+      <AnalyticsEvents />
+      <Analytics />
     </div>
   )
 }
