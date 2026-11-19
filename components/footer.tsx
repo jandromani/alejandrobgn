@@ -53,6 +53,7 @@ export function Footer() {
           >
             Contact
           </Link>
+          <Link href="/privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">Privacy</Link>
         </nav>
 
       </div>
